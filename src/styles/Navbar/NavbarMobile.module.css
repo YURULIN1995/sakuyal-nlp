@@ -4,7 +4,7 @@
     --mobile-bar-width: 22px;
     --mobile-bar-height: 2px;
     --mobile-hamburger-gap: 5px;
-    --mobile-foreground: #4E7555; /* Header icon color */
+    --mobile-foreground: rgba(78, 117, 85, 0.5); /* Header icon color */
     --mobile-animation-timing: 200ms ease-in-out;
     --mobile-hamburger-height: calc(var(--mobile-bar-height) * 3 + var(--mobile-hamburger-gap) * 2);
   }
