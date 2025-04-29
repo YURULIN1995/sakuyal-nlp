@@ -1,0 +1,178 @@
+/* --- Hamburger Menu --- */
+/* CSS Variables (can be defined here or globally) */
+:root {
+    --mobile-bar-width: 22px;
+    --mobile-bar-height: 2px;
+    --mobile-hamburger-gap: 5px;
+    --mobile-foreground: #4E7555; /* Header icon color */
+    --mobile-animation-timing: 200ms ease-in-out;
+    --mobile-hamburger-height: calc(var(--mobile-bar-height) * 3 + var(--mobile-hamburger-gap) * 2);
+  }
+  
+  .hamburgerMenu {
+    display: flex; /* Use flex from parent rendering logic */
+    flex-direction: column;
+    gap: var(--mobile-hamburger-gap);
+    width: max-content;
+    padding: 10px; /* Increase clickable area */
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 102; /* Ensure button is above the menu */
+    position: relative; /* Needed for absolute positioning of bars if required */
+  }
+  
+  .hamburgerBar {
+    display: block;
+    width: var(--mobile-bar-width);
+    height: var(--mobile-bar-height);
+    background-color: var(--mobile-foreground);
+    border-radius: 9px;
+    transform-origin: center center; /* Center origin for rotation */
+    transition: transform var(--mobile-animation-timing),
+                opacity var(--mobile-animation-timing);
+  }
+  
+  /* Hamburger animation to 'X' when isOpen class is added */
+  .hamburgerMenu.isOpen .hamburgerBar:nth-child(1) {
+    transform: translateY(calc(var(--mobile-bar-height) + var(--mobile-hamburger-gap))) rotate(45deg);
+  }
+  
+  .hamburgerMenu.isOpen .hamburgerBar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburgerMenu.isOpen .hamburgerBar:nth-child(3) {
+    transform: translateY(calc(-1 * (var(--mobile-bar-height) + var(--mobile-hamburger-gap)))) rotate(-45deg);
+  }
+  
+  /* --- Mobile Navigation List --- */
+  .navListMobile {
+    position: absolute;
+    top: calc(100% - 1px); /* Position below the header, adjust if header padding changes */
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 101; /* Below hamburger button, above content */
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    max-height: calc(100vh - 80px); /* Limit height, adjust as needed */
+    overflow-y: auto;
+  
+    /* --- Visibility & Animation --- */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Show menu when isOpen class is added */
+  .navListMobile.isOpen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  /* Mobile list item */
+  .navItemMobile {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .navItemMobile:last-child {
+    border-bottom: none;
+  }
+  
+  /* Mobile navigation link */
+  .navLinkMobile {
+    display: block;
+    padding: 14px 25px;
+    text-align: center;
+    color: rgba(78, 117, 85, 0.9);
+    font-size: 16px;
+    font-family: "Noto Serif TC";
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    cursor: pointer; /* Indicate it's clickable */
+  }
+  
+  /* Style for parent links that have dropdowns */
+  .navLinkMobile.hasDropdown {
+     display: flex; /* Use flex to position arrow */
+     justify-content: center;
+     align-items: center;
+     position: relative;
+  }
+  .navLinkMobile.hasDropdown::after { /* Simple arrow indicator */
+    content: '❯'; /* Or use an SVG icon */
+    display: inline-block;
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+    position: absolute;
+    right: 25px;
+  }
+  .navLinkMobile.hasDropdown.isOpen::after { /* Rotate arrow when open */
+    transform: rotate(90deg);
+  }
+  
+  
+  .navLinkMobile:hover {
+    background-color: rgba(241, 246, 233, 0.5);
+    color: rgba(4, 87, 19, 1);
+  }
+  
+  /* Mobile Active Link Style */
+  .activeLink {
+    background-color: rgba(241, 246, 233, 0.9);
+    color: rgba(4, 87, 19, 1);
+    font-weight: bold;
+  }
+  
+  /* --- Mobile Dropdown List --- */
+  .dropdownListMobile {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(241, 246, 233, 0.3); /* Slightly different background */
+    overflow: hidden; /* Needed for max-height animation */
+  
+    /* --- Expansion Animation --- */
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  /* Expand dropdown when isOpen class is added */
+  .dropdownListMobile.isOpen {
+    max-height: 500px; /* Or a sufficiently large value */
+  }
+  
+  /* Mobile dropdown item */
+  .dropdownItemMobile {
+     /* border-top: 1px solid #eee; Optional separator */
+  }
+  
+  /* Mobile dropdown link */
+  .dropdownLinkMobile {
+    display: block;
+    padding: 12px 25px; /* Indent dropdown links */
+    text-align: center;
+    color: rgba(88, 127, 95, 0.9);
+    font-size: 15px;
+    font-weight:400;
+    font-family: "Noto Serif TC";
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .dropdownLinkMobile:hover {
+    background-color: rgba(230, 240, 220, 0.9);
+    color: rgba(4, 87, 19, 1);
+  }
+  
+  /* Active style for mobile dropdown links */
+  .dropdownLinkMobile.activeLink {
+    font-weight: bold;
+    color: rgba(4, 87, 19, 1);
+    /* background-color: transparent; */ /* Can remove background if parent active style is enough */
+  }
