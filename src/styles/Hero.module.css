@@ -1,0 +1,33 @@
+.heroSection {
+    width: 100%;         /* 佔滿容器寬度 */
+    display: flex;       /* 使用 Flexbox 排列左右區塊 */
+    min-height: 300px;   /* 設定一個最小高度，可自行調整 */
+    /* align-items: stretch; */ /* 預設值，讓左右兩塊等高 */
+  }
+  
+.left {
+    width: 60%;                     /* 左側佔 60% 寬度 */
+    background-color: rgb(241, 246, 233); /* 左側背景色 */
+    padding: 100px 40px 40px;                  /* 加上一些內邊距 (可選) */
+    box-sizing: border-box;         /* 確保 padding 不會增加總寬度 */
+  }
+  
+.right {
+    width: 40%;                     /* 右側佔 40% 寬度 */
+    background-color: rgb(255, 255, 255); /* 右側背景色 (白色) */
+    padding: 100px 40px 40px;                  /* 加上一些內邊距 (可選) */
+    box-sizing: border-box;         /* 確保 padding 不會增加總寬度 */
+    /* 你可以在這裡加入文字顏色、對齊等樣式 */
+    /* color: #333; */
+  }
+  
+  /* 可以為左側的標題和段落添加樣式 */
+.left h2 {
+    margin-top: 0; /* 移除預設的上邊距 */
+    color: #4E7555; /* 範例顏色 */
+  }
+  
+  .left p {
+    line-height: 1.6; /* 增加行高 */
+    color: #555;     /* 範例顏色 */
+  }
