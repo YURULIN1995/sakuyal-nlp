@@ -1,0 +1,35 @@
+.container {
+    display: flex;           /* 使用 Flexbox 佈局 */
+    flex-direction: column;  /* 內容垂直排列 (h1, p, p) */
+    justify-content: center; /* 在垂直方向上居中 */
+    align-items: center;     /* 在水平方向上居中 */
+    text-align: center;      /* 確保容器內的文字也居中 */
+    padding: 40px;           /* 加入一些內邊距 */
+    box-sizing: border-box;
+  
+    /* 讓這個容器嘗試填滿其父元素 (<main>) 的可用空間 */
+    /* 這有助於垂直居中 */
+    /* flex-grow: 1; */
+    /* 或者設定一個最小高度 */
+    min-height: calc(100vh - 200px); /* 估算值：視窗高度減去 Header 和 Footer 的大致高度 */
+  }
+  
+  .errorMessage {
+    color: rgba(78, 117, 85, 0.5); /* 可以給錯誤標題加點顏色 */
+    margin-bottom: 15px;
+  }
+  
+  .prompt {
+    color: rgb(78, 117, 85);
+    margin-bottom: 25px;
+  }
+  
+  /* 可以為返回連結加點樣式 */
+  .homeLink {
+    color: #3498db;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  .homeLink:hover {
+    color: #2980b9;
+  }
