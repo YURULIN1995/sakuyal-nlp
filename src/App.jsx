@@ -1,15 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from '@components/Layout';
 import ViewportMeta from '@components/Head/ViewportMeta';
-//匯入所有需要的頁面元件
-import HomePage from '@/pages/HomePage';
-import NotFoundPage from '@/pages/NotFoundPage';
-import AboutPage from '@/pages/content/AboutPage';
-import ServicesPage from '@/pages/content/ServicesPage';
-import PortfolioPage from '@/pages/content/PortfolioPage';
-import BlogPage from '@/pages/content/BlogPage';
-import ContactPage from '@/pages/content/ContactPage';
-
+//匯入所有需要的內容頁面元件
+import HomePage from '@pages/HomePage';
+import NotFoundPage from '@pages/NotFoundPage';
+import AboutPage from '@pages/content/AboutPage';
+import ServicesPage from '@pages/content/ServicesPage';
+import PortfolioPage from '@pages/content/PortfolioPage';
+import BlogPage from '@pages/content/BlogPage';
+import ContactPage from '@pages/content/ContactPage';
+//匯入所有需要的法律相關頁面元件
+import PrivacyPolicyPage from '@pages/legal/PrivacyPolicyPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="portfolio" element={<PortfolioPage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
