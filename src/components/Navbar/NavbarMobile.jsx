@@ -66,7 +66,7 @@ function NavbarMobile() {
                 aria-controls={`submenu-${item.name}`} // 輔助技術關聯
               >
                 <span className={styles.linkText}>{item.name}</span>
-                <span className={styles.arrow}>▼</span>
+                <span className={styles.arrow}>▶</span>
               </button>
             )}
 

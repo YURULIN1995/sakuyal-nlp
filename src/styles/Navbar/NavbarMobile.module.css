@@ -150,7 +150,7 @@
 
 /* Rotate arrow when parent trigger has isOpen class */
 .navLinkMobile.hasDropdown.isOpen .arrow {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
 }
 
 

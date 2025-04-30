@@ -45,9 +45,8 @@
 
 .dropdownArrowPc {
 display: inline-block; /* 讓它可以像文字一樣排列，但能設定樣式 */
-font-size: 0.6em;     /* 設定為你想要的大小，例如 0.6em 或 0.7em (相對於父元素字體大小) */
+font-size: 0.3em;     /* 設定為你想要的大小，例如 0.6em 或 0.7em (相對於父元素字體大小) */
 margin-left: 4px;   /* 與前面的文字稍微隔開一點 (可調整) */
-transition: transform 0.2s ease-in-out;
 vertical-align: middle;
 /* color: inherit; */ /* 繼承父元素顏色 */
 }
@@ -70,10 +69,6 @@ z-index: 100;         /* 確保在最上層 */
 opacity: 0;           /* 為了動畫效果 */
 visibility: hidden;   /* 為了動畫效果 */
 transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-}
-
-.navItem:hover .dropdownArrowPc {
-  transform: rotate(180deg);
 }
 
 /* 當父項目(.navItem)被滑鼠懸停時，顯示其直接子元素 .dropdownList */
