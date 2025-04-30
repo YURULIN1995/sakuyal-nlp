@@ -1,44 +1,45 @@
+// src/components/Navbar/NavbarPc.jsx
 import { NavLink } from 'react-router-dom';
 import { navItems } from './navData';
-import styles from '@styles/Navbar/NavbarPc.module.css'; // <-- 匯入對應的 CSS Module
+import styles from '@styles/Navbar/NavbarPc.module.css';
 
 function NavbarPc() {
-
-  // 產生 NavLink class 的函式
   const getNavLinkClass = ({ isActive }) =>
     `${styles.navLink} ${isActive ? styles.activeLink : ''}`;
 
-  // 產生下拉選單中 NavLink class 的函式
   const getDropdownLinkClass = ({ isActive }) =>
-    `${styles.dropdownLink} ${isActive ? styles.activeLink : ''}`; // 重複使用 activeLink class
+    `${styles.dropdownLink} ${isActive ? styles.activeLink : ''}`;
 
   return (
-    // 套用 .navList class
     <ul className={styles.navList}>
       {navItems.map((item) => (
         <li
           key={item.name}
-          // 套用 .navItem class，如果有子選單則額外加上 .dropdown class
           className={`${styles.navItem} ${item.children ? styles.dropdown : ''}`}
         >
           <NavLink
             to={item.path}
-            className={getNavLinkClass} // 使用函式設定 class
-            end={item.path === '/'}     // 根路徑使用 end
+            className={getNavLinkClass}
+            end={item.path === '/'}
           >
-            {item.name} {item.children ? '▾' : ''}
+            {/* --- 修改這裡 --- */}
+            {item.name}
+            {/* 如果有子選單，渲染帶有 class 的 span 包裹箭頭 */}
+            {item.children && (
+              <span className={styles.dropdownArrowPc}> ▾</span>
+              // 注意 '▾' 前面可以加個空格，或用 margin 調整間距
+            )}
+            {/* ------------- */}
           </NavLink>
 
-          {/* 下拉選單 */}
+          {/* Dropdown Menu (保持不變) */}
           {item.children && (
-            // 套用 .dropdownList class
             <ul className={styles.dropdownList}>
               {item.children.map((child) => (
-                // 套用 .dropdownItem class
                 <li key={child.name} className={styles.dropdownItem}>
                   <NavLink
                     to={child.path}
-                    className={getDropdownLinkClass} // 使用函式設定 class
+                    className={getDropdownLinkClass}
                   >
                     {child.name}
                   </NavLink>
