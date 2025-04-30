@@ -45,5 +45,5 @@
 
 .navLink:hover {
   color: rgba(4, 87, 19, 1);
-  text-decoration: underline;
+  font-weight: 300;
 }

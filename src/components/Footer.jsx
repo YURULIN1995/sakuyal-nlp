@@ -14,6 +14,16 @@ function Footer() {
               隱私權政策
             </Link>
           </li>
+          <li className={styles.navItem}>
+            <Link to="/disclaimer" className={styles.navLink}>
+              免責聲明
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link to="/copyright" className={styles.navLink}>
+              著作權聲明
+            </Link>
+          </li>
         </ul>
       </nav>
     </footer>

@@ -11,6 +11,8 @@ import BlogPage from '@pages/content/BlogPage';
 import ContactPage from '@pages/content/ContactPage';
 //匯入所有需要的法律相關頁面元件
 import PrivacyPolicyPage from '@pages/legal/PrivacyPolicyPage';
+import DisclaimerPage from '@pages/legal/DisclaimerPage';
+import CopyrightPage from '@pages/legal/CopyrightPage';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="blog" element={<BlogPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="disclaimer" element={<DisclaimerPage />} />
+          <Route path="copyright" element={<CopyrightPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
