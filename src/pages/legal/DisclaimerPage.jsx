@@ -1,16 +1,16 @@
 // 免責聲明
-import SEO from '@components/Head/SEO'; // 匯入 SEO 元件
+import SEO from '@components/Head/SEO';
 import styles from '@styles/DisclaimerPage.module.css';
 
 function DisclaimerPage() {
   return (
     <>
-      <SEO title="隱私權政策" description="Sakuyal 自然語言煉金術網站隱私權政策說明。" />
+      <SEO title="免責聲明" description="Sakuyal 自然語言煉金術網站免責聲明。" />
 
       <div className={styles.container}>
-        <h1 className={styles.title}>隱私權政策</h1>
-        <p className={styles.message}>詳細隱私權政策內容將在此處補充。</p>
-        {/* TODO: 加入實際的隱私權政策文字 */}
+        <h1 className={styles.title}>免責聲明</h1>
+        <p className={styles.message}>補充免責聲明。</p>
+        {/* TODO: 加入實際的免責聲明文字 */}
       </div>
     </>
   );
