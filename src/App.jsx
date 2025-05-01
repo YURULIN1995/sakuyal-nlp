@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+//匯入每個頁面都需要的 Head 元件
 import Layout from '@components/Layout';
 import ViewportMeta from '@components/Head/ViewportMeta';
 //匯入所有需要的內容頁面元件
