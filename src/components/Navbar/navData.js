@@ -1,10 +1,9 @@
-// src/components/Navbar/navData.js
 export const navItems = [
   { name: '關於我', path: '/about' },
   { name: '服務項目', path: '/services' },
   {
     name: '作品集',
-    path: '#', // <-- 父項目路徑設為 #
+    path: '#', // 父項目路徑設為 #
     children: [
       { name: '作品 01', path: '/portfolio/01' },
       { name: '作品 02', path: '/portfolio/02' },

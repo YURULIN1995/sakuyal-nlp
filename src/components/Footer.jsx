@@ -5,8 +5,6 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <p className={styles.copyright}>Copyright &#169; 2025 Sakuyal 自然語言煉金術 All Rights Reserved.</p>
-
-      {/* Footer Navigation */}
       <nav className={styles.footerNav}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>

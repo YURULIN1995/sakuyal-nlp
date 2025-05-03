@@ -1,14 +1,11 @@
-// 檔案位置: src/hooks/useIsMobile.js
-
 import { useState, useEffect } from 'react';
 
-/** JSDoc
- * Custom Hook to detect if the current window width is mobile size.
- * @param {number} breakpoint - The maximum width (inclusive) to consider as mobile. Defaults to 768.
- * @returns {boolean} - True if the window width is less than or equal to the breakpoint, false otherwise.
- */
+/** JSDoc start 偵測目前視窗寬度是否為行動裝置尺寸的自訂 Hook。
+@param {number} breakpoint - 被視為行動裝置的最大寬度 (包含此值)。預設為 768px。
+@returns {boolean} - 如果視窗寬度小於或等於 breakpoint 回傳 true，大於 breakpoint 回傳 false。
+ JSDoc end*/
+
 const useIsMobile = (breakpoint = 768) => {
-  // Initialize state based on current window size (or false if window is undefined)
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth <= breakpoint;
@@ -17,43 +14,34 @@ const useIsMobile = (breakpoint = 768) => {
   });
 
   useEffect(() => {
-    // Handler function to check window size
     const checkIsMobile = () => {
-      // Ensure window exists before accessing innerWidth
       if (typeof window !== 'undefined') {
         setIsMobile(window.innerWidth <= breakpoint);
       }
     };
 
-    // --- Debounce resize handler ---
+    // Debounce resize
     let timeoutId = null;
     const handleResize = () => {
-      // Clear previous timeout if it exists
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
-      // Set a new timeout to run checkIsMobile after a short delay
-      // This prevents excessive calls during rapid resizing
-      timeoutId = setTimeout(checkIsMobile, 150); // 150ms debounce delay
+      timeoutId = setTimeout(checkIsMobile, 150);
     };
-    // -----------------------------
 
-    // Add event listener only if window exists
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleResize);
     }
 
-    // Cleanup function to remove event listener and clear timeout
     return () => {
       if (typeof window !== 'undefined') {
         window.removeEventListener('resize', handleResize);
       }
-      // Clear timeout if component unmounts before timeout fires
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
     };
-  }, [breakpoint]); // Re-run effect if the breakpoint changes
+  }, [breakpoint]); // 如果 breakpoint 改變，則重新執行 effect
 
   return isMobile;
 };

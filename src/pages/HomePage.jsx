@@ -1,5 +1,6 @@
 import Hero from '@components/Hero';
 import SEO from '@components/Head/SEO';
+import styles from 'Hero.module.css';
 
 function HomePage() {
   return (

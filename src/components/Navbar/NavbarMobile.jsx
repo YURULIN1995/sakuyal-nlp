@@ -1,4 +1,3 @@
-// src/components/Navbar/NavbarMobile.jsx (修改後 - 方案 C)
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { navItems } from './navData';
@@ -16,10 +15,9 @@ function NavbarMobile() {
     });
   };
 
-  // 修改：這個 handler 只負責開合下拉，需要阻止預設行為（如果觸發元素是 a）
   const handleDropdownToggle = (itemName, event) => {
-    event.preventDefault(); // 阻止可能的預設行為
-    event.stopPropagation(); // 阻止冒泡
+    event.preventDefault();
+    event.stopPropagation();
     setOpenDropdown(prevOpen => (prevOpen === itemName ? null : itemName));
     console.log("Toggling dropdown:", itemName);
   };
@@ -29,7 +27,6 @@ function NavbarMobile() {
     setOpenDropdown(null);
   };
 
-  // Dropdown 內部連結樣式函式
   const getDropdownLinkClass = ({ isActive }) =>
     `${styles.dropdownLinkMobile} ${isActive ? styles.activeLink : ''}`;
 
@@ -47,12 +44,11 @@ function NavbarMobile() {
       <ul className={navListClasses}>
         {navItems.map((item) => (
           <li key={item.name} className={styles.navItemMobile}>
-            {/* 判斷是否有子選單 */}
             {!item.children ? (
               <NavLink
                 to={item.path}
                 className={({ isActive }) => `${styles.navLinkMobile} ${isActive ? styles.activeLink : ''}`}
-                onClick={toggleMainMenu} // 點擊普通連結關閉主選單
+                onClick={toggleMainMenu}
                 end={item.path === '/'}
               >
                 {item.name}
@@ -60,17 +56,16 @@ function NavbarMobile() {
             ) : (
               <button
                 type="button"
-                className={`${styles.navLinkMobile} ${styles.hasDropdown} ${openDropdown === item.name ? styles.isOpen : ''}`} // 套用連結樣式、下拉標識、開啟狀態(用於箭頭)
-                onClick={(e) => handleDropdownToggle(item.name, e)} // 點擊整個按鈕區域觸發 toggle
+                className={`${styles.navLinkMobile} ${styles.hasDropdown} ${openDropdown === item.name ? styles.isOpen : ''}`}
+                onClick={(e) => handleDropdownToggle(item.name, e)}
                 aria-expanded={openDropdown === item.name}
-                aria-controls={`submenu-${item.name}`} // 輔助技術關聯
+                aria-controls={`submenu-${item.name}`}
               >
                 <span className={styles.linkText}>{item.name}</span>
                 <span className={styles.arrow}>▶</span>
               </button>
             )}
 
-            {/* 下拉選單*/}
             {item.children && (
               <ul
                 id={`submenu-${item.name}`} // 對應 aria-controls
@@ -80,7 +75,7 @@ function NavbarMobile() {
                   <NavLink
                   to="/portfolio"
                   className={getDropdownLinkClass}
-                  onClick={handleSubItemClick} // 點擊後關閉選單
+                  onClick={handleSubItemClick}
                   >
                     所有作品
                   </NavLink>
@@ -91,7 +86,7 @@ function NavbarMobile() {
                     <NavLink
                         to={child.path}
                         className={getDropdownLinkClass}
-                        onClick={handleSubItemClick} // 點擊子項目關閉主選單
+                        onClick={handleSubItemClick}
                     >
                       {child.name}
                     </NavLink>
