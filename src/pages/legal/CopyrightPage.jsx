@@ -9,7 +9,7 @@ function CopyrightPage() {
 
       <div className={styles.container}>
         <h1 className={styles.title}> 著作權聲明</h1>
-        <p className={styles.message}>詳細著作權聲明內容將在此處補充。</p>
+        <p className={styles.message}>補充著作權聲明。</p>
         {/* TODO: 加入實際的著作權聲明文字 */}
       </div>
     </>

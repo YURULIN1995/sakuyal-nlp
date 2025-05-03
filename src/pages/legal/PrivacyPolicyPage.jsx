@@ -9,7 +9,7 @@ function PrivacyPolicyPage() {
 
       <div className={styles.container}>
         <h1 className={styles.title}>隱私權政策</h1>
-        <p className={styles.message}>詳細隱私權政策內容將在此處補充。</p>
+        <p className={styles.message}>補充隱私權政策。</p>
         {/* TODO: 加入實際的隱私權政策文字 */}
       </div>
     </>
