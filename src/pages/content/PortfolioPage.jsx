@@ -10,7 +10,7 @@ function PortfolioPage() {
 
       <div className={styles.container}>
         <h1 className={styles.title}>作品集</h1>
-        <p className={styles.message}>這裡是作品集，稍後會進行補充。</p>
+        <p className={styles.message}>補充作品集。</p>
       </div>
     </>
   );

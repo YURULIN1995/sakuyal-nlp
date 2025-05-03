@@ -10,7 +10,7 @@ function ServicesPage() {
 
       <div className={styles.container}>
         <h1 className={styles.title}>服務項目</h1>
-        <p className={styles.message}>這裡是服務項目，稍後會進行補充。</p>
+        <p className={styles.message}>補充服務項目。</p>
       </div>
     </>
   );

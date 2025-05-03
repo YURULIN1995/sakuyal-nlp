@@ -10,7 +10,7 @@ function ContactPage() {
 
       <div className={styles.container}>
         <h1 className={styles.title}>聯絡</h1>
-        <p className={styles.message}>這裡是聯絡表單，稍後會進行補充。</p>
+        <p className={styles.message}>補充聯絡表單。</p>
       </div>
     </>
   );
