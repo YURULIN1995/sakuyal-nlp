@@ -1,22 +1,39 @@
+/* src/styles/Hero.module.css (需要調整 padding 和新增內容樣式) */
+
 .heroSection {
-    width: 100%;         /* 佔滿容器寬度 */
-    display: flex;       /* 使用 Flexbox 排列左右區塊 */
-    min-height: 300px;   /* 設定一個最小高度，可自行調整 */
-    /* align-items: stretch; */ /* 預設值，讓左右兩塊等高 */
-  }
-  
+  width: 100%;
+  display: flex;
+  min-height: 300px; /* 或更高 */
+  /* 確保 Hero 區塊本身在 Header 下方有足夠空間顯示內容 */
+  /* padding-top: 100px; */ /* <-- 這個 padding 應該加在 Layout 的 mainContent 上更合適 */
+}
+
 .left {
-    width: 60%;                     /* 左側佔 60% 寬度 */
-    background-color: rgb(241, 246, 233); /* 左側背景色 */
-    padding: 100px 40px 40px;                  /* 加上一些內邊距 (可選) */
-    box-sizing: border-box;         /* 確保 padding 不會增加總寬度 */
-  }
-  
+  width: 60%;
+  background-color: rgb(241, 246, 233);
+  padding: 40px; /* <-- 調整這裡的 padding，特別是 padding-top */
+  /* 可能需要更大的 padding-top 來避開透明 Header */
+  /* padding: 120px 40px 40px 40px; */ /* 試試看增加上邊距 */
+  box-sizing: border-box;
+  display: flex; /* 可選：讓內部元素方便對齊 */
+  flex-direction: column; /* 可選：垂直排列 */
+  justify-content: center; /* 可選：垂直居中 */
+}
+
 .right {
-    width: 40%;                     /* 右側佔 40% 寬度 */
-    background-color: rgb(255, 255, 255); /* 右側背景色 (白色) */
-    padding: 100px 40px 40px;                  /* 加上一些內邊距 (可選) */
-    box-sizing: border-box;         /* 確保 padding 不會增加總寬度 */
-    /* 你可以在這裡加入文字顏色、對齊等樣式 */
-    /* color: #333; */
-  }
+  width: 40%;
+  background-color: rgb(255, 255, 255);
+  padding: 40px; /* <-- 同樣調整 padding */
+  /* padding: 120px 40px 40px 40px; */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image { /* 新增圖片樣式 */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}

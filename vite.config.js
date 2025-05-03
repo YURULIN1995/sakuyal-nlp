@@ -38,6 +38,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '@components': path.resolve(__dirname, 'src/components'),
+      '@data': path.resolve(__dirname, 'src/data'),
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
