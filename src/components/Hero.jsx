@@ -1,43 +1,83 @@
 import styles from '@styles/Hero.module.css';
 
-function Hero({ imageUrl, imageAlt = "Hero 圖片", children, buttonText}) {
+// 接收資料作為 props
+function Hero({
+  imageUrl,
+  imageAlt = "Hero 圖片",
+  titleLine1,
+  titleLine2,
+  paragraph,
+  buttonText,
+  buttonLink,
+  socialLinks = [] // 提供預設空陣列
+}) {
   return (
-    // 1. 外層容器，設定相對定位基準
     <section className={styles.heroSection}>
-
-      {/* 2. 背景層 (絕對定位，底層) */}
+      {/* 背景層 */}
       <div className={styles.backgroundLayer}>
-        <div className={styles.bgLeft}></div> {/* 左側背景色塊 */}
-        <div className={styles.bgRight}></div>{/* 右側背景色塊 */}
+        <div className={styles.bgLeft}></div>
+        <div className={styles.bgRight}></div>
       </div>
 
-      {/* 3. 內容容器 (相對定位，上層) */}
+      {/* 內容容器 */}
       <div className={styles.contentContainer}>
-         {/* 4. 內部左右欄容器 */}
-         <div className={styles.innerColumns}>
-            {/* 左欄：文字內容 */}
-            <div className={styles.textContainer}>
-              {children} {/* 渲染傳入的內容 */}
-              {buttonText && (
-              <button type="button" className={styles.heroButton}>
-                {buttonText}
-              </button>
+        {/* 內部左右欄容器 */}
+        <div className={styles.innerColumns}>
+          {/* 左欄：文字內容 - 直接在這裡渲染 */}
+          <div className={styles.textContainer}>
+            {/* 標題 */}
+            {(titleLine1 || titleLine2) && ( // 如果有標題內容才渲染
+              <h2 className={styles.heroTitle}>
+                {titleLine1}{titleLine1 && titleLine2 && <br/>} {/* 只有兩行都有時才換行 */}
+                {titleLine2}
+              </h2>
             )}
-            </div>
-            {/* 右欄：圖片內容 */}
-            <div className={styles.imageContainer}>
-              {imageUrl && (
-                <img
-                  src={imageUrl}
-                  alt={imageAlt}
-                  className={styles.image}
-                  loading="lazy"
-                />
-              )}
-            </div>
-         </div>
-      </div>
+            {/* 段落 */}
+            {paragraph && ( // 如果有段落內容才渲染
+              <p className={styles.heroParagraph}>
+                {paragraph}
+              </p>
+            )}
+            {/* 按鈕 (使用 a 標籤) */}
+            {buttonText && buttonLink && ( // 如果有按鈕文字和連結才渲染
+              <a className={styles.heroButton} href={buttonLink} target="_blank" rel="noopener noreferrer">
+                {buttonText}
+              </a>
+            )}
+            {/* 社交連結 */}
+            {socialLinks.length > 0 && ( // 如果有社交連結才渲染
+              <ul className={styles.socialList}>
+                {socialLinks.map(social => (
+                  <li key={social.id}>
+                    {/* 注意：這裡的 socialLink 樣式需要加在 a 標籤上 */}
+                    <a
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.name}
+                      className={styles.socialLink} // *** 套用 socialLink 樣式 ***
+                    >
+                      <i className={social.iconClass} aria-hidden="true"></i>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
+          {/* 右欄：圖片內容 */}
+          <div className={styles.imageContainer}>
+            {imageUrl && (
+              <img
+                src={imageUrl}
+                alt={imageAlt}
+                className={styles.image}
+                loading="lazy"
+              />
+            )}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
