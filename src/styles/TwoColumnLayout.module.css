@@ -1,0 +1,69 @@
+.contentContainer {
+    /* 基本容器樣式 */
+    position: relative;
+    z-index: 2; /* 確保在背景之上 (如果有的話) */
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    /* 提供一個基礎的左右 padding，上下由使用元件決定 */
+    padding-left: 40px;
+    padding-right: 40px;
+    /* display: flex and align-items for vertical centering of innerColumns */
+    display: flex;
+    align-items: center;
+    /* 移除 Hero 特有的 min-height 和上下 padding */
+  }
+  
+.innerColumns {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* 通用文字區塊佈局 */
+.textContainer {
+  flex-basis: 60%; /* 預設 60%，可考慮用 class 覆蓋 */
+  padding: 20px; /* 基礎內部 padding */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* 預設靠左 */
+}
+
+/* 通用圖片/視覺區塊佈局 */
+.imageContainer {
+  flex-basis: 40%; /* 預設 40% */
+  padding: 20px; /* 基礎內部 padding */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer img {
+  display: block;      /* 修正圖片底部可能的微小空隙 */
+  max-width: 100%;     /* 關鍵：圖片最大寬度不超過容器寬度 */
+  height: auto;        /* 關鍵：高度隨寬度等比縮放 */
+  border-radius: 8px;  /* 保留圓角 (如果需要) */
+  object-fit: cover; /* 如果希望圖片填滿容器並裁剪，可以考慮加這個 */
+}
+
+/* 通用響應式堆疊 */
+@media (max-width: 768px) { /* 建議用 CSS 變數 */
+  .contentContainer {
+    /* 基礎左右 padding for mobile */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .innerColumns {
+    flex-direction: column;
+  }
+  .textContainer, .imageContainer {
+    flex-basis: auto;
+    width: 100%;
+    padding: 15px; /* mobile 內部 padding */
+  }
+  /* 預設順序：文字先，圖片後 (因為 DOM 順序)，Hero 可以覆蓋 */
+}
