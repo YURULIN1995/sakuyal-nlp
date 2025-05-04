@@ -15,7 +15,7 @@ function TwoColumnLayout({
   textContainerClassName = '',
   imageContainerClassName = ''
 }) {
-  // 組合基礎 class 和傳入的額外 class
+
   const containerClasses = `${styles.contentContainer} ${className}`;
   const textContainerClasses = `${styles.textContainer} ${textContainerClassName}`;
   const imageContainerClasses = `${styles.imageContainer} ${imageContainerClassName}`;
@@ -26,7 +26,6 @@ function TwoColumnLayout({
         <div className={textContainerClasses}>
           {textSlot}
         </div>
-        {/* 只有提供了 imageSlot 才渲染圖片容器 */}
         {imageSlot && (
           <div className={imageContainerClasses}>
             {imageSlot}

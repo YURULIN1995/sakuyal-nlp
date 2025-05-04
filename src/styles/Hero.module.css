@@ -1,6 +1,3 @@
-/* src/styles/Hero.module.css (完整版) */
-
-/* 1. Hero 特有的外層和背景 */
 .heroSection {
   position: relative;
   width: 100%;
@@ -10,45 +7,44 @@
 
 .backgroundLayer {
   position: absolute;  /* 絕對定位，相對於 .heroSection */
-  top: 0;              /* 貼齊父層頂部 */
-  left: 0;             /* 貼齊父層左邊 */
-  right: 0;            /* 貼齊父層右邊 */
-  bottom: 0;           /* 貼齊父層底部 */
-  z-index: 1;          /* 在內容下方 */
-  display: flex;       /* 排列內部的左右色塊 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;/* 排列內部的左右色塊 .bgLeft 和 .bgRight */
 }
 
 .bgLeft {
-  flex-basis: 60%;      /* 左側色塊寬度 */
-  background-color: rgb(241, 246, 233); /* 左側背景色 */
+  flex-basis: 60%;
+  background-color: rgb(241, 246, 233);
 }
 
 .bgRight {
-  flex-basis: 40%;      /* 右側色塊寬度 */
-  background-color: rgb(255, 255, 255); /* 右側背景色 */
+  flex-basis: 40%;
+  background-color: rgb(255, 255, 255);
 }
 
 /* 2. Hero 特有的容器樣式 (傳遞給 TwoColumnLayout) */
-/* 主要控制 Hero 的上下 padding 和可能的 min-height 繼承 */
 .heroContainerSpecifics {
   padding-top: 200px;
   padding-bottom: 48px;
   min-height: inherit; /* 繼承 .heroSection 的 min-height */
 }
 
-/* 3. Hero 內容樣式 (之前遺失的部分) */
+/* 3. Hero 內容樣式 */
 .heroTitle {
-  font-size: 2.2em; /* 較大的字體大小 */
-  color: #3a5a40;  /* 深綠色系 */
-  font-weight: 700; /* 粗體 */
-  line-height: 1.3; /* 行高 */
-  margin-top: 0;    /* 移除預設的上邊距 */
-  margin-bottom: 20px; /* 與下方段落的間距 */
+  font-size: 2.2em;
+  color: rgb(58, 90, 64);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .heroParagraph {
-  font-size: 1.1em; /* 稍大的字體 */
-  color: #588157; /* 稍淺的綠色系 */
+  font-size: 1.1em;
+  color: rgb(88, 129, 87); /* 稍淺的綠色系 */
   line-height: 1.7; /* 行高 */
   margin-bottom: 25px; /* 與下方按鈕/連結的間距 */
 }
@@ -84,13 +80,13 @@
 }
 
 .socialLink {
-  color: rgb(75, 79, 88); /* 預設圖標/連結顏色 */
+  color: rgb(156, 201, 150); /* 預設圖標/連結顏色 */
   font-size: 1.2em; /* 如果用字體圖標，可調整大小 */
   text-decoration: none;
   display: inline-block; /* 確保像按鈕一樣對齊 */
 }
 .socialLink:hover {
-  color: #a3b18a; /* 滑鼠懸停顏色 */
+  color: rgb(58, 90, 64); /* 滑鼠懸停顏色 */
 }
 
 /* 4. Hero 特有的響應式調整 */
