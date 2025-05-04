@@ -1,39 +1,109 @@
-/* src/styles/Hero.module.css (需要調整 padding 和新增內容樣式) */
+/* src/styles/Hero.module.css (新結構樣式) */
 
+/* 1. 外層 Section (定位基準) */
 .heroSection {
+  position: relative; /* 讓內部絕對定位的元素相對此定位 */
   width: 100%;
-  display: flex;
-  min-height: 300px; /* 或更高 */
-  /* 確保 Hero 區塊本身在 Header 下方有足夠空間顯示內容 */
-  /* padding-top: 100px; */ /* <-- 這個 padding 應該加在 Layout 的 mainContent 上更合適 */
+  min-height: 400px; /* 設定最小高度，或由內容撐開 */
+  overflow: hidden; /* 可選：防止子元素意外溢出 */
 }
 
-.left {
-  width: 60%;
+/* 2. 背景層 */
+.backgroundLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* 在內容下方 */
+  display: flex; /* 排列左右色塊 */
+}
+
+.bgLeft {
+  flex-basis: 60%; /* 左側寬度 */
   background-color: rgb(241, 246, 233);
-  padding: 40px; /* <-- 調整這裡的 padding，特別是 padding-top */
-  /* 可能需要更大的 padding-top 來避開透明 Header */
-  /* padding: 120px 40px 40px 40px; */ /* 試試看增加上邊距 */
-  box-sizing: border-box;
-  display: flex; /* 可選：讓內部元素方便對齊 */
-  flex-direction: column; /* 可選：垂直排列 */
-  justify-content: center; /* 可選：垂直居中 */
 }
 
-.right {
-  width: 40%;
+.bgRight {
+  flex-basis: 40%; /* 右側寬度 */
   background-color: rgb(255, 255, 255);
-  padding: 40px; /* <-- 同樣調整 padding */
-  /* padding: 120px 40px 40px 40px; */
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.image { /* 新增圖片樣式 */
+/* 3. 內容容器 (浮在背景上) */
+.contentContainer {
+  position: relative; /* 相對定位即可，因為它在背景層之後 */
+  z-index: 2; /* 在背景上方 */
+  max-width: 1140px; /* 限制內容最大寬度 */
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box; /* 確保 padding 包含在寬度內 */
+
+  /* --- 控制內容與背景邊緣的距離 --- */
+  padding: 200px 40px 48px; /* 上200px 左右40px 下 48px */
+  
+  /* 確保容器至少有一定高度，或由內容撐開 */
+  min-height: inherit; /* 繼承父層 section 的最小高度 (如果 section 有設) */
+  display: flex; /* 使內部 .innerColumns 能更好對齊 (可選) */
+  align-items: center; /* 垂直居中 .innerColumns (可選) */
+}
+
+/* 4. 內部左右欄容器 */
+.innerColumns {
+    display: flex;
+    flex-wrap: wrap; /* 小螢幕換行 */
+    width: 100%; /* 佔滿 contentContainer */
+    /* background-color: lightcoral; */ /* 測試用背景色 */
+}
+
+/* 5. 文字容器 */
+.textContainer {
+    flex: 1; /* 自動分配寬度，或設定 flex-basis: 60%; */
+    flex-basis: 60%;
+    padding: 20px; /* 文字區塊的內邊距 (可選) */
+    box-sizing: border-box;
+    /* background-color: lightblue; */ /* 測試用背景色 */
+    /* 這裡可以加 display:flex, flex-direction:column, justify-content:center */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 6. 圖片容器 */
+.imageContainer {
+    flex: 1; /* 自動分配寬度，或設定 flex-basis: 40%; */
+    flex-basis: 40%;
+    padding: 20px; /* 圖片區塊的內邊距 (可選) */
+    box-sizing: border-box;
+    /* background-color: lightgoldenrodyellow; */ /* 測試用背景色 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
     max-width: 100%;
     height: auto;
     display: block;
     border-radius: 8px;
+}
+
+/* --- 響應式：小螢幕時堆疊 --- */
+@media (max-width: 768px) {
+  .contentContainer {
+    padding: 40px 20px; /* 調整 padding */
+  }
+  .innerColumns {
+    flex-direction: column;
+  }
+  .textContainer, .imageContainer {
+    flex-basis: auto; /* 重置寬度 */
+    width: 100%;
+    padding: 15px;
+  }
+  .textContainer {
+    order: 2; /* 文字在下 */
+  }
+  .imageContainer {
+    order: 1; /* 圖片在上 */
+  }
 }

@@ -1,26 +1,39 @@
+// src/components/Hero.jsx (新結構)
 import styles from '@styles/Hero.module.css';
 
-// 接收 props 和 children
 function Hero({ imageUrl, imageAlt = "Hero 圖片", children }) {
   return (
-    // 使用 heroSection class
+    // 1. 外層容器，設定相對定位基準
     <section className={styles.heroSection}>
-      {/* 左側區塊，渲染傳入的 children */}
-      <div className={styles.left}>
-        {children} {/* <--- 在這裡渲染內容 */}
+
+      {/* 2. 背景層 (絕對定位，底層) */}
+      <div className={styles.backgroundLayer}>
+        <div className={styles.bgLeft}></div> {/* 左側背景色塊 */}
+        <div className={styles.bgRight}></div>{/* 右側背景色塊 */}
       </div>
-      {/* 右側區塊，渲染圖片 */}
-      <div className={styles.right}>
-        {imageUrl && ( // 如果有圖片 URL 才渲染
-          <img
-            src={imageUrl}
-            alt={imageAlt}
-            className={styles.image} // <--- 可以為圖片加個 class
-            loading="lazy"
-            style={{ maxWidth: '100%', height: 'auto' }} // 基本樣式
-          />
-        )}
+
+      {/* 3. 內容容器 (相對定位，上層) */}
+      <div className={styles.contentContainer}>
+         {/* 4. 內部左右欄容器 */}
+         <div className={styles.innerColumns}>
+            {/* 左欄：文字內容 */}
+            <div className={styles.textContainer}>
+              {children} {/* 渲染傳入的內容 */}
+            </div>
+            {/* 右欄：圖片內容 */}
+            <div className={styles.imageContainer}>
+              {imageUrl && (
+                <img
+                  src={imageUrl}
+                  alt={imageAlt}
+                  className={styles.image}
+                  loading="lazy"
+                />
+              )}
+            </div>
+         </div>
       </div>
+
     </section>
   );
 }
