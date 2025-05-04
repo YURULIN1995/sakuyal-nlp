@@ -16,22 +16,25 @@
     margin-bottom: 25px; /* 與下方按鈕/連結的間距 */
   }
   
-  /* 你之後也可以在這裡加入按鈕或社群連結的樣式 */
-  .heroButton {
-    /* ... 按鈕樣式 ... */
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #588157;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
-  }
-  
-  .heroButton:hover {
-    background-color: #3a5a40;
-  }
+.heroButton {
+  box-sizing:border-box;
+  display: inline-block; /* 這是讓寬度自適應內容的關鍵 */
+  width: auto;
+  padding: 14px 30px;     /* 上下14px，左右30px 內距 */
+  background-color: rgb(156, 201, 150);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.heroButton:hover {
+  background-color: rgb(58, 90, 64);
+}
   
   .socialList {
     list-style: none;

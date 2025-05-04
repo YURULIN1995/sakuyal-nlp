@@ -61,11 +61,10 @@
     flex-basis: 60%;
     padding: 20px; /* 文字區塊的內邊距 (可選) */
     box-sizing: border-box;
-    /* background-color: lightblue; */ /* 測試用背景色 */
-    /* 這裡可以加 display:flex, flex-direction:column, justify-content:center */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
 }
 
 /* 6. 圖片容器 */
@@ -90,7 +89,7 @@
 /* --- 響應式：小螢幕時堆疊 --- */
 @media (max-width: 768px) {
   .contentContainer {
-    padding: 40px 20px; /* 調整 padding */
+    padding: 90px 20px; /* 調整 padding */
   }
   .innerColumns {
     flex-direction: column;
