@@ -11,8 +11,8 @@ function HomePage() {
       <Hero
         imageUrl={matchaData.imageUrl}
         imageAlt={matchaData.imageAlt}
-        titleLine1={matchaData.imagetitleLine1}
-        titleLine2={matchaData.imagetitleLine2}
+        titleLine1={matchaData.titleLine1}
+        titleLine2={matchaData.titleLine2}
         paragraph={matchaData.paragraph}
         buttonText={matchaData.buttonText}
         buttonLink={matchaData.buttonLink}

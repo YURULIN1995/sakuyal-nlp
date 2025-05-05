@@ -3,7 +3,7 @@ import TwoColumnLayout from '@components/TwoColumnLayout';
 
 function Hero({
   imageUrl,
-  imageAlt = "Hero 圖片", // 可以保留預設值
+  imageAlt = "圖片",
   titleLine1,
   titleLine2,
   paragraph,
@@ -12,12 +12,17 @@ function Hero({
   socialLinks = []
 }) {
 
+  // ***** 在這裡加上 console.log *****
+  console.log('titleLine1:', titleLine1);
+  console.log('titleLine2:', titleLine2);
+
   // 組合左欄內容
   const textContent = (
     <>
       {(titleLine1 || titleLine2) && (
         <h2 className={styles.heroTitle}>
-          {titleLine1}{titleLine1 && titleLine2 && <br/>}
+          {titleLine1}
+          {titleLine1 && titleLine2 && <br/>}
           {titleLine2}
         </h2>
       )}
