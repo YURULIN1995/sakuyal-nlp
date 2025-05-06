@@ -1,0 +1,87 @@
+/* src/components/ServicesSection/ServicesSection.module.css */
+
+/* 容器樣式 (可以參考 TwoColumnLayout.contentContainer，但 padding 可能不同) */
+.container {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 80px 40px; /* Services Section 的上下左右 padding */
+    box-sizing: border-box;
+  }
+  
+  /* 三欄容器 */
+  .columnsContainer {
+    display: flex;
+    flex-wrap: wrap; /* 手機版換行 */
+    gap: 30px;      /* 欄位間距 */
+    width: 100%;
+  }
+  
+  /* 定義各欄位寬度 (範例：30% - 40% - 30%) */
+  .leftColumn,
+  .rightColumn {
+    flex: 1; /* 允許縮放 */
+    flex-basis: 30%;
+    box-sizing: border-box;
+    /* 可以加入 padding */
+    /* padding: 15px; */
+  }
+  
+  .middleColumn {
+    flex: 1;
+    flex-basis: 40%;
+    box-sizing: border-box;
+    display: flex; /* 讓圖片可以置中 (如果需要) */
+    align-items: center;
+    justify-content: center;
+    /* padding: 15px; */
+  }
+  
+  .middleColumn img { /* 限制圖片大小 */
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* 保持圓角 */
+  }
+  
+  /* 右欄內部項目 (標題+內文組) */
+  .rightColumnItem {
+    margin-bottom: 25px; /* 每組之間的間距 */
+  }
+  
+  /* --- 重用 ContentSection 的內容樣式 --- */
+  
+  /* 方法 A: 使用 composes (原生 CSS Modules) */
+  .serviceTitle {
+    composes: title from "@styles/ContentSection.module.css";
+    /* 如果需要微調，可以在這裡加 */
+    /* font-size: 2em; */
+  }
+  
+  .serviceParagraph {
+    composes: paragraph from "@styles/ContentSection.module.css";
+    /* 如果需要微調 */
+    /* margin-bottom: 10px; */
+  }
+  
+  /* 方法 B: 如果使用 Sass/Less，可以用 @import 或 @use 引入 _contentStyles.scss */
+  /* .serviceTitle { @extend .title; } */
+  
+  /* --- 響應式：三欄堆疊 --- */
+  @media (max-width: 992px) { /* 可能需要在平板就開始堆疊 */
+    .columnsContainer {
+       flex-direction: column;
+       gap: 40px; /* 堆疊時的間距 */
+    }
+    .leftColumn,
+    .middleColumn,
+    .rightColumn {
+       flex-basis: auto; /* 重設寬度 */
+       width: 100%;
+       /* padding: 15px; */
+    }
+    /* 手機版順序 (可選) */
+    .middleColumn { order: 1; } /* 圖片最上? */
+    .leftColumn { order: 2; }
+    .rightColumn { order: 3; }
+  }

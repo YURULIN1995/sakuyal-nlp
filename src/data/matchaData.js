@@ -22,19 +22,21 @@
     titleLine2: null,
     paragraph: "茶之心協助來自不同背景的學習者，悠遊於裏千家茶道的優美境地，為您的茶道旅程提供清晰的理解與實用的指引。我們助您不僅學習精準的點前(てまえ, temae)形式，更能真實體會茶之「心」(こころ, kokoro)——領略器物(どうぐ, dōgu)之美、鑑賞時節之韵，並感受其中蘊含的款待。體驗一條通往文化深度與個人滋養的獨特路徑，隨時隨地皆可探尋。讓我們為您構築學習的階梯，使您得以專注領略茶道的靜謐之美與內在修為。",
     buttonText: "了解更多",
-    buttonLink: "#"
-  };
-  
-  export const servicesSectionData = {
-    imageUrl: null,
-    imageAlt: "服務",
-    titleLine1: "服務",
-    titleLine2: null,
-    paragraph: "無論你想在茶道的一期一會中尋找片刻寧靜、專注當下；或是在和菓子的手作體驗中，感受從食材到藝術品的療癒魔法；還是展開一場探索日本各地純淨抹茶的風味尋味之旅，我們都為你精心準備了獨特的課程與選品。在這裡，放慢腳步，連結手心與味蕾，一同深入感受日式文化的細膩與美好。",
-    buttonText: "填寫預約表單",
     buttonLink: "#",
     isReversed: true
   };
+  
+export const servicesOverviewData = { // 改個名字，更符合內容
+  leftTitle: "我們的核心服務",
+  leftParagraph: "無論你是想透過靜心茶道找回平靜，在手作和果子中發揮創意，或是探索極致的抹茶風味，我們都能提供專業細緻的體驗。",
+  imageUrl: "/images/wagashi.jpg",
+  imageAlt: "服務總覽示意圖",
+  rightColumnItems: [
+    { id: 'svc1', title: "裏千家茶道教學", paragraph: "體驗一期一會的靜心時刻，學習正宗茶道禮儀與精神。" },
+    { id: 'svc2', title: "和果子製作體驗", paragraph: "親手製作季節和果子，從紅豆餡到練切造型，感受手作溫度。" },
+    { id: 'svc3', title: "抹茶品鑑與選購", paragraph: "提供多款產地抹茶嘗鮮，並有專業建議，助你找到命定之味。" }
+  ]
+};
   
   export const blogSectionData = {
     imageUrl: null,
@@ -43,5 +45,6 @@
     titleLine2: null,
     paragraph: null,
     buttonText: null,
-    buttonLink: null
+    buttonLink: null,
+    isReversed: true
   };

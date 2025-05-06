@@ -12,7 +12,7 @@
   }
 
   .wrapperReversedBackground {
-    background-color: rgb(250, 253, 244);
+    background-color: rgb(250, 253, 244); /* 設定 reversed 狀態的背景色 */
   }
   
   /* 如果 Kanban 的標題、段落等需要微調，可以在這裡加 */
