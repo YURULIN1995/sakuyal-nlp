@@ -1,5 +1,4 @@
-// src/components/ContentSection/ContentSection.jsx
-import styles from '@styles/ContentSection.module.css'; // 匯入自己的樣式
+import styles from '@styles/ContentSection.module.css';
 import TwoColumnLayout from '@components/TwoColumnLayout';
 
 function ContentSection({

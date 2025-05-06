@@ -1,5 +1,3 @@
-/* src/styles/Hero.module.css (極簡版) */
-
 /* Hero 特有的外層和背景 */
 .heroSection {
   position: relative;
@@ -24,6 +22,8 @@
 
 /* === Hero 傳遞給 ContentSection -> TwoColumnLayout 的特定 Class === */
 .heroContainerSpecifics {
+  margin-left: 154px;
+  margin-right: 154px;
   padding-top: 200px;
   padding-bottom: 48px;
   min-height: inherit;

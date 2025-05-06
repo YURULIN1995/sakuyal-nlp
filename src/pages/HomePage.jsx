@@ -1,12 +1,12 @@
 import SEO from '@components/Head/SEO';
 import Hero from '@components/Hero';
 import KanbanSection from '@components/KanbanSection';
-import { matchaData, aboutSectionData, servicesSectionData, blogSectionData } from '@data/copyWritingData.js';
+import { freeTrialData, aboutSectionData, servicesSectionData, blogSectionData } from '@data/matchaData.js';
 function HomePage() {
   return (
     <>
       <SEO/>
-      <Hero {...matchaData} />
+      <Hero {...freeTrialData} />
       <KanbanSection {...aboutSectionData} />
       <KanbanSection {...servicesSectionData} />
       <KanbanSection {...blogSectionData} />
