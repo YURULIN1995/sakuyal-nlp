@@ -27,6 +27,17 @@
   align-items: flex-start; /* 預設靠左 */
 }
 
+/* 在檔案末尾或其他合適位置添加 */
+.textContainer:only-child {
+  flex-basis: 100%; /* 讓它佔滿父層寬度 */
+  /* 或者 width: 100%; flex-basis: auto; */
+  /* max-width: 800px; */ /* 可選：限制純文字區塊的最大寬度，提高可讀性 */
+  /* 如果限制了寬度，可能需要左右 margin: auto 來居中 */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* align-items: center; */ /* 也可以考慮將內容置中 */
+}
+
 .imageContainer {
   flex-basis: 40%;
   padding: 20px;
@@ -41,6 +52,10 @@
   max-width: 100%;     /* 圖片最大寬度不超過容器寬度 */
   height: auto;        /* 高度隨寬度等比縮放 */
   border-radius: 8px;
+}
+
+.reversed {
+  flex-direction: row-reverse;
 }
 
 /* 通用響應式堆疊 */

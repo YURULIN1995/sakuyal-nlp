@@ -8,21 +8,24 @@ import styles from '@styles/TwoColumnLayout.module.css';
  * @param {string} textContainerClassName - 附加到 textContainer 的額外 class
  * @param {string} imageContainerClassName - 附加到 imageContainer 的額外 class
  */
+
 function TwoColumnLayout({
   textSlot,
   imageSlot,
   className = '',
   textContainerClassName = '',
-  imageContainerClassName = ''
+  imageContainerClassName = '',
+  isReversed = false
 }) {
 
+  const innerColumnsClasses = `${styles.innerColumns} ${isReversed ? styles.reversed : ''}`;
   const containerClasses = `${styles.contentContainer} ${className}`;
   const textContainerClasses = `${styles.textContainer} ${textContainerClassName}`;
   const imageContainerClasses = `${styles.imageContainer} ${imageContainerClassName}`;
-
+  
   return (
     <div className={containerClasses}>
-      <div className={styles.innerColumns}>
+      <div className={innerColumnsClasses}>
         <div className={textContainerClasses}>
           {textSlot}
         </div>

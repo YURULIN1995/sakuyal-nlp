@@ -1,139 +1,41 @@
+/* src/styles/Hero.module.css (極簡版) */
+
+/* Hero 特有的外層和背景 */
 .heroSection {
   position: relative;
   width: 100%;
-  min-height: 400px; /* 設定最小高度 */
+  min-height: 400px;
   overflow: hidden;
 }
-
 .backgroundLayer {
-  position: absolute;  /* 絕對定位，相對於 .heroSection */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   z-index: 1;
-  display: flex;/* 排列內部的左右色塊 .bgLeft 和 .bgRight */
+  display: flex;
 }
-
 .bgLeft {
   flex-basis: 60%;
   background-color: rgb(241, 246, 233);
 }
-
 .bgRight {
   flex-basis: 40%;
   background-color: rgb(255, 255, 255);
 }
 
-/* 2. Hero 特有的容器樣式 (傳遞給 TwoColumnLayout) */
+/* === Hero 傳遞給 ContentSection -> TwoColumnLayout 的特定 Class === */
 .heroContainerSpecifics {
   padding-top: 200px;
   padding-bottom: 48px;
-  min-height: inherit; /* 繼承 .heroSection 的 min-height */
+  min-height: inherit;
 }
+.heroTextContainerMobile { /* Mobile order for Hero */ }
+.heroImageContainerMobile { /* Mobile order for Hero */ }
 
-/* 3. Hero 內容樣式 */
-.heroTitle {
-  font-size: 2.2em;
-  color: rgb(58, 90, 64);
-  font-weight: 700;
-  line-height: 1.3;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-.heroParagraph {
-  font-size: 1.1em;
-  color: rgb(88, 129, 87); /* 稍淺的綠色系 */
-  line-height: 1.7; /* 行高 */
-  margin-bottom: 25px; /* 與下方按鈕/連結的間距 */
-}
-
-.heroButton {
-  box-sizing: border-box;
-  display: inline-block; /* 寬度自適應內容 */
-  width: auto;         /* 確保無固定寬度 */
-  padding: 14px 30px;  /* 上下14px，左右30px 內距 */
-  background-color: rgb(156, 201, 150); /* 你選擇的綠色 */
-  color: white;        /* 文字顏色 */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  text-align: center;
-  margin-top: 15px;    /* 與上方元素的間距 */
-  transition: background-color 0.3s ease;
-  white-space: nowrap; /* 防止文字換行 */
-  text-decoration: none; /* 如果是 a 標籤，移除底線 */
-}
-
-.heroButton:hover {
-  background-color: rgb(58, 90, 64); /* 你選擇的 hover 綠色 */
-}
-
-.socialList {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 15px; /* 圖標間距 */
-  margin-top: 20px; /* 與上方元素的間距 */
-}
-
-.socialLink {
-  color: rgb(156, 201, 150); /* 預設圖標/連結顏色 */
-  font-size: 1.2em; /* 如果用字體圖標，可調整大小 */
-  text-decoration: none;
-  display: inline-block; /* 確保像按鈕一樣對齊 */
-}
-.socialLink:hover {
-  color: rgb(58, 90, 64); /* 滑鼠懸停顏色 */
-}
-
-/* 4. Hero 特有的響應式調整 */
-
-/* 用於傳遞給 TwoColumnLayout 的 textContainerClassName prop */
-.heroTextContainerMobile {
-  /* 這裡可以放 Hero 文字區塊在手機版時的額外樣式，除了 order */
-}
-
-/* 用於傳遞給 TwoColumnLayout 的 imageContainerClassName prop */
-.heroImageContainerMobile {
-  /* 這裡可以放 Hero 圖片區塊在手機版時的額外樣式，除了 order */
-}
-
-/* 響應式斷點 */
-@media (max-width: 768px) { /* 建議用 CSS 變數統一管理斷點 */
-  /* 調整 Hero 容器在手機上的 padding */
+@media (max-width: 768px) {
   .heroContainerSpecifics {
     padding-top: 90px;
     padding-bottom: 20px;
   }
-
-  /* 設定 Hero 在手機上文字和圖片的順序 */
-  .heroTextContainerMobile {
-    order: 2; /* 文字在下 */
-  }
-  .heroImageContainerMobile {
-    order: 1; /* 圖片在上 */
-  }
-
-  /* 如果標題/段落/按鈕在手機上需要調整大小或間距，也可以加在這裡 */
-  /* 例如:
-  .heroTitle {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-  }
-  .heroParagraph {
-    font-size: 1em;
-    margin-bottom: 20px;
-  }
-  .heroButton {
-     padding: 12px 25px;
-     margin-top: 10px;
-  }
-  .socialList {
-     margin-top: 15px;
-     gap: 12px;
-  }
-  */
+  .heroTextContainerMobile { order: 2; }
+  .heroImageContainerMobile { order: 1; }
 }
