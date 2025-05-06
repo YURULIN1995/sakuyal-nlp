@@ -26,11 +26,11 @@
   };
   
   export const servicesSectionData = {
-    imageUrl: "https://placehold.co/600x400/E9ECEF/ADB5BD?text=Image+Coming+Soon",
+    imageUrl: null,
     imageAlt: "服務",
     titleLine1: "服務",
     titleLine2: null,
-    paragraph: "文案",
+    paragraph: "無論你想在茶道的一期一會中尋找片刻寧靜、專注當下；或是在和菓子的手作體驗中，感受從食材到藝術品的療癒魔法；還是展開一場探索日本各地純淨抹茶的風味尋味之旅，我們都為你精心準備了獨特的課程與選品。在這裡，放慢腳步，連結手心與味蕾，一同深入感受日式文化的細膩與美好。",
     buttonText: "填寫預約表單",
     buttonLink: "#",
     isReversed: true

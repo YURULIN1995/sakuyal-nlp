@@ -25,11 +25,11 @@ export const aboutSectionData = {
 };
 
 export const servicesSectionData = {
-  imageUrl: "https://placehold.co/600x400/E9ECEF/ADB5BD?text=Image+Coming+Soon",
+  imageUrl: null,
   imageAlt: "服務",
   titleLine1: "服務",
   titleLine2: null,
-  paragraph: "文案",
+  paragraph: "",
   buttonText: "填寫預約表單",
   buttonLink: "#",
   isReversed: true
