@@ -53,9 +53,7 @@
 /* 方法 A: 使用 composes (原生 CSS Modules) */
 .serviceTitle {
   composes: title from "@styles/ContentSection.module.css";
-  /* 如果需要微調，可以在這裡加 */
   text-align: center;
-  font-size: 20px;
 }
 
 .serviceParagraph {
@@ -67,6 +65,13 @@
 
 /* 方法 B: 如果使用 Sass/Less，可以用 @import 或 @use 引入 _contentStyles.scss */
 /* .serviceTitle { @extend .title; } */
+
+.rightColumnTitle {
+  composes: title from "@styles/ContentSection.module.css"; /* 繼承基礎樣式 */
+  font-size: 24px;  /* 設定適合 H3 的大小 */
+  margin-bottom: 10px;
+  text-align: center;
+}
 
 /* --- 響應式：三欄堆疊 --- */
 @media (max-width: 992px) { /* 可能需要在平板就開始堆疊 */

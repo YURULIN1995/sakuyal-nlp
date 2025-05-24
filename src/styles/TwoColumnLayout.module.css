@@ -27,6 +27,9 @@
   align-items: flex-start; /* 預設靠左 */
 }
 
+.textContainer h2 {
+  margin: auto;
+}
 /* 在檔案末尾或其他合適位置添加 */
 .textContainer:only-child {
   flex-basis: 100%; /* 讓它佔滿父層寬度 */
@@ -35,7 +38,7 @@
   /* 如果限制了寬度，可能需要左右 margin: auto 來居中 */
   /* margin-left: auto; */
   /* margin-right: auto; */
-  /* align-items: center; */ /* 也可以考慮將內容置中 */
+  /* align-items: center; /* 也可以考慮將內容置中 */
 }
 
 .imageContainer {
@@ -73,6 +76,10 @@
     flex-basis: auto;
     width: 100%;
     padding: 15px; /* mobile 內部 padding */
+  }
+
+  .textContainer h2 {
+    margin: 0;
   }
 
 }

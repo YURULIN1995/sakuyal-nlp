@@ -19,6 +19,11 @@ ul {
 
 /* BASE STYLES */
 body {
-    font-family: "Noto Sans TC", "Noto Serif TC";
+    font-family: "Noto Sans TC";
     /* 可以加入其他全域 body 樣式，例如背景色 */
+}
+
+p {
+    font-family: "Noto Sans TC";
+    font-weight: 300;
 }
