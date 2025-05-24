@@ -26,25 +26,14 @@
     isReversed: true
   };
   
-export const servicesOverviewData = { // 改個名字，更符合內容
+export const servicesOverviewData = {
   leftTitle: "我們的核心服務",
-  leftParagraph: "無論你是想透過靜心茶道找回平靜，在手作和果子中發揮創意，或是探索極致的抹茶風味，我們都能提供專業細緻的體驗。",
+  leftParagraph: "無論你是想透過靜心茶道找回平靜，在手作和菓子中發揮創意，或是探索極致的抹茶風味，我們都能提供專業細緻的體驗。",
   imageUrl: "/images/wagashi.jpg",
   imageAlt: "服務總覽示意圖",
   rightColumnItems: [
-    { id: 'svc1', title: "裏千家茶道教學", paragraph: "體驗一期一會的靜心時刻，學習正宗茶道禮儀與精神。" },
-    { id: 'svc2', title: "和果子製作體驗", paragraph: "親手製作季節和果子，從紅豆餡到練切造型，感受手作溫度。" },
-    { id: 'svc3', title: "抹茶品鑑與選購", paragraph: "提供多款產地抹茶嘗鮮，並有專業建議，助你找到命定之味。" }
+    { id: 'svc1', title: "裏千家茶道教學", paragraph: "在快速變化的日子裡，你是否渴望一隅寧靜，專注當下？透過裏千家茶道的點茶、奉茶與品茶，學習的不只是日式禮儀，更是與自己溫柔對話、找回內在平靜的過程。無需任何經驗，老師將細心引導，歡迎來體驗一期一會的美好。" },
+    { id: 'svc2', title: "和菓子製作體驗", paragraph: "看著精緻和菓子總讓你心動，卻擔心太難學不會？別擔心！從親手熬煮香甜綿密的紅豆餡開始，到學習優雅的練切 (Nerikiri) 造型技巧，一步步帶你體驗將食材化為藝術品的療癒魔法。親手做的和菓子，無論款待自己或送給朋友，都充滿溫度。" },
+    { id: 'svc3', title: "抹茶品鑑與選購", paragraph: "宇治、靜岡、西尾... 不同風土孕育獨特茶韻，想探索卻不知從何選起？我們為你精選日本十大知名產區的純淨抹茶粉，一次品遍細緻風味。不再選擇困難，輕鬆找到最觸動你味蕾的那抹綠。送禮或獨享，都是講究的極致品味。" }
   ]
 };
-  
-  export const blogSectionData = {
-    imageUrl: null,
-    imageAlt: "精選文章",
-    titleLine1: "精選文章",
-    titleLine2: null,
-    paragraph: null,
-    buttonText: null,
-    buttonLink: null,
-    isReversed: true
-  };

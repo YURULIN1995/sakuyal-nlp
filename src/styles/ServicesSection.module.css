@@ -17,14 +17,14 @@
 
 .leftColumn,
 .rightColumn {
-  flex: 1; /* 暫時移除 flex: 1 看看，basis 應該足夠
+  /* flex: 1; */ /* 暫時移除 flex: 1 看看，basis 應該足夠 */
   /* 從 30% 中減去一部分 gap 的寬度 (總 gap 60px * 30% 比例) */
   flex-basis: calc(30% - (60px * 0.3)); /* 30% - 18px */
   box-sizing: border-box;
 }
   
 .middleColumn {
-  flex: 1; /* 暫時移除 flex: 1 看看 */
+  /* flex: 1; */ /*暫時移除 flex: 1 看看 */
   /* 從 40% 中減去一部分 gap 的寬度 (總 gap 60px * 40% 比例) */
   flex-basis: calc(40% - (60px * 0.4)); /* 40% - 24px */
   box-sizing: border-box;
@@ -54,13 +54,15 @@
 .serviceTitle {
   composes: title from "@styles/ContentSection.module.css";
   /* 如果需要微調，可以在這裡加 */
-  /* font-size: 2em; */
+  text-align: center;
+  font-size: 20px;
 }
 
 .serviceParagraph {
   composes: paragraph from "@styles/ContentSection.module.css";
   /* 如果需要微調 */
   /* margin-bottom: 10px; */
+  font-size: 17px;
 }
 
 /* 方法 B: 如果使用 Sass/Less，可以用 @import 或 @use 引入 _contentStyles.scss */
@@ -80,7 +82,7 @@
       /* padding: 15px; */
   }
   /* 手機版順序 (可選) */
-  .middleColumn { order: 1; } /* 圖片最上? */
-  .leftColumn { order: 2; }
+  .leftColumn { order: 1; }
+  .middleColumn { order: 2; }
   .rightColumn { order: 3; }
 }

@@ -2,7 +2,10 @@ import SEO from '@components/Head/SEO';
 import Hero from '@components/Hero';
 import KanbanSection from '@components/KanbanSection';
 import ServicesSection from '@components/ServicesSection';
-import { freeTrialData, aboutSectionData, servicesOverviewData, blogSectionData } from '@data/matchaData.js';
+import FeaturedPostsSection from '@components/FeaturedPostsSection';
+import { freeTrialData, aboutSectionData, servicesOverviewData } from '@data/matchaData.js';
+import { featuredPostsData } from '@data/blogData.js';
+
 function HomePage() {
   return (
     <>
@@ -10,7 +13,7 @@ function HomePage() {
       <Hero {...freeTrialData} />
       <KanbanSection {...aboutSectionData} />
       <ServicesSection {...servicesOverviewData} />
-      <KanbanSection {...blogSectionData} />
+      <FeaturedPostsSection/>
     </>
   );
 }

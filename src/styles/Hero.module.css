@@ -28,14 +28,12 @@
   padding-bottom: 48px;
   min-height: inherit;
 }
-.heroTextContainerMobile { /* Mobile order for Hero */ }
-.heroImageContainerMobile { /* Mobile order for Hero */ }
 
 @media (max-width: 768px) {
   .heroContainerSpecifics {
     padding-top: 90px;
     padding-bottom: 20px;
   }
-  .heroTextContainerMobile { order: 2; }
-  .heroImageContainerMobile { order: 1; }
+  .heroTextContainerMobile { order: 1; }
+  .heroImageContainerMobile { order: 2; }
 }

@@ -43,7 +43,7 @@ function ServicesSection({
           <div className={styles.rightColumn}>
             {rightColumnItems.map(item => (
               <div key={item.id} className={styles.rightColumnItem}>
-                {item.title && <h3 className={styles.serviceTitle}>{item.title}</h3>} {/* 可能用 h3 或調整 title 樣式 */}
+                {item.title && <h4 className={styles.serviceTitle}>{item.title}</h4>}
                 {item.paragraph && <p className={styles.serviceParagraph}>{item.paragraph}</p>}
               </div>
             ))}
