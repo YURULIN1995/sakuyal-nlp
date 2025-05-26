@@ -11,22 +11,35 @@
 .columnsContainer {
   display: flex;
   flex-wrap: wrap; /* 手機版換行 */
-  gap: 30px;      /* 欄位間距 */
+  flex-direction: column; /* 垂直堆疊 */
+  gap: 40px;      /* 欄位間距 */
   width: 100%;
+}
+
+.leftColumn,
+.middleColumn,
+.rightColumn {
+    flex-basis: auto; /* 重設寬度 */
+    width: 100%;
 }
 
 .leftColumn,
 .rightColumn {
   /* flex: 1; */ /* 暫時移除 flex: 1 看看，basis 應該足夠 */
   /* 從 30% 中減去一部分 gap 的寬度 (總 gap 60px * 30% 比例) */
-  flex-basis: calc(30% - (60px * 0.3)); /* 30% - 18px */
   box-sizing: border-box;
+}
+
+.leftColumn {
+  order: 1;
+  align-items: center;
+  text-align: center;
 }
   
 .middleColumn {
+  order: 2;
   /* flex: 1; */ /*暫時移除 flex: 1 看看 */
   /* 從 40% 中減去一部分 gap 的寬度 (總 gap 60px * 40% 比例) */
-  flex-basis: calc(40% - (60px * 0.4)); /* 40% - 24px */
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -41,6 +54,10 @@
   border-radius: 8px; /* 保持圓角 */
   margin-left: auto;
   margin-right: auto;
+}
+
+.rightColumn {
+  order: 3;
 }
 
 /* 右欄內部項目 (標題+內文組) */
@@ -63,8 +80,9 @@
   font-size: 17px;
 }
 
-/* 方法 B: 如果使用 Sass/Less，可以用 @import 或 @use 引入 _contentStyles.scss */
-/* .serviceTitle { @extend .title; } */
+.sectionButton {
+  composes: button from "@styles/ContentSection.module.css";
+}
 
 .rightColumnTitle {
   composes: title from "@styles/ContentSection.module.css"; /* 繼承基礎樣式 */
@@ -74,18 +92,24 @@
 }
 
 /* --- 響應式：三欄堆疊 --- */
-@media (max-width: 992px) { /* 可能需要在平板就開始堆疊 */
+@media (min-width: 992px) { /* 可能需要在平板就開始堆疊 */
   .columnsContainer {
-      flex-direction: column;
-      gap: 40px; /* 堆疊時的間距 */
+      flex-direction: initial;
+      gap: 30px; /* 堆疊時的間距 */
   }
+
   .leftColumn,
-  .middleColumn,
   .rightColumn {
-      flex-basis: auto; /* 重設寬度 */
-      width: 100%;
-      /* padding: 15px; */
+    /* flex: 1; */ /* 暫時移除 flex: 1 看看，basis 應該足夠 */
+    /* 從 30% 中減去一部分 gap 的寬度 (總 gap 60px * 30% 比例) */
+    flex-basis: calc(30% - (60px * 0.3)); /* 30% - 18px */
+    width: initial;
   }
+  .middleColumn {
+    flex-basis: calc(40% - (60px * 0.4));
+    width: initial;
+  }
+
   /* 手機版順序 (可選) */
   .leftColumn { order: 1; }
   .middleColumn { order: 2; }

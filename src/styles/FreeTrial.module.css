@@ -1,0 +1,89 @@
+.title, .paragraph, .button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title, .paragraph {
+    text-align: center;
+}
+.title {
+    composes: title from '@styles/ContentSection.module.css';
+}
+
+.paragraph {
+    composes: paragraph from '@styles/ContentSection.module.css';
+}
+
+.button {
+    composes: button from '@styles/ContentSection.module.css';
+}
+
+.button:hover {
+background-color: rgb(58, 90, 64);
+}
+
+.socialList {
+list-style: none;
+padding: 0;
+display: flex;
+gap: 12px;
+margin-top: 15px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.socialLink {
+color: rgb(156, 201, 150);
+font-size: 1.2em;
+text-decoration: none;
+display: inline-block;
+margin-left: 16px;
+margin-right: 16px;
+}
+.socialLink:hover {
+color: rgb(58, 90, 64);
+}
+
+@media (min-width: 545px) {
+    .title {
+        font-size: 32px;
+    }
+}
+
+@media (min-width: 768px){
+    .title, .paragraph, .button {
+        margin-left: initial;
+        margin-right: initial;
+    }
+    .title, .paragraph {
+        text-align: left;
+    }
+    .title { 
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .paragraph {
+        font-size: 1.1em;
+        margin-bottom: 25px;
+    }
+    .button {
+        padding: 14px 30px;
+        margin-top: 15px;
+    }
+    .socialList {
+        margin-top: 20px;
+        gap: 15px;
+    }
+}
+
+@media (min-width: 922px) {
+    .title {
+        font-size: 38px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .title {
+        letter-spacing: 0.6px;
+    }
+}

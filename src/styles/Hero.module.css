@@ -1,4 +1,3 @@
-/* Hero 特有的外層和背景 */
 .heroSection {
   position: relative;
   width: 100%;
@@ -24,16 +23,22 @@
 .heroContainerSpecifics {
   margin-left: 154px;
   margin-right: 154px;
-  padding-top: 200px;
-  padding-bottom: 48px;
+  padding-top: 90px;
+  padding-bottom: 20px;
   min-height: inherit;
 }
 
-@media (max-width: 768px) {
+.heroTextContainerMobile {
+  order: 1;
+}
+
+.heroImageContainerMobile {
+  order: 2;
+}
+
+@media (min-width: 768px) {
   .heroContainerSpecifics {
-    padding-top: 90px;
-    padding-bottom: 20px;
+    padding-top: 200px;
+    padding-bottom: 48px;
   }
-  .heroTextContainerMobile { order: 1; }
-  .heroImageContainerMobile { order: 2; }
 }

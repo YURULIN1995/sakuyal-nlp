@@ -1,9 +1,7 @@
-// src/components/Hero.jsx (重構後)
-import React from 'react';
 import styles from '@styles/Hero.module.css'; // 只包含 Hero 特有樣式
-import ContentSection from '@components/ContentSection'; // 匯入內容區塊元件
+import FreeTrial from '@components/FreeTrial.jsx';
 
-// Hero 現在接收所有 ContentSection 需要的資料 props
+// Hero 現在接收所有 FreeTrial 需要的資料 props
 function Hero(props) {
   return (
     <section className={styles.heroSection}>
@@ -13,8 +11,8 @@ function Hero(props) {
         <div className={styles.bgRight}></div>
       </div>
 
-      {/* 使用 ContentSection 渲染內容，並傳入 Hero 特定的佈局 class */}
-      <ContentSection
+      {/* 使用 FreeTrail 渲染內容，並傳入 Hero 特定的佈局 class */}
+      <FreeTrial
         {...props} // 將所有接收到的資料 props 直接透傳下去
         layoutClassName={styles.heroContainerSpecifics}
         textContainerLayoutClassName={styles.heroTextContainerMobile}

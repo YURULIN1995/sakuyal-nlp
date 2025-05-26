@@ -18,6 +18,8 @@ import styles from '@styles/ServicesSection.module.css'; // 匯入自己的樣�
 function ServicesSection({
   leftTitle,
   leftParagraph,
+  leftButtonText,
+  leftButtonLink,
   imageUrl,
   imageAlt = "服務圖片",
   rightColumnItems = []
@@ -29,6 +31,14 @@ function ServicesSection({
         <div className={styles.leftColumn}>
           {leftTitle && <h2 className={styles.serviceTitle}>{leftTitle}</h2>}
           {leftParagraph && <p className={styles.serviceParagraph}>{leftParagraph}</p>}
+          {leftButtonText && leftButtonLink && (
+            <a
+              href={leftButtonLink}
+              className={styles.sectionButton}
+              target="_blank" rel="noopener noreferrer">
+              {leftButtonText}
+            </a>
+          )}
         </div>
 
         {/* 中間欄 (圖片) */}
