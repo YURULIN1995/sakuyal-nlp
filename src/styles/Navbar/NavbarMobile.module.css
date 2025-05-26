@@ -29,8 +29,7 @@
   background-color: var(--mobile-foreground);
   border-radius: 9px;
   transform-origin: center center;
-  transition: transform var(--mobile-animation-timing),
-              opacity var(--mobile-animation-timing);
+  transition: transform var(--mobile-animation-timing), opacity var(--mobile-animation-timing);
 }
 
 /* Hamburger animation to 'X' when isOpen class is added */

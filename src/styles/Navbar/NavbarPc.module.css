@@ -78,11 +78,6 @@ opacity: 1;
 visibility: visible;
 }
 
-/* 下拉選單中的列表項
-.dropdownItem {
-(通常不需要特別樣式，靠連結樣式即可)
-}
-*/
 
 /* 下拉選單中的連結 */
 .dropdownLink {

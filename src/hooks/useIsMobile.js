@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 @returns {boolean} - 如果視窗寬度小於或等於 breakpoint 回傳 true，大於 breakpoint 回傳 false。
  JSDoc end*/
 
-const useIsMobile = (breakpoint = 768) => {
+const useIsMobile = (breakpoint = 921) => {
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth <= breakpoint;

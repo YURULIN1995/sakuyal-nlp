@@ -4,9 +4,9 @@
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
-    padding-left: 40px;
-    padding-right: 40px;
     display: flex;
     align-items: center; /* 使用 align-items: center 將子元素 .innerColumns 垂直置中 */
   }
@@ -15,11 +15,12 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  flex-direction: column;
 }
 
 .textContainer {
-  flex-basis: 60%;
-  padding: 20px;
+  flex-basis: auto;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -27,9 +28,6 @@
   align-items: flex-start; /* 預設靠左 */
 }
 
-.textContainer h2 {
-  margin: auto;
-}
 /* 在檔案末尾或其他合適位置添加 */
 .textContainer:only-child {
   flex-basis: 100%; /* 讓它佔滿父層寬度 */
@@ -41,9 +39,23 @@
   /* align-items: center; /* 也可以考慮將內容置中 */
 }
 
+.textContainer h2 {
+  margin: auto;
+  line-height: 50px;
+  letter-spacing: -1px;
+}
+
+.textContainer p {
+  margin-bottom: 17px;
+  text-align: center;
+  line-height: 31px;
+}
+
+
 .imageContainer {
-  flex-basis: 40%;
-  padding: 20px;
+  flex-basis: auto;
+  padding: 15px;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -62,24 +74,29 @@
 }
 
 /* 通用響應式堆疊 */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .contentContainer {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
+
   .innerColumns {
-    flex-direction: column;
+    flex-direction: initial;
   }
 
 /* 預設順序：文字先，圖片後 (因為 DOM 順序)，Hero 可以覆蓋 */
-  .textContainer, .imageContainer {
-    flex-basis: auto;
-    width: 100%;
-    padding: 15px; /* mobile 內部 padding */
+  .textContainer {
+    flex-basis: 60%;
+  }
+  .imageContainer {
+    flex-basis: 40%;
+    padding: 20px;
+    width: initial;
   }
 
   .textContainer h2 {
     margin: 0;
+    width: initial;
   }
 
 }
