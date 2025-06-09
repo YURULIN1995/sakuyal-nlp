@@ -12,4 +12,4 @@ export const navItems = [
   },
   { name: '文章', path: '/blog' },
   { name: '聯絡', path: '/contact' },
-];
+]

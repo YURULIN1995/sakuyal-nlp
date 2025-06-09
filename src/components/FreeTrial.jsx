@@ -1,4 +1,4 @@
-import styles from '@styles/FreeTrial.module.css';
+import styles from '@styles/FreeTrial.module.scss';
 import FreeTrialColumn from '@components/FreeTrialColumn';
 
 function FreeTrial({

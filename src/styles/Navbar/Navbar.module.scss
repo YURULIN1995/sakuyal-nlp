@@ -1,0 +1,312 @@
+@use '@styles/_breakpoints.scss' as bp;
+/* --- Hamburger Menu Variables & Styles --- */
+/* (使用之前定義的變數) */
+:root {
+  --mobile-bar-width: 22px;
+  --mobile-bar-height: 2px;
+  --mobile-hamburger-gap: 5px;
+  --mobile-foreground: rgba(78, 117, 85, 0.7);
+  --mobile-animation-timing: 200ms ease-in-out;
+  --mobile-hamburger-height: calc(var(--mobile-bar-height) * 3 + var(--mobile-hamburger-gap) * 2);
+}
+
+.hamburgerMenu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mobile-hamburger-gap);
+  width: max-content;
+  padding: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 12; /* 高於選單列表 */
+  position: relative;
+}
+
+.hamburgerBar {
+  display: block;
+  width: var(--mobile-bar-width);
+  height: var(--mobile-bar-height);
+  background-color: var(--mobile-foreground);
+  border-radius: 9px;
+  transform-origin: center center;
+  transition: transform var(--mobile-animation-timing), opacity var(--mobile-animation-timing);
+}
+
+/* Hamburger animation to 'X' when isOpen class is added */
+.hamburgerMenu.isOpen .hamburgerBar:nth-child(1) {
+  transform: translateY(calc(var(--mobile-bar-height) + var(--mobile-hamburger-gap))) rotate(45deg);
+}
+
+.hamburgerMenu.isOpen .hamburgerBar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerMenu.isOpen .hamburgerBar:nth-child(3) {
+  transform: translateY(calc(-1 * (var(--mobile-bar-height) + var(--mobile-hamburger-gap)))) rotate(-45deg);
+}
+
+
+/* --- Mobile Navigation List --- */
+.navList {
+  position: absolute;
+  top: calc(100% - 1px); /* 緊貼 Header 底部 */
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+  list-style: none; /* 移除列表符號 */
+  margin: 0; /* 移除預設 margin */
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  max-height: calc(100vh - 80px); /* 限制最大高度 */
+  overflow-y: auto;
+
+  /* Visibility & Animation using isOpen class */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.navList.isOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* Mobile list item */
+.navItem {
+  border-bottom: 1px solid #f0f0f0;
+}
+.navItem:last-child {
+  border-bottom: none;
+}
+
+/* Mobile navigation link (for items WITHOUT dropdown) */
+/* Also used as base style for the dropdown trigger button */
+.navLink {
+  display: flex; /* Use flex to align text and potential icons/arrows */
+  align-items: center;
+  width: 100%; /* Make it full width */
+  padding: 14px 25px;
+  text-align: left; /* 改回靠左對齊比較常見 */
+  color: rgba(78, 117, 85, 0.9);
+  font-size: 16px;
+  font-family: "Noto Serif TC";
+  text-decoration: none;
+  background: none; /* Ensure button variant has no background */
+  border: none; /* Ensure button variant has no border */
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Style for the button used as parent item/dropdown trigger */
+.navLink.hasDropdown {
+  justify-content: space-between; /* Push text and arrow apart */
+}
+
+.navLink:hover {
+  background-color: rgba(241, 246, 233, 0.5);
+  color: rgba(4, 87, 19, 1);
+}
+
+/* Mobile Active Link Style */
+.activeLink {
+  background-color: rgba(241, 246, 233, 0.9);
+  color: rgba(4, 87, 19, 1);
+  font-weight: bold;
+}
+
+/* Text span inside the NavLink/Button
+.linkText {
+  (No specific styles needed unless for spacing)
+} */
+
+/* Dropdown toggle button (inside the parent item button/link) */
+.dropdownToggle {
+  background: none;
+  border: none;
+  padding: 5px; /* Minimal padding, click area is handled by parent */
+  margin-left: 10px; /* Space from text */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  pointer-events: none; /* Make the button itself not steal clicks from parent if needed, though onClick on button is used */
+}
+
+.arrow {
+  display: inline-block;
+  font-size: 0.5em; /* Adjust arrow size */
+  color: rgba(78, 117, 85, 0.7); /* Arrow color */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Rotate arrow when parent trigger has isOpen class */
+.navLink.hasDropdown.isOpen .arrow {
+  transform: rotate(90deg);
+}
+
+
+/* --- Mobile Dropdown List --- */
+.dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(241, 246, 233, 0.3);
+  overflow: hidden; /* Crucial for max-height animation */
+  max-height: 0; /* Collapsed by default */
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* Expand dropdown when isOpen class is added */
+.dropdownList.isOpen {
+  max-height: 30em; /* Adjust needed height (use em or large px) */
+}
+
+/* Mobile dropdown item
+.dropdownItemMobile {
+(Optional: border-top: 1px dashed #ddd;)
+} */
+
+/* Mobile dropdown link */
+.dropdownLink {
+  display: block;
+  padding: 12px 25px 12px 40px; /* Indent dropdown links */
+  text-align: left; /* 通常下拉項目靠左對齊 */
+  color: rgba(88, 127, 95, 0.9);
+  font-size: 15px;
+  font-weight: 400; /* Explicitly set */
+  font-family: "Noto Serif TC"; /* Explicitly set */
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdownLink:hover {
+  background-color: rgba(230, 240, 220, 0.9);
+  color: rgba(4, 87, 19, 1);
+}
+
+/* Active style for mobile dropdown links */
+.dropdownLink.activeLink {
+  font-weight: bold; /* Keep bold */
+  color: rgba(4, 87, 19, 1); /* Keep color */
+  /* background-color: transparent; */ /* Optional: remove background */
+}
+
+@media (min-width: bp.$breakpoint-nav) { 
+    .hamburgerMenu {
+        display: none;
+    }
+
+    /* 最外層列表容器 */
+    .navList {
+    display: flex;          /* 使用 Flexbox 水平排列 */                
+    padding: 0;             /* 移除預設 padding */
+    column-gap: 15px;       /* 項目之間的間距 (可調整) */
+    align-items: center;    /* 垂直居中對齊項目 */
+    }
+
+    /* 每個列表項 */
+    .navItem {
+    position: relative; /* 作為下拉選單絕對定位的基準 */
+    }
+
+    /* 一般導覽連結 */
+    .navLink {
+    display: inline-block; /* 允許設定 padding */
+    padding: 8px 15px;   /* 上下左右的內邊距 (可調整) */
+    color: rgba(78, 117, 85, 0.85); /* 連結顏色 */
+    font-size: 17px;
+    font-weight: 500;
+    font-family: "Noto Serif TC";
+    text-decoration: none; /* 移除預設底線 */
+    border-bottom: 3px solid transparent; /* 預留底部邊框空間，避免啟用時跳動 */
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* 過渡效果 */
+    }
+
+    /* 連結滑鼠懸停效果 */
+    .navLink:hover {
+    color: rgba(4, 87, 19, 0.9);
+    }
+
+    /* --- 啟用連結樣式 --- */
+    .activeLink {
+    color: rgba(4, 87, 19, 1);       /* 啟用時的文字顏色 */
+    font-weight: 700;                 /* 可選：加粗 */
+    border-bottom-color: rgba(4, 87, 19, 0.7); /* 啟用時顯示底線 */
+    }
+
+    /* 包含下拉選單的列表項 (可選，如果需要特殊標識)
+    (目前不需要額外樣式，繼承 .navItem)
+    }
+    */
+
+    .dropdownArrow {
+    display: inline-block; /* 讓它可以像文字一樣排列，但能設定樣式 */
+    font-size: 0.6em;     /* 設定為你想要的大小，例如 0.6em 或 0.7em (相對於父元素字體大小) */
+    margin-left: 4px;   /* 與前面的文字稍微隔開一點 (可調整) */
+    vertical-align: middle;
+    /* color: inherit; */ /* 繼承父元素顏色 */
+    }
+
+    /* 下拉選單列表 (預設隱藏) */
+    .dropdownList {
+    display: none;        /* 預設不顯示 */
+    position: absolute;   /* 絕對定位 */
+    top: 100%;          /* 在父項目下方 */
+    left: 50%;          /* 先移到中間 */
+    transform: translateX(-50%); /* 再精確置中 */
+    min-width: max-content; /* 寬度根據內容自適應 */
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;      /* 選單內部的上下 padding */
+    border-radius: 6px;   /* 圓角 */
+    z-index: 10;         /* 確保在最上層 */
+    opacity: 0;           /* 為了動畫效果 */
+    visibility: hidden;   /* 為了動畫效果 */
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    }
+
+    /* 當父項目(.navItem)被滑鼠懸停時，顯示其直接子元素 .dropdownList */
+    .navItem:hover > .dropdownList {
+    display: block; /* 改為 block 來觸發顯示 */
+    opacity: 1;
+    visibility: visible;
+    }
+
+
+    /* 下拉選單中的連結 */
+    .dropdownLink {
+    display: block;       /* 佔滿整個 li */
+    padding: 10px 25px;   /* 下拉項目的 padding */
+    color: rgba(78, 117, 85, 0.9);
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "Noto Serif TC";
+    text-decoration: none;
+    white-space: nowrap; /* 避免文字換行 */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+
+    /* 下拉選單連結滑鼠懸停效果 */
+    .dropdownLink:hover {
+    background-color: rgba(241, 246, 233, 0.8);
+    color: rgba(4, 87, 19, 1);
+    }
+
+    /* 下拉選單中啟用連結的樣式 */
+    /* 它會同時擁有 .dropdownLink 和 .activeLink 兩個 class */
+    .dropdownLink.activeLink {
+    font-weight: 700; /* 例如加粗 */
+    color: rgba(4, 87, 19, 1);
+    background-color: rgba(230, 240, 220, 0.9); /* 可選：不同的啟用背景色 */
+    border-bottom-color: transparent; /* 確保下拉選單中的啟用連結沒有底線 */
+    }
+}

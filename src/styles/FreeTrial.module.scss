@@ -1,3 +1,5 @@
+@use '@styles/_breakpoints.scss' as bp;
+
 .title, .paragraph, .button {
     margin-left: auto;
     margin-right: auto;
@@ -44,13 +46,13 @@ margin-right: 16px;
 color: rgb(58, 90, 64);
 }
 
-@media (min-width: 545px) {
+@media (min-width: bp.$breakpoint-xs) {
     .title {
         font-size: 32px;
     }
 }
 
-@media (min-width: 768px){
+@media (min-width: bp.$breakpoint-md){
     .title, .paragraph, .button {
         margin-left: initial;
         margin-right: initial;
@@ -76,7 +78,7 @@ color: rgb(58, 90, 64);
     }
 }
 
-@media (min-width: 922px) {
+@media (min-width: bp.$breakpoint-lg) {
     .title {
         font-size: 38px;
     }

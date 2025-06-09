@@ -1,8 +1,10 @@
+@use '@styles/_breakpoints.scss' as bp;
+
 .header {
   width: 100%;
   position: absolute; /* <--- 改回 absolute (或 fixed) */
-  top: 0;             /* <--- 定位到頂部 */
-  left: 0;            /* <--- 定位到左側 */
+  top: 0;
+  left: 0;
   z-index: 10;        /* <--- 設定層級，確保在 Hero 之上 (數值可調整) */
   background-color: transparent; /* <--- 改回透明 */
   /* border-bottom: none; */ /* 移除或註解掉邊框 */
@@ -31,4 +33,10 @@
 .logoImg {
   height: 90px; /* 保持你的 logo 高度 */
   display: block;
+}
+
+@media (min-width: bp.$breakpoint-xs){
+  .logoImg {
+    width: 125%;
+  }
 }
