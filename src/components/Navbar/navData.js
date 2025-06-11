@@ -3,7 +3,7 @@ export const navItems = [
   { name: '服務項目', path: '/services' },
   {
     name: '作品集',
-    path: '#', // 父項目路徑設為 #
+    path: '/portfolio',
     children: [
       { name: '作品 01', path: '/portfolio/01' },
       { name: '作品 02', path: '/portfolio/02' },

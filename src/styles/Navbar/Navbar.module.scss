@@ -47,7 +47,7 @@
 }
 
 
-/* --- Mobile Navigation List --- */
+/* --- Navigation List --- */
 .navList {
   position: absolute;
   top: calc(100% - 1px); /* 緊貼 Header 底部 */
@@ -75,7 +75,6 @@
   visibility: visible;
   transform: translateY(0);
 }
-
 
 /* Mobile list item */
 .navItem {
@@ -153,7 +152,7 @@
 
 
 /* --- Mobile Dropdown List --- */
-.dropdown {
+.dropdownList {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -199,114 +198,125 @@
 }
 
 @media (min-width: bp.$breakpoint-nav) { 
-    .hamburgerMenu {
-        display: none;
-    }
+  .hamburgerMenu {
+      display: none;
+  }
 
-    /* 最外層列表容器 */
-    .navList {
-    display: flex;          /* 使用 Flexbox 水平排列 */                
-    padding: 0;             /* 移除預設 padding */
-    column-gap: 15px;       /* 項目之間的間距 (可調整) */
-    align-items: center;    /* 垂直居中對齊項目 */
-    }
+  /* 最外層列表容器 */
+  .navList {
+  display: flex; /* 使用 Flexbox 水平排列 */                
+  padding: 0; /* 移除預設 padding */
+  column-gap: 15px; /* 項目之間的間距 (可調整) */
+  align-items: center; /* 垂直居中對齊項目 */
+  position: static; /* 從 absolute 改回 static */
+  width: auto; /* 寬度自動 */
+  transform: none; /* 移除位移 */
+  visibility: visible; /* 確保可見 */
+  opacity: 1; /* 確保不透明 */
+  max-height: none; /* 移除最大高度限制 */
+  overflow-y: visible; /* 移除滾動條 */
+  box-shadow: none; /* 移除陰影 */
+  border-top: none; /* 移除頂部邊框 */
+  background-color: transparent; /* 背景透明 */
+  transition: none; /* 桌面版不需要展開動畫 */
+  }
 
-    /* 每個列表項 */
-    .navItem {
-    position: relative; /* 作為下拉選單絕對定位的基準 */
-    }
+  /* 每個列表項 */
+  .navItem {
+  position: relative; /* 作為下拉選單絕對定位的基準 */
+  }
 
-    /* 一般導覽連結 */
-    .navLink {
-    display: inline-block; /* 允許設定 padding */
-    padding: 8px 15px;   /* 上下左右的內邊距 (可調整) */
-    color: rgba(78, 117, 85, 0.85); /* 連結顏色 */
-    font-size: 17px;
-    font-weight: 500;
-    font-family: "Noto Serif TC";
-    text-decoration: none; /* 移除預設底線 */
-    border-bottom: 3px solid transparent; /* 預留底部邊框空間，避免啟用時跳動 */
-    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* 過渡效果 */
-    }
+  /* 一般導覽連結 */
+  .navLink {
+  display: inline-block; /* 允許設定 padding */
+  padding: 8px 15px;   /* 上下左右的內邊距 (可調整) */
+  color: rgba(78, 117, 85, 0.85); /* 連結顏色 */
+  font-size: 17px;
+  font-weight: 500;
+  font-family: "Noto Serif TC";
+  text-decoration: none; /* 移除預設底線 */
+  border-bottom: 3px solid transparent; /* 預留底部邊框空間，避免啟用時跳動 */
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* 過渡效果 */
+  }
 
-    /* 連結滑鼠懸停效果 */
-    .navLink:hover {
-    color: rgba(4, 87, 19, 0.9);
-    }
+  /* 連結滑鼠懸停效果 */
+  .navLink:hover {
+  color: rgba(4, 87, 19, 0.9);
+  }
 
-    /* --- 啟用連結樣式 --- */
-    .activeLink {
-    color: rgba(4, 87, 19, 1);       /* 啟用時的文字顏色 */
-    font-weight: 700;                 /* 可選：加粗 */
-    border-bottom-color: rgba(4, 87, 19, 0.7); /* 啟用時顯示底線 */
-    }
+  /* --- 啟用連結樣式 --- */
+  .activeLink {
+  color: rgba(4, 87, 19, 1);       /* 啟用時的文字顏色 */
+  font-weight: 700;                 /* 可選：加粗 */
+  border-bottom-color: rgba(4, 87, 19, 0.7); /* 啟用時顯示底線 */
+  }
 
-    /* 包含下拉選單的列表項 (可選，如果需要特殊標識)
-    (目前不需要額外樣式，繼承 .navItem)
-    }
-    */
+  /* 包含下拉選單的列表項 (可選，如果需要特殊標識)
+  (目前不需要額外樣式，繼承 .navItem)
+  }
+  */
 
-    .dropdownArrow {
-    display: inline-block; /* 讓它可以像文字一樣排列，但能設定樣式 */
-    font-size: 0.6em;     /* 設定為你想要的大小，例如 0.6em 或 0.7em (相對於父元素字體大小) */
-    margin-left: 4px;   /* 與前面的文字稍微隔開一點 (可調整) */
-    vertical-align: middle;
-    /* color: inherit; */ /* 繼承父元素顏色 */
-    }
+  .dropdownArrow {
+  display: inline-block; /* 讓它可以像文字一樣排列，但能設定樣式 */
+  font-size: 0.6em;     /* 設定為你想要的大小，例如 0.6em 或 0.7em (相對於父元素字體大小) */
+  margin-left: 4px;   /* 與前面的文字稍微隔開一點 (可調整) */
+  vertical-align: middle;
+  /* color: inherit; */ /* 繼承父元素顏色 */
+  }
 
-    /* 下拉選單列表 (預設隱藏) */
-    .dropdownList {
-    display: none;        /* 預設不顯示 */
-    position: absolute;   /* 絕對定位 */
-    top: 100%;          /* 在父項目下方 */
-    left: 50%;          /* 先移到中間 */
-    transform: translateX(-50%); /* 再精確置中 */
-    min-width: max-content; /* 寬度根據內容自適應 */
-    background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 陰影效果 */
-    list-style: none;
-    margin: 0;
-    padding: 10px 0;      /* 選單內部的上下 padding */
-    border-radius: 6px;   /* 圓角 */
-    z-index: 10;         /* 確保在最上層 */
-    opacity: 0;           /* 為了動畫效果 */
-    visibility: hidden;   /* 為了動畫效果 */
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-    }
+  /* 下拉選單列表 (預設隱藏) */
+  .dropdownList {
+  display: none;        /* 預設不顯示 */
+  position: absolute;   /* 絕對定位 */
+  top: 100%;          /* 在父項目下方 */
+  left: 50%;          /* 先移到中間 */
+  transform: translateX(-50%); /* 再精確置中 */
+  min-width: max-content; /* 寬度根據內容自適應 */
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;      /* 選單內部的上下 padding */
+  border-radius: 6px;   /* 圓角 */
+  z-index: 10;         /* 確保在最上層 */
+  opacity: 0;           /* 為了動畫效果 */
+  visibility: hidden;   /* 為了動畫效果 */
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  }
 
-    /* 當父項目(.navItem)被滑鼠懸停時，顯示其直接子元素 .dropdownList */
-    .navItem:hover > .dropdownList {
-    display: block; /* 改為 block 來觸發顯示 */
-    opacity: 1;
-    visibility: visible;
-    }
+  /* 當父項目(.navItem)被滑鼠懸停時，顯示其直接子元素 .dropdownList */
+  .navItem:hover > .dropdownList {
+  display: block; /* 改為 block 來觸發顯示 */
+  opacity: 1;
+  visibility: visible;
+  }
 
 
-    /* 下拉選單中的連結 */
-    .dropdownLink {
-    display: block;       /* 佔滿整個 li */
-    padding: 10px 25px;   /* 下拉項目的 padding */
-    color: rgba(78, 117, 85, 0.9);
-    font-size: 15px;
-    font-weight: 400;
-    font-family: "Noto Serif TC";
-    text-decoration: none;
-    white-space: nowrap; /* 避免文字換行 */
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    }
+  /* 下拉選單中的連結 */
+  .dropdownLink {
+  display: block;       /* 佔滿整個 li */
+  padding: 10px 25px;   /* 下拉項目的 padding */
+  color: rgba(78, 117, 85, 0.9);
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Noto Serif TC";
+  text-decoration: none;
+  white-space: nowrap; /* 避免文字換行 */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
 
-    /* 下拉選單連結滑鼠懸停效果 */
-    .dropdownLink:hover {
-    background-color: rgba(241, 246, 233, 0.8);
-    color: rgba(4, 87, 19, 1);
-    }
+  /* 下拉選單連結滑鼠懸停效果 */
+  .dropdownLink:hover {
+  background-color: rgba(241, 246, 233, 0.8);
+  color: rgba(4, 87, 19, 1);
+  }
 
-    /* 下拉選單中啟用連結的樣式 */
-    /* 它會同時擁有 .dropdownLink 和 .activeLink 兩個 class */
-    .dropdownLink.activeLink {
-    font-weight: 700; /* 例如加粗 */
-    color: rgba(4, 87, 19, 1);
-    background-color: rgba(230, 240, 220, 0.9); /* 可選：不同的啟用背景色 */
-    border-bottom-color: transparent; /* 確保下拉選單中的啟用連結沒有底線 */
-    }
+  /* 下拉選單中啟用連結的樣式 */
+  /* 它會同時擁有 .dropdownLink 和 .activeLink 兩個 class */
+  .dropdownLink.activeLink {
+  font-weight: 700; /* 例如加粗 */
+  color: rgba(4, 87, 19, 1);
+  background-color: rgba(230, 240, 220, 0.9); /* 可選：不同的啟用背景色 */
+  border-bottom-color: transparent; /* 確保下拉選單中的啟用連結沒有底線 */
+  }
 }
