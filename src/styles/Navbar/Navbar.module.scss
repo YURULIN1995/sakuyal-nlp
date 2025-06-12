@@ -108,13 +108,13 @@
 }
 
 .navLink:hover {
-  background-color: rgba(241, 246, 233, 0.5);
+  background-color: transparent;
   color: rgba(4, 87, 19, 1);
 }
 
 /* Mobile Active Link Style */
 .activeLink {
-  background-color: rgba(241, 246, 233, 0.9);
+  background-color: transparent;
   color: rgba(4, 87, 19, 1);
   font-weight: bold;
 }
@@ -140,16 +140,18 @@
 
 .arrow {
   display: inline-block;
-  font-size: 0.5em; /* Adjust arrow size */
+  font-size: 0.6em; /* Adjust arrow size */
   color: rgba(78, 117, 85, 0.7); /* Arrow color */
+  transform: rotate(-90deg);
   transition: transform 0.2s ease-in-out;
+  margin-left: 4px;
+  vertical-align: middle;
 }
 
 /* Rotate arrow when parent trigger has isOpen class */
 .navLink.hasDropdown.isOpen .arrow {
-  transform: rotate(90deg);
-}
-
+  transform: none;
+}                  // 點擊一般連結後，關閉主選單
 
 /* --- Mobile Dropdown List --- */
 .dropdownList {
@@ -198,6 +200,7 @@
 }
 
 @media (min-width: bp.$breakpoint-nav) { 
+
   .hamburgerMenu {
       display: none;
   }
@@ -224,6 +227,7 @@
   /* 每個列表項 */
   .navItem {
   position: relative; /* 作為下拉選單絕對定位的基準 */
+  border-bottom: none; /* 移除底線 */
   }
 
   /* 一般導覽連結 */
@@ -255,13 +259,14 @@
   (目前不需要額外樣式，繼承 .navItem)
   }
   */
-
-  .dropdownArrow {
-  display: inline-block; /* 讓它可以像文字一樣排列，但能設定樣式 */
-  font-size: 0.6em;     /* 設定為你想要的大小，例如 0.6em 或 0.7em (相對於父元素字體大小) */
-  margin-left: 4px;   /* 與前面的文字稍微隔開一點 (可調整) */
+ .arrow {
+  display: inline-block;
+  font-size: 0.6em;
+  margin-left: 5px;
   vertical-align: middle;
-  /* color: inherit; */ /* 繼承父元素顏色 */
+  color: inherit;
+  transition: none;
+  transform: none !important;
   }
 
   /* 下拉選單列表 (預設隱藏) */
@@ -282,6 +287,8 @@
   opacity: 0;           /* 為了動畫效果 */
   visibility: hidden;   /* 為了動畫效果 */
   transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  max-height: none; /* 移除最大高度限制 */
+  overflow: visible; /* 確保內容不會被裁切 */
   }
 
   /* 當父項目(.navItem)被滑鼠懸停時，顯示其直接子元素 .dropdownList */
