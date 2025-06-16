@@ -31,12 +31,13 @@
 }
 
 .logoImg {
-  height: 90px; /* 保持你的 logo 高度 */
+  height: 73px;  /* 保持你的 logo 高度 */
+  aspect-ratio: auto 47 / 63;
   display: block;
 }
 
 @media (min-width: bp.$breakpoint-xs){
   .logoImg {
-    width: 125%;
+  height: 90px;
   }
 }

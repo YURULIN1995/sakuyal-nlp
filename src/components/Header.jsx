@@ -3,7 +3,7 @@ import Navbar from '@components/Navbar/Navbar';
 import styles from '@styles/Header.module.scss';
 
 function Header() {
-  const logoUrl = '/images/sakuyal_logo_transparent_113x90.svg';
+  const logoUrl = '/images/logo/sakuyal_logo_transparent_47x63.svg';
 
   return (
     <header className={styles.header}>

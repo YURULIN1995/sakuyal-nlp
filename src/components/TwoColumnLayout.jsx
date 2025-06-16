@@ -1,4 +1,4 @@
-import styles from '@styles/TwoColumnLayout.module.css';
+import styles from '@styles/TwoColumnLayout.module.scss';
 
 /**
  * 接收左右兩欄內容的通用佈局元件

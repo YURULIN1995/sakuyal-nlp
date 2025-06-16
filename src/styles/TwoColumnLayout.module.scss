@@ -1,3 +1,5 @@
+@use '@styles/_breakpoints.scss' as bp;
+
 .contentContainer {
     position: relative;
     z-index: 2;
@@ -20,7 +22,6 @@
 
 .textContainer {
   flex-basis: 100%;
-  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -29,9 +30,8 @@
 }
 
 .imageContainer {
-  flex-basis: auto;
+  flex-basis: 100%;
   padding: 15px;
-  width: 100%;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@
   display: block;      /* 修正圖片底部可能的微小空隙 */
   max-width: 100%;     /* 圖片最大寬度不超過容器寬度 */
   height: auto;        /* 高度隨寬度等比縮放 */
-  border-radius: 8px;
+  border-radius: 16px;
 }
 
 .reversed {
@@ -50,7 +50,7 @@
 }
 
 /* 通用響應式堆疊 */
-@media (min-width: var(--breakpoint-md)) {
+@media (min-width: bp.$breakpoint-md) {
   .contentContainer {
     padding-left: 40px;
     padding-right: 40px;
@@ -59,15 +59,13 @@
   .innerColumns {
     flex-direction: row;
   }
-
-/* 預設順序：文字先，圖片後 (因為 DOM 順序)，Hero 可以覆蓋 */
-  .textContainer {
-    flex-basis: 60%;
-    }
+  
+  .textContainer , .imageContainer{
+    flex-basis: 50%;
+    width: initial;
+  }
   
   .imageContainer {
-    flex-basis: 40%;
     padding: 20px;
-    width: initial;
   }
 }

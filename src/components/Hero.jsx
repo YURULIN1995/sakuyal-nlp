@@ -1,4 +1,4 @@
-import styles from '@styles/Hero.module.css'; // 只包含 Hero 特有樣式
+import styles from '@styles/Hero.module.scss'; // 只包含 Hero 特有樣式
 import FreeTrial from '@components/FreeTrial.jsx';
 
 // Hero 現在接收所有 FreeTrial 需要的資料 props

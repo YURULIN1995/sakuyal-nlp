@@ -1,21 +1,29 @@
+@use '@styles/_breakpoints.scss' as bp;
+
 .heroSection {
   position: relative;
   width: 100%;
   min-height: 400px;
   overflow: hidden;
 }
+ 
 .backgroundLayer {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
   display: flex;
 }
+
 .bgLeft {
-  flex-basis: 60%;
+  flex-basis: 70%;
   background-color: rgb(241, 246, 233);
 }
+
 .bgRight {
-  flex-basis: 40%;
+  flex-basis: 30%;
   background-color: rgb(255, 255, 255);
 }
 
@@ -36,7 +44,7 @@
   order: 2;
 }
 
-@media (min-width: 768px) {
+@media (min-width: bp.$breakpoint-md) {
   .heroContainerSpecifics {
     padding-top: 200px;
     padding-bottom: 48px;
