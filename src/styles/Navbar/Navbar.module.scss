@@ -233,12 +233,12 @@
   /* 一般導覽連結 */
   .navLink {
   display: inline-block; /* 允許設定 padding */
-  padding: 8px 15px;   /* 上下左右的內邊距 (可調整) */
-  color: rgba(78, 117, 85, 0.85); /* 連結顏色 */
+  padding: 8px 15px;
+  color: rgba(78, 117, 85, 0.85);
   font-size: 17px;
   font-weight: 500;
   font-family: "Noto Serif TC";
-  text-decoration: none; /* 移除預設底線 */
+  text-decoration: none;
   border-bottom: 3px solid transparent; /* 預留底部邊框空間，避免啟用時跳動 */
   transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* 過渡效果 */
   }
@@ -281,8 +281,8 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 陰影效果 */
   list-style: none;
   margin: 0;
-  padding: 10px 0;      /* 選單內部的上下 padding */
-  border-radius: 6px;   /* 圓角 */
+  padding: 0;
+  border-radius: 3px;   /* 圓角 */
   z-index: 10;         /* 確保在最上層 */
   opacity: 0;           /* 為了動畫效果 */
   visibility: hidden;   /* 為了動畫效果 */

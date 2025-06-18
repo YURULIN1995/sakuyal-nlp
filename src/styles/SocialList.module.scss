@@ -2,11 +2,11 @@
 
 .socialList {
   list-style: none;
+  margin-top: 24px;
   padding: 0;
   display: flex;
-  justify-content: center; // 手機版預設置中
-  gap: 25px; // 圖示之間的間距
-  margin-top: 20px;
+  justify-content: center; /* 手機版預設置中 */
+  gap: 40px; /* 圖示之間的間距 */
 }
 
 .socialLink {
@@ -18,13 +18,18 @@
 
   &:hover {
     color: rgb(58, 90, 64);
-    transform: translateY(-2px); // 滑鼠懸停時輕微上移
+    transform: translateY(-2px); /* 滑鼠懸停時輕微上移 */
   }
 }
 
-// 在桌面版，如果需要靠左對齊
 @media (min-width: bp.$breakpoint-md) {
   .socialList {
-    justify-content: flex-start; // 桌面版靠左
+    justify-content: flex-start; /* 桌面版靠左 */
+  }
+}
+
+@media (min-width: bp.$breakpoint-xl) {
+  .socialList {
+    margin-top: 180px;
   }
 }
