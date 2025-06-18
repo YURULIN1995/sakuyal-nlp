@@ -1,4 +1,4 @@
-import styles from '@styles/ServicesSection.module.css'; // 匯入自己的樣式
+import styles from '@styles/ServicesSection.module.scss'; // 匯入自己的樣式
 
 /**
  * Services Section 的資料結構範例 (需要更新 copyWritingData.js)

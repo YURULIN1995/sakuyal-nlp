@@ -1,3 +1,5 @@
+@use '@styles/_breakpoints.scss' as bp;
+
 .contentContainer {
     position: relative;
     z-index: 2;
@@ -51,7 +53,7 @@
 }
 
 /* 通用響應式堆疊 */
-@media (min-width: 768px) {
+@media (min-width: bp.$breakpoint-md) {
   .contentContainer {
     padding-left: 40px;
     padding-right: 40px;
@@ -63,11 +65,11 @@
 
 /* 預設順序：文字先，圖片後 (因為 DOM 順序)，Hero 可以覆蓋 */
   .textContainer {
-    flex-basis: 60%;
+    flex-basis: 50%;
     }
   
   .imageContainer {
-    flex-basis: 40%;
+    flex-basis: 50%;
     padding: 20px;
     width: initial;
   }

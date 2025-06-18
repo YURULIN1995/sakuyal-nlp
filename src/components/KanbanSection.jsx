@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@styles/KanbanSection.module.css';
+import styles from '@styles/KanbanSection.module.scss';
 import ContentSection from '@components/ContentSection';
 
 function KanbanSection(props) {

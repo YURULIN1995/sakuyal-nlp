@@ -4,7 +4,7 @@ function SEO({ title, description }) {
     const pageTitle = title ? `${title} - ${siteName}` : siteName;
   
     return (
-      <> {/* 使用 Fragment 包裹多個標籤 */}
+      <>
         <title>{pageTitle}</title>
         {description && <meta name="description" content={description} />}
       </>

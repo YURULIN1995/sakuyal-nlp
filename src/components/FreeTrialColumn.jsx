@@ -1,4 +1,4 @@
-import styles from '@styles/FreeTrialColumn.module.css';
+import styles from '@styles/FreeTrialColumn.module.scss';
 
 /**
  * 接收左右兩欄內容的通用佈局元件
