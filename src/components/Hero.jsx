@@ -1,5 +1,5 @@
-import styles from '@styles/Hero.module.scss'; // 只包含 Hero 特有樣式
-import FreeTrial from '@components/FreeTrial.jsx';
+import styles from '@styles/Hero.module.scss';
+import ContentSection from '@components/ContentSection.jsx';
 
 // Hero 現在接收所有 FreeTrial 需要的資料 props
 function Hero(props) {
@@ -12,7 +12,7 @@ function Hero(props) {
       </div>
 
       {/* 使用 FreeTrail 渲染內容，並傳入 Hero 特定的佈局 class */}
-      <FreeTrial
+      <ContentSection
         {...props} // 將所有接收到的資料 props 直接透傳下去
         layoutClassName={styles.heroContainerSpecifics}
         textContainerLayoutClassName={styles.heroTextContainerMobile}

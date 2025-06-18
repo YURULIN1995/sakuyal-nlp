@@ -22,16 +22,19 @@
 
 .textContainer {
   flex-basis: 100%;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
+
 .imageContainer {
-  flex-basis: 100%;
+  flex-basis: auto;
   padding: 15px;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -42,7 +45,7 @@
   display: block;      /* 修正圖片底部可能的微小空隙 */
   max-width: 100%;     /* 圖片最大寬度不超過容器寬度 */
   height: auto;        /* 高度隨寬度等比縮放 */
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .reversed {
@@ -59,13 +62,16 @@
   .innerColumns {
     flex-direction: row;
   }
-  
-  .textContainer , .imageContainer{
+
+/* 預設順序：文字先，圖片後 (因為 DOM 順序)，Hero 可以覆蓋 */
+  .textContainer {
     flex-basis: 50%;
-    width: initial;
-  }
+    align-items: flex-start;
+    }
   
   .imageContainer {
+    flex-basis: 50%;
     padding: 20px;
+    width: initial;
   }
 }

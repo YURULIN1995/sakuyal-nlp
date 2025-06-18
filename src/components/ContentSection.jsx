@@ -1,5 +1,6 @@
-import styles from '@styles/ContentSection.module.css';
+import styles from '@styles/ContentSection.module.scss';
 import TwoColumnLayout from '@components/TwoColumnLayout';
+import SocialLinks from '@components/SocialList.jsx';
 
 function ContentSection({
   // Data Props
@@ -29,10 +30,11 @@ function ContentSection({
       )}
       {paragraph && <p className={styles.paragraph}>{paragraph}</p>}
       {buttonText && buttonLink && (
-        <a className={styles.button} href={buttonLink} target="_blank" rel="noopener noreferrer">
-          {buttonText}
-        </a>
-      )}
+          <a className={styles.button} href={buttonLink} target="_blank" rel="noopener noreferrer">
+            {buttonText}
+          </a>
+        )}
+        <SocialLinks links={socialLinks} />
     </>
   );
 

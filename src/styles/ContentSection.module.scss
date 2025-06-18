@@ -1,3 +1,5 @@
+@use '@styles/_breakpoints.scss' as bp;
+
 .title {
 font-size: 28px;
 color: rgb(58, 90, 64);
@@ -37,13 +39,13 @@ text-decoration: none;
 background-color: rgb(58, 90, 64);
 }
 
-@media (min-width: 545px) {
+@media (min-width: bp.$breakpoint-xs) {
     .title {
         font-size: 32px;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: bp.$breakpoint-md) {
     .title { 
         margin-bottom: 20px;
     }
@@ -63,7 +65,7 @@ background-color: rgb(58, 90, 64);
     }
 }
 
-@media (min-width: 922px) {
+@media (min-width: bp.$breakpoint-nav) {
     .title {
         font-size: 38px;
     }

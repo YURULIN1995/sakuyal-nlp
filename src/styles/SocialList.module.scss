@@ -1,0 +1,30 @@
+@use '@styles/_breakpoints.scss' as bp;
+
+.socialList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center; // 手機版預設置中
+  gap: 25px; // 圖示之間的間距
+  margin-top: 20px;
+}
+
+.socialLink {
+  color: rgb(156, 201, 150);
+  font-size: 1.3em;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    color: rgb(58, 90, 64);
+    transform: translateY(-2px); // 滑鼠懸停時輕微上移
+  }
+}
+
+// 在桌面版，如果需要靠左對齊
+@media (min-width: bp.$breakpoint-md) {
+  .socialList {
+    justify-content: flex-start; // 桌面版靠左
+  }
+}
