@@ -1,5 +1,4 @@
-// 隱私權政策
-import SEO from '@components/Head/SEO'; // 匯入 SEO 元件
+import SEO from '@components/Head/SEO';
 import styles from '@styles/PrivacyPolicyPage.module.css';
 
 function PrivacyPolicyPage() {

@@ -14,8 +14,8 @@
 .columnsContainer {
   display: flex;
   flex-wrap: wrap; /* 手機版換行 */
-  flex-direction: column; /* 垂直堆疊 */
-  gap: 40px;      /* 欄位間距 */
+  flex-direction: column;
+  gap: 40px;
   width: 100%;
 }
 
@@ -68,27 +68,27 @@
   margin-bottom: 25px; /* 每組之間的間距 */
 }
 
-/* --- 重用 ContentSection 的內容樣式 --- */
+/* --- 重用 TextImageSlot 的內容樣式 --- */
 
 /* 方法 A: 使用 composes (原生 CSS Modules) */
 .serviceTitle {
-  composes: title from "@styles/ContentSection.module.scss";
+  composes: title from "@styles/TextImageSlot.module.scss";
   text-align: center;
 }
 
 .serviceParagraph {
-  composes: paragraph from "@styles/ContentSection.module.scss";
+  composes: paragraph from "@styles/TextImageSlot.module.scss";
   /* 如果需要微調 */
   /* margin-bottom: 10px; */
   font-size: 17px;
 }
 
 .sectionButton {
-  composes: button from "@styles/ContentSection.module.scss";
+  composes: button from "@styles/TextImageSlot.module.scss";
 }
 
 .rightColumnTitle {
-  composes: title from "@styles/ContentSection.module.scss"; /* 繼承基礎樣式 */
+  composes: title from "@styles/TextImageSlot.module.scss"; /* 繼承基礎樣式 */
   font-size: 24px;  /* 設定適合 H3 的大小 */
   margin-bottom: 10px;
   text-align: center;

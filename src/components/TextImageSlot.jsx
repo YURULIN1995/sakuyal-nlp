@@ -1,8 +1,8 @@
-import styles from '@styles/ContentSection.module.scss';
-import TwoColumnLayout from '@components/TwoColumnLayout';
+import styles from '@styles/TextImageSlot.module.scss';
+import TwoColumnLayout from '@components/TwoColumnLayout.jsx';
 import SocialLinks from '@components/SocialList.jsx';
 
-function ContentSection({
+function TextImageSlot({
   // Data Props
   imageUrl,
   imageAlt = "Section Image",
@@ -54,4 +54,4 @@ function ContentSection({
   );
 }
 
-export default ContentSection;
+export default TextImageSlot;

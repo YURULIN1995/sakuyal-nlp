@@ -5,8 +5,8 @@
   margin-top: 24px;
   padding: 0;
   display: flex;
-  justify-content: center; /* 手機版預設置中 */
-  gap: 40px; /* 圖示之間的間距 */
+  justify-content: center;
+  gap: 40px;
 }
 
 .socialLink {
@@ -24,12 +24,12 @@
 
 @media (min-width: bp.$breakpoint-md) {
   .socialList {
-    justify-content: flex-start; /* 桌面版靠左 */
+    justify-content: flex-start;
   }
 }
 
 @media (min-width: bp.$breakpoint-xl) {
   .socialList {
-    margin-top: 180px;
+    margin-top: 90px;
   }
 }

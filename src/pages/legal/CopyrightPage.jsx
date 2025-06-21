@@ -1,5 +1,4 @@
-// 著作權聲明
-import SEO from '@components/Head/SEO'; // 匯入 SEO 元件
+import SEO from '@components/Head/SEO';
 import styles from '@styles/CopyrightPage.module.css';
 
 function CopyrightPage() {

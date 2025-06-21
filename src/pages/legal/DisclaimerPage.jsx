@@ -1,4 +1,3 @@
-// 免責聲明
 import SEO from '@components/Head/SEO';
 import styles from '@styles/DisclaimerPage.module.css';
 

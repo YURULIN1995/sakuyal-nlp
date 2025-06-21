@@ -1,7 +1,5 @@
-// src/data/blogData.js
 
-// 為了方便測試，我們先放一些靜態的假資料
-// 未來這些資料可以從 CMS、API 或 Markdown 檔案動態獲取
+// 為了方便測試，我們先放一些靜態的假資料。未來這些資料可以從 CMS、API 或 Markdown 檔案動態獲取
 
 export const featuredPostsData = [
   {

@@ -1,10 +1,10 @@
 .container {
-    display: flex;           /* 使用 Flexbox 佈局 */
-    flex-direction: column;  /* 內容垂直排列 (h1, p, p) */
+    display: flex;
+    flex-direction: column;
     justify-content: center; /* 在垂直方向上居中 */
     align-items: center;     /* 在水平方向上居中 */
-    text-align: center;      /* 確保容器內的文字也居中 */
-    padding: 40px;           /* 加入一些內邊距 */
+    text-align: center;
+    padding: 40px;
     box-sizing: border-box;
   
     /* 讓這個容器嘗試填滿其父元素 (<main>) 的可用空間 */

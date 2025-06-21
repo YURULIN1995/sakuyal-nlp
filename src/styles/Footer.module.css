@@ -6,9 +6,8 @@
   padding: 15px 0;
   margin-top: auto; /* 保持在底部 */
 
-  /* 修改佈局 */
   display: flex;
-  flex-direction: column; /* 改為垂直堆疊 */
+  flex-direction: column;
   align-items: center;
   gap: 8px;
   /* justify-content: center; */ /* 垂直方向上不再需要 */

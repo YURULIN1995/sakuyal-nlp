@@ -1,8 +1,7 @@
-/* src/styles/FeaturedPostsSection.module.css */
 .featuredPostsWrapper {
   padding: 60px 40px; /* Section 的上下左右 padding */
   /* background-color: #f9f9f9; */ /* 可選：給區塊一個淺色背景 */
-  text-align: center; /* 讓區塊標題置中 */
+  text-align: center;
 }
 
 .sectionTitle {
@@ -15,7 +14,7 @@
 .postsGrid {
   display: flex;
   flex-wrap: wrap; /* 允許換行 */
-  gap: 30px;       /* 卡片之間的間距 */
+  gap: 30px;
   justify-content: center; /* 如果最後一行卡片不滿，讓它們置中 */
 }
 
@@ -30,9 +29,9 @@
   border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden; /* 確保圖片圓角生效 */
-  text-align: left; /* 卡片內文字靠左 */
+  text-align: left;
   display: flex;
-  flex-direction: column; /* 圖片在上，文字在下 */
+  flex-direction: column;
 }
 
 .postImageLink {

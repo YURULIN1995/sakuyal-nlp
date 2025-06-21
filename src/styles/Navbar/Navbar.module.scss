@@ -1,6 +1,5 @@
 @use '@styles/_breakpoints.scss' as bp;
 /* --- Hamburger Menu Variables & Styles --- */
-/* (使用之前定義的變數) */
 :root {
   --mobile-bar-width: 22px;
   --mobile-bar-height: 2px;
@@ -56,8 +55,8 @@
   background-color: #ffffff;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
   z-index: 101;
-  list-style: none; /* 移除列表符號 */
-  margin: 0; /* 移除預設 margin */
+  list-style: none;
+  margin: 0;
   padding: 10px 0;
   border-top: 1px solid #eee;
   max-height: calc(100vh - 80px); /* 限制最大高度 */
@@ -91,7 +90,7 @@
   align-items: center;
   width: 100%; /* Make it full width */
   padding: 14px 25px;
-  text-align: left; /* 改回靠左對齊比較常見 */
+  text-align: left; /* 靠左對齊較常見 */
   color: rgba(78, 117, 85, 0.9);
   font-size: 16px;
   font-family: "Noto Serif TC";
@@ -194,9 +193,9 @@
 
 /* Active style for mobile dropdown links */
 .dropdownLink.activeLink {
-  font-weight: bold; /* Keep bold */
-  color: rgba(4, 87, 19, 1); /* Keep color */
-  /* background-color: transparent; */ /* Optional: remove background */
+  font-weight: bold;
+  color: rgba(4, 87, 19, 1);
+  /* background-color: transparent; */
 }
 
 @media (min-width: bp.$breakpoint-nav) { 
@@ -205,29 +204,28 @@
       display: none;
   }
 
-  /* 最外層列表容器 */
   .navList {
-  display: flex; /* 使用 Flexbox 水平排列 */                
-  padding: 0; /* 移除預設 padding */
-  column-gap: 15px; /* 項目之間的間距 (可調整) */
-  align-items: center; /* 垂直居中對齊項目 */
+  display: flex;           
+  padding: 0;
+  column-gap: 15px;
+  align-items: center;
   position: static; /* 從 absolute 改回 static */
-  width: auto; /* 寬度自動 */
+  width: auto;
   transform: none; /* 移除位移 */
-  visibility: visible; /* 確保可見 */
-  opacity: 1; /* 確保不透明 */
+  visibility: visible;
+  opacity: 1; /* 不透明 */
   max-height: none; /* 移除最大高度限制 */
   overflow-y: visible; /* 移除滾動條 */
-  box-shadow: none; /* 移除陰影 */
-  border-top: none; /* 移除頂部邊框 */
-  background-color: transparent; /* 背景透明 */
+  box-shadow: none;
+  border-top: none;
+  background-color: transparent;
   transition: none; /* 桌面版不需要展開動畫 */
   }
 
   /* 每個列表項 */
   .navItem {
   position: relative; /* 作為下拉選單絕對定位的基準 */
-  border-bottom: none; /* 移除底線 */
+  border-bottom: none;
   }
 
   /* 一般導覽連結 */
@@ -240,7 +238,7 @@
   font-family: "Noto Serif TC";
   text-decoration: none;
   border-bottom: 3px solid transparent; /* 預留底部邊框空間，避免啟用時跳動 */
-  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* 過渡效果 */
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   }
 
   /* 連結滑鼠懸停效果 */
@@ -250,9 +248,9 @@
 
   /* --- 啟用連結樣式 --- */
   .activeLink {
-  color: rgba(4, 87, 19, 1);       /* 啟用時的文字顏色 */
-  font-weight: 700;                 /* 可選：加粗 */
-  border-bottom-color: rgba(4, 87, 19, 0.7); /* 啟用時顯示底線 */
+  color: rgba(4, 87, 19, 1);
+  font-weight: 700;
+  border-bottom-color: rgba(4, 87, 19, 0.7);
   }
 
   /* 包含下拉選單的列表項 (可選，如果需要特殊標識)
@@ -271,19 +269,19 @@
 
   /* 下拉選單列表 (預設隱藏) */
   .dropdownList {
-  display: none;        /* 預設不顯示 */
-  position: absolute;   /* 絕對定位 */
+  display: none;
+  position: absolute;
   top: 100%;          /* 在父項目下方 */
   left: 50%;          /* 先移到中間 */
   transform: translateX(-50%); /* 再精確置中 */
   min-width: max-content; /* 寬度根據內容自適應 */
   background-color: #ffffff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   list-style: none;
   margin: 0;
   padding: 0;
-  border-radius: 3px;   /* 圓角 */
-  z-index: 10;         /* 確保在最上層 */
+  border-radius: 3px;
+  z-index: 10;
   opacity: 0;           /* 為了動畫效果 */
   visibility: hidden;   /* 為了動畫效果 */
   transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
@@ -302,7 +300,7 @@
   /* 下拉選單中的連結 */
   .dropdownLink {
   display: block;       /* 佔滿整個 li */
-  padding: 10px 25px;   /* 下拉項目的 padding */
+  padding: 10px 25px;
   color: rgba(78, 117, 85, 0.9);
   font-size: 15px;
   font-weight: 400;
@@ -321,9 +319,9 @@
   /* 下拉選單中啟用連結的樣式 */
   /* 它會同時擁有 .dropdownLink 和 .activeLink 兩個 class */
   .dropdownLink.activeLink {
-  font-weight: 700; /* 例如加粗 */
+  font-weight: 700;
   color: rgba(4, 87, 19, 1);
-  background-color: rgba(230, 240, 220, 0.9); /* 可選：不同的啟用背景色 */
-  border-bottom-color: transparent; /* 確保下拉選單中的啟用連結沒有底線 */
+  background-color: rgba(230, 240, 220, 0.9);
+  border-bottom-color: transparent;
   }
 }
