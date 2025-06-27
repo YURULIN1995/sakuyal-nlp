@@ -1,0 +1,17 @@
+@use '@styles/_breakpoints.scss' as bp;
+
+.container {
+  max-width: 1200px; /* 保持最大寬度 */
+  margin: 0 auto; /* 置中 */
+  box-sizing: border-box;
+  background-color: transparent;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: bp.$breakpoint-md) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}

@@ -1,26 +1,19 @@
-.kanbanSectionWrapper {
-    /* 例如，設定一個不同於 Hero 的背景色 */
-    /* background-color: #f8f9fa; */
-    padding-top: 60px; /* Section 上下外距或內距 */
-    padding-bottom: 60px;
-  }
-  
-  .kanbanContainerPadding {
-    /* Kanban 使用的 ContentSection 的上下 padding */
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
+@use '@styles/_breakpoints.scss' as bp;
 
-  .wrapperReversedBackground {
-    background-color: rgb(250, 253, 244); /* 設定 reversed 狀態的背景色 */
+.kanbanSectionWrapper {
+  background-color: rgb(241, 246, 233);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.kanbanContainerPadding {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+@media (max-width: bp.$breakpoint-md) {
+  .kanbanContainerPadding {
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
-  
-  /* 如果 Kanban 的標題、段落等需要微調，可以在這裡加 */
-  /* 例如 .kanbanTitle { composes: title from '../ContentSection/ContentSection.module.css'; color: blue; } */
-  
-  @media (max-width: 768px) {
-    .kanbanContainerPadding {
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
-  }
+}

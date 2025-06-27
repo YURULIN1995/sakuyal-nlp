@@ -1,0 +1,22 @@
+// src/styles/_mixins.scss
+
+@mixin decorative-divider(
+  $color: rgb(156, 201, 150),
+  $width: 60px,
+  $height: 5px,
+  $top: 0,
+  $left: 0,
+) {
+    content: '';
+    display: block;
+    position: absolute;
+
+    // --- 外觀 (使用傳入的參數) ---
+    width: $width;
+    height: $height;
+    background-color: $color;
+    
+    // --- 定位 (使用傳入的參數) ---
+    top: $top;
+    left: $left;
+}

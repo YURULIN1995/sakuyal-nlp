@@ -1,16 +1,15 @@
-import React from 'react';
 import styles from '@styles/KanbanSection.module.scss';
-import TextImageSlot from '@components/TextImageSlot.jsx';
+import TextSlot from '@components/TextSlot.jsx';
 
 function KanbanSection(props) {
-  const { isReversed = false, ...restProps } = props;
-  const wrapperClasses = `${styles.kanbanSectionWrapper} ${isReversed ? styles.wrapperReversedBackground : ''}`;
+  // 將從 HomePage 接收到的所有 aboutData props 解構出來
+  const { ...restProps } = props;
+
   return (
-    <section className={wrapperClasses}>
-      <TextImageSlot
-        {...restProps} // 傳遞剩餘的 props 給 TextImageSlot
-        isReversed={isReversed} // 也需要把 isReversed 傳下去給 TextImageSlot -> TwoColumnLayout 控制左右反轉
-        layoutClassName={styles.kanbanContainerPadding}
+    <section className={styles.kanbanSectionWrapper}>
+      <TextSlot
+        {...restProps} // 將所有資料 props 透傳下去
+        layoutClassName={styles.kanbanContainerPadding} // 傳遞特定的 padding class
       />
     </section>
   );

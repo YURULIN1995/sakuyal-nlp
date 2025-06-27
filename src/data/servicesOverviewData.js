@@ -1,14 +1,3 @@
-// 測試用抹茶文案
-  export const aboutSectionData = {
-    imageUrl: null,
-    imageAlt: "探索裏千家茶道之藝",
-    titleLine1: "探索裏千家茶道之藝",
-    titleLine2: null,
-    paragraph: "茶之心協助來自不同背景的學習者，悠遊於裏千家茶道的優美境地，為您的茶道旅程提供清晰的理解與實用的指引。我們助您不僅學習精準的點前(てまえ, temae)形式，更能真實體會茶之「心」(こころ, kokoro)——領略器物(どうぐ, dōgu)之美、鑑賞時節之韵，並感受其中蘊含的款待。體驗一條通往文化深度與個人滋養的獨特路徑，隨時隨地皆可探尋。讓我們為您構築學習的階梯，使您得以專注領略茶道的靜謐之美與內在修為。",
-    buttonText: "了解更多",
-    buttonLink: "#",
-  };
-  
 export const servicesOverviewData = {
   leftTitle: "我們的核心服務",
   leftParagraph: "無論你是想透過靜心茶道找回平靜，在手作和菓子中發揮創意，或是探索極致的抹茶風味，我們都能提供專業細緻的體驗。",

@@ -4,7 +4,8 @@ import KanbanSection from '@components/KanbanSection';
 import ServicesSection from '@components/ServicesSection';
 import FeaturedPostsSection from '@components/FeaturedPostsSection';
 import { freeTrialData } from '@data/freeTrialData.js';
-import { aboutSectionData, servicesOverviewData } from '@data/matchaData.js';
+import { aboutData } from '@data/aboutData.js';
+import { servicesOverviewData } from '@data/servicesOverviewData.js';
 import { featuredPostsData } from '@data/blogData.js';
 
 function HomePage() {
@@ -12,7 +13,7 @@ function HomePage() {
     <>
       <SEO/>
       <Hero {...freeTrialData} />
-      <KanbanSection {...aboutSectionData} />
+      <KanbanSection {...aboutData} />
       <ServicesSection {...servicesOverviewData} />
       <FeaturedPostsSection/>
     </>
