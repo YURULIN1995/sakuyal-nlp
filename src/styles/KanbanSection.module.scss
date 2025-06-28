@@ -1,7 +1,7 @@
 @use '@styles/_breakpoints.scss' as bp;
 
 .kanbanSectionWrapper {
-  background-color: rgb(241, 246, 233);
+  background-color: rgba(249, 250, 246, 1);
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }

@@ -1,4 +1,5 @@
 @use '@styles/_breakpoints.scss' as bp;
+@use '@styles/_mixins.scss' as mixins;
 
 
 /* 容器樣式 (可以參考 TwoColumnLayout.contentContainer，但 padding 可能不同) */
@@ -71,9 +72,21 @@
 /* --- 重用 TextImageSlot 的內容樣式 --- */
 
 /* 方法 A: 使用 composes (原生 CSS Modules) */
+.titleWrapper {
+  position: relative;     // 定位裝飾線的基準
+  display: inline-block;  // 讓容器寬度自適應內容
+  padding-top: 25px;      // 在標題上方留出空間給裝飾線
+  margin-bottom: 20px;    // 控制標題區塊與下方段落的距離
+
+  &::before {
+  @include mixins.decorative-divider();
+  }
+}
+
 .serviceTitle {
   composes: title from "@styles/TextImageSlot.module.scss";
   text-align: center;
+
 }
 
 .serviceParagraph {

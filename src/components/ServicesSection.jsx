@@ -29,7 +29,11 @@ function ServicesSection({
       <div className={styles.columnsContainer}>
         {/* 左欄 */}
         <div className={styles.leftColumn}>
-          {leftTitle && <h2 className={styles.serviceTitle}>{leftTitle}</h2>}
+          {leftTitle && 
+            <div className={styles.titleWrapper}>
+              <h2 className={styles.serviceTitle}>{leftTitle}</h2>
+            </div>
+          }
           {leftParagraph && <p className={styles.serviceParagraph}>{leftParagraph}</p>}
           {leftButtonText && leftButtonLink && (
             <a
