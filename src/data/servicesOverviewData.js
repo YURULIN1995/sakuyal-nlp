@@ -1,5 +1,5 @@
 export const servicesOverviewData = {
-  leftTitle: "我們的核心服務",
+  leftTitle: "服務",
   leftParagraph: "無論你是想透過靜心茶道找回平靜，在手作和菓子中發揮創意，或是探索極致的抹茶風味，我們都能提供專業細緻的體驗。",
   leftButtonText: "填寫服務預約表單",
   leftButtonLink: "#",

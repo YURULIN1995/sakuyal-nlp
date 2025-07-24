@@ -1,4 +1,11 @@
+@use 'sass:map'; 
 @use '@styles/_breakpoints.scss' as bp;
+
+@mixin respond($key) {
+  @media (min-width: map.get(bp.$breakpoints, $key)) {
+    @content;
+  }
+}
 
 .contentContainer {
     position: relative;
@@ -11,13 +18,23 @@
     box-sizing: border-box;
     display: flex;
     align-items: center; /* 將子元素 .innerColumns 垂直置中 */
+
+    @include respond(md) {
+    padding-left: 40px;
+    padding-right: 40px;
   }
+}
+
   
 .innerColumns {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   flex-direction: column;
+
+  @include respond(md) {
+    flex-direction: row;
+  }
 }
 
 .textContainer {
@@ -28,6 +45,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include respond(md) {
+    flex-basis: 50%;
+    align-items: flex-start;
+  }
 }
 
 
@@ -39,6 +61,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include respond(md) {
+    flex-basis: 50%;
+    padding: 0 0 0 64px;
+    width: initial;
+  }
 }
 
 .imageContainer img {
@@ -50,28 +78,4 @@
 
 .reversed {
   flex-direction: row-reverse;
-}
-
-/* 通用響應式堆疊 */
-@media (min-width: bp.$breakpoint-md) {
-  .contentContainer {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  .innerColumns {
-    flex-direction: row;
-  }
-
-/* 預設順序：文字先，圖片後 (因為 DOM 順序)，Hero 可以覆蓋 */
-  .textContainer {
-    flex-basis: 50%;
-    align-items: flex-start;
-    }
-  
-  .imageContainer {
-    flex-basis: 50%;
-    padding: 0 0 0 64px;
-    width: initial;
-  }
 }

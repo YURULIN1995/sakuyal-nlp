@@ -1,133 +1,103 @@
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins.scss' as mixins;
+// src/styles/ServicesSection.module.scss
 
+@use 'sass:map'; 
+@use '@styles/_breakpoints' as bp;
+@use '@styles/_mixins' as mixins;
 
-/* 容器樣式 (可以參考 TwoColumnLayout.contentContainer，但 padding 可能不同) */
+// 建議刪除這個局部的 mixin，統一使用從 _mixins.scss 引入的版本
+// @mixin respond($key) { ... }
+
 .container {
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
-    padding: 80px 40px; /* Services Section 的上下左右 padding */
+    padding: 50px 20px;
     box-sizing: border-box;
 }
   
-/* 三欄容器 */
 .columnsContainer {
   display: flex;
-  flex-wrap: wrap; /* 手機版換行 */
+  flex-wrap: wrap;
   flex-direction: column;
   gap: 40px;
-  width: 100%;
+  
+  // 修正：使用從 mixins 檔案引入的 respond-min
+  @include mixins.respond-min(md) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
-.leftColumn,
-.middleColumn,
-.rightColumn {
-    flex-basis: auto; /* 重設寬度 */
+.leftColumn, .middleColumn, .rightColumn {
+    flex-basis: auto;
     width: 100%;
 }
 
-.leftColumn,
-.rightColumn {
-  /* flex: 1; */ /* 暫時移除 flex: 1 看看，basis 應該足夠 */
-  /* 從 30% 中減去一部分 gap 的寬度 (總 gap 60px * 30% 比例) */
-  box-sizing: border-box;
-}
-
 .leftColumn {
-  order: 1;
-  align-items: center;
-  text-align: center;
+  @include mixins.respond-min(md) {
+    flex-basis: 30%;
+    text-align: left;
+    order: 1;
+  }
 }
-  
+
 .middleColumn {
-  order: 2;
-  /* flex: 1; */ /*暫時移除 flex: 1 看看 */
-  /* 從 40% 中減去一部分 gap 的寬度 (總 gap 60px * 40% 比例) */
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-  
-.middleColumn img { /* 限制圖片大小 */
-  display: block;
-  width: 431px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px; /* 保持圓角 */
-  margin-left: auto;
-  margin-right: auto;
+  @include mixins.respond-min(md) {
+    flex-basis: 40%;
+    order: 2;
+  }
+
+  // 核心修正：加入圖片的響應式樣式
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
 }
 
 .rightColumn {
-  order: 3;
+  @include mixins.respond-min(md) {
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    order: 3;
+  }
 }
 
-/* 右欄內部項目 (標題+內文組) */
-.rightColumnItem {
-  margin-bottom: 25px; /* 每組之間的間距 */
-}
+.rightColumnItem { /* ... */ }
 
-/* --- 重用 TextImageSlot 的內容樣式 --- */
-
-/* 方法 A: 使用 composes (原生 CSS Modules) */
 .titleWrapper {
-  position: relative;     // 定位裝飾線的基準
-  display: inline-block;  // 讓容器寬度自適應內容
-  padding-top: 25px;      // 在標題上方留出空間給裝飾線
-  margin-bottom: 20px;    // 控制標題區塊與下方段落的距離
+  position: relative;
+  display: inline-block;
+  padding-top: 25px;
+  margin-bottom: 20px;
 
   &::before {
-  @include mixins.decorative-divider();
+    @include mixins.decorative-divider;
   }
 }
 
 .serviceTitle {
-  composes: title from "@styles/TextImageSlot.module.scss";
-  text-align: center;
-
+  text-align: left;
+  @include mixins.t-title;
 }
 
 .serviceParagraph {
-  composes: paragraph from "@styles/TextImageSlot.module.scss";
-  /* 如果需要微調 */
-  /* margin-bottom: 10px; */
-  font-size: 17px;
+  text-align: left;
+  @include mixins.p-paragraph;
 }
 
 .sectionButton {
-  composes: button from "@styles/TextImageSlot.module.scss";
+  display: block;
+  margin: 20px auto 0 auto;
+  @include mixins.b-button;
 }
 
 .rightColumnTitle {
-  composes: title from "@styles/TextImageSlot.module.scss"; /* 繼承基礎樣式 */
-  font-size: 24px;  /* 設定適合 H3 的大小 */
+  font-size: 24px;
   margin-bottom: 10px;
   text-align: center;
-}
-
-/* --- 響應式：三欄堆疊 --- */
-@media (min-width: bp.$breakpoint-lg) { /* 可能需要在平板就開始堆疊 */
-  .columnsContainer {
-      flex-direction: initial;
-      gap: 30px; /* 堆疊時的間距 */
-  }
-
-  .leftColumn,
-  .rightColumn {
-    /* flex: 1; */ /* 暫時移除 flex: 1 看看，basis 應該足夠 */
-    /* 從 30% 中減去一部分 gap 的寬度 (總 gap 60px * 30% 比例) */
-    flex-basis: calc(30% - (60px * 0.3)); /* 30% - 18px */
-    width: initial;
-  }
-  .middleColumn {
-    flex-basis: calc(40% - (60px * 0.4));
-    width: initial;
-  }
-
-  /* 手機版順序 (可選) */
-  .leftColumn { order: 1; }
-  .middleColumn { order: 2; }
-  .rightColumn { order: 3; }
+  @include mixins.t-title;
 }

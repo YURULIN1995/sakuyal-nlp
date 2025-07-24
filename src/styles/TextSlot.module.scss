@@ -4,69 +4,22 @@
 .titleWrapper {
   position: relative;     // 定位裝飾線的基準
   display: inline-block;  // 讓容器寬度自適應內容
-  padding-top: 25px;      // 在標題上方留出空間給裝飾線
-  margin-bottom: 20px;    // 控制標題區塊與下方段落的距離
+  padding-top: 25px;
+  margin-bottom: 20px;
 
   &::before {
-  @include mixins.decorative-divider();
+  @include mixins.decorative-divider;
   }
 }
 
-/* 複製自 TextImageSlot.module.scss 以確保樣式統一 */
 .title {
-  font-size: 28px;
-  color: rgb(58, 90, 64);
-  font-weight: 700;
-  line-height: 1.5; /* 相對行高 */
-  letter-spacing: -1px;
-  margin-bottom: 20px;
-
-  @media (min-width: bp.$breakpoint-xs) {
-    font-size: 32px;
-  }
-
-  @media (min-width: bp.$breakpoint-nav) {
-    font-size: 38px;
-  }  
+  @include mixins.t-title;
 }
 
 .paragraph {
-  font-size: 1em;
-  color: rgb(88, 129, 87);
-  line-height: 1.9;
-  margin-bottom: 17px;
-  line-height: 2.5;
-  @media (min-width: bp.$breakpoint-md) {
-    font-size: 1.1em;
-    margin-bottom: 25px;
-    margin-left: initial;
-    margin-right: initial;
-  }
+  @include mixins.p-paragraph;
 }
 
 .button {
-  display: block;
-  width: fit-content;
-  margin: 20px auto 0 auto;
-  padding: 14px 30px;
-  background-color: rgb(156, 201, 150);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 15px;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: rgb(58, 90, 64);
-  }
-
-  @media (min-width: bp.$breakpoint-md) {
-    margin-top: 15px;
-    padding: 14px 30px;
-  }
+  @include mixins.b-button;
 }

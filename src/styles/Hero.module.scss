@@ -1,4 +1,11 @@
+@use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
+
+@mixin respond-min($key) {
+  @media (min-width: map.get(bp.$breakpoints, $key)) {
+    @content;
+  }
+}
 
 .heroSection {
   position: relative;
@@ -34,6 +41,15 @@
   padding-top: 110px;
   padding-bottom: 20px;
   min-height: inherit;
+
+  @include respond-min(md) {
+    padding-top: 150px;
+    padding-bottom: 48px;
+  }
+
+  @include respond-min(xl) {
+    padding-top: 200px;
+  }
 }
 
 .heroTextContainerMobile {
@@ -42,17 +58,4 @@
 
 .heroImageContainerMobile {
   order: 2;
-}
-
-@media (min-width: bp.$breakpoint-md) {
-  .heroContainerSpecifics {
-    padding-top: 150px;
-    padding-bottom: 48px;
-  }
-}
-
-@media (min-width: bp.$breakpoint-xl) {
-  .heroContainerSpecifics {
-    padding-top: 200px;
-  }
 }

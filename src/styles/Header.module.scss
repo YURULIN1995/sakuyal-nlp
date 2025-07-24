@@ -1,4 +1,11 @@
+@use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
+
+@mixin respond-min($key) {
+  @media (min-width: map.get(bp.$breakpoints, $key)) {
+    @content;
+}
+}
 
 .header {
   width: 100%;
@@ -34,10 +41,8 @@
   height: 73px;  /* 保持你的 logo 高度 */
   aspect-ratio: auto 47 / 63;
   display: block;
-}
 
-@media (min-width: bp.$breakpoint-xs){
-  .logoImg {
+  @include respond-min(xs) {
   height: 90px;
   }
 }

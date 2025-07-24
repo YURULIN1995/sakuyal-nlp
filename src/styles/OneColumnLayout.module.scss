@@ -1,4 +1,11 @@
+@use 'sass:map'; 
 @use '@styles/_breakpoints.scss' as bp;
+
+@mixin respond($key) {
+  @media (min-width: map.get(bp.$breakpoints, $key)) {
+    @content;
+  }
+}
 
 .container {
   max-width: 1200px; /* 保持最大寬度 */
@@ -7,10 +14,8 @@
   background-color: transparent;
   padding-left: 20px;
   padding-right: 20px;
-}
 
-@media (min-width: bp.$breakpoint-md) {
-  .container {
+  @include respond(md) {    
     padding-left: 100px;
     padding-right: 100px;
   }

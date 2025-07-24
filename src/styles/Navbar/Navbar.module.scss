@@ -1,5 +1,15 @@
-@use '@styles/_breakpoints.scss' as bp;
-/* --- Hamburger Menu Variables & Styles --- */
+@use 'sass:map';
+@use '@styles/_breakpoints.scss' as bp; // 引入斷點檔案
+@use '@styles/_mixins' as mx;
+
+// --- Media Query Min ---
+@mixin respond-min($key) {
+  @media (min-width: map.get(bp.$breakpoints, $key)) {
+    @content;
+  }
+}
+
+/* --- Hamburger Menu --- */
 :root {
   --mobile-bar-width: 22px;
   --mobile-bar-height: 2px;
@@ -18,8 +28,24 @@
   cursor: pointer;
   background: none;
   border: none;
-  z-index: 12; /* 高於選單列表 */
+  z-index: 12;
   position: relative;
+
+  // 在 nav 斷點以上隱藏漢堡選單
+  @include mx.respond-min(nav) {
+    display: none;
+  }
+
+  // 漢堡選單打開時的 'X' 動畫
+  &.isOpen .hamburgerBar:nth-child(1) {
+    transform: translateY(calc(var(--mobile-bar-height) + var(--mobile-hamburger-gap))) rotate(45deg);
+  }
+  &.isOpen .hamburgerBar:nth-child(2) {
+    opacity: 0;
+  }
+  &.isOpen .hamburgerBar:nth-child(3) {
+    transform: translateY(calc(-1 * (var(--mobile-bar-height) + var(--mobile-hamburger-gap)))) rotate(-45deg);
+  }
 }
 
 .hamburgerBar {
@@ -32,296 +58,213 @@
   transition: transform var(--mobile-animation-timing), opacity var(--mobile-animation-timing);
 }
 
-/* Hamburger animation to 'X' when isOpen class is added */
-.hamburgerMenu.isOpen .hamburgerBar:nth-child(1) {
-  transform: translateY(calc(var(--mobile-bar-height) + var(--mobile-hamburger-gap))) rotate(45deg);
-}
-
-.hamburgerMenu.isOpen .hamburgerBar:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburgerMenu.isOpen .hamburgerBar:nth-child(3) {
-  transform: translateY(calc(-1 * (var(--mobile-bar-height) + var(--mobile-hamburger-gap)))) rotate(-45deg);
-}
-
 
 /* --- Navigation List --- */
 .navList {
+  /* 手機版基礎樣式 (預設隱藏) */
   position: absolute;
-  top: calc(100% - 1px); /* 緊貼 Header 底部 */
+  top: calc(100% - 1px);
   left: 0;
   width: 100%;
   background-color: #ffffff;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   z-index: 101;
   list-style: none;
   margin: 0;
   padding: 10px 0;
   border-top: 1px solid #eee;
-  max-height: calc(100vh - 80px); /* 限制最大高度 */
+  max-height: calc(100vh - 80px);
   overflow-y: auto;
-
-  /* Visibility & Animation using isOpen class */
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+  // 手機版打開時的樣式
+  &.isOpen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* 桌面版響應式樣式 (覆蓋手機版樣式，讓其可見) */
+  @include mx.respond-min(nav) {
+    display: flex;
+    position: static;
+    width: auto;
+    background-color: transparent;
+    border-top: none;
+    box-shadow: none;
+    padding: 0;
+    column-gap: 15px;
+    align-items: center;
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+    max-height: none;
+    overflow-y: visible;
+    transition: none;
+  }
 }
 
-.navList.isOpen {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* Mobile list item */
 .navItem {
   border-bottom: 1px solid #f0f0f0;
-}
-.navItem:last-child {
-  border-bottom: none;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  // 桌面版樣式
+  @include mx.respond-min(nav) {
+    position: relative; // 作為 dropdown 定位的基準
+    border-bottom: none;
+  }
 }
 
-/* Mobile navigation link (for items WITHOUT dropdown) */
-/* Also used as base style for the dropdown trigger button */
 .navLink {
-  display: flex; /* Use flex to align text and potential icons/arrows */
+  display: flex;
   align-items: center;
-  width: 100%; /* Make it full width */
+  width: 100%;
   padding: 14px 25px;
-  text-align: left; /* 靠左對齊較常見 */
+  text-align: left;
   color: rgba(78, 117, 85, 0.9);
   font-size: 16px;
   font-family: "Noto Serif TC";
   text-decoration: none;
-  background: none; /* Ensure button variant has no background */
-  border: none; /* Ensure button variant has no border */
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* Style for the button used as parent item/dropdown trigger */
-.navLink.hasDropdown {
-  justify-content: space-between; /* Push text and arrow apart */
-}
-
-.navLink:hover {
-  background-color: transparent;
-  color: rgba(4, 87, 19, 1);
-}
-
-/* Mobile Active Link Style */
-.activeLink {
-  background-color: transparent;
-  color: rgba(4, 87, 19, 1);
-  font-weight: bold;
-}
-
-/* Text span inside the NavLink/Button
-.linkText {
-  (No specific styles needed unless for spacing)
-} */
-
-/* Dropdown toggle button (inside the parent item button/link) */
-.dropdownToggle {
   background: none;
   border: none;
-  padding: 5px; /* Minimal padding, click area is handled by parent */
-  margin-left: 10px; /* Space from text */
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: inherit;
-  pointer-events: none; /* Make the button itself not steal clicks from parent if needed, though onClick on button is used */
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    color: rgba(4, 87, 19, 1);
+  }
+
+  &.hasDropdown {
+    justify-content: space-between;
+  }
+
+  // 桌面版樣式
+  @include mx.respond-min(nav) {
+    display: inline-block;
+    width: auto;
+    padding: 8px 15px;
+    color: rgba(78, 117, 85, 0.85);
+    font-size: 17px;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  }
+}
+
+.activeLink {
+  background-color: transparent; // 確保桌面版 active 沒有背景色
+  color: rgba(4, 87, 19, 1);
+  font-weight: 700;
+
+  @include mx.respond-min(nav) {
+    border-bottom-color: rgba(4, 87, 19, 0.7);
+  }
 }
 
 .arrow {
   display: inline-block;
-  font-size: 0.6em; /* Adjust arrow size */
-  color: rgba(78, 117, 85, 0.7); /* Arrow color */
+  font-size: 0.6em;
+  color: rgba(78, 117, 85, 0.7);
   transform: rotate(-90deg);
   transition: transform 0.2s ease-in-out;
   margin-left: 4px;
   vertical-align: middle;
+
+  // 手機版打開時的樣式
+  .navLink.hasDropdown.isOpen & {
+    transform: none;
+  }
+
+  // 桌面版樣式
+  @include mx.respond-min(nav) {
+    margin-left: 5px;
+    transition: none;
+    transform: none !important;
+  }
 }
 
-/* Rotate arrow when parent trigger has isOpen class */
-.navLink.hasDropdown.isOpen .arrow {
-  transform: none;
-}                  // 點擊一般連結後，關閉主選單
-
-/* --- Mobile Dropdown List --- */
+/* --- Dropdown Menu --- */
 .dropdownList {
+  /* 手機版樣式 */
   list-style: none;
   margin: 0;
   padding: 0;
   background-color: rgba(241, 246, 233, 0.3);
-  overflow: hidden; /* Crucial for max-height animation */
-  max-height: 0; /* Collapsed by default */
+  overflow: hidden;
+  max-height: 0;
   transition: max-height 0.3s ease-in-out;
+
+  &.isOpen {
+    max-height: 30em; // 手機版展開高度
+  }
+
+  /* 桌面版樣式 */
+  @include mx.respond-min(nav) {
+    display: none; // 桌面預設隱藏，靠 hover 顯示
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: max-content;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    border-radius: 6px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    max-height: none; // 重設手機版的高度限制
+    overflow: visible;
+
+    // 桌面版 hover 時顯示
+    .navItem:hover > & {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
-/* Expand dropdown when isOpen class is added */
-.dropdownList.isOpen {
-  max-height: 30em; /* Adjust needed height (use em or large px) */
-}
-
-/* Mobile dropdown item
-.dropdownItemMobile {
-(Optional: border-top: 1px dashed #ddd;)
-} */
-
-/* Mobile dropdown link */
 .dropdownLink {
   display: block;
-  padding: 12px 25px 12px 40px; /* Indent dropdown links */
-  text-align: left; /* 通常下拉項目靠左對齊 */
+  padding: 12px 25px 12px 40px;
   color: rgba(88, 127, 95, 0.9);
   font-size: 15px;
-  font-weight: 400; /* Explicitly set */
-  font-family: "Noto Serif TC"; /* Explicitly set */
+  font-family: "Noto Serif TC";
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
-}
 
-.dropdownLink:hover {
-  background-color: rgba(230, 240, 220, 0.9);
-  color: rgba(4, 87, 19, 1);
-}
-
-/* Active style for mobile dropdown links */
-.dropdownLink.activeLink {
-  font-weight: bold;
-  color: rgba(4, 87, 19, 1);
-  /* background-color: transparent; */
-}
-
-@media (min-width: bp.$breakpoint-nav) { 
-
-  .hamburgerMenu {
-      display: none;
+  &:hover {
+    background-color: rgba(230, 240, 220, 0.9);
+    color: rgba(4, 87, 19, 1);
   }
 
-  .navList {
-  display: flex;           
-  padding: 0;
-  column-gap: 15px;
-  align-items: center;
-  position: static; /* 從 absolute 改回 static */
-  width: auto;
-  transform: none; /* 移除位移 */
-  visibility: visible;
-  opacity: 1; /* 不透明 */
-  max-height: none; /* 移除最大高度限制 */
-  overflow-y: visible; /* 移除滾動條 */
-  box-shadow: none;
-  border-top: none;
-  background-color: transparent;
-  transition: none; /* 桌面版不需要展開動畫 */
+  &.activeLink {
+    font-weight: bold;
+    color: rgba(4, 87, 19, 1);
   }
 
-  /* 每個列表項 */
-  .navItem {
-  position: relative; /* 作為下拉選單絕對定位的基準 */
-  border-bottom: none;
-  }
+  /* 桌面版樣式 */
+  @include mx.respond-min(nav) {
+    padding: 10px 25px;
+    color: rgba(78, 117, 85, 0.9);
+    white-space: nowrap;
 
-  /* 一般導覽連結 */
-  .navLink {
-  display: inline-block; /* 允許設定 padding */
-  padding: 8px 15px;
-  color: rgba(78, 117, 85, 0.85);
-  font-size: 17px;
-  font-weight: 500;
-  font-family: "Noto Serif TC";
-  text-decoration: none;
-  border-bottom: 3px solid transparent; /* 預留底部邊框空間，避免啟用時跳動 */
-  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  }
-
-  /* 連結滑鼠懸停效果 */
-  .navLink:hover {
-  color: rgba(4, 87, 19, 0.9);
-  }
-
-  /* --- 啟用連結樣式 --- */
-  .activeLink {
-  color: rgba(4, 87, 19, 1);
-  font-weight: 700;
-  border-bottom-color: rgba(4, 87, 19, 0.7);
-  }
-
-  /* 包含下拉選單的列表項 (可選，如果需要特殊標識)
-  (目前不需要額外樣式，繼承 .navItem)
-  }
-  */
- .arrow {
-  display: inline-block;
-  font-size: 0.6em;
-  margin-left: 5px;
-  vertical-align: middle;
-  color: inherit;
-  transition: none;
-  transform: none !important;
-  }
-
-  /* 下拉選單列表 (預設隱藏) */
-  .dropdownList {
-  display: none;
-  position: absolute;
-  top: 100%;          /* 在父項目下方 */
-  left: 50%;          /* 先移到中間 */
-  transform: translateX(-50%); /* 再精確置中 */
-  min-width: max-content; /* 寬度根據內容自適應 */
-  background-color: #ffffff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-radius: 3px;
-  z-index: 10;
-  opacity: 0;           /* 為了動畫效果 */
-  visibility: hidden;   /* 為了動畫效果 */
-  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-  max-height: none; /* 移除最大高度限制 */
-  overflow: visible; /* 確保內容不會被裁切 */
-  }
-
-  /* 當父項目(.navItem)被滑鼠懸停時，顯示其直接子元素 .dropdownList */
-  .navItem:hover > .dropdownList {
-  display: block; /* 改為 block 來觸發顯示 */
-  opacity: 1;
-  visibility: visible;
-  }
-
-
-  /* 下拉選單中的連結 */
-  .dropdownLink {
-  display: block;       /* 佔滿整個 li */
-  padding: 10px 25px;
-  color: rgba(78, 117, 85, 0.9);
-  font-size: 15px;
-  font-weight: 400;
-  font-family: "Noto Serif TC";
-  text-decoration: none;
-  white-space: nowrap; /* 避免文字換行 */
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  }
-
-  /* 下拉選單連結滑鼠懸停效果 */
-  .dropdownLink:hover {
-  background-color: rgba(241, 246, 233, 0.8);
-  color: rgba(4, 87, 19, 1);
-  }
-
-  /* 下拉選單中啟用連結的樣式 */
-  /* 它會同時擁有 .dropdownLink 和 .activeLink 兩個 class */
-  .dropdownLink.activeLink {
-  font-weight: 700;
-  color: rgba(4, 87, 19, 1);
-  background-color: rgba(230, 240, 220, 0.9);
-  border-bottom-color: transparent;
+    &:hover {
+      background-color: rgba(241, 246, 233, 0.8);
+    }
+    
+    &.activeLink {
+      font-weight: 700;
+      background-color: rgba(230, 240, 220, 0.9);
+      border-bottom-color: transparent; // 確保 dropdown link 沒有底線
+    }
   }
 }

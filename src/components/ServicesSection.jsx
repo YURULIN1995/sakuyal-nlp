@@ -1,19 +1,4 @@
-import styles from '@styles/ServicesSection.module.scss'; // 匯入自己的樣式
-
-/**
- * Services Section 的資料結構範例 (需要更新 copyWritingData.js)
- * const servicesData = {
- * leftTitle: "...",
- * leftParagraph: "...",
- * imageUrl: "...",
- * imageAlt: "...",
- * rightColumnItems: [
- * { id: 'svc1', title: "標題一", paragraph: "內文一..." },
- * { id: 'svc2', title: "標題二", paragraph: "內文二..." },
- * { id: 'svc3', title: "標題三", paragraph: "內文三..." }
- * ]
- * };
- */
+import styles from '@styles/ServicesSection.module.scss'; 
 
 function ServicesSection({
   leftTitle,

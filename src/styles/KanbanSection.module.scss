@@ -1,4 +1,11 @@
+@use 'sass:map'; 
 @use '@styles/_breakpoints.scss' as bp;
+
+@mixin respond($key) {
+  @media (min-width: map.get(bp.$breakpoints, $key)) {
+    @content;
+  }
+}
 
 .kanbanSectionWrapper {
   background-color: rgba(249, 250, 246, 1);
@@ -9,10 +16,8 @@
 .kanbanContainerPadding {
   padding-top: 64px;
   padding-bottom: 64px;
-}
 
-@media (max-width: bp.$breakpoint-md) {
-  .kanbanContainerPadding {
+  @include respond(md) {
     padding-top: 50px;
     padding-bottom: 50px;
   }

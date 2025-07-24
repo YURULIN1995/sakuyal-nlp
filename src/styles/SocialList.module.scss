@@ -1,4 +1,11 @@
+@use 'sass:map'; 
 @use '@styles/_breakpoints.scss' as bp;
+
+@mixin respond($key) {
+  @media (min-width: map.get(bp.$breakpoints, $key)) {
+    @content;
+  }
+}
 
 .socialList {
   list-style: none;
@@ -7,6 +14,14 @@
   display: flex;
   justify-content: center;
   gap: 40px;
+
+  @include respond(md) {
+    justify-content: flex-start;
+  }
+
+  @include respond(xl) {
+    margin-top: 90px;
+  }
 }
 
 .socialLink {
@@ -19,17 +34,5 @@
   &:hover {
     color: rgb(58, 90, 64);
     transform: translateY(-2px); /* 滑鼠懸停時輕微上移 */
-  }
-}
-
-@media (min-width: bp.$breakpoint-md) {
-  .socialList {
-    justify-content: flex-start;
-  }
-}
-
-@media (min-width: bp.$breakpoint-xl) {
-  .socialList {
-    margin-top: 90px;
   }
 }

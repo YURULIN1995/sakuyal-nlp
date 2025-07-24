@@ -1,20 +1,117 @@
+@use 'sass:map';
+@use '@styles/_breakpoints.scss' as bp; 
+
+/* Media Query Min */
+@mixin respond-min($key) {
+  @media (min-width: map.get(bp.$breakpoints, $key)) {
+    @content;
+  }
+}
+
+/* Decorative Divider */
 @mixin decorative-divider(
   $color: rgb(156, 201, 150),
   $width: 60px,
   $height: 5px,
   $top: 0,
   $left: 0,
+  $is-centered: false
 ) {
-    content: '';
-    display: block;
-    position: absolute;
-
-    // --- 外觀 (使用傳入的參數) ---
-    width: $width;
-    height: $height;
-    background-color: $color;
-    
-    // --- 定位 (使用傳入的參數) ---
-    top: $top;
+  content: '';
+  display: block;
+  position: absolute;
+  width: $width;
+  height: $height;
+  background-color: $color;
+  border-radius: 3px;
+  top: $top;
+  
+  @if $is-centered {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else {
     left: $left;
+    transform: none;
+  }
+}
+
+/* Title Text */
+@mixin t-title(
+  $color: rgb(58, 90, 64)
+) {
+  font-size: 28px;
+  color: $color;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+
+  @include respond-min(xs) {
+    font-size: 32px;
+  }
+  @include respond-min(md) {
+    margin-bottom: 20px;
+  }
+  @include respond-min(nav) {
+    font-size: 38px;  
+  }
+  @include respond-min(llg) {
+    letter-spacing: 0.6px;
+  }
+}
+
+/* Paragraph Text */
+@mixin p-paragraph {
+  font-size: 17px;
+  line-height: 2.5;
+  letter-spacing: -1px;
+  margin-bottom: 17px;
+  color: rgb(88, 129, 87);
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+
+  @include respond-min(md) {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    margin-left: initial;
+    margin-right: initial;
+  }
+  @include respond-min(lg) {
+    margin-bottom: 32px;
+  }
+}
+
+/* Button Style */
+@mixin b-button(
+  $bg-color: rgb(156, 201, 150),
+  $hover-color: rgb(58, 90, 64)
+) {
+  display: block;
+  box-sizing: border-box;
+  width: fit-content;
+  margin: 20px auto 0 auto;
+  padding: 14px 30px;
+  background-color: $bg-color;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  @include respond-min(md) {
+    padding: 14px 30px;
+    margin-top: 15px;
+  }
+  @include respond-min(lg) {
+    margin-top: 42px;
+  }
 }

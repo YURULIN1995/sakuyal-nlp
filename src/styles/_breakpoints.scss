@@ -1,7 +1,10 @@
-$breakpoint-xs: 545px;
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-nav: 921px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
-$breakpoint-xxl: 1400px;
+$breakpoints: (
+  xs: 545px,
+  sm: 576px,
+  md: 768px,
+  nav: 921px,
+  llg: 1025px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
