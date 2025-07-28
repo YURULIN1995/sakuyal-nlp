@@ -1,14 +1,14 @@
 @use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp; 
+@use 'breakpoints' as bp;
 
-/* Media Query Min */
+// --- Media Query Min ---
 @mixin respond-min($key) {
   @media (min-width: map.get(bp.$breakpoints, $key)) {
     @content;
   }
 }
 
-/* Decorative Divider */
+// --- Decorative Divider ---
 @mixin decorative-divider(
   $color: rgb(156, 201, 150),
   $width: 60px,
@@ -35,7 +35,7 @@
   }
 }
 
-/* Title Text */
+// --- Title Text ---
 @mixin t-title(
   $color: rgb(58, 90, 64)
 ) {
@@ -60,7 +60,7 @@
   }
 }
 
-/* Paragraph Text */
+// --- Paragraph Text ---
 @mixin p-paragraph {
   font-size: 17px;
   line-height: 2.5;
@@ -81,7 +81,7 @@
   }
 }
 
-/* Button Style */
+// --- Button Style ---
 @mixin b-button(
   $bg-color: rgb(156, 201, 150),
   $hover-color: rgb(58, 90, 64)
@@ -114,4 +114,16 @@
   @include respond-min(lg) {
     margin-top: 42px;
   }
+}
+
+// --- SVG Icon Style ---
+@mixin svg-icon-style(
+  $size: 40px,
+  $color: rgb(88, 129, 87),
+  $stroke-width: 1.5
+) {
+  width: $size;
+  height: $size;
+  stroke: $color;
+  stroke-width: $stroke-width;
 }

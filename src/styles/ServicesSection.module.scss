@@ -47,7 +47,6 @@
     order: 2;
   }
 
-  // 核心修正：加入圖片的響應式樣式
   img {
     width: 100%;
     height: auto;
@@ -66,7 +65,32 @@
   }
 }
 
-.rightColumnItem { /* ... */ }
+.rightColumnItem { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+ }
+
+ .iconCircle {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+
+  svg {
+    @include mixins.svg-icon-style(
+      $size: 40px,
+      $color: rgb(88, 129, 87)
+    );
+  }
+ }
 
 .titleWrapper {
   position: relative;
@@ -96,8 +120,15 @@
 }
 
 .rightColumnTitle {
-  font-size: 24px;
+  font-size: 20px;
+  margin-top: 0;
   margin-bottom: 10px;
   text-align: center;
   @include mixins.t-title;
+}
+
+.rightColumnParagraph {
+  margin-top: 0;
+  line-height: 1.8;
+  @include mixins.p-paragraph;
 }
