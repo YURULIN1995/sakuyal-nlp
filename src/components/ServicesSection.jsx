@@ -1,18 +1,4 @@
-// src/components/ServicesSection.jsx
-
 import styles from '@styles/ServicesSection.module.scss';
-
-// 從你自己的 assets/icons 資料夾中，將 SVG 當作 React 元件引入
-import IconCakeRoll from '@assets/icons/cake-roll.svg?react';
-import IconTeapot from '@assets/icons/teapot.svg?react';
-import IconShoppingCart from '@assets/icons/shopping-cart.svg?react';
-
-// iconMap 現在對應到的是我們自己引入的 SVG 元件
-const iconMap = {
-  teapot: IconTeapot,
-  wagashi: IconCakeRoll,
-  shoppingCart: IconShoppingCart
-};
 
 function ServicesSection({
   leftTitle,
@@ -29,13 +15,15 @@ function ServicesSection({
 
         {/* --- Left Column --- */}
         <div className={styles.leftColumn}>
-          <div className={styles.titleWrapper}>
-            <h2 className={styles.serviceTitle}>{leftTitle}</h2>
+          <div className={styles.leftColumnContent}>
+            <div className={styles.titleWrapper}>
+              <h2 className={styles.serviceTitle}>{leftTitle}</h2>
+            </div>
+            <p className={styles.serviceParagraph}>{leftParagraph}</p>
+            {leftButtonText && (
+              <a href={leftButtonLink} className={styles.sectionButton}>{leftButtonText}</a>
+            )}
           </div>
-          <p className={styles.serviceParagraph}>{leftParagraph}</p>
-          {leftButtonText && (
-            <a href={leftButtonLink} className={styles.sectionButton}>{leftButtonText}</a>
-          )}
         </div>
 
         {/* --- Middle Column --- */}
@@ -46,7 +34,8 @@ function ServicesSection({
         {/* --- Right Column --- */}
         <div className={styles.rightColumn}>
           {rightColumnItems.map(item => {
-            const IconComponent = iconMap[item.iconId];
+            // 直接使用從 props 傳入的 icon 元件
+            const IconComponent = item.icon;
             return (
               <div key={item.id} className={styles.rightColumnItem}>
                 {IconComponent && (
