@@ -10,13 +10,13 @@ export const servicesOverviewData = {
   rightColumnItems: [
     { 
       id: 'svc1',
-      iconId: 'seedling',
+      iconId: 'teapot',
       title: "裏千家茶道教學",
       paragraph: "在快速變化的日子裡，你是否渴望一隅寧靜，專注當下？透過裏千家茶道的點茶、奉茶與品茶，學習的不只是日式禮儀，更是與自己溫柔對話、找回內在平靜的過程。無需任何經驗，老師將細心引導，歡迎來體驗一期一會的美好。"
     },
     { 
       id: 'svc2',
-      iconId: 'leaf', // <-- 主要修改處：從 'flower' 改為 'leaf'
+      iconId: 'wagashi', // <-- 主要修改處：從 'flower' 改為 'leaf'
       title: "和菓子製作體驗",
       paragraph: "看著精緻和菓子總讓你心動，卻擔心太難學不會？別擔心！從親手熬煮香甜綿密的紅豆餡開始，到學習優雅的練切 (Nerikiri) 造型技巧，一步步帶你體驗將食材化為藝術品的療癒魔法。親手做的和菓子，無論款待自己或送給朋友，都充滿溫度。"
     },

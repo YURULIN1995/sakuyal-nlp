@@ -1,27 +1,20 @@
-// src/styles/ServicesSection.module.scss
-
-@use 'sass:map'; 
-@use '@styles/_breakpoints' as bp;
 @use '@styles/_mixins' as mixins;
 
-// 建議刪除這個局部的 mixin，統一使用從 _mixins.scss 引入的版本
-// @mixin respond($key) { ... }
-
+/* --- 容器與通用欄位樣式 --- */
 .container {
-    max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 50px 20px;
-    box-sizing: border-box;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px 20px;
+  box-sizing: border-box;
 }
   
 .columnsContainer {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
   gap: 40px;
-  
-  // 修正：使用從 mixins 檔案引入的 respond-min
+  flex-direction: column;
+
   @include mixins.respond-min(md) {
     flex-direction: row;
     align-items: flex-start;
@@ -29,50 +22,39 @@
 }
 
 .leftColumn, .middleColumn, .rightColumn {
-    flex-basis: auto;
-    width: 100%;
+  width: 100%;
 }
 
+/* --- 各欄位詳細設定 --- */
 .leftColumn {
-  @include mixins.respond-min(md) {
-    flex-basis: 30%;
-    text-align: left;
-    order: 1;
-  }
+  @include mixins.respond-min(md) { flex-basis: 30%; order: 1; }
 }
-
 .middleColumn {
-  @include mixins.respond-min(md) {
-    flex-basis: 40%;
-    order: 2;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-  }
+  @include mixins.respond-min(md) { flex-basis: 40%; order: 2; }
+  img { width: 100%; height: auto; display: block; border-radius: 8px; }
 }
-
 .rightColumn {
-  @include mixins.respond-min(md) {
-    flex-basis: 30%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    order: 3;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @include mixins.respond-min(md) { flex-basis: 30%; order: 3; }
 }
 
-.rightColumnItem { 
+/* --- Right Column 項目結構 --- */
+.rightColumnItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
- }
+  gap: 15px;
 
- .iconCircle {
+  @include mixins.respond-min(md) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+.iconWrap {
   width: 90px;
   height: 90px;
   display: flex;
@@ -82,16 +64,18 @@
   border: 1px solid #eee;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
+  flex-shrink: 0;
 
   svg {
-    @include mixins.svg-icon-style(
-      $size: 40px,
-      $color: rgb(88, 129, 87)
-    );
+    @include mixins.svg-icon-style;
   }
- }
+}
 
+.textWrap {
+  /* 這個 class 主要用於結構，不需額外樣式 */
+}
+
+/* --- 左欄文字 & 按鈕樣式 --- */
 .titleWrapper {
   position: relative;
   display: inline-block;
@@ -99,36 +83,61 @@
   margin-bottom: 20px;
 
   &::before {
-    @include mixins.decorative-divider;
+    @include mixins.decorative-divider($is-centered: false);
   }
 }
 
 .serviceTitle {
-  text-align: left;
   @include mixins.t-title;
+  
+  & {
+    text-align: left;
+  }
 }
 
 .serviceParagraph {
-  text-align: left;
   @include mixins.p-paragraph;
+
+  & {
+    text-align: left;
+  }
 }
 
 .sectionButton {
-  display: block;
-  margin: 20px auto 0 auto;
   @include mixins.b-button;
+  
+  & {
+    margin: 20px 0 0 0;
+  }
 }
 
+/* --- 右欄文字樣式 --- */
 .rightColumnTitle {
-  font-size: 20px;
-  margin-top: 0;
-  margin-bottom: 10px;
-  text-align: center;
   @include mixins.t-title;
+
+  & {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  @include mixins.respond-min(md) {
+    text-align: left;
+  }
 }
 
 .rightColumnParagraph {
-  margin-top: 0;
-  line-height: 1.8;
   @include mixins.p-paragraph;
+
+  & {
+    margin: 0;
+    line-height: 1.8;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  @include mixins.respond-min(md) {
+    text-align: left;
+  }
 }
