@@ -5,9 +5,7 @@
   max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
-  /* 修正 #1：只保留上下的 padding，移除左右的 20px */
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 80px 20px;
   box-sizing: border-box;
 }
   
@@ -19,6 +17,11 @@
   @include mixins.respond-min(md) {
     gap: 0 40px;
     row-gap: 40px;
+  }
+
+  // 在電腦版，移除欄位間距
+  @include mixins.respond-min(lg) {
+    gap: 0;
   }
 }
 
@@ -32,30 +35,24 @@
     flex-basis: 100%;
   }
   @include mixins.respond-min(lg) {
-    flex-basis: 30%;
+    flex-basis: 30%; // 恢復單純百分比
     order: 1;
   }
 }
 
 .leftColumnContent {
-  /* 修正 #2：在手機版加上左右 padding */
-  padding: 0 20px;
+  padding: 0;
   box-sizing: border-box;
-
-  @include mixins.respond-min(md) {
-    padding: 0 100px;
-  }
 }
 
 .middleColumn {
   @include mixins.respond-min(md) {
-    flex-basis: calc(50% + 45px);
+    flex-basis: calc(50% - 20px); // 平板尺寸維持不變
     box-sizing: border-box;
   }
   @include mixins.respond-min(lg) {
-    flex-basis: 30%;
+    flex-basis: 30%; // 恢復單純百分比
     order: 2;
-    padding-right: 0;
   }
   img { width: 100%; height: auto; display: block; border-radius: 8px; }
 }
@@ -64,21 +61,20 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  /* 修正 #3：在手機版加上左右 padding */
-  padding: 0 20px;
+  padding: 0;
   box-sizing: border-box;
 
   @include mixins.respond-min(md) {
-    flex-basis: calc(50% - 45px);
-    margin-left: -90px;
-    padding: 0; // 在平板及以上，移除 padding
+    flex-basis: calc(50% - 20px);
   }
   @include mixins.respond-min(lg) {
-    flex-basis: 40%;
+    flex-basis: 40%; // 恢復單純百分比
     order: 3;
     margin-left: 0;
+    gap: 0;
   }
 }
+
 
 /* 1. 項目主容器 */
 .rightColumnItem {
@@ -88,13 +84,16 @@
   gap: 15px;
 
   @include mixins.respond-min(md) {
-    flex-direction: row;
+    position: relative;
     align-items: center;
-    gap: 20px;
+    padding-left: 65px;
   }
   
   @include mixins.respond-min(lg) {
+    flex-direction: row;
     align-items: flex-start;
+    padding-left: 0;
+    gap: 20px;
   }
 }
 
@@ -115,18 +114,24 @@
   svg {
     @include mixins.svg-icon-style;
   }
+
+  @include mixins.respond-min(md) {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+  
+  @include mixins.respond-min(lg) {
+    position: static;
+    transform: none;
+  }
 }
 
 /* 3. Text Wrap */
 .textWrap {
   @include mixins.respond-min(md) {
-    position: relative;
-    left: 10px;
-  }
-  
-  @include mixins.respond-min(lg) {
-    position: static;
-    left: auto;
+    text-align: left;
   }
 }
 
@@ -155,7 +160,12 @@
 
 .sectionButton {
   @include mixins.b-button;
-  & { margin: 20px 0 0 0; }
+
+  @include mixins.respond-min(lg) {
+    & {
+      margin: 20px 0 0 0;
+    }
+  }
 }
 
 /* --- 右欄文字樣式 --- */
@@ -181,6 +191,10 @@
     margin: 0;
     line-height: 1.8;
     font-size: 1rem;
+    text-align: center;
+  }
+  
+  @include mixins.respond-min(md) {
     text-align: left;
   }
 }

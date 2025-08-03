@@ -1,4 +1,5 @@
 import styles from '@styles/ServicesSection.module.scss';
+// Icon imports and iconMap have been removed as they are no longer needed here.
 
 function ServicesSection({
   leftTitle,
@@ -34,7 +35,7 @@ function ServicesSection({
         {/* --- Right Column --- */}
         <div className={styles.rightColumn}>
           {rightColumnItems.map(item => {
-            // 直接使用從 props 傳入的 icon 元件
+            // Directly use the icon component passed from props
             const IconComponent = item.icon;
             return (
               <div key={item.id} className={styles.rightColumnItem}>
