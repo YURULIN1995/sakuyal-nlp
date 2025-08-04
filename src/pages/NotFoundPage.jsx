@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEO from '@components/Head/SEO';
-import styles from '@styles/NotFound.module.css';
+import styles from '@styles/NotFound.module.scss';
 
 function NotFoundPage() {
   return (
