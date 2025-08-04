@@ -1,5 +1,8 @@
+// src/styles/_mixins.scss
+
 @use 'sass:map';
 @use 'breakpoints' as bp;
+@use 'colors' as color; // 關鍵修正：在這裡引入顏色檔案
 
 // --- Media Query Min ---
 @mixin respond-min($key) {
@@ -8,9 +11,16 @@
   }
 }
 
+// --- Media Query Max ---
+@mixin respond-max($key) {
+  @media (max-width: map.get(bp.$breakpoints, $key)) {
+    @content;
+  }
+}
+
 // --- Decorative Divider ---
 @mixin decorative-divider(
-  $color: rgb(156, 201, 150),
+  $color: map.get(color.$greens, 'light'),
   $width: 60px,
   $height: 5px,
   $top: 0,
@@ -37,7 +47,7 @@
 
 // --- Title Text ---
 @mixin t-title(
-  $color: rgb(58, 90, 64)
+  $color: map.get(color.$greens, 'dark')
 ) {
   font-size: 28px;
   color: $color;
@@ -66,7 +76,7 @@
   line-height: 2.5;
   letter-spacing: -1px;
   margin-bottom: 17px;
-  color: rgb(88, 129, 87);
+  color: map.get(color.$greens, 'base');
   margin-block-start: 1em;
   margin-block-end: 1em;
 
@@ -83,8 +93,8 @@
 
 // --- Button Style ---
 @mixin b-button(
-  $bg-color: rgb(156, 201, 150),
-  $hover-color: rgb(58, 90, 64)
+  $bg-color: map.get(color.$greens, 'light'),
+  $hover-color: map.get(color.$greens, 'dark')
 ) {
   display: block;
   box-sizing: border-box;
@@ -92,7 +102,7 @@
   margin: 20px auto 0 auto;
   padding: 14px 30px;
   background-color: $bg-color;
-  color: white;
+  color: color.$white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -119,7 +129,7 @@
 // --- SVG Icon Style ---
 @mixin svg-icon-style(
   $size: 40px,
-  $color: rgb(88, 129, 87),
+  $color: map.get(color.$greens, 'base'),
   $stroke-width: 1.5
 ) {
   width: $size;

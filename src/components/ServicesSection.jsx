@@ -1,5 +1,4 @@
 import styles from '@styles/ServicesSection.module.scss';
-// Icon imports and iconMap have been removed as they are no longer needed here.
 
 function ServicesSection({
   leftTitle,

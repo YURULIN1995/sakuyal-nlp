@@ -1,0 +1,106 @@
+@use '@styles/_mixins' as mixins;
+@use '@styles/colors' as color;
+@use 'sass:map';
+
+.featuredPostsWrapper {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2em;
+  color: map.get(color.$greens, 'dark');
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.postsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.postCard {
+  box-sizing: border-box;
+  flex-basis: calc(33.333% - 20px); // 三欄，減去 gap 的影響
+  background-color: color.$white;
+  border: 1px solid color.$grey-border;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+
+  // 響應式調整
+  @include mixins.respond-max(lg) { // lg 以下，變兩欄
+    flex-basis: calc(50% - 15px);
+  }
+
+  @include mixins.respond-max(md) { // md 以下，變一欄
+    flex-basis: 100%;
+  }
+}
+
+.postImageLink {
+  display: block;
+}
+
+.postImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.postContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.postCategory {
+  font-size: 0.85em;
+  color: map.get(color.$greens, 'light');
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.postTitle {
+  font-size: 1.3em;
+  color: map.get(color.$greens, 'dark');
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.4;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.postExcerpt {
+  font-size: 0.95em;
+  color: color.$grey-text;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.readMoreLink {
+  font-size: 0.9em;
+  color: map.get(color.$greens, 'base');
+  text-decoration: none;
+  font-weight: bold;
+  align-self: flex-start;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,8 +1,37 @@
-$green: (
-  a: rgb(156, 201, 150),
-  b: rgb(58, 90, 64),
-  c: rgb(88, 129, 87),
-  d: rgba(4, 87, 19, 1),
-  e: rgba(230, 240, 220, 0.9),
-  f: rgba(88, 127, 95, 0.9)
+// src/styles/_color.scss
+
+// --- 綠色系調色盤 (Green Palette) ---
+// 使用 Sass Map 統一管理品牌主色系
+$greens: (
+  // 文字與強調色
+  "darkest": rgb(4, 87, 19),
+  "dark": rgb(58, 90, 64),
+  "base": rgb(88, 129, 87),
+  "light": rgb(156, 201, 150),
+
+  // 導覽列專用 (帶透明度)
+  "nav-link": rgba(78, 117, 85, 0.9),
+  "nav-link-hover": rgba(4, 87, 19, 1),
+  "nav-link-arrow": rgba(78, 117, 85, 0.7),
+  "nav-active-border": rgba(4, 87, 19, 0.7),
+
+  // 背景色系
+  "bg": rgb(241, 246, 233),
+  "bg-hover": rgba(230, 240, 220, 0.9),
+  "bg-kanban": rgb(249, 250, 246),
+  "bg-dropdown": rgba(241, 246, 233, 0.3)
 );
+
+
+// --- 中性色與背景色 (Neutral & Background Palette) ---
+// 使用變數管理白色、灰色、陰影等
+$white: #ffffff;
+
+// 灰色系
+$grey-light-border: #f0f0f0;
+$grey-border: #eee;
+$grey-text: #555;
+
+// 黑色系 (帶透明度，用於陰影)
+$shadow-light: rgba(0, 0, 0, 0.05);
+$shadow-medium: rgba(0, 0, 0, 0.1);
