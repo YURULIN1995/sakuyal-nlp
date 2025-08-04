@@ -1,5 +1,6 @@
 @use 'sass:map'; 
 @use '@styles/_breakpoints.scss' as bp;
+@use '@styles/_mixins' as mixins;
 
 @mixin respond($key) {
   @media (min-width: map.get(bp.$breakpoints, $key)) {
@@ -12,16 +13,10 @@
   margin: 0 auto; /* 置中 */
   box-sizing: border-box;
   background-color: transparent;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 80px 20px;
 
-  @include respond(md) {    
-    padding-left: 100px;
-    padding-right: 100px;
-  }
+   @include mixins.respond-min(md) {
+    padding: 80px 100px;
+   }
 
-  @include respond(lg) {    
-    padding-left: 50px;
-    padding-right: 50px;
-  }
 }
