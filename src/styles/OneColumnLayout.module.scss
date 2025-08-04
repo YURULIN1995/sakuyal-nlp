@@ -19,4 +19,8 @@
     padding: 80px 100px;
    }
 
+   @include mixins.respond-min(llg) {
+    padding: 80px 40px;
+   }
+
 }
