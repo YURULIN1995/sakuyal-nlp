@@ -4,17 +4,18 @@
 
 .featuredPostsWrapper {
   padding: 60px 20px;
-  text-align: left; // 預設靠左
+  text-align: left;
+  background-color: map.get(color.$greens, 'bg-section-light');
 
   @include mixins.respond-min(md) {
     padding: 60px 100px;
   }
 
-  @include mixins.respond-min(llg) {
+  @include mixins.respond-min(xl) {
     padding: 60px 40px;
   }
 
-    @include mixins.respond-min(llg) {
+  @include mixins.respond-min(xxl) {
     padding: 60px 100px;
   }
 }
