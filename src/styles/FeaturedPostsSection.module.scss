@@ -3,8 +3,31 @@
 @use 'sass:map';
 
 .featuredPostsWrapper {
-  padding: 60px 40px;
-  text-align: center;
+  padding: 60px 20px;
+  text-align: left; // 預設靠左
+
+  @include mixins.respond-min(md) {
+    padding: 60px 100px;
+  }
+
+  @include mixins.respond-min(llg) {
+    padding: 60px 40px;
+  }
+
+    @include mixins.respond-min(llg) {
+    padding: 60px 100px;
+  }
+}
+
+.titleWrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 25px;
+  margin-bottom: 20px;
+
+  &::before {
+    @include mixins.decorative-divider($is-centered: false);
+  }
 }
 
 .sectionTitle {
@@ -12,18 +35,18 @@
   color: map.get(color.$greens, 'dark');
   font-weight: 700;
   margin-bottom: 40px;
+  text-align: left;
 }
 
 .postsGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  justify-content: center;
+  justify-content: center; // 卡片本身在網格中置中
 }
 
 .postCard {
   box-sizing: border-box;
-  flex-basis: calc(33.333% - 20px); // 三欄，減去 gap 的影響
   background-color: color.$white;
   border: 1px solid color.$grey-border;
   border-radius: 8px;
@@ -32,13 +55,17 @@
   display: flex;
   flex-direction: column;
 
-  // 響應式調整
-  @include mixins.respond-max(lg) { // lg 以下，變兩欄
+  // Mobile-First: 預設為單欄佈局
+  flex-basis: 100%;
+
+  // Tablet: 在 md 斷點以上變為兩欄
+  @include mixins.respond-min(md) {
     flex-basis: calc(50% - 15px);
   }
 
-  @include mixins.respond-max(md) { // md 以下，變一欄
-    flex-basis: 100%;
+  // Desktop: 在 lg 斷點以上變為三欄
+  @include mixins.respond-min(lg) {
+    flex-basis: calc(33.333% - 20px);
   }
 }
 

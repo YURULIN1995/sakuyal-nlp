@@ -9,7 +9,11 @@ function FeaturedPostsSection() {
 
   return (
     <section className={styles.featuredPostsWrapper}>
-      <h2 className={styles.sectionTitle}>精選文章</h2>
+      {/* ▼▼▼ 核心修改：為標題加上 wrapper ▼▼▼ */}
+      <div className={styles.titleWrapper}>
+        <h2 className={styles.sectionTitle}>精選文章</h2>
+      </div>
+      
       <div className={styles.postsGrid}>
         {featuredPostsData.map(post => (
           <article key={post.id} className={styles.postCard}>
