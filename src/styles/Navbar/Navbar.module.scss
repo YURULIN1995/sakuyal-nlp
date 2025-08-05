@@ -1,13 +1,8 @@
 @use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp; // 引入斷點檔案
-@use '@styles/_mixins' as mx;
+@use '@styles/_breakpoints.scss' as bp;
+@use '@styles/_mixins' as mx; // 1. (保留) 確保引入了全域 mixins
 
-// --- Media Query Min ---
-@mixin respond-min($key) {
-  @media (min-width: map.get(bp.$breakpoints, $key)) {
-    @content;
-  }
-}
+// 2. (移除) 刪除了本地的 @mixin respond-min(...) 定義
 
 /* --- Hamburger Menu --- */
 :root {
@@ -31,12 +26,11 @@
   z-index: 12;
   position: relative;
 
-  // 在 nav 斷點以上隱藏漢堡選單
+  // 3. (修改) 將所有 @include 都指向全域的 mx.respond-min
   @include mx.respond-min(nav) {
     display: none;
   }
 
-  // 漢堡選單打開時的 'X' 動畫
   &.isOpen .hamburgerBar:nth-child(1) {
     transform: translateY(calc(var(--mobile-bar-height) + var(--mobile-hamburger-gap))) rotate(45deg);
   }
@@ -61,13 +55,13 @@
 
 /* --- Navigation List --- */
 .navList {
-  /* 手機版基礎樣式 (預設隱藏) */
+  /* ... 手機版樣式 ... */
   position: absolute;
   top: calc(100% - 1px);
   left: 0;
   width: 100%;
   background-color: #ffffff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   z-index: 101;
   list-style: none;
   margin: 0;
@@ -80,14 +74,12 @@
   transform: translateY(-10px);
   transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
 
-  // 手機版打開時的樣式
   &.isOpen {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 
-  /* 桌面版響應式樣式 (覆蓋手機版樣式，讓其可見) */
   @include mx.respond-min(nav) {
     display: flex;
     position: static;
@@ -114,14 +106,14 @@
     border-bottom: none;
   }
 
-  // 桌面版樣式
   @include mx.respond-min(nav) {
-    position: relative; // 作為 dropdown 定位的基準
+    position: relative;
     border-bottom: none;
   }
 }
 
 .navLink {
+  /* ... 手機版樣式 ... */
   display: flex;
   align-items: center;
   width: 100%;
@@ -144,7 +136,6 @@
     justify-content: space-between;
   }
 
-  // 桌面版樣式
   @include mx.respond-min(nav) {
     display: inline-block;
     width: auto;
@@ -158,7 +149,7 @@
 }
 
 .activeLink {
-  background-color: transparent; // 確保桌面版 active 沒有背景色
+  background-color: transparent;
   color: rgba(4, 87, 19, 1);
   font-weight: 700;
 
@@ -168,6 +159,7 @@
 }
 
 .arrow {
+  /* ... */
   display: inline-block;
   font-size: 0.6em;
   color: rgba(78, 117, 85, 0.7);
@@ -176,12 +168,10 @@
   margin-left: 4px;
   vertical-align: middle;
 
-  // 手機版打開時的樣式
   .navLink.hasDropdown.isOpen & {
     transform: none;
   }
 
-  // 桌面版樣式
   @include mx.respond-min(nav) {
     margin-left: 5px;
     transition: none;
@@ -191,7 +181,7 @@
 
 /* --- Dropdown Menu --- */
 .dropdownList {
-  /* 手機版樣式 */
+  /* ... 手機版樣式 ... */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -201,29 +191,27 @@
   transition: max-height 0.3s ease-in-out;
 
   &.isOpen {
-    max-height: 30em; // 手機版展開高度
+    max-height: 30em;
   }
 
-  /* 桌面版樣式 */
   @include mx.respond-min(nav) {
-    display: none; // 桌面預設隱藏，靠 hover 顯示
+    display: none;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
     min-width: max-content;
     background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     padding: 10px 0;
     border-radius: 6px;
     z-index: 10;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-    max-height: none; // 重設手機版的高度限制
+    max-height: none;
     overflow: visible;
 
-    // 桌面版 hover 時顯示
     .navItem:hover > & {
       display: block;
       opacity: 1;
@@ -233,6 +221,7 @@
 }
 
 .dropdownLink {
+  /* ... */
   display: block;
   padding: 12px 25px 12px 40px;
   color: rgba(88, 127, 95, 0.9);
@@ -251,7 +240,6 @@
     color: rgba(4, 87, 19, 1);
   }
 
-  /* 桌面版樣式 */
   @include mx.respond-min(nav) {
     padding: 10px 25px;
     color: rgba(78, 117, 85, 0.9);
@@ -264,7 +252,7 @@
     &.activeLink {
       font-weight: 700;
       background-color: rgba(230, 240, 220, 0.9);
-      border-bottom-color: transparent; // 確保 dropdown link 沒有底線
+      border-bottom-color: transparent;
     }
   }
 }

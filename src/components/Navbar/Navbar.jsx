@@ -18,7 +18,6 @@ function Navbar() {
   const handleDropdownToggle = (event, itemName) => {
     event.preventDefault();
     setOpenDropdown(prevOpen => (prevOpen === itemName ? null : itemName));
-    
   };
 
   const getNavLinkClass = (navLinkProps, item) => {
@@ -31,7 +30,6 @@ function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      {/* 1. 手機版漢堡選單 (SCSS 會在桌面版時隱藏它) */}
       <button
         className={`${styles.hamburgerMenu} ${isMenuOpen ? styles.isOpen : ''}`}
         onClick={toggleMenu}
@@ -43,7 +41,6 @@ function Navbar() {
         <span className={styles.hamburgerBar}></span>
       </button>
 
-      {/* 2. 統一的導覽列表 */}
       <ul className={`${styles.navList} ${isMenuOpen ? styles.isOpen : ''}`}>
         {navItems.map((item) => (
           <li
@@ -56,7 +53,6 @@ function Navbar() {
                 if (item.children) {
                   handleDropdownToggle(e, item.name);
                 } else {
-                  // 點擊一般連結後，關閉主選單
                   setIsMenuOpen(false);
                 }
               }}
@@ -66,14 +62,14 @@ function Navbar() {
               {item.children && <span className={styles.arrow}>▾</span>}
             </NavLink>
 
-            {/* 下拉式選單 Dropdown List */}
             {item.children  && (
               <ul className={`${styles.dropdownList} ${openDropdown === item.name ? styles.isOpen : ''}`}>
-                {item.name == '作品集' && (
+                {/* 2. (修改) 將硬編碼的判斷改為讀取資料屬性 */}
+                {item.showOverviewLink && (
                   <li className={styles.dropdownItem}>
-                    <NavLink to="/portfolio" className={styles.dropdownLink} onClick={() => setIsMenuOpen(false)}>所有作品</NavLink>
+                    {/* 3. (修改) 將連結文字動態化，並加上 onClick 事件 */}
+                    <NavLink to={item.path} className={styles.dropdownLink} onClick={() => setIsMenuOpen(false)}>所有{item.name}</NavLink>
                   </li>
-
                 )}
                 {item.children.map((child) => (
                   <li key={child.name} className={styles.dropdownItem}>
