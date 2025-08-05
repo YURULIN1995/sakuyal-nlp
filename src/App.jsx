@@ -14,6 +14,7 @@ import ContactPage from '@pages/content/ContactPage';
 import PrivacyPolicyPage from '@pages/legal/PrivacyPolicyPage';
 import DisclaimerPage from '@pages/legal/DisclaimerPage';
 import CopyrightPage from '@pages/legal/CopyrightPage';
+import RefundPolicyPage from '@pages/legal/RefundPolicyPage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="disclaimer" element={<DisclaimerPage />} />
           <Route path="copyright" element={<CopyrightPage />} />
+          <Route path="refund-policy" element={<RefundPolicyPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

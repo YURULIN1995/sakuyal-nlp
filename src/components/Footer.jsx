@@ -22,6 +22,11 @@ function Footer() {
               著作權聲明
             </Link>
           </li>
+          <li className={styles.navItem}>
+            <Link to="/refund-policy" className={styles.navLink}>
+              退款政策
+            </Link>
+          </li>
         </ul>
       </nav>
     </footer>

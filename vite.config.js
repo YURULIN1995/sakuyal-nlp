@@ -25,7 +25,8 @@ export default defineConfig({
         '/contact',
         '/privacy-policy',
         '/copyright',
-        '/disclaimer'
+        '/disclaimer',
+        '/refund-policy'
       ],
       // 根據你的 portfolioIds 產生路徑
       dynamicPaths: [
