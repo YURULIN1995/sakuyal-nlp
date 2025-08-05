@@ -1,25 +1,19 @@
 @use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
+@use '@styles/_mixins' as mx; // 1. 新增對全域 mixin 的引用
 
-@mixin respond-min($key) {
-  @media (min-width: map.get(bp.$breakpoints, $key)) {
-    @content;
-}
-}
+// 2. 移除了本地的 @mixin respond-min(...) { ... } 定義
 
 .header {
   width: 100%;
-  position: absolute; /* <--- 改回 absolute (或 fixed) */
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;        /* <--- 設定層級，確保在 Hero 之上 (數值可調整) */
-  background-color: transparent; /* <--- 改回透明 */
-  /* border-bottom: none; */ /* 移除或註解掉邊框 */
-  /* padding: 0; */        /* 移除 header 本身的 padding */
+  z-index: 10;
+  background-color: transparent;
 }
 
 .headerContent {
-  /* 保持內容居中和佈局 */
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -28,8 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 90px; /* <--- 確保這個高度足夠容納你的 90px logo + 上下空間 */
-  /* 例如可以設為 100px 或 110px */
+  min-height: 90px;
 }
 
 .logoLink {
@@ -38,11 +31,12 @@
 }
 
 .logoImg {
-  height: 73px;  /* 保持你的 logo 高度 */
+  height: 73px;
   aspect-ratio: auto 47 / 63;
   display: block;
 
-  @include respond-min(xs) {
-  height: 90px;
+  // 3. 更新呼叫語法，指向全域 mixin
+  @include mx.respond-min(xs) {
+    height: 90px;
   }
 }
