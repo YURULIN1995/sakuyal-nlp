@@ -1,0 +1,51 @@
+// 檔案: src/styles/LegalPages.module.scss
+@use 'mixins' as mx;
+@use 'colors' as color;
+@use 'sass:map';
+
+.pageWrapper {
+  // 這裡可以設定頁面的通用樣式，例如背景色
+}
+
+.title {
+  @include mx.t-title;
+  
+  // ▼▼▼ 修改之處 ▼▼▼
+  & {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  // ▲▲▲ 修改之處 ▲▲▲
+}
+
+.subheading {
+  @include mx.t-title($color: map.get(color.$greens, 'darkest'));
+  
+  // ▼▼▼ 同樣的修正也應用於此 ▼▼▼
+  & {
+    font-size: 1.5em; 
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  // ▲▲▲ 同樣的修正也應用於此 ▲▲▲
+}
+
+.paragraph {
+  @include mx.p-paragraph;
+  & {
+    text-align: left;
+  }
+}
+
+.list {
+  @include mx.p-paragraph;
+  
+  & {
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+}

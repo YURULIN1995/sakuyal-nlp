@@ -1,0 +1,48 @@
+// 1. (引入) 引入您的顏色和 map 工具
+@use '@styles/colors' as color;
+@use 'sass:map';
+
+.footer {
+  // 2. (使用顏色變數)
+  background-color: map.get(color.$greens, 'bg');
+  color: rgba(map.get(color.$greens, 'nav-base'), 0.75);
+  font-size: 12px;
+  width: 100%;
+  padding: 15px 0;
+  margin-top: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  // 3. (巢狀) 將子元素的樣式巢狀放置
+  .copyright {
+    margin: 0;
+  }
+
+  .footerNav {
+    .navList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 15px;
+    }
+    
+    // .navItem 不需要額外樣式，可以省略
+
+    .navLink {
+      color: rgba(map.get(color.$greens, 'nav-base'), 0.9);
+      text-decoration: none;
+      font-size: 12px;
+      transition: text-decoration 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        color: map.get(color.$greens, 'darkest');
+        // font-weight: 300; // 在 hover 時改變 font-weight 可能會造成輕微的排版跳動，建議改為 text-decoration
+        text-decoration: underline;
+      }
+    }
+  }
+}

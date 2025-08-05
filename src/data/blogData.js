@@ -1,33 +1,39 @@
+// 檔案: src/data/blogData.js
 
-// 為了方便測試，我們先放一些靜態的假資料。未來這些資料可以從 CMS、API 或 Markdown 檔案動態獲取
+import ArrowRightIcon from '@assets/icons/arrow-right.svg?react';
 
 export const featuredPostsData = [
   {
     id: 'post1',
-    title: '抹茶控必看：深入探索宇治抹茶的百年工藝',
-    excerpt: '從茶葉的種植到石臼的細膩研磨，一探宇治抹茶背後不為人知的匠心獨運與文化底蘊...',
-    imageUrl: '/images/matcha-dougu.jpg',
-    imageAlt: '宇治抹茶與茶具',
-    postUrl: '/blog/matcha-craft-history', // 之後替換成實際文章連結
-    category: '抹茶文化'
+    postUrl: '#',
+    imageUrl: '/images/handmade-wagashi.jpg',
+    imageAlt: '手工和菓子',
+    category: '茶道美學',
+    title: '和菓子的四季之美：從練切到錦玉羹',
+    excerpt: '探索如何透過和菓子將季節的變換融入茶席之中，感受日本傳統美學的細膩與詩意。',
+    buttonText: '閱讀更多',
+    buttonIcon: ArrowRightIcon,
   },
   {
     id: 'post2',
-    title: '手作和菓子的甜蜜約定：初學者也能輕鬆上手',
-    excerpt: '別再只是欣賞！跟著我們的步驟，從紅豆餡的熬煮到精緻的練切造型，親手製作出屬於你的和風甜點...',
-    imageUrl: '/images/handmade-wagashi.jpg',
-    imageAlt: '色彩繽紛的手作和菓子',
-    postUrl: '/blog/wagashi-for-beginners',
-    category: '手作教學'
+    postUrl: '#',
+    imageUrl: '/images/tea-ceremony.jpg',
+    imageAlt: '茶道體驗',
+    category: '實用教學',
+    title: '初學者必看：第一次參加茶會的禮儀與準備',
+    excerpt: '從服裝到心態，為您詳細解說參加茶會的注意事項，讓您自信地踏出茶道學習的第一步。',
+    buttonText: '閱讀更多',
+    buttonIcon: ArrowRightIcon,
   },
   {
     id: 'post3',
-    title: '一期一會：茶道教會我的事',
-    excerpt: '在繁忙的都市生活中，茶道如何為我們帶來片刻的寧靜與省思？分享我的茶道學習心得與體悟...',
-    imageUrl: '/images/tea-ceremony.jpg',
-    imageAlt: '茶道中的一期一會',
-    postUrl: '/blog/tea-ceremony-learnings',
-    category: '生活體悟'
-  }
-  // 你可以根據需要增加更多精選文章，通常 2-4 篇比較常見
+    postUrl: '#',
+    imageUrl: '/images/matcha-dougu.jpg',
+    imageAlt: '抹茶茶具',
+    category: '器物鑑賞',
+    title: '如何挑選你的第一組抹茶道具？茶筅、茶碗、茶杓入門指南',
+    excerpt: '工欲善其事，必先利其器。本篇將帶您認識抹茶道具的基礎，並提供實用的選購建議。',
+    buttonText: '閱讀更多',
+    buttonIcon: ArrowRightIcon,
+  },
 ];

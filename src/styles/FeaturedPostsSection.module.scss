@@ -3,17 +3,11 @@
 @use 'sass:map';
 
 // --- 佈局輔助 (Layout Helper) ---
-// 新增這個 class 來重設 OneColumnLayout 元件的預設 padding，
-// 讓我們可以完全由 featuredPostsWrapper 來控制 section 的間距。
-// 在 JSX 中這樣使用: <OneColumnLayout className={styles.layoutReset}>
 .layoutReset {
   padding: 0 !important;
 }
 
-
 // --- 主要 Section 包裹層 (Main Section Wrapper) ---
-// 這個 wrapper 負責設定整個 section 的背景顏色和上下左右的間距。
-// 內容的最大寬度將由 JSX 中的 OneColumnLayout 元件控制。
 .featuredPostsWrapper {
   padding: 60px 20px;
   text-align: left;
@@ -54,7 +48,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  justify-content: center; // 卡片本身在網格中置中
+  justify-content: center;
 }
 
 // --- 文章卡片 (Post Card) ---
@@ -68,15 +62,12 @@
   display: flex;
   flex-direction: column;
 
-  // Mobile-First: 預設為單欄佈局
   flex-basis: 100%;
 
-  // Tablet: 在 md 斷點以上變為兩欄
   @include mixins.respond-min(md) {
     flex-basis: calc(50% - 15px);
   }
 
-  // Desktop: 在 lg 斷點以上變為三欄
   @include mixins.respond-min(lg) {
     flex-basis: calc(33.333% - 20px);
   }
@@ -134,14 +125,32 @@
   flex-grow: 1;
 }
 
+
+/* --- 「閱讀更多」連結與圖示 --- */
 .readMoreLink {
   font-size: 0.9em;
   color: map.get(color.$greens, 'base');
   text-decoration: none;
   font-weight: bold;
   align-self: flex-start;
+  
+  // 新增樣式讓文字和圖示對齊
+  display: inline-flex;
+  align-items: center;
+  gap: 4px; // 文字與圖示的間距
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.arrowIcon {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor; // 確保 SVG 繼承父層顏色
+  transition: transform 0.2s ease;
+
+  .readMoreLink:hover & {
+    transform: translateX(3px);
   }
 }
