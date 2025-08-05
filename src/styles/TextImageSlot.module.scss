@@ -10,6 +10,11 @@
 
 .button {
   @include mixins.b-button;
+  @include mixins.respond-min(lg) {
+    & {
+      margin: 20px auto 0 0;
+    }
+  }
 }
 
 // .socialList 的樣式比較單純，可以保留在此，或也做成 mixin

@@ -32,11 +32,8 @@
 }
 
 .sectionTitle {
-  font-size: 2em;
-  color: map.get(color.$greens, 'dark');
-  font-weight: 700;
-  margin-bottom: 40px;
-  text-align: left;
+  @include mixins.t-title;
+  & { text-align: left; }
 }
 
 .postsGrid {

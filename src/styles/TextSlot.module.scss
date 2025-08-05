@@ -22,4 +22,9 @@
 
 .button {
   @include mixins.b-button;
+  @include mixins.respond-min(lg) {
+    & {
+      margin: 20px auto 0 0;
+    }
+  }
 }
