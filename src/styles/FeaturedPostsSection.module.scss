@@ -2,6 +2,18 @@
 @use '@styles/colors' as color;
 @use 'sass:map';
 
+// --- 佈局輔助 (Layout Helper) ---
+// 新增這個 class 來重設 OneColumnLayout 元件的預設 padding，
+// 讓我們可以完全由 featuredPostsWrapper 來控制 section 的間距。
+// 在 JSX 中這樣使用: <OneColumnLayout className={styles.layoutReset}>
+.layoutReset {
+  padding: 0 !important;
+}
+
+
+// --- 主要 Section 包裹層 (Main Section Wrapper) ---
+// 這個 wrapper 負責設定整個 section 的背景顏色和上下左右的間距。
+// 內容的最大寬度將由 JSX 中的 OneColumnLayout 元件控制。
 .featuredPostsWrapper {
   padding: 60px 20px;
   text-align: left;
@@ -20,6 +32,7 @@
   }
 }
 
+// --- 標題區塊 (Title Block) ---
 .titleWrapper {
   position: relative;
   display: inline-block;
@@ -36,6 +49,7 @@
   & { text-align: left; }
 }
 
+// --- 文章網格 (Posts Grid) ---
 .postsGrid {
   display: flex;
   flex-wrap: wrap;
@@ -43,6 +57,7 @@
   justify-content: center; // 卡片本身在網格中置中
 }
 
+// --- 文章卡片 (Post Card) ---
 .postCard {
   box-sizing: border-box;
   background-color: color.$white;
@@ -67,6 +82,7 @@
   }
 }
 
+// --- 卡片內部樣式 (Card Inner Styles) ---
 .postImageLink {
   display: block;
 }
