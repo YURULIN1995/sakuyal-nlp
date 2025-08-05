@@ -1,6 +1,5 @@
 import styles from '@styles/TextSlot.module.scss';
 import OneColumnLayout from '@components/OneColumnLayout.jsx';
-import SocialLinks from '@components/SocialLink.jsx';
 
 function TextSlot({
   // Data Props
@@ -9,7 +8,6 @@ function TextSlot({
   paragraph,
   buttonText,
   buttonLink,
-  socialLinks = [],
   // Layout Prop
   layoutClassName = '',
 }) {

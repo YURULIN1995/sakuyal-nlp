@@ -1,24 +1,21 @@
-// src/styles/_mixins.scss
-
 @use 'sass:map';
 @use 'breakpoints' as bp;
-@use 'colors' as color; // 關鍵修正：在這裡引入顏色檔案
+@use 'colors' as color;
 
-// --- Media Query Min ---
+/* --- Media Queries --- */
 @mixin respond-min($key) {
   @media (min-width: map.get(bp.$breakpoints, $key)) {
     @content;
   }
 }
 
-// --- Media Query Max ---
 @mixin respond-max($key) {
   @media (max-width: map.get(bp.$breakpoints, $key)) {
     @content;
   }
 }
 
-// --- Decorative Divider ---
+/* --- Decorative Divider --- */
 @mixin decorative-divider(
   $color: map.get(color.$greens, 'light'),
   $width: 60px,
@@ -35,7 +32,7 @@
   background-color: $color;
   border-radius: 3px;
   top: $top;
-  
+
   @if $is-centered {
     left: 50%;
     transform: translateX(-50%);
@@ -45,60 +42,48 @@
   }
 }
 
-// --- Title Text ---
-@mixin t-title(
-  $color: map.get(color.$greens, 'dark')
-) {
+/* --- Title Text (優化版) --- */
+@mixin t-title($color: map.get(color.$greens, 'dark')) {
   font-size: 28px;
   color: $color;
   font-weight: 700;
   line-height: 1.5;
-  letter-spacing: -1px;font-size: 2em;
-  color: map.get(color.$greens, 'dark');
-  font-weight: 700;
-  margin-bottom: 40px;
+  letter-spacing: -1px;
   text-align: left;
   margin-bottom: 20px;
 
   @include respond-min(xs) {
     font-size: 32px;
   }
-  @include respond-min(md) {
-    margin-bottom: 20px;
-  }
   @include respond-min(nav) {
-    font-size: 38px;  
+    font-size: 38px;
   }
   @include respond-min(llg) {
     letter-spacing: 0.6px;
   }
 }
 
-// --- Paragraph Text ---
+/* --- Paragraph Text (優化版) --- */
 @mixin p-paragraph {
   font-size: 17px;
   line-height: 2.5;
   letter-spacing: -1px;
-  margin-bottom: 17px;
+  margin-bottom: 25px; // 統一使用 margin-bottom
   color: map.get(color.$greens, 'base');
-  margin-block-start: 1em;
-  margin-block-end: 1em;
 
   @include respond-min(md) {
     font-size: 1.1em;
-    margin-bottom: 25px;
-    margin-left: initial;
-    margin-right: initial;
   }
   @include respond-min(lg) {
     margin-bottom: 32px;
   }
 }
 
-// --- Button Style ---
+/* --- Button Style (優化版) --- */
 @mixin b-button(
   $bg-color: map.get(color.$greens, 'light'),
-  $hover-color: map.get(color.$greens, 'dark')
+  $hover-color: map.get(color.$greens, 'dark'),
+  $text-color: color.$white // 新增文字顏色參數
 ) {
   display: block;
   box-sizing: border-box;
@@ -106,7 +91,7 @@
   margin: 20px auto 0 auto;
   padding: 14px 30px;
   background-color: $bg-color;
-  color: color.$white;
+  color: $text-color; // 使用參數
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -130,7 +115,7 @@
   }
 }
 
-// --- SVG Icon Style ---
+/* --- SVG Icon Style --- */
 @mixin svg-icon-style(
   $size: 40px,
   $color: map.get(color.$greens, 'base'),

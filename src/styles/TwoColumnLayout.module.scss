@@ -1,38 +1,32 @@
-@use 'sass:map'; 
+@use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
-
-@mixin respond($key) {
-  @media (min-width: map.get(bp.$breakpoints, $key)) {
-    @content;
-  }
-}
+@use '@styles/_mixins' as mixins;
 
 .contentContainer {
-    position: relative;
-    z-index: 2;
-    max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center; /* 將子元素 .innerColumns 垂直置中 */
+  position: relative;
+  z-index: 2;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 
-    @include respond(md) {
+  @include mixins.respond-min(md) {
     padding-left: 40px;
     padding-right: 40px;
   }
 }
 
-  
 .innerColumns {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   flex-direction: column;
 
-  @include respond(md) {
+  @include mixins.respond-min(md) {
     flex-direction: row;
   }
 }
@@ -46,12 +40,11 @@
   justify-content: center;
   align-items: center;
 
-  @include respond(md) {
+  @include mixins.respond-min(md) {
     flex-basis: 50%;
     align-items: flex-start;
   }
 }
-
 
 .imageContainer {
   flex-basis: auto;
@@ -62,16 +55,16 @@
   align-items: center;
   justify-content: center;
 
-  @include respond(md) {
+  @include mixins.respond-min(md) {
     flex-basis: 50%;
     width: initial;
   }
 }
 
 .imageContainer img {
-  display: block;      /* 修正圖片底部可能的微小空隙 */
-  max-width: 100%;     /* 圖片最大寬度不超過容器寬度 */
-  height: auto;        /* 高度隨寬度等比縮放 */
+  display: block;
+  max-width: 100%;
+  height: auto;
   border-radius: 16px;
 }
 
