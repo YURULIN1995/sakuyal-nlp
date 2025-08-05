@@ -1,12 +1,8 @@
-import React from 'react';
-// 引入我們需要的元件與樣式
 import OneColumnLayout from '@components/OneColumnLayout.jsx'; 
 import styles from '@styles/FeaturedPostsSection.module.scss';
-// 引入文章資料
 import { featuredPostsData } from '@data/blogData.js';
 
 function FeaturedPostsSection() {
-  // 檢查是否有資料，沒有就直接不渲染此區塊
   if (!featuredPostsData || featuredPostsData.length === 0) {
     return null;
   }
@@ -19,7 +15,6 @@ function FeaturedPostsSection() {
         </div>
         
         <div className={styles.postsGrid}>
-          {/* ▼▼▼ 這是被遺失的關鍵部分：將文章資料 map 成文章卡片 ▼▼▼ */}
           {featuredPostsData.map(post => (
             <article key={post.id} className={styles.postCard}>
               {post.imageUrl && (
@@ -44,7 +39,6 @@ function FeaturedPostsSection() {
               </div>
             </article>
           ))}
-          {/* ▲▲▲ 渲染邏輯結束 ▲▲▲ */}
         </div>
       </OneColumnLayout>
     </section>

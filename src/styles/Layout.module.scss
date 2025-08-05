@@ -1,0 +1,14 @@
+// Layout.module.scss
+
+.layoutContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative; // 添加這個，有助於 z-index 和定位上下文
+
+  // 將 .mainContent 巢狀放置在 .layoutContainer 內部
+  .mainContent {
+    flex-grow: 1;
+    padding-top: 0px; // 根據你的 Header 高度調整
+  }
+}

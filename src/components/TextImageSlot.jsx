@@ -1,6 +1,6 @@
 import styles from '@styles/TextImageSlot.module.scss';
 import TwoColumnLayout from '@components/TwoColumnLayout.jsx';
-import SocialLinks from '@components/SocialList.jsx';
+import SocialLinks from '@components/SocialLink.jsx';
 
 function TextImageSlot({
   // Data Props

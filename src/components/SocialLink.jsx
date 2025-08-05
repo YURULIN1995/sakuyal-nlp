@@ -1,4 +1,4 @@
-import styles from '@styles/SocialList.module.scss';
+import styles from '@styles/SocialLink.module.scss';
 
 // 這個元件接收一個名為 links 的 prop，預設是個空陣列
 function SocialLinks({ links = [] }) {
