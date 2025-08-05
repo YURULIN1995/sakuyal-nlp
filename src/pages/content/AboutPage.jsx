@@ -1,16 +1,38 @@
+// 檔案: src/pages/AboutPage.jsx
+
 import SEO from '@components/Head/SEO';
-import styles from '@styles/AboutPage.module.css';
+import TextSlot from '@components/TextSlot';
+import TextImageSlot from '@components/TextImageSlot';
+import { authorIntroData, testimonialsData } from '@data/aboutPageData.js';
+import styles from '@styles/AboutPage.module.scss';
 
 function AboutPage() {
-  console.log("Rendering AboutPage");
-
   return (
     <>
-      <SEO title="關於我" description="這是關於 Sakuyal 自然語言煉金術的頁面。" />
+      <SEO title="關於我" description="這是關於我的頁面" />
+      
+      <div className={styles.pageContainer}>
+        {/* 第一區塊：您的個人簡介 */}
+        <TextSlot
+          titleLine1={authorIntroData.titleLine1}
+          paragraph={authorIntroData.paragraph}
+          buttonText={authorIntroData.buttonText}
+          buttonLink={authorIntroData.buttonLink}
+        />
 
-      <div className={styles.container}>
-        <h1 className={styles.title}>關於我</h1>
-        <p className={styles.message}>補充關於我。</p>
+        {/* 第二區塊：客戶推薦心得 (使用 map 迴圈) */}
+        {testimonialsData.map(testimonial => (
+          <TextImageSlot
+            key={testimonial.id}
+            titleLine1={testimonial.titleLine1}
+            titleLine2={testimonial.titleLine2}
+            paragraph={testimonial.paragraph}
+            imageUrl={testimonial.imageUrl}
+            imageAlt={testimonial.imageAlt}
+            isReversed={testimonial.isReversed}
+            imageContainerLayoutClassName={styles.imageCircle}
+          />
+        ))}
       </div>
     </>
   );

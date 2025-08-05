@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { navItems } from '@components/Navbar/navData.js';
+import { navItems } from '@data/navData.js';
 import styles from '@styles/Navbar/Navbar.module.scss';
 
 function Navbar() {

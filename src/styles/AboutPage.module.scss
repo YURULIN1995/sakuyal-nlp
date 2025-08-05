@@ -1,0 +1,20 @@
+// 檔案: src/styles/AboutPage.module.scss
+@use 'mixins' as mx;
+
+.pageContainer {
+  // 用來設定區塊之間的間距
+  & > *:not(:last-child) {
+    margin-bottom: 60px;
+    
+    @include mx.respond-min(md) {
+      margin-bottom: 80px;
+    }
+  }
+}
+
+.imageCircle img {
+  border-radius: 50%;
+  width: 150px;  // 圓形頭像的尺寸
+  height: 150px; // 圓形頭像的尺寸
+  object-fit: cover;
+}
