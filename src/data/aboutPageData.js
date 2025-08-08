@@ -1,20 +1,20 @@
-// 您的個人簡介資料
+// 個人簡介
 export const authorIntroData = {
   titleLine1: "關於 Sakuyal",
   paragraph: "我是 Sakuyal",
-  buttonText: "查看客戶成果",
+  buttonText: "客戶成果",
   buttonLink: "/portfolio", 
 };
 
-// 客戶推薦心得資料
+// 客戶心得
 export const testimonialsData = [
   {
     id: 'testimonial-01',
-    titleLine1: "心得分享",
-    titleLine2: "客戶名字", // 更新為通用職稱
-    paragraph: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", // 更新為 Lorem Ipsum
-    imageUrl: "https://placehold.co/150x150/a9d3a4/4a6e4f?text=Avatar", // 更新為 Placeholder 圖片
-    imageAlt: "Client Avatar Placeholder", // 更新為通用描述
+    titleLine1: "客戶名",
+    titleLine2: null,
+    paragraph: "心得文",
+    imageUrl: "https://placehold.co/150x150/a9d3a4/4a6e4f?text=Avatar",
+    imageAlt: "Client Avatar Placeholder",
     isReversed: true,
   },
 ];
