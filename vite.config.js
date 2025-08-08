@@ -3,7 +3,7 @@ import sitemap from 'vite-plugin-sitemap';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr'; // 1. 在這裡引入 svgr
 import path from 'path';
-import { navItems } from './src/components/Navbar/navData';
+import { navItems } from './src/data/navData';
 
 // (為了動態路徑範例) 從你的 navData 獲取作品集 ID。
 const portfolioItem = navItems.find(item => item.name === '作品集');

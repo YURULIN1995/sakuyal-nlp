@@ -1,24 +1,26 @@
+// 檔案: src/components/Hero.jsx (重構後)
+
 import styles from '@styles/Hero.module.scss';
 import TextImageSlot from '@components/TextImageSlot.jsx';
+// 1. (新增) 匯入我們新的背景元件
+import BicolorBackground from '@components/BicolorBackground.jsx';
 
-// Hero 現在接收所有 FreeTrial 需要的資料 props
 function Hero(props) {
   return (
-    <section className={styles.heroSection}>
-      {/* Hero 背景 */}
-      <div className={styles.backgroundLayer}>
-        <div className={styles.bgLeft}></div>
-        <div className={styles.bgRight}></div>
-      </div>
+    // 2. (修改) 使用 BicolorBackground 作為最外層的包裹元件
+    //    並將原本 heroSection 的樣式 (如 min-height) 傳遞給它
+    <BicolorBackground className={styles.heroSection}>
+      
+      {/* 3. (移除) 原本的背景層 <div> 已被 BicolorBackground 取代 */}
 
-      {/* 使用 FreeTrail 渲染內容，並傳入 Hero 特定的佈局 class */}
+      {/* 4. (不變) 內容層 TextImageSlot 現在是 BicolorBackground 的 children */}
       <TextImageSlot
-        {...props} // 將所有接收到的資料 props 直接透傳下去
+        {...props}
         layoutClassName={styles.heroContainerSpecifics}
         textContainerLayoutClassName={styles.heroTextContainerMobile}
         imageContainerLayoutClassName={styles.heroImageContainerMobile}
       />
-    </section>
+    </BicolorBackground>
   );
 }
 

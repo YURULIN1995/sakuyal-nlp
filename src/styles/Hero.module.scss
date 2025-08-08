@@ -1,49 +1,27 @@
+// 檔案: src/styles/Hero.module.scss (修正版)
+
 @use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
+@use '@styles/_mixins' as mx; // 1. 確保匯入了全域 mixins
 
-@mixin respond-min($key) {
-  @media (min-width: map.get(bp.$breakpoints, $key)) {
-    @content;
-  }
-}
-
+// .heroSection 只定義 Hero 區塊的特定樣式 (例如高度)
 .heroSection {
-  position: relative;
   width: 100%;
   min-height: 400px;
   overflow: hidden;
 }
- 
-.backgroundLayer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  display: flex;
-}
 
-.bgLeft {
-  flex-basis: 70%;
-  background-color: rgb(241, 246, 233);
-}
-
-.bgRight {
-  flex-basis: 30%;
-  background-color: rgb(255, 255, 255);
-}
-
-/* === Hero 傳遞給 ContentSection -> TwoColumnLayout 的特定 Class === */
+/* === 傳遞給 TextImageSlot 的特定 Class === */
 .heroContainerSpecifics {
   margin: 0 154px;
   padding: 110px 0 20px;
   min-height: inherit;
 
-  @include respond-min(md) {
+  // 2. 更新呼叫語法，加上 "mx."
+  @include mx.respond-min(md) {
     padding: 150px 0 48px;
   }
-  @include respond-min(xl) {
+  @include mx.respond-min(xl) {
     padding: 200px 0 48px;
   }
 }

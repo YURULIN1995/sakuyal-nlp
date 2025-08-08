@@ -1,0 +1,40 @@
+// 檔案: src/styles/BicolorBackground.module.scss
+
+// 引入顏色變數，讓樣式與設計系統保持一致
+@use 'colors' as color;
+@use 'sass:map';
+
+// .bicolorSection 是最外層的容器，作為定位基準
+.bicolorSection {
+  position: relative;
+  width: 100%;
+}
+
+// .backgroundLayer 是背景本身，使用 absolute 定位鋪在底層
+.backgroundLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; // 確保它在最底下
+  display: flex;
+}
+
+.bgLeft {
+  flex-basis: 70%;
+  background-color: map.get(color.$greens, 'bg'); // 使用顏色變數
+}
+
+.bgRight {
+  flex-basis: 30%;
+  background-color: color.$white; // 使用顏色變數
+}
+
+// .contentLayer 是用來放內容的容器，疊在背景之上
+.contentLayer {
+  position: relative; // 讓它可以設定 z-index
+  z-index: 2; // 確保它在背景之上
+  width: 100%;
+  height: 100%;
+}

@@ -3,6 +3,7 @@
 import SEO from '@components/Head/SEO';
 import TextSlot from '@components/TextSlot';
 import TextImageSlot from '@components/TextImageSlot';
+import BicolorBackGround from '@components/BicolorBackground';
 import { authorIntroData, testimonialsData } from '@data/aboutPageData.js';
 import styles from '@styles/AboutPage.module.scss';
 
@@ -10,6 +11,7 @@ function AboutPage() {
   return (
     <>
       <SEO title="關於我" description="這是關於我的頁面" />
+      <BicolorBackGround />
       
       <div className={styles.pageContainer}>
         {/* 第一區塊：您的個人簡介 */}
