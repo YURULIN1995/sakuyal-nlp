@@ -1,26 +1,22 @@
-@use 'sass:map'; 
+@use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
 @use '@styles/_mixins' as mixins;
 
-@mixin respond($key) {
-@media (min-width: map.get(bp.$breakpoints, $key)) {
-  @content;
-}
-}
-
 .container {
-max-width: 1200px; /* 保持最大寬度 */
-margin: 0 auto; /* 置中 */
-box-sizing: border-box;
-background-color: transparent;
-padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: transparent;
+  
+  // 恢復為原本固定的 padding 設定
+  padding: 80px 20px;
 
   @include mixins.respond-min(md) {
-  padding: 80px 100px;
+    padding: 80px 100px;
   }
-
   @include mixins.respond-min(llg) {
-  padding: 80px 40px;
+    padding: 80px 40px;
   }
-
 }
+
+// 移除了 .paddingReset class

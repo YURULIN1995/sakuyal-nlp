@@ -1,6 +1,3 @@
-// 檔案: src/styles/BicolorBackground.module.scss
-
-// 引入顏色變數，讓樣式與設計系統保持一致
 @use 'colors' as color;
 @use 'sass:map';
 
@@ -22,13 +19,13 @@
 }
 
 .bgLeft {
-  flex-basis: 70%;
-  background-color: map.get(color.$greens, 'bg'); // 使用顏色變數
+  flex-basis: 65%;
+  background-color: map.get(color.$greens, 'bg');
 }
 
 .bgRight {
-  flex-basis: 30%;
-  background-color: color.$white; // 使用顏色變數
+  flex-basis: 35%;
+  background-color: color.$white;
 }
 
 // .contentLayer 是用來放內容的容器，疊在背景之上

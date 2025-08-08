@@ -42,14 +42,17 @@
   }
 }
 
-/* --- Title Text (優化版) --- */
-@mixin t-title($color: map.get(color.$greens, 'dark')) {
+/* Title Text */
+@mixin t-title(
+  $color: map.get(color.$greens, 'dark'),
+  $text-align: left
+) {
   font-size: 28px;
   color: $color;
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: -1px;
-  text-align: left;
+  text-align: $text-align;
   margin-bottom: 20px;
 
   @include respond-min(xs) {
@@ -62,7 +65,6 @@
     letter-spacing: 0.6px;
   }
 }
-
 /* --- Paragraph Text (優化版) --- */
 @mixin p-paragraph {
   font-size: 17px;

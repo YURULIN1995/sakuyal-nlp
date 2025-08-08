@@ -12,7 +12,6 @@ function TextSlot({
   layoutClassName = '',
 }) {
   return (
-    // 使用 OneColumnLayout 作為基礎佈局
     <OneColumnLayout className={layoutClassName}>
       {(titleLine1 || titleLine2) && (
         <div className={styles.titleWrapper}>

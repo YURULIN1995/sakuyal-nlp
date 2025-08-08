@@ -1,23 +1,19 @@
-// 檔案: src/styles/Hero.module.scss (修正版)
-
 @use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mx; // 1. 確保匯入了全域 mixins
+@use '@styles/_mixins' as mx;
 
-// .heroSection 只定義 Hero 區塊的特定樣式 (例如高度)
 .heroSection {
   width: 100%;
   min-height: 400px;
   overflow: hidden;
 }
 
-/* === 傳遞給 TextImageSlot 的特定 Class === */
+/* 傳遞給 TextImageSlot 的特定 Class */
 .heroContainerSpecifics {
   margin: 0 154px;
   padding: 110px 0 20px;
   min-height: inherit;
 
-  // 2. 更新呼叫語法，加上 "mx."
   @include mx.respond-min(md) {
     padding: 150px 0 48px;
   }

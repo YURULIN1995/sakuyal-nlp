@@ -1,5 +1,3 @@
-// 檔案: src/components/BicolorBackground.jsx
-
 import styles from '@styles/BicolorBackground.module.scss';
 
 function BicolorBackground({ children, className = '' }) {
