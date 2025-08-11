@@ -1,0 +1,51 @@
+@use '@styles/mixins' as mx;
+@use 'sass:map';
+@use '@styles/colors' as color;
+
+.card {
+  border: 2px dotted #e9d5a1;
+  padding: 32px;
+  background-color: color.$white;
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.authorInfo {
+
+}
+
+.authorName {
+  @include mx.t-title($font-size: 1.1rem, $text-align: left, $margin-bottom: 4px);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: color.$grey-text;
+  margin: 0;
+}
+
+.body {
+  p {
+    @include mx.p-paragraph($margin-bottom: 0px);
+    & {
+      white-space: pre-line; // 保留您資料中的換行}
+      }
+    }
+}

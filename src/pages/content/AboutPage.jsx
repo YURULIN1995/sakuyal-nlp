@@ -5,8 +5,9 @@ import PageTitle from '@components/PageTitle';
 import DividerTitleLeft from '@components/DividerTitleLeft';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
+import PostCard from '@components/PostCard';
 // import AvatarText from '@components/AvatarText';
-import { authorIntroData, testimonialsData } from '@data/aboutPageData.js';
+import { authorIntroData, testimonialsSectionData } from '@data/aboutPageData.js';
 import styles from '@styles/AboutPage.module.scss';
 
 function AboutPage() {
@@ -34,10 +35,19 @@ function AboutPage() {
 
       {/* --- 客戶推薦區塊 (使用新結構) --- */}
       <OneColumnLayout>
-        <DividerTitleLeft  title={testimonialsData.title } />
-        <div className={styles.testimonialsList}>
-        {/* 2. 遍歷 testimonialsData 物件中的 "list" 陣列 */}
-        </div>
+        <DividerTitleLeft  title={testimonialsSectionData.title } />
+        {testimonialsSectionData.list.map(item =>
+        <PostCard
+          key={item.id}
+          imageUrl={item.imageUrl}
+          imageAlt={item.imageAlt}
+          authorName={item.authorName}
+          // 將資料中的 authorTitle 傳給 subtitle prop
+          subtitle={item.authorTitle}
+          // 將資料中的 fullText 傳給 fullText prop
+          fullText={item.fullText}
+        />
+        )}
       </OneColumnLayout>
     </>
   );

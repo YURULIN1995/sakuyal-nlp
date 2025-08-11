@@ -46,7 +46,8 @@
 @mixin t-title(
   $color: map.get(color.$greens, 'dark'),
   $text-align: left,
-  $font-size: 28px
+  $font-size: 28px,
+  $margin-bottom: 20px
 ) {
   font-size: $font-size;
   color: $color;
@@ -54,7 +55,7 @@
   line-height: 1.5;
   letter-spacing: -1px;
   text-align: $text-align;
-  margin-bottom: 20px;
+  margin-bottom: $margin-bottom;
 
   @include respond-min(xs) {
     font-size: 32px;
@@ -67,18 +68,22 @@
   }
 }
 /* --- Paragraph Text (優化版) --- */
-@mixin p-paragraph {
+@mixin p-paragraph (
+  $margin-bottom: 25px,
+  $margin-bottom-lg: 25px
+)
+{
   font-size: 17px;
   line-height: 2.5;
   letter-spacing: -1px;
-  margin-bottom: 25px; // 統一使用 margin-bottom
+  margin-bottom: $margin-bottom;
   color: map.get(color.$greens, 'base');
 
   @include respond-min(md) {
-    font-size: 1.1em;
+    font-size: 17.6px;
   }
   @include respond-min(lg) {
-    margin-bottom: 32px;
+    margin-bottom: $margin-bottom-lg;
   }
 }
 

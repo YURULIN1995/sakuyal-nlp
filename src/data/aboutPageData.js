@@ -1,4 +1,4 @@
-import { testimonialsData } from '@data/testimonialsData.js'; 
+import { testimonials } from '@data/testimonialsData.js'; 
 
 export const authorIntroData = {
   titleLine1: "關於我",
@@ -11,5 +11,5 @@ export const authorIntroData = {
 
 export const testimonialsSectionData = {
   title: "心得分享",
-  list: testimonialsData
+  list: testimonials
 };
