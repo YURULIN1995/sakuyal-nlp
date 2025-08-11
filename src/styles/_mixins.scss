@@ -70,11 +70,12 @@
 /* --- Paragraph Text (優化版) --- */
 @mixin p-paragraph (
   $margin-bottom: 25px,
-  $margin-bottom-lg: 25px
+  $margin-bottom-lg: 25px,
+  $line-height: 2.5
 )
 {
   font-size: 17px;
-  line-height: 2.5;
+  line-height: $line-height;
   letter-spacing: -1px;
   margin-bottom: $margin-bottom;
   color: map.get(color.$greens, 'base');

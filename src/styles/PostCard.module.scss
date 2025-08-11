@@ -67,7 +67,7 @@
 // 右欄內的內文
 .body {
   p {
-    @include mx.p-paragraph($margin-bottom: 0px);
+    @include mx.p-paragraph($margin-bottom: 0px, $line-height: 1.6);
     & {
       white-space: pre-line;
     }
