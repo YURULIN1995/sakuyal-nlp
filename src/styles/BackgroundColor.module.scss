@@ -1,0 +1,9 @@
+@use 'colors' as color;
+@use 'sass:map';
+
+.backgroundColor {
+  background-color: map.get(color.$greens, 'bg-section-light');
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
+}

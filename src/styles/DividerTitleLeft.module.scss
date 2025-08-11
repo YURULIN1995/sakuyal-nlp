@@ -1,0 +1,20 @@
+@use 'mixins' as mx;
+
+.dividerTitleWrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 25px;
+  margin-bottom: 20px;
+  width: 100%;
+ 
+  &::before {
+    @include mx.decorative-divider;
+  }
+}
+
+.subtitle {
+  @include mx.t-title;
+  & {
+    margin-bottom: 0;
+  }
+}

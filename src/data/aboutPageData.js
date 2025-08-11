@@ -1,20 +1,15 @@
-// 個人簡介
+import { testimonialsData } from '@data/testimonialsData.js'; 
+
 export const authorIntroData = {
-  titleLine1: "關於 Sakuyal",
-  paragraph: "我是 Sakuyal",
-  buttonText: "客戶成果",
-  buttonLink: "/portfolio", 
+  titleLine1: "關於我",
+  paragraph: "我是一隻雲林快樂豬！🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷",
+  buttonText: "🐷🐷成果",
+  buttonLink: "/portfolio",
+  imageUrl: "https://placehold.co/500x500/a9d3a4/4a6e4f?text=Author",
+  imageAlt: "Author profile placeholder image",
 };
 
-// 客戶心得
-export const testimonialsData = [
-  {
-    id: 'testimonial-01',
-    titleLine1: "客戶名",
-    titleLine2: null,
-    paragraph: "心得文",
-    imageUrl: "https://placehold.co/150x150/a9d3a4/4a6e4f?text=Avatar",
-    imageAlt: "Client Avatar Placeholder",
-    isReversed: true,
-  },
-];
+export const testimonialsSectionData = {
+  title: "心得分享",
+  list: testimonialsData
+};
