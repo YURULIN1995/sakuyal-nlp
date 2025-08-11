@@ -2,50 +2,74 @@
 @use 'sass:map';
 @use '@styles/colors' as color;
 
+// .card 是主要的 flex 容器
 .card {
-  border: 2px dotted #e9d5a1;
-  padding: 32px;
+  display: flex;
   background-color: color.$white;
+  padding: 0;
 
+  // Mobile First: 預設為垂直堆疊排版
+  flex-direction: column;
+  
   &:not(:last-child) {
-    margin-bottom: 40px;
+    margin-bottom: 0;
+  }
+
+  // 當螢幕寬度大於等於 768px (md) 時，切換為兩欄式排版
+  @include mx.respond-min(md) {
+    flex-direction: row;
+    align-items: flex-start;
   }
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
+// 左側容器
+.leftWrap {
+  // Mobile First: 預設寬度為 100%，並有底部間距
+  width: 100%;
+  margin-bottom: 0; 
+  margin-right: 0;
+
+  @include mx.respond-min(md) {
+    // Desktop: 切換為固定寬度，並移除底部間距，改為右側間距
+    flex: 0 0 200px;
+    margin-right: 32px;
+    margin-bottom: 0;
+  }
 }
 
+// 右側容器
+.rightWrap {
+  // 在兩種模式下，都讓它填滿剩餘空間
+  flex: 1;
+}
+
+// 左欄內的頭像
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 20px;
-  flex-shrink: 0;
+  margin-bottom: 0; 
 }
 
-.authorInfo {
-
-}
-
+// 左欄內的作者姓名
 .authorName {
-  @include mx.t-title($font-size: 1.1rem, $text-align: left, $margin-bottom: 4px);
+  @include mx.t-title($font-size: 1.1rem, $text-align: left, $margin-bottom: 20px);
 }
 
+// 左欄內的副標題
 .subtitle {
+  margin-bottom: 14px;
   font-size: 0.9rem;
   color: color.$grey-text;
-  margin: 0;
 }
 
+// 右欄內的內文
 .body {
   p {
     @include mx.p-paragraph($margin-bottom: 0px);
     & {
-      white-space: pre-line; // 保留您資料中的換行}
-      }
+      white-space: pre-line;
     }
+  }
 }

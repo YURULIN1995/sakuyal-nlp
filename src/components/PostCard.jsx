@@ -11,17 +11,18 @@ import styles from '@styles/PostCard.module.scss';
 function PostCard({ fullText, authorName, subtitle, imageUrl, imageAlt }) {
   return (
     <div className={styles.card}>
-      <div className={styles.header}>
+      {/* 1. 左側容器：包裹作者身份相關資訊 */}
+      <div className={styles.leftWrap}>
         <img src={imageUrl} alt={imageAlt} className={styles.avatar} />
-        <div className={styles.authorInfo}>
           <p className={styles.authorName}>{authorName}</p>
-          {/* 只有在 subtitle 存在時才渲染，保持元件彈性 */}
           {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-        </div>
       </div>
-      <div className={styles.body}>
-        {/* 主要變更：這裡現在顯示 fullText 的內容 */}
-        <p>{fullText}</p>
+      
+      {/* 2. 右側容器：包裹心得全文 */}
+      <div className={styles.rightWrap}>
+        <div className={styles.body}>
+          <p>{fullText}</p>
+        </div>
       </div>
     </div>
   );
