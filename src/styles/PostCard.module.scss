@@ -28,6 +28,7 @@
   width: 100%;
   margin-bottom: 0; 
   margin-right: 0;
+  padding: 10px;
 
   @include mx.respond-min(md) {
     // Desktop: 切換為固定寬度，並移除底部間距，改為右側間距
@@ -41,6 +42,7 @@
 .rightWrap {
   // 在兩種模式下，都讓它填滿剩餘空間
   flex: 1;
+  padding: 10px;
 }
 
 // 左欄內的頭像
@@ -61,6 +63,7 @@
 .subtitle {
   margin-bottom: 14px;
   font-size: 0.9rem;
+  font-weight: 400;
   color: color.$grey-text;
 }
 
