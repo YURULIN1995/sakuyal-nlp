@@ -6,7 +6,6 @@ import DividerTitleLeft from '@components/DividerTitleLeft';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
 import PostCard from '@components/PostCard';
-// import AvatarText from '@components/AvatarText';
 import { authorIntroData, testimonialsSectionData } from '@data/aboutPageData.js';
 import styles from '@styles/AboutPage.module.scss';
 

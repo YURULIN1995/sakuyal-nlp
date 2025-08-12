@@ -1,5 +1,8 @@
 import SEO from '@components/Head/SEO';
-import styles from '@styles/ServicesPage.module.css';
+import styles from '@styles/ServicesPage.module.scss';
+import BicolorBackground from '@components/BicolorBackground';
+import PageTitle from '@components/PageTitle';
+import { servicesIntroData } from '@data/servicesPageData.js';
 
 function ServicesPage() {
   console.log("Rendering ServicesPage");
@@ -7,11 +10,11 @@ function ServicesPage() {
   return (
     <>
       <SEO title="服務項目" description="這是Sakuyal 自然語言煉金術的服務項目頁面。" />
-
-      <div className={styles.container}>
-        <h1 className={styles.title}>服務項目</h1>
-        <p className={styles.message}>補充服務項目。</p>
-      </div>
+      <BicolorBackground>
+        <div className={styles.titleContainer}>
+          <PageTitle title={servicesIntroData.titleLine1} />
+        </div>
+      </BicolorBackground>
     </>
   );
 }

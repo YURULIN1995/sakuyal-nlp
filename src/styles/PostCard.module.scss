@@ -66,7 +66,7 @@
 
 // 左欄內的作者姓名
 .authorName {
-  // 根據您的需求，傳入不同斷點的字體大小
+
   @include mx.t-title(
     $font-size: 14px,          // 544px 以下
     $font-size-xs: 15px,       // 545px 以上

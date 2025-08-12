@@ -21,15 +21,5 @@ export const testimonials = [
     highlight: "Lorem ipsum dolor sit amet",
     fullText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in pulvinar neque. \n\n Phasellus viverra dolor odio, tempor sollicitudin metus laoreet sit amet.",
     link: "#"
-  },
-  {
-    id: 'testimonial-03',
-    authorName: "C",
-    authorTitle: "C身份",
-    imageUrl: "https://placehold.co/150x150/a9d3a4/4a6e4f?text=Avatar",
-    imageAlt: "C-avatar",
-    highlight: "Lorem ipsum dolor sit amet",
-    fullText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in pulvinar neque. \n\n Phasellus viverra dolor odio, tempor sollicitudin metus laoreet sit amet.",
-    link: "#"
   }
 ];
