@@ -1,7 +1,7 @@
 import { testimonials } from '@data/testimonialsData.js'; 
 
 export const authorIntroData = {
-  titleLine1: "關於我",
+  titleLine: "關於我",
   paragraph: "我是一隻雲林快樂豬！🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷",
   buttonText: "客戶成果",
   buttonLink: "/portfolio",

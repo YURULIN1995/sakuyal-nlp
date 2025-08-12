@@ -1,5 +1,8 @@
 import SEO from '@components/Head/SEO';
-import styles from '@styles/PortfolioPage.module.css';
+import styles from '@styles/PortfolioPage.module.scss';
+import BicolorBackground from '@components/BicolorBackground';
+import PageTitle from '@components/PageTitle';
+import { portfolioTitle } from '@data/portfolioPageData.js';
 
 function PortfolioPage() {
   console.log("Rendering PortfolioPage");
@@ -8,10 +11,11 @@ function PortfolioPage() {
     <>
       <SEO title="作品集" description="這是Sakuyal 自然語言煉金術的作品集頁面。" />
 
-      <div className={styles.container}>
-        <h1 className={styles.title}>作品集</h1>
-        <p className={styles.message}>補充作品集。</p>
-      </div>
+      <BicolorBackground>
+        <div className={styles.titleContainer}>
+          <PageTitle title={portfolioTitle.titleLine} />
+        </div>
+      </BicolorBackground>
     </>
   );
 }

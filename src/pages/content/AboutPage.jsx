@@ -1,7 +1,6 @@
 import SEO from '@components/Head/SEO';
+import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import TextImageSlot from '@components/TextImageSlot';
-import BicolorBackground from '@components/BicolorBackground';
-import PageTitle from '@components/PageTitle';
 import DividerTitleLeft from '@components/DividerTitleLeft';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
@@ -12,14 +11,8 @@ import styles from '@styles/AboutPage.module.scss';
 function AboutPage() {
   return (
     <>
-      <SEO title="關於我" description="認識 Sakuyal 自然語言煉金術的創辦人。" />
-      
-      <BicolorBackground>
-        <div className={styles.titleContainer}>
-          <PageTitle title={authorIntroData.titleLine1} />
-        </div>
-      </BicolorBackground>
-
+      <SEO title="關於我" description="認識 Sakuyal 自然語言煉金術的創辦人。" />      
+      <PageHeaderBicolorBackground title={authorIntroData.titleLine}/>
       <BackgroundColor>
         <OneColumnLayout>
           <TextImageSlot

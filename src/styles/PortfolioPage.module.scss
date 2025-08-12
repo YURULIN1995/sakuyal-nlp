@@ -1,0 +1,19 @@
+@use 'mixins' as mx;
+
+.pageContainer {
+  // 用來設定區塊之間的間距
+  & > *:not(:last-child) {
+    margin-bottom: 10px;
+    
+    @include mx.respond-min(md) {
+      margin-bottom: 80px;
+    }
+  }
+}
+
+.titleContainer {
+  padding-top: 104px;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box; // 確保 padding 不會撐大寬度
+}
