@@ -47,6 +47,8 @@
   $color: map.get(color.$greens, 'dark'),
   $text-align: left,
   $font-size: 28px,
+  $font-size-xs: 32px,
+  $font-size-nav: 38px,
   $margin-bottom: 20px
 ) {
   font-size: $font-size;
@@ -58,10 +60,10 @@
   margin-bottom: $margin-bottom;
 
   @include respond-min(xs) {
-    font-size: 32px;
+    font-size: $font-size-xs;
   }
   @include respond-min(nav) {
-    font-size: 38px;
+    font-size: $font-size-nav;
   }
   @include respond-min(llg) {
     letter-spacing: 0.6px;
