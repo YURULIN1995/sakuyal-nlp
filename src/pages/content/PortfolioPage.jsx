@@ -9,7 +9,6 @@ function PortfolioPage() {
   return (
     <>
       <SEO title="作品集" description="這是Sakuyal 自然語言煉金術的作品集頁面。" />
-
       <PageHeaderBicolorBackground title={portfolioTitle.titleLine}/>
     </>
   );
