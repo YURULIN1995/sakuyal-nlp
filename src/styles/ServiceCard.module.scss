@@ -1,0 +1,52 @@
+@use '@styles/mixins' as mx;
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 32px; // 圖片與文字之間的間距
+
+  // Mobile First: 預設為垂直堆疊
+  flex-direction: column;
+
+  &:not(:last-child) {
+    margin-bottom: 60px;
+  }
+
+  // Desktop: 切換為水平排列
+  @include mx.respond-min(md) {
+    flex-direction: row;
+    gap: 5%; // 在桌面版使用百分比間距
+  }
+}
+
+// 【關鍵】當卡片有 .reversed class 時，在桌面版反轉其排列順序
+.card.reversed {
+  @include mx.respond-min(md) {
+    flex-direction: row-reverse;
+  }
+}
+
+.imageWrapper {
+  flex: 1; // 讓圖片容器有彈性
+  max-width: 500px; // 限制圖片最大寬度
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block; // 移除圖片底部的空隙
+    border-radius: 8px; // 加上圓角
+  }
+}
+
+.textWrapper {
+  flex: 1; // 讓文字容器有彈性
+  white-space: pre-line; // 讓 \n 換行生效
+}
+
+.title {
+  @include mx.t-title($font-size: 24px, $margin-bottom: 16px);
+}
+
+.description {
+  @include mx.p-paragraph($line-height: 1.8);
+}
