@@ -4,6 +4,8 @@
 
 .processSection {
   padding: 60px 30px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .stepsFlex {
@@ -29,6 +31,12 @@
   color: map.get(color.$greens, 'base');
   height: 50px;
   width: 50px;
+
+  // 【新增】讓 SVG 元素填滿整個容器
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .stepTitle {
