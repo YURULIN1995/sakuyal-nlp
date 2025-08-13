@@ -1,0 +1,46 @@
+@use '@styles/mixins' as mx;
+@use '@styles/colors' as color;
+@use 'sass:map';
+
+.processSection {
+  // 控制整個區塊的上下間距
+  padding: 60px 0;
+}
+
+.stepsGrid {
+  display: grid;
+  gap: 30px; // 網格間的間距
+
+  // Mobile First: 預設為單欄
+  grid-template-columns: 1fr;
+
+  // Tablet: 變為兩欄
+  @include mx.respond-min(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Large Desktop: 變為四欄
+  @include mx.respond-min(llg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stepCard {
+  background-color: map.get(color.$greens, 'bg-section-light');
+  padding: 32px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.iconWrapper {
+  margin-bottom: 20px;
+  color: map.get(color.$greens, 'base');
+}
+
+.stepTitle {
+  @include mx.t-title($font-size: 20px, $margin-bottom: 12px);
+}
+
+.stepDescription {
+  @include mx.p-paragraph($line-height: 1.8, $margin-bottom: 0, $font-size: 16px);
+}

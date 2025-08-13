@@ -8,7 +8,7 @@ function ServicesSection({
   imageUrl,
   imageAlt,
   rightColumnItems = []
-}) {
+}) {IconInfoCircle
   return (
     <section className={styles.container}>
       <div className={styles.columnsContainer}>

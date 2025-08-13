@@ -5,11 +5,10 @@ import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground
 import OneColumnLayout from '@components/OneColumnLayout';
 import ServiceCard from '@components/ServiceCard';
 import Button from '@components/Button';
+import ServicesProcess from '@components/ServicesProcess';
 import { servicesData, servicesList } from '@data/servicesPageData.js';
 
 function ServicesPage() {
-  console.log("Rendering ServicesPage");
-
   return (
     <>
       <SEO title="服務項目" description="這是Sakuyal 自然語言煉金術的服務項目頁面。" />
@@ -29,6 +28,9 @@ function ServicesPage() {
           ))}
           <Button text={servicesData.buttonText} link={servicesData.buttonLink} />
         </OneColumnLayout>
+      </BackgroundColor>
+      <BackgroundColor color="white">
+        <ServicesProcess/>
       </BackgroundColor>
     </>
   );

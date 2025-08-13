@@ -1,3 +1,5 @@
+import IconInfoCircle from '@assets/icons/info-circle.svg?react';
+
 // 既有的頁首標題資料
 export const servicesData = {
   titleLine: "服務項目",
@@ -5,6 +7,7 @@ export const servicesData = {
   buttonLink: "#"
 };
 
+// 服務項目列表資料
 export const servicesList = [
   {
     id: 'service-01',
@@ -17,7 +20,7 @@ export const servicesList = [
   {
     id: 'service-02',
     title: '服務02',
-    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
+    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷�🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
     imageAlt: '示意圖',
     isReversed: true
@@ -31,3 +34,34 @@ export const servicesList = [
     isReversed: false
   }
 ];
+
+// 服務流程區塊資料
+export const processData = {
+  title: "服務流程",
+  steps: [
+    {
+      id: "process-step-01",
+      icon: IconInfoCircle, // 【修改】直接使用匯入的元件
+      title: "步驟01",
+      description: "🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
+    },
+    {
+      id: "process-step-02",
+      icon: IconInfoCircle, // 【修改】
+      title: "步驟02",
+      description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。"
+    },
+    {
+      id: "process-step-03",
+      icon: IconInfoCircle, // 【修改】
+      title: "步驟03",
+      description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷。"
+    },
+    {
+      id: "process-step-04",
+      icon: IconInfoCircle, // 【修改】
+      title: "步驟04",
+      description: "🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
+    }
+  ]
+};

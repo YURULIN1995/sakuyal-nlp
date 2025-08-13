@@ -1,9 +1,24 @@
 @use 'colors' as color;
 @use 'sass:map';
 
-.backgroundColor {
-  background-color: map.get(color.$greens, 'bg-section-light');
+// 基礎樣式 (所有變體共用)
+.background {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   box-sizing: border-box;
+}
+/* --- 顏色修飾符 --- */
+// 淺綠色 (預設)
+.lightGreen {
+  background-color: map.get(color.$greens, 'bg-section-light');
+}
+
+// 白色
+.white {
+  background-color: color.$white;
+}
+
+// 您也可以新增其他顏色，例如透明
+.transparent {
+  background-color: transparent;
 }
