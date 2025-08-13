@@ -41,25 +41,25 @@ export const processData = {
   steps: [
     {
       id: "process-step-01",
-      icon: IconInfoCircle, // 【修改】直接使用匯入的元件
+      icon: IconInfoCircle,
       title: "步驟01",
       description: "🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
     },
     {
       id: "process-step-02",
-      icon: IconInfoCircle, // 【修改】
+      icon: IconInfoCircle,
       title: "步驟02",
       description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。"
     },
     {
       id: "process-step-03",
-      icon: IconInfoCircle, // 【修改】
+      icon: IconInfoCircle,
       title: "步驟03",
       description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷。"
     },
     {
       id: "process-step-04",
-      icon: IconInfoCircle, // 【修改】
+      icon: IconInfoCircle,
       title: "步驟04",
       description: "🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
     }

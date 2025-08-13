@@ -3,38 +3,32 @@
 @use 'sass:map';
 
 .processSection {
-  // 控制整個區塊的上下間距
-  padding: 60px 0;
+  padding: 60px 30px;
 }
 
-.stepsGrid {
-  display: grid;
-  gap: 30px; // 網格間的間距
-
-  // Mobile First: 預設為單欄
-  grid-template-columns: 1fr;
-
-  // Tablet: 變為兩欄
-  @include mx.respond-min(md) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  // Large Desktop: 變為四欄
-  @include mx.respond-min(llg) {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.stepsFlex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
 }
 
 .stepCard {
-  background-color: map.get(color.$greens, 'bg-section-light');
-  padding: 32px;
+  margin: 10px;
+  padding: 0 30px 30px 30px;
   border-radius: 8px;
   text-align: left;
+  background-color: map.get(color.$greens, 'bg-gray-green');
+}
+
+.iconTextWrap {
+  margin-top: -25px;
 }
 
 .iconWrapper {
-  margin-bottom: 20px;
   color: map.get(color.$greens, 'base');
+  height: 50px;
+  width: 50px;
 }
 
 .stepTitle {
