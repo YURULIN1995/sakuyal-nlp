@@ -47,6 +47,7 @@
   $color: map.get(color.$greens, 'dark'),
   $text-align: left,
   $text-align-md: left,
+  $font-weight: 700,
   $font-size: 28px,
   $font-size-xs: 32px,
   $font-size-nav: 38px,
@@ -54,7 +55,7 @@
 ) {
   font-size: $font-size;
   color: $color;
-  font-weight: 700;
+  font-weight: $font-weight;
   line-height: 1.5;
   letter-spacing: -1px;
   text-align: $text-align;

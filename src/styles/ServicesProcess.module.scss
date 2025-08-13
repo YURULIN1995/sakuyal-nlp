@@ -13,10 +13,13 @@
   flex-wrap: wrap;
   width: 100%;
   flex-direction: column;
+  margin-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  gap: 50px;
 }
 
 .stepCard {
-  margin: 10px;
   padding: 0 30px 30px 30px;
   border-radius: 8px;
   text-align: left;
@@ -31,6 +34,7 @@
   color: map.get(color.$greens, 'base');
   height: 50px;
   width: 50px;
+  margin-bottom: 20px;
 
   // 【新增】讓 SVG 元素填滿整個容器
   svg {
@@ -39,8 +43,12 @@
   }
 }
 
+.stepText {
+  box-sizing: border-box;
+}
+
 .stepTitle {
-  @include mx.t-title($font-size: 20px, $margin-bottom: 12px);
+  @include mx.t-title($font-size: 22px, $margin-bottom: 20px);
 }
 
 .stepDescription {

@@ -17,8 +17,10 @@ function ServicesProcess() {
                       <IconComponent />
                     </div>
                   )}
-                  <h4 className={styles.stepTitle}>{step.title}</h4>
-                  <p className={styles.stepDescription}>{step.description}</p>
+                  <div className={styles.stepText}>
+                    <h4 className={styles.stepTitle}>{step.title}</h4>
+                    <p className={styles.stepDescription}>{step.description}</p>
+                  </div>
                 </div>
               </div>
             );

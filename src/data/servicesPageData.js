@@ -43,7 +43,7 @@ export const processData = {
       id: "process-step-01",
       icon: IconInfoCircle,
       title: "步驟01",
-      description: "🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
+      description: "🐷囧囧囧囧囧囧囧囧，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
     },
     {
       id: "process-step-02",
