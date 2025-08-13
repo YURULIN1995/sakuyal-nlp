@@ -1,0 +1,6 @@
+@use '@styles/mixins' as mx;
+
+.button {
+  // 直接引用您在 _mixins.scss 中定義好的按鈕樣式
+  @include mx.b-button($margin: 20px auto 0 auto, $margin-top-md: 20px, $margin-top-lg: 20px);
+}

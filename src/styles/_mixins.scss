@@ -46,6 +46,7 @@
 @mixin t-title(
   $color: map.get(color.$greens, 'dark'),
   $text-align: left,
+  $text-align-md: left,
   $font-size: 28px,
   $font-size-xs: 32px,
   $font-size-nav: 38px,
@@ -61,6 +62,9 @@
 
   @include respond-min(xs) {
     font-size: $font-size-xs;
+  }
+  @include respond-min(md) {
+    text-align: $text-align-md;
   }
   @include respond-min(nav) {
     font-size: $font-size-nav;
@@ -94,12 +98,15 @@
 @mixin b-button(
   $bg-color: map.get(color.$greens, 'light'),
   $hover-color: map.get(color.$greens, 'dark'),
-  $text-color: color.$white // 新增文字顏色參數
+  $text-color: color.$white, // 新增文字顏色參數
+  $margin: 20px auto 0 auto,
+  $margin-top-md: 15px,
+  $margin-top-lg: 42px
 ) {
   display: block;
   box-sizing: border-box;
   width: fit-content;
-  margin: 20px auto 0 auto;
+  margin: $margin;
   padding: 14px 30px;
   background-color: $bg-color;
   color: $text-color; // 使用參數
@@ -119,10 +126,10 @@
 
   @include respond-min(md) {
     padding: 14px 30px;
-    margin-top: 15px;
+    margin-top: $margin-top-md;
   }
   @include respond-min(lg) {
-    margin-top: 42px;
+    margin-top: $margin-top-lg;
   }
 }
 

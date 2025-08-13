@@ -13,7 +13,7 @@
 }
 
 .title {
-  @include mx.t-title($text-align: center);
+  @include mx.t-title($text-align: center, $text-align-md: center);
   & {
     margin-bottom: 0;
   }

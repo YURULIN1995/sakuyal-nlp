@@ -3,19 +3,18 @@
 .card {
   display: flex;
   align-items: center;
-  gap: 32px; // 圖片與文字之間的間距
-
   // Mobile First: 預設為垂直堆疊
   flex-direction: column;
 
-  &:not(:last-child) {
+  & {
     margin-bottom: 60px;
   }
 
   // Desktop: 切換為水平排列
   @include mx.respond-min(md) {
     flex-direction: row;
-    gap: 5%; // 在桌面版使用百分比間距
+    margin-top: 48px;
+    margin-bottom: 48px;
   }
 }
 
@@ -28,7 +27,7 @@
 
 .imageWrapper {
   flex: 1; // 讓圖片容器有彈性
-  max-width: 500px; // 限制圖片最大寬度
+  max-width: 100%; // 限制圖片最大寬度
 
   img {
     width: 100%;
@@ -41,12 +40,19 @@
 .textWrapper {
   flex: 1; // 讓文字容器有彈性
   white-space: pre-line; // 讓 \n 換行生效
+  padding-top: 24px;
+  @include mx.respond-min(md) {
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
 }
 
 .title {
-  @include mx.t-title($font-size: 24px, $margin-bottom: 16px);
+  @include mx.t-title($font-size: 22px, $font-size-xs:26px, $font-size-nav: 30px, $margin-bottom: 20px, $text-align: center);
 }
 
 .description {
-  @include mx.p-paragraph($line-height: 1.8);
+  @include mx.p-paragraph($line-height: 1.8, $margin-bottom: 17px);
 }
