@@ -1,0 +1,13 @@
+@use '@styles/mixins' as mixins;
+@use '@styles/colors' as color;
+@use 'sass:map';
+
+.faqSection {
+    padding: 50px 20px;
+    width: 100%;
+    box-sizing: border-box;
+
+    @include mixins.respond-min(md) {
+        padding: 100px 25px;
+    }
+}

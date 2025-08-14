@@ -20,7 +20,7 @@ export const servicesList = [
   {
     id: 'service-02',
     title: '服務02',
-    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷�🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
+    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
     imageAlt: '示意圖',
     isReversed: true
@@ -62,6 +62,20 @@ export const processData = {
       icon: IconInfoCircle,
       title: "步驟04",
       description: "🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
+    }
+  ]
+};
+
+export const faqData = {
+  faqTitle: "常見問題",
+  questionStacks: [
+    {
+      title: "問題01",
+      answer: "答案01"
+    },
+    {
+      title: "問題02",
+      answer: "答案02"
     }
   ]
 };

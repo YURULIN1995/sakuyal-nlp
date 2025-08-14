@@ -6,6 +6,7 @@ import OneColumnLayout from '@components/OneColumnLayout';
 import ServiceCard from '@components/ServiceCard';
 import Button from '@components/Button';
 import ServicesProcess from '@components/ServicesProcess';
+import Faq from '@components/Faq';
 import { servicesData, servicesList } from '@data/servicesPageData.js';
 
 function ServicesPage() {
@@ -31,6 +32,9 @@ function ServicesPage() {
       </BackgroundColor>
       <BackgroundColor color="white">
         <ServicesProcess/>
+      </BackgroundColor>
+      <BackgroundColor color="lightGreen">
+        <Faq/>
       </BackgroundColor>
     </>
   );

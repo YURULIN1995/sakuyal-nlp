@@ -15,7 +15,13 @@
   flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
-  // 【新增】當螢幕寬度大於等於 md 時，改為水平排列並分配空間
+
+  // 限制最大寬度並置中
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+
+  // 當螢幕寬度大於等於 md 時，改為水平排列並分配空間
   @include mx.respond-min(md) {
     flex-direction: row;
     justify-content: space-between; // 將卡片推向兩側，在中間產生間距
@@ -29,14 +35,17 @@
   text-align: left;
   background-color: map.get(color.$greens, 'bg-gray-green');
   // 在手機版，寬度會自動為 100%
+  
   // 在 md 寬度以上時，設定寬度以達成兩欄效果
   @include mx.respond-min(md) {
     // 每個卡片佔據大約一半的寬度 (預留出中間的空間)
     flex-basis: calc(50% - 15px); // 卡片間有 30px 的間距
-    // 移除最後一排卡片的底部間距，避免多餘的空白
-    &:nth-last-child(-n + 2) {
-        margin-bottom: 0;
-    }
+  }
+
+  // 【新增】在 llg 寬度以上時，設定寬度以達成四欄效果
+  @include mx.respond-min(llg) {
+    // 假設卡片間距同樣為 30px
+    flex-basis: calc(25% - 22.5px); 
   }
 }
 
