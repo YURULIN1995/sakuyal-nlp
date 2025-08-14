@@ -2,9 +2,9 @@ import { useState } from 'react';
 import styles from '@styles/Faq.module.scss' ;
 import PageTitle from '@components/PageTitle';
 import { faqData } from '@data/servicesPageData.js';
-import IconCaretRight from '@assets/icons/caret-right.svg?react'; // 匯入新的 Tabler Icon
+import IconCaretRight from '@assets/icons/caret-right.svg?react';
 
-// 建立一個獨立的 FaqItem 元件來處理單個問答的邏輯
+// 單個問答的邏輯
 const FaqItem = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
 
