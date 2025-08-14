@@ -1,13 +1,88 @@
-@use '@styles/mixins' as mixins;
+@use '@styles/mixins' as mx;
 @use '@styles/colors' as color;
 @use 'sass:map';
 
 .faqSection {
-    padding: 50px 20px;
-    width: 100%;
-    box-sizing: border-box;
+  padding: 50px 20px;
+  width: 100%;
+  box-sizing: border-box;
 
-    @include mixins.respond-min(md) {
-        padding: 100px 25px;
-    }
+  @include mx.respond-min(md) {
+    padding: 100px 25px;
+  }
+}
+
+.faqFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; // 每個問答之間的間距
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+
+.faqItem {
+  background-color: color.$white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden; // 關鍵：隱藏超出 max-height 的內容
+}
+
+.question {
+  display: flex;
+  // 【修改】將對齊方式從 space-between 改為 flex-start
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  color: map.get(color.$greens, 'dark');
+
+  &:hover {
+    background-color: map.get(color.$greens, 'bg-section-light');
+  }
+
+  // 選取標題文字，並將其順序設為 2
+  & > span:first-of-type {
+    order: 2;
+  }
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  // 【修改】將左邊距改為右邊距
+  margin-right: 16px;
+  // 【新增】將箭頭的順序設為 1，讓它顯示在最前面
+  order: 1;
+
+  &.open {
+    // 將旋轉角度設為 90 度，讓 > 變成 v
+    transform: rotate(90deg);
+  }
+}
+
+.answer {
+  max-height: 0; // 預設隱藏
+  transition: max-height 0.4s ease-in-out;
+  color: map.get(color.$greens, 'base');
+  line-height: 1.8;
+
+  &.open {
+    max-height: 500px; // 展開時的高度，確保足夠容納內容
+  }
+}
+
+.answerContent {
+  // 使用一個內層 div 來控制 padding，這樣動畫效果更平滑
+  padding: 0 20px 20px 20px;
 }
