@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styles from '@styles/ContactForm.module.scss';
-// 【修改】匯入 contactLink
 import { contactFormData, contactLink } from '@data/contactPageData.js';
 
 function ContactForm() {
@@ -24,15 +23,30 @@ function ContactForm() {
     setStatus('sending');
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // 【修改】呼叫您剛建立的 Cloudflare Worker API
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      // 如果 API 呼叫成功
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: '' }); // 清空表單
+
     } catch (error) {
+      console.error('Form submission error:', error);
+      // 如果 API 呼叫失敗
       setStatus('error');
     }
   };
 
-  // 【新增】從 contactLink 陣列中找到 email 地址
   const mailInfo = contactLink.find(link => link.id === 'contact-mail');
   const mailAddress = mailInfo ? mailInfo.contactUrl.replace('mailto:', '') : '';
 
@@ -40,10 +54,10 @@ function ContactForm() {
     <div className={styles.formContainer}>
       <p className={styles.formSubtitle}>
         {contactFormData.formSubtitle}
-        {/* 【修改】使用新的 mailAddress 變數 */}
         <a href={`mailto:${mailAddress}`}>{mailAddress}</a>
       </p>
       <form onSubmit={handleSubmit} className={styles.form}>
+        {/* ... 表單的 input 和 textarea 維持不變 ... */}
         <div className={styles.formGroup}>
           <label htmlFor="name" className={styles.label}>{contactFormData.nameLabel}</label>
           <input
