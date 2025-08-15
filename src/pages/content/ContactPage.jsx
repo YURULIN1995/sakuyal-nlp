@@ -3,7 +3,8 @@ import styles from '@styles/ContactPage.module.scss';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import BackgroundColor from '@components/BackgroundColor';
 import { contactData } from '@data/contactPageData.js';
-import ContactLinks from '@components/ContactLinks'; // 【新增】匯入新元件
+import ContactLinks from '@components/ContactLinks';
+import ContactForm from '@components/ContactForm'; // 【新增】匯入表單元件
 
 function ContactPage() {
   console.log("Rendering ContactPage");
@@ -12,12 +13,13 @@ function ContactPage() {
     <>
       <SEO title="聯絡" description="這是 Sakuyal 自然語言煉金術的聯絡頁面。" />
       <PageHeaderBicolorBackground title={contactData.titleLine1}/>
+      
+      {/* 原有的介紹區塊 */}
       <BackgroundColor color="lightGreen">
         <div className={styles.contactSection}>
           <div className={styles.contactTextWrap}>
             <h2 className={styles.title}>{contactData.titleLine2}</h2>
             <p className={styles.paragraph}>{contactData.paragraph}</p>
-            {/* 【新增】在這裡使用新元件 */}
             <ContactLinks />
           </div>
           <div className={styles.contactImageWrap}>
@@ -28,6 +30,11 @@ function ContactPage() {
             />
           </div>
         </div>
+      </BackgroundColor>
+
+      {/* 【新增】聯絡表單區塊 */}
+      <BackgroundColor color="white">
+        <ContactForm />
       </BackgroundColor>
     </>
   );

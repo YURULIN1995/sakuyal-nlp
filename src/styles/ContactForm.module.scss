@@ -1,0 +1,81 @@
+@use '@styles/mixins' as mx;
+@use '@styles/colors' as color;
+@use 'sass:map';
+
+.formContainer {
+  width: 100%;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.formTitle {
+  @include mx.t-title($text-align: center, $font-size: 28px);
+}
+
+.formSubtitle {
+  text-align: center;
+  margin-bottom: 40px;
+  color: map.get(color.$greens, 'base');
+
+  a {
+    color: map.get(color.$greens, 'dark');
+    font-weight: 500;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.form {
+  // form element itself
+}
+
+.formGroup {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: map.get(color.$greens, 'dark');
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid color.$grey-border;
+  border-radius: 5px;
+  font-size: 16px;
+  color: map.get(color.$greens, 'dark');
+  background-color: color.$white;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: map.get(color.$greens, 'base');
+    box-shadow: 0 0 0 3px rgba(map.get(color.$greens, 'base'), 0.2);
+  }
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submitButton {
+  @include mx.b-button;
+  // Override margin to align left
+  & {
+    margin: 20px 0 0 0;
+  }
+}
