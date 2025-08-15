@@ -1,0 +1,22 @@
+@use '@styles/mixins' as mx;
+@use '@styles/colors' as color;
+@use 'sass:map';
+
+.dividerContainer {
+  // 讓容器本身水平置中，並設定最大寬度
+  max-width: 1200px; 
+  margin: 60px auto; // 上下留出間距，左右自動置中
+  width: 100%;
+  position: relative; // 作為偽元素定位的基準
+  height: 5px;
+  box-sizing: border-box;
+}
+
+.dividerContainer::before {
+  @include mx.decorative-divider(
+    $color: map.get(color.$greens, 'base'),
+    $width: 95%,
+    $height: 1px,
+    $is-centered: true
+  );
+}

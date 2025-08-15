@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from '@styles/ContactForm.module.scss';
-import { contactFormData, contactData } from '@data/contactPageData.js';
+// 【修改】匯入 contactLink
+import { contactFormData, contactLink } from '@data/contactPageData.js';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -22,26 +23,25 @@ function ContactForm() {
     e.preventDefault();
     setStatus('sending');
 
-    // --- 模擬 API 呼叫 ---
-    // 稍後這裡會換成您呼叫 Cloudflare Worker 的程式碼
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500)); // 模擬網路延遲
-      // 假設 API 呼叫成功
+      await new Promise(resolve => setTimeout(resolve, 1500));
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' }); // 清空表單
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      // 假設 API 呼叫失敗
       setStatus('error');
     }
-    // --- 模擬結束 ---
   };
+
+  // 【新增】從 contactLink 陣列中找到 email 地址
+  const mailInfo = contactLink.find(link => link.id === 'contact-mail');
+  const mailAddress = mailInfo ? mailInfo.contactUrl.replace('mailto:', '') : '';
 
   return (
     <div className={styles.formContainer}>
-      <h3 className={styles.formTitle}>{contactFormData.formTitle}</h3>
       <p className={styles.formSubtitle}>
         {contactFormData.formSubtitle}
-        <a href={`mailto:${contactData.paragraph.split('Mail: ')[1]}`}>{contactData.paragraph.split('Mail: ')[1]}</a>
+        {/* 【修改】使用新的 mailAddress 變數 */}
+        <a href={`mailto:${mailAddress}`}>{mailAddress}</a>
       </p>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
@@ -89,7 +89,6 @@ function ContactForm() {
           {status === 'sending' ? '傳送中...' : contactFormData.submitButtonText}
         </button>
 
-        {/* 狀態訊息顯示區 */}
         {status === 'success' && (
           <p className={`${styles.statusMessage} ${styles.success}`}>
             感謝您的訊息，我們會盡快與您聯繫！

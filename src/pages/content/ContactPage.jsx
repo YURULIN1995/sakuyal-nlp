@@ -2,9 +2,10 @@ import SEO from '@components/Head/SEO';
 import styles from '@styles/ContactPage.module.scss';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import BackgroundColor from '@components/BackgroundColor';
+import Divider from '@components/Divider';
 import { contactData } from '@data/contactPageData.js';
 import ContactLinks from '@components/ContactLinks';
-import ContactForm from '@components/ContactForm'; // 【新增】匯入表單元件
+import ContactForm from '@components/ContactForm';
 
 function ContactPage() {
   console.log("Rendering ContactPage");
@@ -30,10 +31,7 @@ function ContactPage() {
             />
           </div>
         </div>
-      </BackgroundColor>
-
-      {/* 【新增】聯絡表單區塊 */}
-      <BackgroundColor color="white">
+        <Divider />
         <ContactForm />
       </BackgroundColor>
     </>
