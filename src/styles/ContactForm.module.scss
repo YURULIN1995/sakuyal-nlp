@@ -73,9 +73,5 @@
 }
 
 .submitButton {
-  @include mx.b-button;
-  // Override margin to align left
-  & {
-    margin: 20px 0 0 0;
-  }
+  @include mx.b-button($margin: 20px auto 20px auto);
 }
