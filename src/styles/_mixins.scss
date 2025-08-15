@@ -79,12 +79,13 @@
   $margin-bottom: 25px,
   $margin-bottom-lg: 25px,
   $line-height: 2.5,
+  $letter-spacing: -1px,
   $font-size: 17px
 )
 {
   font-size: $font-size;
   line-height: $line-height;
-  letter-spacing: -1px;
+  letter-spacing: $letter-spacing;
   margin-bottom: $margin-bottom;
   color: map.get(color.$greens, 'base');
 

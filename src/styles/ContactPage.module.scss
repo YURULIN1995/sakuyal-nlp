@@ -4,39 +4,65 @@
 
 .contactSection {
   display: flex;
-  flex-direction: column;
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 40px 0;
+  padding: 40px 20px;
+  align-items: center;
+
+  // Mobile First: 預設為垂直堆疊
+  flex-direction: column;
+
+  // Desktop: 切換為水平排列
+  @include mx.respond-min(md) {
+    flex-direction: row;
+    gap: 40px; // 增加欄位間距
+    padding: 80px 40px;
+  }
+
+  @include mx.respond-min(nav) {
+    padding: 48px 40px;
+  }
 }
 
 .contactTextWrap {
   width: 100%;
-  padding: 0 20px;
   box-sizing: border-box;
+
+  @include mx.respond-min(md) {
+    flex-basis: 50%;
+    // 在桌面版讓文字靠左對齊
+    text-align: left;
+  }
 }
 
 .contactImageWrap {
   width: 100%;
   margin-top: 30px;
-  padding: 0 20px;
   box-sizing: border-box;
+
+  @include mx.respond-min(md) { 
+    flex-basis: 50%;
+    margin-top: 0;
+  }
 }
 
 .contactImage {
   width: 100%;
   height: auto;
-  display: block; // 移除圖片底部的空隙
+  display: block;
   border-radius: 8px;
 }
 
 .title {
-  @include mx.t-title;
+  @include mx.t-title($font-size: 22px, $font-size-xs: 26px, $font-size-nav: 30px);
 }
 
 .paragraph {
-  @include mx.p-paragraph;
+  @include mx.p-paragraph($line-height: 1.2, $letter-spacing: 1);
+  & {
+    white-space: pre-line;
+  }
 }
