@@ -83,6 +83,6 @@ export const faqData = {
       id: "faq-03",
       title: "問題03",
       answer: "答案03"
-    }
+    },
   ]
 };

@@ -1,0 +1,74 @@
+@use '@styles/mixins' as mx;
+@use '@styles/colors' as color;
+@use 'sass:map';
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  // Mobile First: 預設為垂直堆疊
+  flex-direction: column;
+
+  &:not(:last-child) {
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid color.$grey-border;
+  }
+
+  // Desktop: 切換為水平排列
+  @include mx.respond-min(md) {
+    flex-direction: row;
+    gap: 5%;
+  }
+}
+
+// 當有 .reversed class 時，在桌面版反轉其排列順序
+.itemContainer.reversed {
+  @include mx.respond-min(md) {
+    flex-direction: row-reverse;
+  }
+}
+
+.imageWrapper,
+.textWrapper {
+  flex: 1;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.title {
+  @include mx.t-title($font-size: 26px, $margin-bottom: 16px);
+}
+
+.description {
+  @include mx.p-paragraph($line-height: 1.8);
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: map.get(color.$greens, 'dark');
+  }
+}
+
+.featureIcon {
+  width: 20px;
+  height: 20px;
+  color: map.get(color.$greens, 'base');
+  flex-shrink: 0;
+}
