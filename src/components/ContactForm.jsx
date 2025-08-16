@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from '@styles/ContactForm.module.scss';
 import { contactFormData, contactLink } from '@data/contactPageData.js';
-import Turnstile from 'react-turnstile'; // 匯入 Turnstile 元件
+import Turnstile from 'react-turnstile';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,7 +10,8 @@ function ContactForm() {
     message: ''
   });
   const [status, setStatus] = useState('idle');
-  const [turnstileToken, setTurnstileToken] = useState(''); // 新增 state 來儲存 token
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const turnstileRef = useRef(null); // 新增 ref 來控制 Turnstile 元件
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +35,6 @@ function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        // 將 token 一同傳送到後端
         body: JSON.stringify({ ...formData, token: turnstileToken }),
       });
 
@@ -44,12 +44,26 @@ function ContactForm() {
 
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
+      turnstileRef.current?.reset(); // 【修改】重置 Turnstile 元件
 
     } catch (error) {
       console.error('Form submission error:', error);
       setStatus('error');
+      turnstileRef.current?.reset(); // 在失敗時也重置
     }
   };
+
+  // 【新增】使用 useEffect 來處理成功訊息的自動消失
+  useEffect(() => {
+    if (status === 'success' || status === 'error') {
+      const timer = setTimeout(() => {
+        setStatus('idle'); // 2 秒後將狀態改回 idle
+      }, 2000); // 2000 毫秒 = 2 秒
+
+      // 清除計時器，避免組件卸載時發生錯誤
+      return () => clearTimeout(timer);
+    }
+  }, [status]); // 這個 effect 會在 status 改變時觸發
 
   const mailInfo = contactLink.find(link => link.id === 'contact-mail');
   const mailAddress = mailInfo ? mailInfo.contactUrl.replace('mailto:', '') : '';
@@ -104,7 +118,8 @@ function ContactForm() {
         </div>
 
         <Turnstile
-          sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY} // 從 Vite 環境變數讀取 Site Key
+          ref={turnstileRef} // 【修改】將 ref 傳遞給 Turnstile
+          sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
           onVerify={(token) => setTurnstileToken(token)}
         />
 
