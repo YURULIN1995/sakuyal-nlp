@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from '@styles/ContactForm.module.scss';
 import { contactFormData, contactLink } from '@data/contactPageData.js';
+import Turnstile from 'react-turnstile'; // 匯入 Turnstile 元件
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -8,7 +9,8 @@ function ContactForm() {
     email: '',
     message: ''
   });
-  const [status, setStatus] = useState('idle'); // 'idle', 'sending', 'success', 'error'
+  const [status, setStatus] = useState('idle');
+  const [turnstileToken, setTurnstileToken] = useState(''); // 新增 state 來儲存 token
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,29 +22,31 @@ function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!turnstileToken) {
+      alert('請完成 CAPTCHA 驗證。');
+      return;
+    }
     setStatus('sending');
 
     try {
-      // 【修改】呼叫您剛建立的 Cloudflare Worker API
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        // 將 token 一同傳送到後端
+        body: JSON.stringify({ ...formData, token: turnstileToken }),
       });
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
-      // 如果 API 呼叫成功
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' }); // 清空表單
+      setFormData({ name: '', email: '', message: '' });
 
     } catch (error) {
       console.error('Form submission error:', error);
-      // 如果 API 呼叫失敗
       setStatus('error');
     }
   };
@@ -57,7 +61,6 @@ function ContactForm() {
         <a href={`mailto:${mailAddress}`}>{mailAddress}</a>
       </p>
       <form onSubmit={handleSubmit} className={styles.form}>
-        {/* ... 表單的 input 和 textarea 維持不變 ... */}
         <div className={styles.formGroup}>
           <label htmlFor="name" className={styles.label}>{contactFormData.nameLabel}</label>
           <input
@@ -99,7 +102,17 @@ function ContactForm() {
             disabled={status === 'sending'}
           />
         </div>
-        <button type="submit" className={styles.submitButton} disabled={status === 'sending'}>
+
+        <Turnstile
+          sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY} // 從 Vite 環境變數讀取 Site Key
+          onVerify={(token) => setTurnstileToken(token)}
+        />
+
+        <button 
+          type="submit" 
+          className={styles.submitButton} 
+          disabled={status === 'sending' || !turnstileToken}
+        >
           {status === 'sending' ? '傳送中...' : contactFormData.submitButtonText}
         </button>
 
