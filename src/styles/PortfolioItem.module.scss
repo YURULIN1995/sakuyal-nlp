@@ -5,21 +5,15 @@
 .itemContainer {
   display: flex;
   align-items: center;
-  gap: 32px;
-
   // Mobile First: 預設為垂直堆疊
   flex-direction: column;
-
-  &:not(:last-child) {
-    margin-bottom: 80px;
-    padding-bottom: 80px;
-    border-bottom: 1px solid color.$grey-border;
-  }
+  margin: 40px 0;
 
   // Desktop: 切換為水平排列
   @include mx.respond-min(md) {
     flex-direction: row;
-    gap: 5%;
+    // 設定欄位之間的間距
+    gap: 40px; 
   }
 }
 
@@ -30,9 +24,20 @@
   }
 }
 
-.imageWrapper,
+.imageWrapper {
+  width: 100%; // 在手機版佔滿寬度
+
+  @include mx.respond-min(md) {
+    flex-basis: calc(50% + 40px);
+  }
+}
+
 .textWrapper {
-  flex: 1;
+  width: 100%; // 在手機版佔滿寬度
+
+  @include mx.respond-min(md) {
+    flex-basis: calc(50% - 40px);
+  }
 }
 
 .imageWrapper img {
@@ -42,8 +47,23 @@
   border-radius: 8px;
 }
 
+.titleWrapper {
+  position: relative;
+  padding-top: 25px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+
+  &::before {
+    @include mx.decorative-divider;
+  }
+
+  @include mx.respond-min(md) {
+    margin-top: 0;
+  }
+}
+
 .title {
-  @include mx.t-title($font-size: 26px, $margin-bottom: 16px);
+  @include mx.t-title($font-size: 25px, $font-size-xs:25px, $font-size-nav: 32px, $margin-bottom: 0);
 }
 
 .description {
@@ -53,7 +73,7 @@
 .featuresList {
   list-style: none;
   padding: 0;
-  margin-top: 24px;
+  margin-bottom: 36px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -71,4 +91,13 @@
   height: 20px;
   color: map.get(color.$greens, 'base');
   flex-shrink: 0;
+}
+
+.portfolioButton {
+  @include mx.b-button;
+  // 覆寫 mixin 中的預設 margin，讓按鈕靠左對齊
+  & {
+    margin: 0 0 0 0;
+    box-shadow: 0px 16px 32px -16px rgba(map.get(color.$greens, 'bright'), 0.8);
+  }
 }

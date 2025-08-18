@@ -1,9 +1,8 @@
 @use '@styles/mixins' as mx;
 
 .portfolioListContainer {
-  display: grid;
-  gap: 40px; // 設定作品項目之間的間距
-
-  // Mobile First: 預設為單欄
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+  gap: 40px;
 }
