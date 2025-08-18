@@ -54,7 +54,10 @@
   margin-bottom: 16px;
 
   &::before {
-    @include mx.decorative-divider;
+    @include mx.decorative-divider(
+      $width: 64px,
+      $height: 4px  
+    );
   }
 
   @include mx.respond-min(md) {
