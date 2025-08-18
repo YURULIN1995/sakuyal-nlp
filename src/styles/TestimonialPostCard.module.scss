@@ -1,0 +1,95 @@
+@use '@styles/mixins' as mx;
+@use 'sass:map';
+@use '@styles/colors' as color;
+
+// .card 是主要的 flex 容器
+.card {
+  display: flex;
+  background-color: color.$white;
+  padding: 0;
+
+  // Mobile First: 預設為垂直堆疊排版
+  flex-direction: column;
+  
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  // 當螢幕寬度大於等於 768px (md) 時，切換為兩欄式排版
+  @include mx.respond-min(md) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+// 左側容器
+.leftWrap {
+  // Mobile First: 預設寬度為 100%
+  width: 100%;
+  margin-bottom: 0; 
+  margin-right: 0;
+  height: fit-content;
+
+  @include mx.respond-min(md) {
+    // Desktop: 設定精確的寬度比例
+    // flex: flex-grow | flex-shrink | flex-basis
+    flex: 0 0 12.917%; // 不放大、不縮小、基礎寬度為 12.917%
+    margin-right: 32px;
+    margin-bottom: 0;
+  }
+}
+
+// 右側容器
+.rightWrap {
+  // 在兩種模式下，都讓它填滿剩餘空間。
+  // 在桌面模式下，它會自動佔用 100% - 12.917% - 32px 的寬度。
+  flex: 1;
+}
+
+// 左欄內的頭像
+.avatar {
+  // Mobile First: 手機版使用固定尺寸
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0; 
+
+  @include mx.respond-min(md) {
+    // Desktop: 讓寬度佔滿 leftWrap，並維持 1:1 比例，最大不超過 135px
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-width: 135px; // 新增：限制頭像的最大寬度
+  }
+}
+
+// 左欄內的作者姓名
+.authorName {
+
+  @include mx.t-title(
+    $font-size: 14px,          // 544px 以下
+    $font-size-xs: 15px,       // 545px 以上
+    $font-size-nav: 17px,      // 922px 以上
+    $text-align: left, 
+    $margin-bottom: 20px
+  );
+}
+
+// 左欄內的副標題
+.subtitle {
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+  color: color.$grey-text;
+}
+
+// 右欄內的內文
+.body {
+  p {
+    @include mx.p-paragraph($margin-bottom: 0px);
+    & {
+      white-space: pre-line;
+      line-height: 1.8;
+    }
+  }
+}

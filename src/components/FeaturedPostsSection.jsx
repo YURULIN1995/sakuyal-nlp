@@ -1,54 +1,19 @@
-// 檔案: src/components/FeaturedPostsSection.jsx
-
 import OneColumnLayout from '@components/OneColumnLayout.jsx';
+import PostsList from '@components/PostsList'; // 導入 PostsList
 import styles from '@styles/FeaturedPostsSection.module.scss';
-import { featuredPostsData } from '@data/blogData.js';
+import { featuredPostsData } from '@data/blogData.js'; // 這裡仍然只導入精選文章
 
-function FeaturedPostsSection({ title = "精選文章", posts = featuredPostsData }) {
-  if (!posts || posts.length === 0) {
-    return null;
-  }
-
+function FeaturedPostsSection({ title = "精選文章" }) {
   return (
     <section className={styles.featuredPostsWrapper}>
       <OneColumnLayout className={styles.layoutReset}>
         <div className={styles.titleWrapper}>
           <h2 className={styles.sectionTitle}>{title}</h2>
         </div>
+        
+        {/* 直接使用 PostsList 元件，並傳入精選文章資料 */}
+        <PostsList posts={featuredPostsData} />
 
-        <div className={styles.postsGrid}>
-          {posts.map(post => {
-            const ButtonIcon = post.buttonIcon;
-            const buttonText = post.buttonText || '閱讀更多';
-
-            return (
-              <article key={post.id} className={styles.postCard}>
-                {post.imageUrl && (
-                  <a href={post.postUrl} className={styles.postImageLink}>
-                    <img
-                      src={post.imageUrl}
-                      alt={post.imageAlt}
-                      className={styles.postImage}
-                      loading="lazy"
-                    />
-                  </a>
-                )}
-                <div className={styles.postContent}>
-                  {post.category && <p className={styles.postCategory}>{post.category}</p>}
-                  <h3 className={styles.postTitle}>
-                    <a href={post.postUrl}>{post.title}</a>
-                  </h3>
-                  {post.excerpt && <p className={styles.postExcerpt}>{post.excerpt}</p>}
-                  
-                  <a href={post.postUrl} className={styles.readMoreLink}>
-                    {buttonText}
-                    {ButtonIcon && <ButtonIcon className={styles.arrowIcon} />}
-                  </a>
-                </div>
-              </article>
-            );
-          })}
-        </div>
       </OneColumnLayout>
     </section>
   );

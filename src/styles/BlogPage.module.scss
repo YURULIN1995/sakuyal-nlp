@@ -1,0 +1,27 @@
+@use '@styles/colors' as color;
+@use 'sass:map';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 在垂直方向上居中 */
+  align-items: center;     /* 在水平方向上居中 */
+  text-align: center;
+  padding: 40px;
+  box-sizing: border-box;
+
+  /* 估算值：視窗高度減去 Header 和 Footer 的大致高度 */
+  min-height: calc(100vh - 200px); 
+
+  .title {
+    // 使用您已定義的顏色變數，並加上透明度
+    color: rgba(map.get(color.$greens, 'nav-base'), 0.5);
+    margin-bottom: 15px;
+  }
+  
+  .message {
+    // 使用您已定義的顏色變數
+    color: map.get(color.$greens, 'nav-base');
+    margin-bottom: 25px;
+  }
+}

@@ -1,0 +1,53 @@
+@use '@styles/colors' as color;
+@use 'sass:map';
+
+.scrollTopButton {
+  position: fixed; // 固定在視窗的特定位置
+  bottom: 30px;
+  right: 30px;
+  
+  // 使用您指定的背景顏色
+  background-color: map.get(color.$greens, 'base');
+  
+  border: none;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  
+  // 使用 Flexbox 將圖示置中
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  // 動畫效果的初始狀態
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s ease-in-out;
+
+  // Hover 效果
+  &:hover {
+    background-color: map.get(color.$greens, 'dark'); // Hover 時使用較深的綠色
+    transform: translateY(-2px); // 輕微向上浮動
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  // 當按鈕可見時的樣式
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+// 圖示本身的樣式
+.icon {
+  width: 24px;
+  height: 24px;
+  // 使用您指定的圖示線條顏色
+  stroke: map.get(color.$greens, 'light');
+  // 讓線條稍微加粗，更清晰可見
+  stroke-width: 2.5;
+}

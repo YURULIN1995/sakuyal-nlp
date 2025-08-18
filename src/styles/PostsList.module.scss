@@ -1,0 +1,21 @@
+@use '@styles/_mixins' as mixins;
+
+.postsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: flex-start;
+
+  // 這裡的 > * 選擇器是為了確保 PostCard 元件能正確應用 flex-basis
+  > * {
+    flex-basis: 100%;
+
+    @include mixins.respond-min(md) {
+      flex-basis: calc(50% - 15px);
+    }
+
+    @include mixins.respond-min(lg) {
+      flex-basis: calc(33.333% - 20px);
+    }
+  }
+}

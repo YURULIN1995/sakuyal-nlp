@@ -4,7 +4,7 @@ import TextImageSlot from '@components/TextImageSlot';
 import DividerTitleLeft from '@components/DividerTitleLeft';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
-import PostCard from '@components/PostCard';
+import TestimonialPostCard from '@components/TestimonialPostCard';
 import { authorIntroData, testimonialsSectionData } from '@data/aboutPageData.js';
 import styles from '@styles/AboutPage.module.scss';
 
@@ -29,7 +29,7 @@ function AboutPage() {
       <OneColumnLayout>
         <DividerTitleLeft  title={testimonialsSectionData.title } />
         {testimonialsSectionData.list.map(item =>
-        <PostCard
+        <TestimonialPostCard
           key={item.id}
           imageUrl={item.imageUrl}
           imageAlt={item.imageAlt}

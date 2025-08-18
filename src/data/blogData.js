@@ -1,8 +1,11 @@
-// 檔案: src/data/blogData.js
-
 import ArrowRightIcon from '@assets/icons/arrow-right.svg?react';
 
-export const featuredPostsData = [
+export const blogIntro = {
+  title: '文章'
+};
+
+// 1. 這是您所有文章的完整列表
+export const allPostsData = [
   {
     id: 'post1',
     postUrl: '#',
@@ -36,4 +39,30 @@ export const featuredPostsData = [
     buttonText: '閱讀更多',
     buttonIcon: ArrowRightIcon,
   },
+  // --- 新增的文章範例 ---
+  {
+    id: 'post4',
+    postUrl: '#',
+    imageUrl: 'https://placehold.co/600x300/a9d3a4/4a6e4f',
+    imageAlt: '貼文04',
+    category: '分類02',
+    title: '🐷🐷🐷🐷🐷：🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
+    excerpt: '🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷、🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。',
+    buttonText: '閱讀更多',
+    buttonIcon: ArrowRightIcon,
+  },
+  {
+    id: 'post5',
+    postUrl: '#',
+    imageUrl: 'https://placehold.co/600x300/a9d3a4/4a6e4f',
+    imageAlt: '貼文05',
+    category: '分類03',
+    title: '🐷🐷🐷🐷🐷🐷🐷：🐷🐷🐷🐷🐷🐷🐷',
+    excerpt: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷。🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。',
+    buttonText: '閱讀更多',
+    buttonIcon: ArrowRightIcon,
+  },
 ];
+
+// 2. 精選文章資料現在從 allPostsData 動態產生，只取前三篇
+export const featuredPostsData = allPostsData.slice(0, 3);

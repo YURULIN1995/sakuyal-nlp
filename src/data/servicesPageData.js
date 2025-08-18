@@ -12,7 +12,7 @@ export const servicesList = [
   {
     id: 'service-01',
     title: '服務01',
-    description: '囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧囧',
+    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
     imageAlt: '示意圖',
     isReversed: false
@@ -20,7 +20,7 @@ export const servicesList = [
   {
     id: 'service-02',
     title: '服務02',
-    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷�🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
+    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
     imageAlt: '示意圖',
     isReversed: true
@@ -43,7 +43,7 @@ export const processData = {
       id: "process-step-01",
       icon: IconInfoCircle,
       title: "步驟01",
-      description: "🐷囧囧囧囧囧囧囧囧，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
+      description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
     },
     {
       id: "process-step-02",
