@@ -47,7 +47,7 @@
   width: 24px;
   height: 24px;
   // 使用您指定的圖示線條顏色
-  stroke: map.get(color.$greens, 'light');
+  stroke: white;
   // 讓線條稍微加粗，更清晰可見
   stroke-width: 2.5;
 }
