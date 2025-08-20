@@ -6,12 +6,15 @@ import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
 import TestimonialPostCard from '@components/TestimonialPostCard';
 import { authorIntroData, testimonialsSectionData } from '@data/aboutPageData.js';
+import { siteMeta } from '@data/siteMeta.js'; // Import siteMeta
 import styles from '@styles/AboutPage.module.scss';
 
 function AboutPage() {
+  const { title, description } = siteMeta.pages.about;
+
   return (
     <>
-      <SEO title="關於我" description="認識 Sakuyal 自然語言煉金術的創辦人。" />      
+      <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={authorIntroData.titleLine}/>
       <BackgroundColor>
         <OneColumnLayout>
@@ -25,7 +28,6 @@ function AboutPage() {
         </OneColumnLayout>
       </BackgroundColor>
 
-      {/* --- 客戶推薦區塊 (使用新結構) --- */}
       <OneColumnLayout>
         <DividerTitleLeft  title={testimonialsSectionData.title } />
         {testimonialsSectionData.list.map(item =>
@@ -34,9 +36,7 @@ function AboutPage() {
           imageUrl={item.imageUrl}
           imageAlt={item.imageAlt}
           authorName={item.authorName}
-          // 將資料中的 authorTitle 傳給 subtitle prop
           subtitle={item.authorTitle}
-          // 將資料中的 fullText 傳給 fullText prop
           fullText={item.fullText}
         />
         )}

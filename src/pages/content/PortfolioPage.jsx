@@ -3,13 +3,16 @@ import styles from '@styles/PortfolioPage.module.scss';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
-import PortfolioItem from '@components/PortfolioItem'; // 匯入 PortfolioItem 元件
+import PortfolioItem from '@components/PortfolioItem'; 
 import { portfolioTitle, portfoliosList } from '@data/portfolioPageData.js';
+import { siteMeta } from '@data/siteMeta.js'; // Import siteMeta
 
 function PortfolioPage() {
+  const { title, description } = siteMeta.pages.portfolio;
+
   return (
     <>
-      <SEO title="作品集" description="這是Sakuyal 自然語言煉金術的作品集頁面。" />
+      <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={portfolioTitle.titleLine}/>
       
       <BackgroundColor color="lightGreen">

@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { Turnstile } from '@marsidev/react-turnstile';
-// import styles from '@styles/SubscriptionForm.module.scss';
+import styles from '@styles/SubscriptionForm.module.scss';
 
 function SubscriptionForm({ onSuccessRedirectTo }) {
   const navigate = useNavigate();

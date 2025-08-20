@@ -3,12 +3,15 @@ import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground
 import OneColumnLayout from '@components/OneColumnLayout';
 import PostsList from '@components/PostsList'; 
 import { blogIntro, allPostsData } from '@data/blogData.js';
+import { siteMeta } from '@data/siteMeta.js'; // Import siteMeta
 import styles from '@styles/BlogPage.module.scss';
 
 function BlogPage() {
+  const { title, description } = siteMeta.pages.blog;
+
   return (
     <>
-      <SEO title="文章" description="探索關於茶道美學、實用教學與器物鑑賞的深度文章。" />
+      <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={blogIntro.title} />
       <OneColumnLayout>
         <main className={styles.blogPageContainer}>
@@ -17,6 +20,6 @@ function BlogPage() {
       </OneColumnLayout>
     </>
   );
-}1400
+}
 
 export default BlogPage;

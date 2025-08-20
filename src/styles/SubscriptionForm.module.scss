@@ -1,0 +1,92 @@
+@use '@styles/colors' as color;
+@use '@styles/mixins' as mixin;
+@use 'sass:map';
+
+.formContainer {
+  width: 100%;
+  max-width: 400px; // 限制表單最大寬度
+  margin: 0 auto; // 水平置中
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+// 共用的輸入框樣式 (input & textarea)
+%input-base {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid color.$grey-border;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: map.get(color.$greens, 'base');
+    box-shadow: 0 0 0 3px rgba(map.get(color.$greens, 'base'), 0.2);
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: map.get(color.$greens, 'dark');
+}
+
+.input {
+  @extend %input-base;
+}
+
+// 按鈕樣式
+button[type="submit"] {
+  // 引用您在 _mixins.scss 中定義的按鈕樣式
+  @include mixin.b-button(
+    $margin: 15px 0 0 0, // 移除左右 auto，讓它填滿寬度
+  );
+
+  & {
+    width: 100%; // 讓按鈕填滿容器寬度
+    }
+  
+  // 處理禁用狀態的樣式
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+// 狀態訊息的樣式
+.statusMessage {
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
+
+  &.success {
+    background-color: rgba(map.get(color.$greens, 'light'), 0.3);
+    color: map.get(color.$greens, 'darkest');
+    border: 1px solid map.get(color.$greens, 'light');
+  }
+
+  &.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  &.sending,
+  &.loading {
+    background-color: #e2e3e5;
+    color: #383d41;
+    border: 1px solid #d6d8db;
+  }
+}

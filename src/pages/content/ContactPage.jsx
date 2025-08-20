@@ -6,15 +6,15 @@ import { contactData } from '@data/contactPageData.js';
 import ContactLinks from '@components/ContactLinks';
 import ContactForm from '@components/ContactForm';
 import Divider from '@components/Divider';
+import { siteMeta } from '@data/siteMeta.js'; // Import siteMeta
 
 function ContactPage() {
+  const { title, description } = siteMeta.pages.contact;
+
   return (
-    // 【新增】用 pageWrapper 包裹整個頁面
     <div className={styles.pageWrapper}>
-      <SEO title="聯絡" description="這是 Sakuyal 自然語言煉金術的聯絡頁面。" />
+      <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={contactData.titleLine1}/>
-      
-      {/* 【修改】傳入新的 className */}
       <BackgroundColor color="lightGreen" className={styles.growingSection}>
         <div className={styles.contactSection}>
           <div className={styles.contactTextWrap}>

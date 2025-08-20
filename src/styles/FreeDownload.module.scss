@@ -1,0 +1,73 @@
+@use '@styles/colors' as color;
+@use '@styles/mixins' as mixin;
+@use 'sass:map';
+
+// 頁面最外層容器，負責置中與背景色
+.pageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background-color: map.get(color.$greens, 'bg-gray-green');
+  box-sizing: border-box;
+}
+
+// 中間的內容卡片
+.contentWrapper {
+  width: 100%;
+  max-width: 900px; // 限制最大寬度
+  background-color: color.$white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: grid; // 使用 Grid 佈局
+
+  // 在平板電腦尺寸及以上，變為兩欄
+  @include mixin.respond-min(md) {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+// 左側的文字說明區塊
+.textSection {
+  padding: 40px;
+  text-align: center;
+
+  @include mixin.respond-min(md) {
+    padding: 50px;
+    text-align: left;
+  }
+
+  h1 {
+    // 引用您在 _mixins.scss 中定義的標題樣式
+    @include mixin.t-title(
+      $font-size: 26px,
+      $font-size-xs: 30px,
+      $font-size-nav: 34px,
+      $margin-bottom: 15px,
+      $text-align: center,
+      $text-align-md: left
+    );
+  }
+
+  p {
+    // 引用您在 _mixins.scss 中定義的段落樣式
+    @include mixin.p-paragraph(
+      $font-size: 16px,
+      $line-height: 1.8,
+      $margin-bottom: 0
+    );
+  }
+}
+
+// 右側的表單區塊
+.formSection {
+  padding: 40px;
+  background-color: map.get(color.$greens, 'bg');
+
+  @include mixin.respond-min(md) {
+    padding: 50px;
+  }
+}

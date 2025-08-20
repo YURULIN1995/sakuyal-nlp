@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import styles from '@styles/Faq.module.scss' ;
 import PageTitle from '@components/PageTitle';
-import { faqData } from '@data/servicesPageData.js';
+import { servicesPageData } from '@data/servicesPageData.js';
 import IconCaretRight from '@assets/icons/caret-right.svg?react';
 
-// 單個問答的邏輯
 const FaqItem = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,6 +32,8 @@ const FaqItem = ({ item }) => {
 };
 
 function Faq () {
+  const faqData = servicesPageData.faq;
+
   return (
     <div className={styles.faqSection}>
       <PageTitle title={faqData.faqTitle}/>

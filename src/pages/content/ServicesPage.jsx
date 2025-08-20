@@ -8,14 +8,16 @@ import Button from '@components/Button';
 import ServicesProcess from '@components/ServicesProcess';
 import Faq from '@components/Faq';
 import { servicesPageData, serviceItems } from '@data/servicesPageData.js';
+import { siteMeta } from '@data/siteMeta.js'; // Import siteMeta
 
 function ServicesPage() {
+  const { title, description } = siteMeta.pages.services;
+
   return (
     <>
-      <SEO title="服務項目" description="這是Sakuyal 自然語言煉金術的服務項目頁面。" />
+      <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={servicesPageData.header.titleLine}/>
       <BackgroundColor>
-        {/* 服務項目列表區塊 */}
         <OneColumnLayout>
           {serviceItems.map((service) => (
             <ServiceCard

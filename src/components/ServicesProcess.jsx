@@ -1,8 +1,10 @@
 import styles from '@styles/ServicesProcess.module.scss';
-import { processData } from '@data/servicesPageData.js';
+import { servicesPageData } from '@data/servicesPageData.js';
 import PageTitle from '@components/PageTitle';
 
 function ServicesProcess() {
+  const processData = servicesPageData.process;
+
   return (
     <div className={styles.processSection}>
       <PageTitle title={processData.title} />
