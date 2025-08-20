@@ -13,7 +13,6 @@ function FreeDownload() {
       <main className={styles.contentWrapper}>
         <div className={styles.textSection}>
           <h1>免費下載：</h1>
-          <p>只要輸入您的姓名與 Email，我們就會立刻將下載連結寄到您的信箱。</p>
         </div>
         
         <div className={styles.formSection}>

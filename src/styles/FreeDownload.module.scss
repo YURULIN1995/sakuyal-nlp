@@ -16,24 +16,25 @@
 .contentWrapper {
   background-color: color.$white;
   overflow: hidden;
-  display: grid;
-  width: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 
-  // 在平板電腦尺寸及以上，變為兩欄
   @include mixin.respond-min(md) {
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    flex-direction: row;;
   }
 }
 
 // 左側的文字說明區塊
 .textSection {
   text-align: center;
-  padding: 30px 20px;
-  min-height: 100vh;
+  padding: 40px;
+  // 移除 min-height，讓 Flexbox 自動管理高度
 
   @include mixin.respond-min(md) {
+    flex: 1; // 在水平排列時，佔據一半空間
+    padding: 50px;
     text-align: left;
   }
 
@@ -59,11 +60,14 @@
 
 // 右側的表單區塊
 .formSection {
-  min-height: 100vh;
   padding: 40px;
   background-color: map.get(color.$greens, 'bg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   @include mixin.respond-min(md) {
+    flex: 1; // 在水平排列時，佔據另一半空間
     padding: 50px;
   }
 }
