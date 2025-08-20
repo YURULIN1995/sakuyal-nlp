@@ -34,8 +34,7 @@ function ServicesSection({
         {/* --- Right Column --- */}
         <div className={styles.rightColumn}>
           {rightColumnItems.map(item => {
-            // Directly use the icon component passed from props
-            const IconComponent = item.icon;
+            const IconComponent = item.iconName;
             return (
               <div key={item.id} className={styles.rightColumnItem}>
                 {IconComponent && (
@@ -45,7 +44,7 @@ function ServicesSection({
                 )}
                 <div className={styles.textWrap}>
                   <h3 className={styles.rightColumnTitle}>{item.title}</h3>
-                  <p className={styles.rightColumnParagraph}>{item.paragraph}</p>
+                  <p className={styles.rightColumnParagraph}>{item.overview}</p>
                 </div>
               </div>
             );

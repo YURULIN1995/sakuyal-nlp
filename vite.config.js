@@ -26,7 +26,8 @@ export default defineConfig({
         '/privacy-policy',
         '/copyright',
         '/disclaimer',
-        '/refund-policy'
+        '/refund-policy',
+        '/free-download'
       ],
       // 根據你的 portfolioIds 產生路徑
       dynamicPaths: [

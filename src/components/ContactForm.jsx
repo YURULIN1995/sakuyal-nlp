@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from '@styles/ContactForm.module.scss';
 import { contactFormData, contactLink } from '@data/contactPageData.js';
+import { contactFormContent } from '@data/userExperienceWriting.js';
 import Turnstile from 'react-turnstile';
 
 function ContactForm() {
@@ -118,7 +119,7 @@ function ContactForm() {
         </div>
 
         <Turnstile
-          ref={turnstileRef} // 【修改】將 ref 傳遞給 Turnstile
+          ref={turnstileRef} //將 ref 傳遞給 Turnstile
           sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
           onVerify={(token) => setTurnstileToken(token)}
         />
@@ -133,12 +134,12 @@ function ContactForm() {
 
         {status === 'success' && (
           <p className={`${styles.statusMessage} ${styles.success}`}>
-            感謝您的訊息，我們會盡快與您聯繫！
+            {contactFormContent.statusMessage.error}
           </p>
         )}
         {status === 'error' && (
           <p className={`${styles.statusMessage} ${styles.error}`}>
-            訊息傳送失敗，請稍後再試或直接來信。
+            {contactFormContent.statusMessage.success}
           </p>
         )}
       </form>
