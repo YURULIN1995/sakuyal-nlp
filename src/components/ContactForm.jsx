@@ -12,7 +12,7 @@ function ContactForm() {
   });
   const [status, setStatus] = useState('idle');
   const [turnstileToken, setTurnstileToken] = useState('');
-  const turnstileRef = useRef(null); // 新增 ref 來控制 Turnstile 元件
+  const turnstileRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,26 +45,23 @@ function ContactForm() {
 
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
-      turnstileRef.current?.reset(); // 【修改】重置 Turnstile 元件
+      turnstileRef.current?.reset();
 
     } catch (error) {
       console.error('Form submission error:', error);
       setStatus('error');
-      turnstileRef.current?.reset(); // 在失敗時也重置
+      turnstileRef.current?.reset();
     }
   };
 
-  // 【新增】使用 useEffect 來處理成功訊息的自動消失
   useEffect(() => {
     if (status === 'success' || status === 'error') {
       const timer = setTimeout(() => {
-        setStatus('idle'); // 2 秒後將狀態改回 idle
-      }, 2000); // 2000 毫秒 = 2 秒
-
-      // 清除計時器，避免組件卸載時發生錯誤
+        setStatus('idle');
+      }, 2000);
       return () => clearTimeout(timer);
     }
-  }, [status]); // 這個 effect 會在 status 改變時觸發
+  }, [status]);
 
   const mailInfo = contactLink.find(link => link.id === 'contact-mail');
   const mailAddress = mailInfo ? mailInfo.contactUrl.replace('mailto:', '') : '';
@@ -119,7 +116,7 @@ function ContactForm() {
         </div>
 
         <Turnstile
-          ref={turnstileRef} //將 ref 傳遞給 Turnstile
+          ref={turnstileRef}
           sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
           onVerify={(token) => setTurnstileToken(token)}
         />
@@ -129,17 +126,24 @@ function ContactForm() {
           className={styles.submitButton} 
           disabled={status === 'sending' || !turnstileToken}
         >
-          {status === 'sending' ? '傳送中...' : contactFormData.submitButtonText}
+          {status === 'sending' ? contactFormContent.statusMessage.sending : contactFormData.submitButtonText}
         </button>
+
+        {status === 'sending' && (
+          <p className={`${styles.statusMessage} ${styles.sending}`}>
+            {contactFormContent.statusMessage.sending}
+          </p>
+        )}
 
         {status === 'success' && (
           <p className={`${styles.statusMessage} ${styles.success}`}>
-            {contactFormContent.statusMessage.error}
+            {contactFormContent.statusMessage.success}
           </p>
         )}
+        
         {status === 'error' && (
           <p className={`${styles.statusMessage} ${styles.error}`}>
-            {contactFormContent.statusMessage.success}
+            {contactFormContent.statusMessage.error}
           </p>
         )}
       </form>
