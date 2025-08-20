@@ -15,12 +15,11 @@ import DisclaimerPage from '@pages/legal/DisclaimerPage';
 import CopyrightPage from '@pages/legal/CopyrightPage';
 import RefundPolicyPage from '@pages/legal/RefundPolicyPage';
 import FreeDownload from '@pages/FreeDownload';
+// import BuyNowPage from '@pages/BuyNowPage'; // 預先為您的導購頁保留位置
 
 function App() {
   return (
-    <>
-      {/* 移除這裡的 ViewportMeta，因為 SEO 元件會處理 */}
-      <Routes>
+    <Routes>
         {/* --- 路由群組 1: 需要共用 Header/Footer 的頁面 --- */}
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -40,9 +39,8 @@ function App() {
         {/* <Route path="buy-now" element={<BuyNowPage />} /> */}
 
         {/* --- 404 頁面 --- */}
-        <Route path="*" element={<NotFoundPage />} />// 1. 匯入主要的 servicesPageData 物件
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
   );
 }
 
