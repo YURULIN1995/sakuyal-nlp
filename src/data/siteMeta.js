@@ -2,9 +2,17 @@
 
 export const siteMeta = {
   siteName: "Sakuyal 自然語言煉金術",
+
+  // 新增：網站核心主題與關鍵字
+  coreTheme: {
+    topic: "成為侍茶師", //請填入網站的核心主題或主要服務，做到某件事/成為某個職業角色。例如："學會沖煮一杯好咖啡"或"成為軟裝師"
+    stepCount: 5, //請填入主要賣點的步驟或方法數量，例如："5"
+    caseCount: 3, //請填入主要賣點的案例或範例數量，例如："3"
+  },
+
   pages: {
     home: {
-      title: null,
+      title: null, // 首頁標題將只會是網站名稱
       description: "歡迎來到 Sakuyal 自然語言煉金術，我們提供專業的網站設計、開發與內容策略服務。"
     },
     about: {

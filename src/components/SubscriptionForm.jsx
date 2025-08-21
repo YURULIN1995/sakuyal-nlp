@@ -5,7 +5,7 @@ import styles from '@styles/SubscriptionForm.module.scss';
 
 function SubscriptionForm({ onSuccessRedirectTo }) {
   const navigate = useNavigate();
-  const [name, setName] = useState('');
+  // 移除 name state
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
@@ -17,11 +17,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
     setMessage('');
 
     // --- UI 開發階段的模擬 API 呼叫 ---
-    // 說明：我們先用 setTimeout 模擬一個成功的 API 回應。
-    // 這樣您就可以專注於畫面開發，並看到成功訊息和頁面跳轉。
-    // 當您準備好串接 Brevo API 時，請將這段移除，並取消註解下方的真實 API 呼叫。
-
-    console.log('模擬表單送出:', { name, email });
+    console.log('模擬表單送出:', { email }); // 更新：移除 name
     setTimeout(() => {
       setStatus('success');
       setMessage('訂閱成功！請檢查您的信箱以確認訂閱。');
@@ -31,7 +27,6 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
           navigate(onSuccessRedirectTo);
         }, 1500); // 延遲 1.5 秒，讓使用者看到成功訊息
       } else {
-        setName('');
         setEmail('');
       }
     }, 1000); // 模擬 1 秒的網路延遲
@@ -49,7 +44,8 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
       const response = await fetch('/api/add-subscriber', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, token }),
+        // 更新：送出的資料中只包含 email 和 token
+        body: JSON.stringify({ email, token }),
       });
 
       const data = await response.json();
@@ -66,7 +62,6 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
           navigate(onSuccessRedirectTo);
         }, 1500);
       } else {
-        setName('');
         setEmail('');
       }
 
@@ -84,17 +79,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
   return (
     <div className={styles.formContainer}>
       <form onSubmit={handleSubmit}>
-        <div className={styles.formGroup}>
-          <label htmlFor="name">姓名</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            placeholder="請輸入您的姓名"
-          />
-        </div>
+        {/* 移除姓名欄位的 JSX */}
         <div className={styles.formGroup}>
           <label htmlFor="email">Email</label>
           <input
@@ -103,7 +88,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            placeholder="請輸入您的 Email"
+            placeholder="輸入Email，馬上就會收到下載連結！"
           />
         </div>
         
