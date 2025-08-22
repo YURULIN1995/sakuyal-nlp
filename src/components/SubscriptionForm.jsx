@@ -4,7 +4,7 @@ import { Turnstile } from '@marsidev/react-turnstile';
 import styles from '@styles/SubscriptionForm.module.scss';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 
-// 1. ✨ 修正：讀取與您 .env 和 ContactForm.jsx 中一致的環境變數
+// 修正：讀取與您 .env 和 ContactForm.jsx 中一致的環境變數
 const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 function SubscriptionForm({ onSuccessRedirectTo }) {
@@ -12,7 +12,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
-  const [turnstileToken, setTurnstileToken] = useState(''); // 2. 新增 state 來儲存 token
+  const [turnstileToken, setTurnstileToken] = useState(''); // 使用 state 來儲存 token
   const turnstileRef = useRef(null);
 
   useEffect(() => {
@@ -26,7 +26,6 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // 3. 檢查 state 中的 token，而不是 ref
     if (!turnstileToken) {
       setStatus('error');
       setMessage('請完成人機驗證。');
@@ -40,7 +39,6 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
       const response = await fetch('/api/add-subscriber', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        // 4. 將 state 中的 token 送出
         body: JSON.stringify({ email, token: turnstileToken }),
       });
 
@@ -67,7 +65,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
     } finally {
       if (status !== 'success' || !onSuccessRedirectTo) {
         turnstileRef.current?.reset();
-        setTurnstileToken(''); // 5. 重設 token state
+        setTurnstileToken(''); // 重設 token state
       }
     }
   };
@@ -93,8 +91,9 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
             ref={turnstileRef}
             siteKey={TURNSTILE_SITE_KEY}
             options={{ theme: 'light' }}
-            // 6. 驗證成功時，更新 token state
+            // 驗證成功時，更新 token state
             onVerify={(token) => setTurnstileToken(token)}
+            onExpire={() => setTurnstileToken('')} // Token 過期時，清空 state
           />
         ) : (
           <p className={styles.error}>人機驗證元件載入失敗，請檢查設定。</p>
@@ -103,7 +102,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
         <button 
           type="submit" 
           className={styles.submitButton} 
-          // 7. 禁用邏輯現在也參考 token state
+          // 禁用邏輯現在也參考 token state
           disabled={status === 'loading' || !turnstileToken || !TURNSTILE_SITE_KEY}
         >
           {status === 'loading' ? '處理中...' : freeDownloadData.buttonText2}
