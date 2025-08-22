@@ -70,6 +70,9 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
     }
   };
 
+  // ✨ 偵錯輔助：在每次元件渲染時，印出目前的狀態
+  console.log('Component rendered. Status:', status, 'Has Token:', !!turnstileToken);
+
   return (
     <div className={styles.formContainer}>
       <form onSubmit={handleSubmit}>
@@ -91,9 +94,15 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
             ref={turnstileRef}
             siteKey={TURNSTILE_SITE_KEY}
             options={{ theme: 'light' }}
-            // 驗證成功時，更新 token state
-            onVerify={(token) => setTurnstileToken(token)}
-            onExpire={() => setTurnstileToken('')} // Token 過期時，清空 state
+            // ✨ 偵錯輔助：當驗證成功時，印出收到的 token
+            onVerify={(token) => {
+              console.log('Turnstile verified! Received token:', token);
+              setTurnstileToken(token);
+            }}
+            onExpire={() => {
+              console.log('Turnstile token expired.');
+              setTurnstileToken('');
+            }}
           />
         ) : (
           <p className={styles.error}>人機驗證元件載入失敗，請檢查設定。</p>
