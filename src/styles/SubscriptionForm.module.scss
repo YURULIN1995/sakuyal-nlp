@@ -4,15 +4,27 @@
 
 .formContainer {
   width: 100%;
-  margin: 0 auto; // 水平置中
+  margin: 0 auto;
 }
 
 .formGroup {
+  position: relative;
   margin-bottom: 20px;
   width: 100%;
 }
 
-// 共用的輸入框樣式 (input & textarea)
+.label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 %input-base {
   width: 100%;
   padding: 12px 15px;
@@ -33,36 +45,24 @@
   }
 }
 
-.label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: map.get(color.$greens, 'dark');
-}
-
 .input {
   @extend %input-base;
 }
 
-// 按鈕樣式
-button[type="submit"] {
-  // 引用您在 _mixins.scss 中定義的按鈕樣式
+.submitButton {
   @include mixin.b-button(
-    $margin: 15px 0 0 0, // 移除左右 auto，讓它填滿寬度
+    $margin: 15px 0 0 0,
   );
 
-  & {
-    width: 100%; // 讓按鈕填滿容器寬度
-    }
-  
-  // 處理禁用狀態的樣式
+  // 覆寫 mixin 中可能存在的 'width: fit-content'，確保按鈕填滿父層寬度
+  & {width: 100%;}
+
   &:disabled {
     background-color: #ccc;
     cursor: not-allowed;
   }
 }
 
-// 狀態訊息的樣式
 .statusMessage {
   padding: 12px;
   margin-top: 20px;

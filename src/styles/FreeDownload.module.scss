@@ -33,7 +33,7 @@
 
   @include mixin.respond-min(md) {
     flex: 1; // 讓此區塊佔據 50% 的可用空間
-    padding: 50px 0 50px 30px;
+    padding: 50px 30px 50px 34px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,25 +52,30 @@
 
   h1, h2 {
     @include mixin.t-title(
-      $font-size: 20px,
-      $font-size-xs: 30px,
-      $font-size-nav: 34px,
+      $font-size: 28px,
+      $font-size-xs: 34x,
+      $font-size-nav: 39px,
+      $font-weight: 400,
       $margin-bottom: 15px,
       $text-align: center,
       $text-align-md: left
     );
   }
 
+
   p {
     @include mixin.p-paragraph(
       $font-size: 16px,
       $line-height: 1.8,
-      $margin-bottom: 0
+      $margin-bottom: 30px
     );
   }
 
   img {
     max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 30px auto;
   }
 }
 
@@ -84,7 +89,7 @@
 
   @include mixin.respond-min(md) {
     flex: 1; // 讓此區塊佔據 50% 的可用空間
-    padding: 50px 30px;
+    padding: 50px 34px 50px 30px;
     
     // 將內容水平對齊到此區塊的「左側」，與 textSection 形成對稱
     align-items: flex-start;
