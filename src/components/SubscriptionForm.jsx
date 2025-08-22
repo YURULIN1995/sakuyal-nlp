@@ -1,81 +1,122 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
-// import { Turnstile } from '@marsidev/react-turnstile';
+import { Turnstile } from '@marsidev/react-turnstile';
 import styles from '@styles/SubscriptionForm.module.scss';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 
+// SubmitButton 元件，使用 useFormStatus 來自動管理 pending 狀態
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <button type="submit" className={styles.submitButton} disabled={pending}>
+      {pending ? '處理中...' : freeDownloadData.buttonText2}
+    </button>
+  );
+}
+
+// Action 函式，處理表單提交的核心邏輯
+async function addSubscriberAction(previousState, formData) {
+  const email = formData.get('email');
+  const token = formData.get('cf-turnstile-response');
+
+  if (!token) {
+    return { success: false, message: '請完成人機驗證。' };
+  }
+
+  try {
+    const response = await fetch('/api/add-subscriber', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, token }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.message || '發生未知錯誤');
+    }
+    return { success: true, message: data.message };
+  } catch (error) {
+    return { success: false, message: error.message };
+  }
+}
+
 function SubscriptionForm({ onSuccessRedirectTo }) {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('idle');
-  const [message, setMessage] = useState('');
-  const turnstileRef = useRef(null);
+  const [state, formAction] = useActionState(addSubscriberAction, { success: false, message: null });
+  const [displayMessage, setDisplayMessage] = useState(null);
+  const [messageType, setMessageType] = useState('');
+  const turnstileRef = useRef(null); // Ref for Turnstile component
 
-  // 新增 useEffect 來處理訊息的自動消失
   useEffect(() => {
-    // 如果狀態是成功或失敗，就設定一個計時器
-    if (status === 'success' || status === 'error') {
-      const timer = setTimeout(() => {
-        setStatus('idle'); // 5 秒後將狀態重設為 'idle'
-        // 注意：我們不需要手動清除 message，因為下方的 JSX 會因 status 改變而自動隱藏
-      }, 5000); // 5000 毫秒 = 5 秒
+    if (state.message) {
+      setDisplayMessage(state.message);
+      setMessageType(state.success ? 'success' : 'error');
 
-      // 清理函式：如果元件卸載或狀態再次改變，清除舊的計時器
+      const timer = setTimeout(() => {
+        setDisplayMessage(null);
+      }, 5000);
+
+      if (state.success && onSuccessRedirectTo) {
+        const redirectTimer = setTimeout(() => {
+          navigate(onSuccessRedirectTo);
+        }, 1500);
+        return () => clearTimeout(redirectTimer);
+      }
+
       return () => clearTimeout(timer);
     }
-  }, [status]); // 這個 effect 會在 'status' 改變時觸發
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setStatus('loading');
-    setMessage('');
-
-    // --- UI 開發階段的模擬 API 呼叫 ---
-    const simulateSuccess = true; // 您可以在這裡切換 true/false 來測試不同情境
-    
-    console.log('模擬表單送出 (測試情境: ' + (simulateSuccess ? '成功' : '失敗') + ')');
-    
-    setTimeout(() => {
-      if (simulateSuccess) {
-        setStatus('success');
-        setMessage('訂閱成功！請檢查您的信箱以確認訂閱。');
-        if (onSuccessRedirectTo) {
-          setTimeout(() => { navigate(onSuccessRedirectTo); }, 1500);
-        } else {
-          setEmail('');
-        }
-      } else {
-        setStatus('error');
-        setMessage('訊息傳送失敗，請稍後再試或直接來信。');
-      }
-    }, 1000);
-  };
+  }, [state, navigate, onSuccessRedirectTo]);
 
   return (
     <div className={styles.formContainer}>
-      <form onSubmit={handleSubmit}>
+      <form action={formAction}>
         <div className={styles.formGroup}>
           <label htmlFor="email" className={styles.label}>Email</label>
           <input
             type="email"
             id="email"
+            name="email"
             className={styles.input}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             required
             placeholder="輸入Email，馬上就會收到下載連結！"
           />
         </div>
         
-        {/* <Turnstile ... /> */}
+        {/* We use a hidden input to pass the token to the form action */}
+        <input type="hidden" name="cf-turnstile-response" id="cf-turnstile-response" />
+        <Turnstile
+          ref={turnstileRef}
+          siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+          options={{ theme: 'light' }}
+          onVerify={(token) => {
+            // Manually update the hidden input's value when Turnstile verifies
+            const hiddenInput = document.getElementById('cf-turnstile-response');
+            if (hiddenInput) {
+              hiddenInput.value = token;
+            }
+          }}
+          onExpire={() => {
+            // Reset the hidden input when the token expires
+            const hiddenInput = document.getElementById('cf-turnstile-response');
+            if (hiddenInput) {
+              hiddenInput.value = '';
+            }
+            // Optionally, you can also reset the Turnstile widget itself
+            turnstileRef.current?.reset();
+          }}
+        />
 
-        <button type="submit" className={styles.submitButton} disabled={status === 'loading'}>
-          {status === 'loading' ? '處理中...' : freeDownloadData.buttonText2}
-        </button>
+        <SubmitButton />
       </form>
-      <p className={`${styles.statusMessage} ${styles[status] || ''}`}>
-        {message}
-      </p>
+
+      {displayMessage && (
+        <p className={`${styles.statusMessage} ${styles[messageType]}`}>
+          {displayMessage}
+        </p>
+      )}
     </div>
   );
 }
