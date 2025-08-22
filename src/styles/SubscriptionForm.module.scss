@@ -54,8 +54,9 @@
     $margin: 15px 0 0 0,
   );
 
-  // 覆寫 mixin 中可能存在的 'width: fit-content'，確保按鈕填滿父層寬度
-  & {width: 100%;}
+  & {
+    width: 100%;
+  }
 
   &:disabled {
     background-color: #ccc;
@@ -63,6 +64,7 @@
   }
 }
 
+// --- 更新：狀態訊息的樣式 ---
 .statusMessage {
   padding: 12px;
   margin-top: 20px;
@@ -70,6 +72,21 @@
   text-align: center;
   font-weight: 500;
 
+  // 1. 設定預設狀態為透明，並加上過渡效果
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  // 2. 當有 success, error, loading 等 class 時，才讓訊息淡入顯示
+  &.success,
+  &.error,
+  &.sending,
+  &.loading {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // 3. 各種狀態的背景色與文字顏色
   &.success {
     background-color: rgba(map.get(color.$greens, 'light'), 0.3);
     color: map.get(color.$greens, 'darkest');

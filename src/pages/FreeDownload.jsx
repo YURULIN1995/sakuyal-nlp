@@ -3,7 +3,7 @@ import SubscriptionForm from '@components/SubscriptionForm';
 import { siteMeta } from '@data/siteMeta.js';
 import styles from '@styles/FreeDownload.module.scss';
 import { freeDownloadData } from '@data/freeDownloadData.js';
-import IconCheck from '@assets/icons/check.svg?react'; // 假設您有這個打勾圖示
+import IconCheck from '@assets/icons/check.svg?react';
 
 function FreeDownload() {
   const { title, description } = siteMeta.pages.freeDownload;
