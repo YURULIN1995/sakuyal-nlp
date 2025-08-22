@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Turnstile from 'react-turnstile';
 import styles from '@styles/SubscriptionForm.module.scss';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 
@@ -12,7 +11,29 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
   const [turnstileToken, setTurnstileToken] = useState('');
-  const turnstileRef = useRef(null);
+  const turnstileRef = useRef(null); // 這個 ref 會指向一個 div
+
+  useEffect(() => {
+    // 使用 useEffect 來手動渲染 Turnstile 元件
+    // 確保 turnstileRef 已經指向一個 DOM 元素，並且官方腳本已載入
+    if (turnstileRef.current && window.turnstile) {
+      const widgetId = window.turnstile.render(turnstileRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: function(token) {
+          console.log("Turnstile verified via official API! Token:", token);
+          setTurnstileToken(token);
+        },
+        'expired-callback': function() {
+          setTurnstileToken('');
+        },
+      });
+
+      // 元件卸載時，清理 Turnstile 元件
+      return () => {
+        window.turnstile.remove(widgetId);
+      };
+    }
+  }, []); // 空依賴陣列，確保只在元件掛載時執行一次
 
   useEffect(() => {
     if (status === 'success' || status === 'error') {
@@ -42,18 +63,13 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
       });
 
       const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || '發生未知錯誤');
-      }
+      if (!response.ok) throw new Error(data.message || '發生未知錯誤');
 
       setStatus('success');
       setMessage(data.message);
       
       if (onSuccessRedirectTo) {
-        setTimeout(() => {
-          navigate(onSuccessRedirectTo);
-        }, 1500);
+        setTimeout(() => navigate(onSuccessRedirectTo), 1500);
       } else {
         setEmail('');
       }
@@ -63,7 +79,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
       setMessage(error.message);
     } finally {
       if (status !== 'success' || !onSuccessRedirectTo) {
-        turnstileRef.current?.reset();
+        window.turnstile?.reset(turnstileRef.current);
         setTurnstileToken('');
       }
     }
@@ -85,21 +101,12 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
           />
         </div>
         
-        {TURNSTILE_SITE_KEY ? (
-          <Turnstile
-            ref={turnstileRef}
-            sitekey={TURNSTILE_SITE_KEY}
-            onVerify={(token) => setTurnstileToken(token)}
-            onExpire={() => setTurnstileToken('')}
-          />
-        ) : (
-          <p className={styles.error}>人機驗證元件載入失敗，請檢查設定。</p>
-        )}
+        {/* 這是一個空的 div，專門用來讓 Turnstile 渲染自己 */}
+        <div ref={turnstileRef} className={styles.turnstileContainer}></div>
 
         <button 
           type="submit" 
           className={styles.submitButton} 
-          // ✨ 修正：移除多餘的 !TURNSTILE_SITE_KEY 檢查
           disabled={status === 'loading' || !turnstileToken}
         >
           {status === 'loading' ? '處理中...' : freeDownloadData.buttonText2}
