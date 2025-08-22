@@ -4,7 +4,6 @@ import Turnstile from 'react-turnstile';
 import styles from '@styles/SubscriptionForm.module.scss';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 
-// 修正：讀取與您 .env 和 ContactForm.jsx 中一致的環境變數
 const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 function SubscriptionForm({ onSuccessRedirectTo }) {
@@ -12,7 +11,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
-  const [turnstileToken, setTurnstileToken] = useState(''); // 使用 state 來儲存 token
+  const [turnstileToken, setTurnstileToken] = useState('');
   const turnstileRef = useRef(null);
 
   useEffect(() => {
@@ -65,13 +64,10 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
     } finally {
       if (status !== 'success' || !onSuccessRedirectTo) {
         turnstileRef.current?.reset();
-        setTurnstileToken(''); // 重設 token state
+        setTurnstileToken('');
       }
     }
   };
-
-  // ✨ 偵錯輔助：在每次元件渲染時，印出目前的狀態
-  console.log('Component rendered. Status:', status, 'Has Token:', !!turnstileToken);
 
   return (
     <div className={styles.formContainer}>
@@ -93,15 +89,8 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
           <Turnstile
             ref={turnstileRef}
             sitekey={TURNSTILE_SITE_KEY}
-            // ✨ 偵錯輔助：當驗證成功時，印出收到的 token
-            onVerify={(token) => {
-              console.log('Turnstile verified! Received token:', token);
-              setTurnstileToken(token);
-            }}
-            onExpire={() => {
-              console.log('Turnstile token expired.');
-              setTurnstileToken('');
-            }}
+            onVerify={(token) => setTurnstileToken(token)}
+            onExpire={() => setTurnstileToken('')}
           />
         ) : (
           <p className={styles.error}>人機驗證元件載入失敗，請檢查設定。</p>
@@ -110,8 +99,8 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
         <button 
           type="submit" 
           className={styles.submitButton} 
-          // 禁用邏輯現在也參考 token state
-          disabled={status === 'loading' || !turnstileToken || !TURNSTILE_SITE_KEY}
+          // ✨ 修正：移除多餘的 !TURNSTILE_SITE_KEY 檢查
+          disabled={status === 'loading' || !turnstileToken}
         >
           {status === 'loading' ? '處理中...' : freeDownloadData.buttonText2}
         </button>
