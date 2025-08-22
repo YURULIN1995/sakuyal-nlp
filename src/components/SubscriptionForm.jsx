@@ -1,18 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Turnstile } from '@marsidev/react-turnstile';
+// 1. ✨ 鏡像 ContactForm.jsx 的成功模式：使用 'react-turnstile'
+import Turnstile from 'react-turnstile';
 import styles from '@styles/SubscriptionForm.module.scss';
 import { freeDownloadData } from '@data/freeDownloadData.js';
-
-// 修正：讀取與您 .env 和 ContactForm.jsx 中一致的環境變數
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 function SubscriptionForm({ onSuccessRedirectTo }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
-  const [turnstileToken, setTurnstileToken] = useState(''); // 使用 state 來儲存 token
+  // 2. ✨ 鏡像 ContactForm.jsx 的成功模式：使用 useState 來管理 token
+  const [turnstileToken, setTurnstileToken] = useState('');
   const turnstileRef = useRef(null);
 
   useEffect(() => {
@@ -26,6 +25,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // 3. ✨ 鏡像 ContactForm.jsx 的成功模式：在提交時檢查 state 中的 token
     if (!turnstileToken) {
       setStatus('error');
       setMessage('請完成人機驗證。');
@@ -70,9 +70,6 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
     }
   };
 
-  // ✨ 偵錯輔助：在每次元件渲染時，印出目前的狀態
-  console.log('Component rendered. Status:', status, 'Has Token:', !!turnstileToken);
-
   return (
     <div className={styles.formContainer}>
       <form onSubmit={handleSubmit}>
@@ -89,30 +86,19 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
           />
         </div>
         
-        {TURNSTILE_SITE_KEY ? (
-          <Turnstile
-            ref={turnstileRef}
-            siteKey={TURNSTILE_SITE_KEY}
-            options={{ theme: 'light' }}
-            // ✨ 偵錯輔助：當驗證成功時，印出收到的 token
-            onVerify={(token) => {
-              console.log('Turnstile verified! Received token:', token);
-              setTurnstileToken(token);
-            }}
-            onExpire={() => {
-              console.log('Turnstile token expired.');
-              setTurnstileToken('');
-            }}
-          />
-        ) : (
-          <p className={styles.error}>人機驗證元件載入失敗，請檢查設定。</p>
-        )}
+        <Turnstile
+          ref={turnstileRef}
+          // 4. ✨ 鏡像 ContactForm.jsx 的成功模式：使用 'sitekey' (小寫 k)
+          sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+          // 5. ✨ 鏡像 ContactForm.jsx 的成功模式：onVerify 直接更新 state
+          onVerify={(token) => setTurnstileToken(token)}
+        />
 
         <button 
           type="submit" 
           className={styles.submitButton} 
-          // 禁用邏輯現在也參考 token state
-          disabled={status === 'loading' || !turnstileToken || !TURNSTILE_SITE_KEY}
+          // 6. ✨ 鏡像 ContactForm.jsx 的成功模式：禁用邏輯只參考 token state 和載入狀態
+          disabled={status === 'loading' || !turnstileToken}
         >
           {status === 'loading' ? '處理中...' : freeDownloadData.buttonText2}
         </button>
