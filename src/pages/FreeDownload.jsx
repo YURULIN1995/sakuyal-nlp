@@ -3,6 +3,7 @@ import SubscriptionForm from '@components/SubscriptionForm';
 import { siteMeta } from '@data/siteMeta.js';
 import styles from '@styles/FreeDownload.module.scss';
 import { freeDownloadData } from '@data/freeDownloadData.js';
+import IconCheck from '@assets/icons/check.svg?react'; // 假設您有這個打勾圖示
 
 function FreeDownload() {
   const { title, description } = siteMeta.pages.freeDownload;
@@ -13,15 +14,31 @@ function FreeDownload() {
       
       <main className={styles.contentWrapper}>
         <div className={styles.textSection}>
-          <img src={freeDownloadData.imageUrl}/>
-          <h2>{freeDownloadData.titleLine1}</h2>
-          <h1>{freeDownloadData.titleLine2}</h1>
+          <div className={styles.textInnerWrapper}>
+            <img src={freeDownloadData.imageUrl} alt={freeDownloadData.imageAlt} />
+            <h1 className={styles.titleLine1}>{freeDownloadData.titleLine1}</h1>
+            <h2 className={styles.titleLine2}>{freeDownloadData.titleLine2}</h2>
+            <p>{freeDownloadData.paragraph}</p>
+          </div>
         </div>
         
         <div className={styles.formSection}>
-          <SubscriptionForm 
-            onSuccessRedirectTo="/buy-now" 
-          />
+          {/* --- 更新：將 Features 列表移至此處 --- */}
+          <div className={styles.formContentWrapper}>
+            <p>{freeDownloadData.paragraph2}</p>
+            <p className={styles.shareInfo}>{freeDownloadData.paragraph3}</p>
+            <ul className={styles.featuresList}>
+              {freeDownloadData.features.map(feature => (
+                <li key={feature.id}>
+                  <IconCheck className={styles.checkIcon} />
+                  <span>{feature.featureText}</span>
+                </li>
+              ))}
+            </ul>
+            <SubscriptionForm 
+              onSuccessRedirectTo="/buy-now" 
+            />
+          </div>
         </div>
       </main>
     </div>

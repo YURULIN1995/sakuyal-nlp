@@ -2,7 +2,7 @@
 @use '@styles/mixins' as mixin;
 @use 'sass:map';
 
-// 頁面最外層容器，負責置中與背景色
+// 頁面最外層容器
 .pageContainer {
   display: flex;
   align-items: center;
@@ -32,51 +32,74 @@
   padding: 30px 25px 50px 25px;
 
   @include mixin.respond-min(md) {
-    flex: 1; // 讓此區塊佔據 50% 的可用空間
+    flex: 1;
     padding: 50px 30px 50px 34px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-    // 關鍵更新 1：將內容水平對齊到此區塊的「右側」
-    // 這會讓內容緊靠頁面中線，從而讓左側邊界隨著視窗拉寬而變寬
     align-items: flex-end;
-
-    // 關鍵更新 2：限制內容本身的寬度，而不是整個區塊
-    & > * {
-      max-width: 415px;
-      width: 100%;
-      text-align: left; // 確保文字本身是靠左對齊的
-    }
   }
+}
 
-  h1, h2 {
-    @include mixin.t-title(
-      $font-size: 28px,
-      $font-size-xs: 34x,
-      $font-size-nav: 39px,
-      $font-weight: 400,
-      $margin-bottom: 15px,
-      $text-align: center,
-      $text-align-md: left
-    );
+.textInnerWrapper {
+  width: 100%;
+  text-align: left;
+
+  @include mixin.respond-min(md) {
+    max-width: 415px;
   }
+}
 
+// 標題與段落樣式
+.titleLine1 {
+  @include mixin.t-title($font-size: 20px, $font-weight: 500, $margin-bottom: 5px);
+}
+.titleLine2 {
+  @include mixin.t-title($font-size: 28px, $font-size-xs: 34px, $font-size-nav: 39px, $margin-bottom: 15px);
+}
+p {
+  @include mixin.p-paragraph($font-size: 16px, $line-height: 1.8, $margin-bottom: 15px);
+}
+.shareInfo {
+  font-weight: 600;
+  text-align: left;
+}
 
-  p {
-    @include mixin.p-paragraph(
-      $font-size: 16px,
-      $line-height: 1.8,
-      $margin-bottom: 30px
-    );
+// 圖片樣式
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 30px auto;
+  border-radius: 8px;
+}
+
+// Features 列表樣式
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 30px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: map.get(color.$greens, 'base');
+    text-align: left;
   }
+}
 
-  img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    margin: 0 auto 30px auto;
-  }
+.checkIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  stroke: map.get(color.$greens, 'dark');
+  stroke-width: 2.5;
+  margin-top: 2px;
 }
 
 // 右側的表單區塊
@@ -88,16 +111,17 @@
   justify-content: center;
 
   @include mixin.respond-min(md) {
-    flex: 1; // 讓此區塊佔據 50% 的可用空間
+    flex: 1;
     padding: 50px 34px 50px 30px;
-    
-    // 將內容水平對齊到此區塊的「左側」，與 textSection 形成對稱
     align-items: flex-start;
+  }
+}
 
-    // 限制表單的寬度，與左側保持一致
-    & > * {
-      max-width: 415px;
-      width: 100%;
-    }
+// 表單區塊的內部 wrapper
+.formContentWrapper {
+  width: 100%;
+
+  @include mixin.respond-min(md) {
+    max-width: 415px;
   }
 }

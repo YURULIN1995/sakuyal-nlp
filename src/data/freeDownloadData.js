@@ -1,6 +1,6 @@
 import { siteMeta } from './siteMeta.js';
 
-const { topic, stepCount, caseCount } = siteMeta.coreTheme;
+const { topic, stepCount, caseCount, wastedEffort } = siteMeta.coreTheme;
 const mainTitle = `免費下載：${topic}的${stepCount}步驟與${caseCount}個案例`;
 
 export const freeDownloadData = {
@@ -9,7 +9,8 @@ export const freeDownloadData = {
   titleLine1: "超過🐷🐷人下載：",
   titleLine2: mainTitle,
   paragraph: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。",
-  paragraph2: "不需(白費功夫)與花時間到處爬文摸索",
+  // 更新：動態插入 wastedEffort 變數
+  paragraph2: `不需(${wastedEffort})與花時間到處爬文摸索`,
   paragraph3: "在這份免費下載的PDF檔案裡，我會分享:",
   paragraph4: "",
   features: [
@@ -26,4 +27,4 @@ export const freeDownloadData = {
     { id: 'email', name: 'Email', link: 'mailto:sakuya@sakuyal.com', iconClass: 'fas fa-envelope' },
     { id: 'line', name: 'Line', link: '#', iconClass: 'fab fa-line' }
   ]
-}; 
+};
