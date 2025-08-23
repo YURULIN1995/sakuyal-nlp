@@ -1,39 +1,18 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+// 1. ✨ 鏡像 ContactForm.jsx 的成功模式：使用 'react-turnstile'
+import Turnstile from 'react-turnstile';
 import styles from '@styles/SubscriptionForm.module.scss';
 import { freeDownloadData } from '@data/freeDownloadData.js';
-
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 function SubscriptionForm({ onSuccessRedirectTo }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
+  // 2. ✨ 鏡像 ContactForm.jsx 的成功模式：使用 useState 來管理 token
   const [turnstileToken, setTurnstileToken] = useState('');
-  const turnstileRef = useRef(null); // 這個 ref 會指向一個 div
-
-  useEffect(() => {
-    // 使用 useEffect 來手動渲染 Turnstile 元件
-    // 確保 turnstileRef 已經指向一個 DOM 元素，並且官方腳本已載入
-    if (turnstileRef.current && window.turnstile) {
-      const widgetId = window.turnstile.render(turnstileRef.current, {
-        sitekey: TURNSTILE_SITE_KEY,
-        callback: function(token) {
-          console.log("Turnstile verified via official API! Token:", token);
-          setTurnstileToken(token);
-        },
-        'expired-callback': function() {
-          setTurnstileToken('');
-        },
-      });
-
-      // 元件卸載時，清理 Turnstile 元件
-      return () => {
-        window.turnstile.remove(widgetId);
-      };
-    }
-  }, []); // 空依賴陣列，確保只在元件掛載時執行一次
+  const turnstileRef = useRef(null);
 
   useEffect(() => {
     if (status === 'success' || status === 'error') {
@@ -46,6 +25,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // 3. ✨ 鏡像 ContactForm.jsx 的成功模式：在提交時檢查 state 中的 token
     if (!turnstileToken) {
       setStatus('error');
       setMessage('請完成人機驗證。');
@@ -63,13 +43,18 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
       });
 
       const data = await response.json();
-      if (!response.ok) throw new Error(data.message || '發生未知錯誤');
+
+      if (!response.ok) {
+        throw new Error(data.message || '發生未知錯誤');
+      }
 
       setStatus('success');
       setMessage(data.message);
       
       if (onSuccessRedirectTo) {
-        setTimeout(() => navigate(onSuccessRedirectTo), 1500);
+        setTimeout(() => {
+          navigate(onSuccessRedirectTo);
+        }, 1500);
       } else {
         setEmail('');
       }
@@ -79,8 +64,8 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
       setMessage(error.message);
     } finally {
       if (status !== 'success' || !onSuccessRedirectTo) {
-        window.turnstile?.reset(turnstileRef.current);
-        setTurnstileToken('');
+        turnstileRef.current?.reset();
+        setTurnstileToken(''); // 重設 token state
       }
     }
   };
@@ -101,12 +86,17 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
           />
         </div>
         
-        {/* 這是一個空的 div，專門用來讓 Turnstile 渲染自己 */}
-        <div ref={turnstileRef} className={styles.turnstileContainer}></div>
+        {/* 4. ✨ 鏡像 ContactForm.jsx 的成功模式：直接使用 Turnstile 元件 */}
+        <Turnstile
+          ref={turnstileRef}
+          sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+          onVerify={(token) => setTurnstileToken(token)}
+        />
 
         <button 
           type="submit" 
           className={styles.submitButton} 
+          // 5. ✨ 鏡像 ContactForm.jsx 的成功模式：禁用邏輯只參考 token state 和載入狀態
           disabled={status === 'loading' || !turnstileToken}
         >
           {status === 'loading' ? '處理中...' : freeDownloadData.buttonText2}
