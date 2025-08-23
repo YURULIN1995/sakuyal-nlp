@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// 1. ✨ 鏡像 ContactForm.jsx 的成功模式：使用 'react-turnstile'
 import Turnstile from 'react-turnstile';
 import styles from '@styles/SubscriptionForm.module.scss';
 import { freeDownloadData } from '@data/freeDownloadData.js';
@@ -10,7 +9,6 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
-  // 2. ✨ 鏡像 ContactForm.jsx 的成功模式：使用 useState 來管理 token
   const [turnstileToken, setTurnstileToken] = useState('');
   const turnstileRef = useRef(null);
 
@@ -25,7 +23,6 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // 3. ✨ 鏡像 ContactForm.jsx 的成功模式：在提交時檢查 state 中的 token
     if (!turnstileToken) {
       setStatus('error');
       setMessage('請完成人機驗證。');
@@ -65,7 +62,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
     } finally {
       if (status !== 'success' || !onSuccessRedirectTo) {
         turnstileRef.current?.reset();
-        setTurnstileToken(''); // 重設 token state
+        setTurnstileToken('');
       }
     }
   };
@@ -86,7 +83,6 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
           />
         </div>
         
-        {/* 4. ✨ 鏡像 ContactForm.jsx 的成功模式：直接使用 Turnstile 元件 */}
         <Turnstile
           ref={turnstileRef}
           sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
@@ -96,7 +92,6 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
         <button 
           type="submit" 
           className={styles.submitButton} 
-          // 5. ✨ 鏡像 ContactForm.jsx 的成功模式：禁用邏輯只參考 token state 和載入狀態
           disabled={status === 'loading' || !turnstileToken}
         >
           {status === 'loading' ? '處理中...' : freeDownloadData.buttonText2}
