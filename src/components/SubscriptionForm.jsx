@@ -29,7 +29,7 @@ function SubscriptionForm({ onSuccessRedirectTo }) {
       return;
     }
     
-    setStatus('loading');
+    setStatus('loading'); // 使用 'loading' 作為提交中狀態
     setMessage('');
 
     try {
