@@ -1,5 +1,3 @@
-// functions/api/add-subscriber.js
-
 // Turnstile 驗證函式
 async function verifyTurnstile(token, secretKey, request) {
   const ip = request.headers.get('CF-Connecting-IP');

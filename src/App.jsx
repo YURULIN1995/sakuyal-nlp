@@ -15,7 +15,7 @@ import DisclaimerPage from '@pages/legal/DisclaimerPage';
 import CopyrightPage from '@pages/legal/CopyrightPage';
 import RefundPolicyPage from '@pages/legal/RefundPolicyPage';
 import FreeDownload from '@pages/FreeDownload';
-// import BuyNowPage from '@pages/BuyNowPage'; // 預先為您的導購頁保留位置
+import Upsell from '@pages/Upsell';
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
 
         {/* --- 路由群組 2: 不需要 Header/Footer 的獨立頁面 --- */}
         <Route path="free-download" element={<FreeDownload />} />
-        {/* <Route path="buy-now" element={<BuyNowPage />} /> */}
+        <Route path="upsell" element={<Upsell />} />
 
         {/* --- 404 頁面 --- */}
         <Route path="*" element={<NotFoundPage />} />
