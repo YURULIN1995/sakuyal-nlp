@@ -1,4 +1,4 @@
-import styles from '@styles/TargetAudience.module.scss';
+import styles from '@styles/Comparison.module.scss';
 import PageTitle from '@components/PageTitle';
 import IconCheck from '@assets/icons/check.svg?react';
 import IconX from '@assets/icons/x.svg?react';
@@ -19,7 +19,7 @@ function TargetAudience({ data }) {
   const { title, lists } = data;
 
   return (
-    <div className={styles.targetAudienceSection}>
+    <div className={styles.comparisonSection}>
       <PageTitle title={title} />
       <div className={styles.flexWrap}>
         {lists.map((list) => {
