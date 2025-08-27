@@ -5,7 +5,7 @@ import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
 import PortfolioItem from '@components/PortfolioItem'; 
 import { portfolioTitle, portfoliosList } from '@data/portfolioPageData.js';
-import { siteMeta } from '@data/siteMeta.js'; // Import siteMeta
+import { siteMeta } from '@data/siteMeta.js';
 
 function PortfolioPage() {
   const { title, description } = siteMeta.pages.portfolio;

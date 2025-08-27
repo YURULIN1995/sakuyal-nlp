@@ -100,28 +100,54 @@ export const servicesPageData = {
       }
     ]
   },
+};
 
-  /**
-   * 服務頁的常見問題內容
-   */
-  faq: {
-    faqTitle: "常見問題",
-    questionStacks: [
-      {
-        id: "faq-01",
-        title: "問題01",
-        answer: "答案01"
-      },
-      {
-        id: "faq-02",
-        title: "問題02",
-        answer: "答案02"
-      },
-      {
-        id: "faq-03",
-        title: "問題03",
-        answer: "答案03"
-      },
-    ]
-  }
+export const targetAudienceData = {
+  // 主標題
+  title: "適用對象",
+  
+  // 包含所有列表的陣列
+  lists: [
+    {
+      id: "applicable",
+      text: "適用者",
+      iconName: "IconCheck",
+      items: [
+        { id: "applicable-01", text: "描述一" },
+        { id: "applicable-02", text: "描述二" },
+        { id: "applicable-03", text: "描述三" }
+      ]
+    },
+    {
+      id: "notApplicable",
+      text: "不適用者",
+      iconName: "IconX",
+      items: [
+        { id: "notApplicable-01", text: "描述四" },
+        { id: "notApplicable-02", text: "描述五" },
+        { id: "notApplicable-03", text: "描述六" }
+      ]
+    }
+  ]
+};
+
+export const faq = {
+  faqTitle: "常見問題",
+  questionStacks: [
+    {
+      id: "faq-01",
+      title: "問題01",
+      answer: "答案01"
+    },
+    {
+      id: "faq-02",
+      title: "問題02",
+      answer: "答案02"
+    },
+    {
+      id: "faq-03",
+      title: "問題03",
+      answer: "答案03"
+    },
+  ]
 };
