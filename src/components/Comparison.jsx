@@ -1,14 +1,14 @@
-import styles from '@styles/TargetAudience.module.scss';
+import styles from '@styles/Comparison.module.scss';
 import PageTitle from '@components/PageTitle';
-import IconCheck from '@assets/icons/check.svg?react';
-import IconX from '@assets/icons/x.svg?react';
+import IconMoodSmileBeam from '@assets/icons/mood-smile-beam.svg?react';
+import IconMoodSadSquint from '@assets/icons/mood-sad-squint.svg?react';
 
 const iconComponents = {
-  IconCheck,
-  IconX
+  IconMoodSmileBeam,
+  IconMoodSadSquint
 };
 
-function TargetAudience({ data }) {
+function Comparison({ data }) {
 
   if (!data || !data.lists || data.lists.length === 0) {
     return null;
@@ -46,4 +46,4 @@ function TargetAudience({ data }) {
   );
 }
 
-export default TargetAudience;
+export default Comparison;

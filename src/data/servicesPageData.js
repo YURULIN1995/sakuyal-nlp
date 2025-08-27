@@ -103,10 +103,7 @@ export const servicesPageData = {
 };
 
 export const targetAudienceData = {
-  // 主標題
   title: "適用對象",
-  
-  // 包含所有列表的陣列
   lists: [
     {
       id: "applicable",
@@ -126,6 +123,32 @@ export const targetAudienceData = {
         { id: "notApplicable-01", text: "描述四" },
         { id: "notApplicable-02", text: "描述五" },
         { id: "notApplicable-03", text: "描述六" }
+      ]
+    }
+  ]
+};
+
+export const beforeAfterData = {
+  title: "使用前後比較",
+  lists: [
+    {
+      id: "before",
+      text: "使用前",
+      iconName: "IconMoodSadSquint",
+      items: [
+        { id: "before-01", text: "問題一" },
+        { id: "before-02", text: "問題二" },
+        { id: "before-03", text: "問題三" }
+      ]
+    },
+    {
+      id: "after",
+      text: "使用後",
+      iconName: "IconMoodSmileBeam",
+      items: [
+        { id: "after-01", text: "改善四" },
+        { id: "after-02", text: "改善五" },
+        { id: "after-03", text: "改善六" }
       ]
     }
   ]

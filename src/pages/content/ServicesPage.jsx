@@ -7,9 +7,9 @@ import ServiceCard from '@components/ServiceCard';
 import Button from '@components/Button';
 import ServicesProcess from '@components/ServicesProcess';
 import TargetAudience from '@components/TargetAudience';
+import Comparison from '@components/Comparison';
 import Faq from '@components/Faq';
-// 我們需要從 servicesPageData.js 中取得 targetAudienceData
-import { servicesPageData, serviceItems, targetAudienceData } from '@data/servicesPageData.js';
+import { servicesPageData, serviceItems, targetAudienceData, beforeAfterData } from '@data/servicesPageData.js';
 import { siteMeta } from '@data/siteMeta.js';
 
 function ServicesPage() {
@@ -38,10 +38,12 @@ function ServicesPage() {
         <ServicesProcess />
       </BackgroundColor>
       <BackgroundColor color="lightGreen">
-        {/* 將 targetAudienceData 作為 prop 傳遞給 TargetAudience 元件 */}
         <TargetAudience data={targetAudienceData} />
       </BackgroundColor>
       <BackgroundColor color="white">
+        <Comparison data={beforeAfterData} />
+      </BackgroundColor>
+      <BackgroundColor color="lightGreen">
         <Faq />
       </BackgroundColor>
     </>
