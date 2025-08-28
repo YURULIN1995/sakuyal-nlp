@@ -1,0 +1,20 @@
+@use '@styles/colors' as color;
+@use '@styles/mixins' as mixin;
+@use 'sass:map';
+// 中間的內容卡片
+.main {
+  background-color: color.$white;
+  display: flex;
+  flex-direction: column;;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.callToAction {
+    text-align: left;
+    padding: 0 20px;
+
+    & li {
+        list-style-type: decimal;
+    }
+}

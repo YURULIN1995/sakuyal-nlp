@@ -26,17 +26,17 @@ function TargetAudience({ data }) {
           return (
             <div key={list.id} className={styles.column}>
               <div className={styles.columnPadding}>
-                <h3>
-                {list.text}
-              </h3>
-              <ul>
-                {list.items.map((item) => (
-                  <li key={item.id}>
-                    {IconComponent && <IconComponent className={styles.icon} />}
-                    {item.text}
-                  </li>
-                ))}
-              </ul>
+                <div className={styles.targetAudienceList}>
+                  <h3>{list.text}</h3>
+                  <ul>
+                    {list.items.map((item) => (
+                      <li key={item.id}>
+                        {IconComponent && <IconComponent className={styles.icon} />}
+                        {item.text}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           );

@@ -9,9 +9,8 @@ function FreeDownload() {
   const { title, description } = siteMeta.pages.freeDownload;
 
   return (
-    <div className={styles.pageContainer}>
+    <>
       <SEO title={title} description={description} />
-      
       <main className={styles.contentWrapper}>
         <div className={styles.textSection}>
           <div className={styles.textInnerWrapper}>
@@ -41,7 +40,7 @@ function FreeDownload() {
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 }
 

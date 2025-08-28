@@ -30,8 +30,8 @@
 
 .column {
   flex: 1;
-  &:nth-child(1) {background-color: map.get(color.$greens, 'bg-gray-green');}
-  &:nth-child(2) {background-color: map.get(color.$greens, 'bg-hover');}
+  &:nth-child(1) {background-color: map.get(color.$greens, 'bg-hover');}
+  &:nth-child(2) {background-color: map.get(color.$greens, 'bg-gray-green');}
 }
 
 .columnPadding {
@@ -42,8 +42,8 @@
   }
 }
 
-
-li {
+.targetAudienceList {
+  li {
   display: flex;
   align-items: center;
   color: map.get(color.$greens, 'base');
@@ -51,18 +51,25 @@ li {
   margin-bottom: 10px;
 }
 
-li:last-child {
-    margin-bottom: 0;
-}
+  li:last-child {
+      margin-bottom: 0;
+  }
 
-.icon {
-  width: 20px;
-  height: 20px;
-  color: map.get(color.$greens, 'base');
-  flex-shrink: 0;
-}
+  .icon {
+    width: 20px;
+    height: 20px;
+    color: map.get(color.$greens, 'base');
+    flex-shrink: 0;
+  }
 
 
-h3 { 
-  @include mx.t-title($font-size: 20px, $font-size-xs: 20px, $font-size-nav: 26px, $font-weight: 600, $margin-bottom: 20px);
+  h3 { 
+    @include mx.t-title(
+      $font-size: 20px,
+      $font-size-xs: 20px,
+      $font-size-nav: 26px,
+      $font-weight: 600,
+      $margin-bottom: 20px
+      );
+  }
 }

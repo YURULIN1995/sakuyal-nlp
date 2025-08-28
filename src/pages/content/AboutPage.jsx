@@ -6,8 +6,7 @@ import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
 import TestimonialPostCard from '@components/TestimonialPostCard';
 import { authorIntroData, testimonialsSectionData } from '@data/aboutPageData.js';
-import { siteMeta } from '@data/siteMeta.js'; // Import siteMeta
-import styles from '@styles/AboutPage.module.scss';
+import { siteMeta } from '@data/siteMeta.js';
 
 function AboutPage() {
   const { title, description } = siteMeta.pages.about;

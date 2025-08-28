@@ -1,4 +1,4 @@
-import { siteMeta } from './siteMeta.js';
+import { siteMeta } from '@data/siteMeta.js';
 
 const { topic, stepCount, caseCount, wastedEffort } = siteMeta.coreTheme;
 const mainTitle = `免費下載：${topic}的${stepCount}步驟與${caseCount}個案例`;

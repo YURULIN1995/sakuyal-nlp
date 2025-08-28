@@ -2,22 +2,13 @@
 @use '@styles/mixins' as mixin;
 @use 'sass:map';
 
-// 頁面最外層容器
-.pageContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: map.get(color.$greens, 'bg-gray-green');
-  box-sizing: border-box;
-  overflow: auto;
-}
-
 // 中間的內容卡片
 .contentWrapper {
   background-color: color.$white;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+ 
   min-height: 100vh;
   width: 100%;
 

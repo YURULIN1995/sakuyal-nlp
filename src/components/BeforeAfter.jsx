@@ -1,4 +1,4 @@
-import styles from '@styles/Comparison.module.scss';
+import styles from '@styles/BeforeAfter.module.scss';
 import PageTitle from '@components/PageTitle';
 import IconMoodSmileBeam from '@assets/icons/mood-smile-beam.svg?react';
 import IconMoodSadSquint from '@assets/icons/mood-sad-squint.svg?react';

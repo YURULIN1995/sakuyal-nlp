@@ -30,8 +30,8 @@
 
 .column {
   flex: 1;
-  &:nth-child(1) {background-color: map.get(color.$greens, 'bg-hover');}
-  &:nth-child(2) {background-color: map.get(color.$greens, 'bg-gray-green');}
+  &:nth-child(1) {background-color: map.get(color.$greens, 'bg-gray-green')}
+  &:nth-child(2) {background-color: map.get(color.$greens, 'bg-hover')}
 }
 
 .columnPadding {
@@ -49,10 +49,6 @@ li {
   color: map.get(color.$greens, 'base');
   gap: 8px;
   margin-bottom: 10px;
-}
-
-li:last-child {
-    margin-bottom: 0;
 }
 
 .icon {

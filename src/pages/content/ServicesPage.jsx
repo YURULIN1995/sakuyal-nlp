@@ -1,5 +1,4 @@
 import SEO from '@components/Head/SEO';
-import styles from '@styles/ServicesPage.module.scss';
 import BackgroundColor from '@components/BackgroundColor';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import OneColumnLayout from '@components/OneColumnLayout';
@@ -7,7 +6,7 @@ import ServiceCard from '@components/ServiceCard';
 import Button from '@components/Button';
 import ServicesProcess from '@components/ServicesProcess';
 import TargetAudience from '@components/TargetAudience';
-import Comparison from '@components/Comparison';
+import BeforeAfter from '@components/BeforeAfter';
 import Faq from '@components/Faq';
 import { servicesPageData, serviceItems, targetAudienceData, beforeAfterData } from '@data/servicesPageData.js';
 import { siteMeta } from '@data/siteMeta.js';
@@ -41,7 +40,7 @@ function ServicesPage() {
         <TargetAudience data={targetAudienceData} />
       </BackgroundColor>
       <BackgroundColor color="white">
-        <Comparison data={beforeAfterData} />
+        <BeforeAfter data={beforeAfterData} />
       </BackgroundColor>
       <BackgroundColor color="lightGreen">
         <Faq />

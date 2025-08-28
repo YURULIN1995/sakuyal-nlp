@@ -21,13 +21,11 @@
 .subheading {
   @include mx.t-title($color: map.get(color.$greens, 'darkest'));
   
-  // ▼▼▼ 同樣的修正也應用於此 ▼▼▼
   & {
     font-size: 1.5em; 
     margin-top: 30px;
     margin-bottom: 15px;
   }
-  // ▲▲▲ 同樣的修正也應用於此 ▲▲▲
 }
 
 .paragraph {
