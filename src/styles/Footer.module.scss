@@ -2,20 +2,17 @@
 @use 'sass:map';
 
 .footer {
-  // 2. (使用顏色變數)
   background-color: map.get(color.$greens, 'bg');
   color: rgba(map.get(color.$greens, 'nav-base'), 0.75);
   font-size: 12px;
   width: 100%;
   padding: 15px 0;
   margin-top: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 
-  // 3. (巢狀) 將子元素的樣式巢狀放置
   .copyright {
     margin: 0;
   }

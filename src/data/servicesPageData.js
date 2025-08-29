@@ -125,6 +125,12 @@ export const targetAudienceData = {
         { id: "notApplicable-03", text: "描述六" }
       ]
     }
+  ],
+  problems: [
+    {id: "problem-01", text: "困擾一"},
+    {id: "problem-02", text: "困擾二"},
+    {id: "problem-03", text: "困擾三"},
+    {id: "problem-04", text: "困擾四"}
   ]
 };
 

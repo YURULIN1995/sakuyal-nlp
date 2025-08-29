@@ -1,5 +1,3 @@
-// src/data/siteMeta.js
-
 export const siteMeta = {
   siteName: "Sakuyal 自然語言煉金術",
 
@@ -14,14 +12,21 @@ export const siteMeta = {
   outlinks: {
     instagram:
     {
-      name: "IG名稱",
-      url: "#" //IG網址
+      name: "🐷🐷IG", //IG名稱
+      url: "#", //IG網址
+      cta: "加入"
     }, 
     facebookFreeGroup:
     {
-      name: "FB 免費社團名稱",
-      url: "https://www.youtube.com/watch?v=_xn3uAHZHcc&ab_channel=ClassicMmediaGroup" //facebook免費社團網址
+      name: "🐷🐷FB社團", //facebook免費社團網址
+      url: "#", //facebook免費社團網址
+      cta: "加入"
     }, 
+  },
+
+  price: {
+    selfStudyCourse: 9000,
+    selfStudyCourseUpsell: 1080,
   },
 
   pages: {

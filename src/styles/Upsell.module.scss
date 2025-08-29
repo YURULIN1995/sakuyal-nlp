@@ -1,20 +1,124 @@
 @use '@styles/colors' as color;
 @use '@styles/mixins' as mixin;
 @use 'sass:map';
-// 中間的內容卡片
+
 .main {
   background-color: color.$white;
   display: flex;
-  flex-direction: column;;
+  flex-direction: column;
   min-height: 100vh;
   width: 100%;
 }
 
 .callToAction {
-    text-align: left;
-    padding: 0 20px;
+  margin: 20px auto;
+  padding: 0 20px;
+  list-style-type: decimal;
+  text-align: left;
+  @include mixin.respond-min(md) {
+    margin: 50px auto;
+  }
 
-    & li {
-        list-style-type: decimal;
+  h2 {
+    @include mixin.t-title(
+      $text-align: center,
+      $text-align-md: center,
+      $font-size: 19px,
+      $font-size-xs: 22px,
+      $font-size-nav: 22px
+      );
+  }
+  li {
+    a {
+      color: color.$orange;
+      &:hover {
+        color: map.get(color.$greens, 'nav-link');
+      }
     }
+  }
+}
+
+
+.selfStudyCourseBuyNow {
+  // 突破父層寬度限制，達到 100% 視窗寬度
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  box-sizing: border-box;
+  overflow: hidden; // 確保內容不會超出
+
+  // 設定背景圖與半透明遮罩。多重背景，1.半透明黑色漸層。2.圖片
+  // CSS 會由上到下堆疊背景，所以漸層會蓋在圖片上
+  background-image:
+    linear-gradient(rgba(30, 41, 59, 0.33), rgba(30, 41, 59, 0.33)),
+    url(/images/matcha-dougu.jpg);
+
+  background-size: cover;     // 讓圖片永遠填滿容器，可能會有些許裁切
+  background-position: center; // 圖片置中顯示
+
+  // 維持圖片長寬比。根據寬度自動計算高度
+  aspect-ratio: 1024 / 683;
+
+  // 讓內部文字可以垂直水平置中
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.contentWrapper {
+  color: color.$white;
+
+  h2 {
+    @include mixin.t-title(
+      $color: color.$white,
+      $text-align: center,
+      $text-align-md: center,
+      $font-weight: 500
+      );
+  }
+
+  p {
+    font-weight: 200;
+    @include mixin.p-paragraph($color: color.$white);
+  }
+
+  .buyButtonWrap {
+    display: inline-flex;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s;
+    @include mixin.b-button(
+      $bg-color: color.$orange,
+      $hover-color: map.get(color.$greens, 'nav-link'),
+      $font-weight: 300,
+      $font-size: 16px
+      );
+
+    .buyButtonText{
+      color: inherit;
+      height: 24px;
+    }
+  }
+}
+
+.problemsWrap{
+ margin: 50px 0;
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+
+ .problemsContent{
+  margin: 0 auto;
+  max-width: 1200px;
+  h2 {
+    @include mixin.t-title;
+  }
+  ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+ }
 }
