@@ -23,7 +23,7 @@ export const siteMeta = {
       cta: "加入"
     }, 
   },
-
+  
   price: {
     selfStudyCourse: 9000,
     selfStudyCourseUpsell: 1080,

@@ -131,6 +131,20 @@ export const targetAudienceData = {
     {id: "problem-02", text: "困擾二"},
     {id: "problem-03", text: "困擾三"},
     {id: "problem-04", text: "困擾四"}
+  ],
+  effects: [
+    {id: "effect-01", text: "效果一"},
+    {id: "effect-02", text: "效果二"},
+    {id: "effect-03", text: "效果三"},
+    {id: "effect-04", text: "效果四"}
+  ],
+  pros: [
+    {id: "pro-01", text: "優點一: 不再只學理論，學會實際動手做"},
+    {id: "pro-02", text: "優點二: 有具體步驟，知道每個動作為何重要"},
+    {id: "pro-03", text: "優點三: 🪴🪴🪴流程與步驟公開"},
+    {id: "pro-04", text: "優點四: 不用擔心背景，誰都可以參加，就算是沒🪴🪴基礎、不懂🪴🪴的你"},
+    {id: "pro-05", text: "優點五: 短短⭐堂課就能學到🐷🐷必備的🪴🪴及🪴🪴方法"},
+    {id: "pro-06", text: "優點六: 技能未來長期實用，不僅限於當下"}
   ]
 };
 

@@ -39,6 +39,14 @@
   @include mixin.respond-min(md) {
     max-width: 415px;
   }
+
+  img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 30px auto;
+  border-radius: 8px;
+  }
 }
 
 // 標題與段落樣式
@@ -54,15 +62,6 @@ p {
 .shareInfo {
   font-weight: 600;
   text-align: left;
-}
-
-// 圖片樣式
-img {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  margin: 0 auto 30px auto;
-  border-radius: 8px;
 }
 
 // Features 列表樣式

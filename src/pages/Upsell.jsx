@@ -2,6 +2,7 @@ import SEO from '@components/Head/SEO';
 import styles from '@styles/Upsell.module.scss';
 import BackgroundColor from '@components/BackgroundColor';
 import BeforeAfter from '@components/BeforeAfter';
+import IconCheck from '@assets/icons/check.svg?react';
 import { siteMeta } from '@data/siteMeta.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 import { beforeAfterData, targetAudienceData } from '@data/servicesPageData.js';
@@ -18,9 +19,9 @@ function Upsell() {
           <p>請馬上檢查email信箱，標題為「 {freeDownloadData.titleLine2}」</p>
           <p>在等待的同時，歡迎你</p>
           <ul>
-            <li>1.加入<a href={siteMeta.outlinks.facebookFreeGroup.url}>{siteMeta.outlinks.facebookFreeGroup.name}</a></li>
-            <li>2.追蹤<a href={siteMeta.outlinks.instagram.url}>{siteMeta.outlinks.instagram.name}</a></li>
-            <li>3.閱讀<a href="/blog">文章</a></li>
+            <li>加入<a href={siteMeta.outlinks.facebookFreeGroup.url}>{siteMeta.outlinks.facebookFreeGroup.name}</a></li>
+            <li>追蹤<a href={siteMeta.outlinks.instagram.url}>{siteMeta.outlinks.instagram.name}</a></li>
+            <li>閱讀<a href="/blog">文章</a></li>
           </ul>
           <p>我提供一個本頁限定優惠，讓你可以從0到1擁有🐷🐷的基礎能力。</p>
           <p>現在你可以用NT${siteMeta.price.selfStudyCourseUpsell}（官網價NT${siteMeta.price.selfStudyCourse}的）加入最暢銷的自學課程：{siteMeta.coreTheme.topic}入門課</p>
@@ -42,11 +43,37 @@ function Upsell() {
             <div className={styles.problemsContent}>
               <h2>想{siteMeta.coreTheme.topic}的你，是不是想過這些問題？</h2>
               <ul>
-                {targetAudienceData.problems.map(problem => (
+                {targetAudienceData.problems.map(problem => problem && problem.text &&(
                   <li key={problem.id}>「{problem.text}」</li>
                 ))}
               </ul>
             </div>
+          </div>
+        </BackgroundColor>
+        <BackgroundColor color="white" className={styles.courseHelp}>
+          <div className={styles.containerNoGap}>
+            <div className={styles.courseImage}>
+              <img src="/images/matcha-placeholder.jpg" alt="抹茶奶綠" />
+            </div>
+            <div className={styles.courseHelpContainer}>
+              <h2>{siteMeta.coreTheme.topic}入門課就是為你設計的，它可以幫助你</h2>
+              <ul className={styles.courseHelpList}>
+                {targetAudienceData.effects.map(effect => effect && effect.text &&(
+                  <li key={effect.id}>{effect.text}</li>
+                  ))}
+              </ul>
+
+            </div>
+          </div>
+        </BackgroundColor>
+        <BackgroundColor color="lightGreen" className={styles.pros}>
+          <div className={styles.prosContentWrap}>
+            <h2>我會教你這⭐年多來，從大量實際操作🪴🪴，學到並運用在我的🪴🪴事業上，印證很有效的模式和具體方法。</h2>
+            <ul className={styles.prosList}>
+              {targetAudienceData.pros.map(pro => pro && pro.text && (
+              <li key={pro.id}><IconCheck/>{pro.text}</li>
+              ))}
+            </ul>
           </div>
         </BackgroundColor>
         <BeforeAfter data={beforeAfterData} />

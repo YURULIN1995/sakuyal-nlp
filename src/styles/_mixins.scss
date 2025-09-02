@@ -81,6 +81,7 @@
   $line-height: 2.5,
   $letter-spacing: -1px,
   $font-size: 17px,
+  $font-size-md: 17.6px,
   $color: map.get(color.$greens, 'base')
 )
 {
@@ -91,7 +92,7 @@
   color: $color;
 
   @include respond-min(md) {
-    font-size: 17.6px;
+    font-size: $font-size-md;
   }
   @include respond-min(lg) {
     margin-bottom: $margin-bottom-lg;

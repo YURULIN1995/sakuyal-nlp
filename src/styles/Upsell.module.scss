@@ -13,7 +13,6 @@
 .callToAction {
   margin: 20px auto;
   padding: 0 20px;
-  list-style-type: decimal;
   text-align: left;
   @include mixin.respond-min(md) {
     margin: 50px auto;
@@ -28,7 +27,15 @@
       $font-size-nav: 22px
       );
   }
-  li {
+  p {
+    margin-bottom: 0;
+  }
+  ul {
+    li{
+      display: list-item;
+      list-style-type: decimal;
+      list-style-position: inside;
+    }
     a {
       color: color.$orange;
       &:hover {
@@ -112,8 +119,13 @@
  .problemsContent{
   margin: 0 auto;
   max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+
   h2 {
-    @include mixin.t-title;
+    margin-left: auto;
+    margin-right: auto;
+    @include mixin.t-title($font-weight: 500);
   }
   ul{
     display: flex;
@@ -122,3 +134,99 @@
   }
  }
 }
+
+.courseHelp{
+  padding: 75px 20px;
+  box-sizing: border-box;
+  
+  .containerNoGap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include mixin.respond-min(md) {
+      flex-direction: row-reverse;
+    }
+
+    .courseImage{
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      @include mixin.respond-min(md) {
+        flex-basis: auto;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    .courseHelpContainer{
+      width: 100%;
+      @include mixin.respond-min(md) {
+        flex-basis: auto;
+        margin-right: 30px;
+      }
+
+      h2{
+        @include mixin.t-title(
+          $font-size: 30px,
+          $font-size-xs: 30px,
+          $font-size-nav: 40px,
+          $font-weight: 500
+          );
+      }
+
+      ul{
+        li{
+          display: list-item;
+          list-style-type: disc;
+          list-style-position: inside;
+        }
+      }
+    }
+  }
+}
+
+.pros{
+  padding: 75px 20px;
+  @include mixin.respond-min(md){
+    padding: 90px 25px;
+  }
+  .prosContentWrap{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 750px;
+    h2{
+    @include mixin.t-title(
+      $font-size: 25px,
+      $font-size-xs: 25px,
+      $font-size-nav: 32px,
+      $font-weight: 550
+      );
+  }
+
+  .prosList{
+    li{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 9.6px;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 19.2px;
+      letter-spacing: 0.5px;
+      @include mixin.respond-min(md){
+        font-size: 19px;
+        line-height: 8px;
+        margin-bottom: 33.25px;
+      }
+
+    }
+  }
+  }
+}
+
