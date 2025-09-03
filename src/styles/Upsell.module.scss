@@ -437,16 +437,20 @@
   @include mixin.respond-min(llg){
     flex-direction: row;
   }
-  
+
   .decorativeImage{
-  width: 100vw;
+  width: 100%;
+  height: auto;
   margin-left: calc(50% - 50vw);
   box-sizing: border-box;
-  overflow: hidden; // 確保內容不會超出
+  overflow: hidden;
   max-height: 600px;
   img {
      width: 100%;
      height: 100%
   }
 }
+  .selfStudyCourseFaqContentWrap{
+    
+  }
 }

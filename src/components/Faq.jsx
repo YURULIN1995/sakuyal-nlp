@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styles from '@styles/Faq.module.scss' ;
 import PageTitle from '@components/PageTitle';
-import { servicesPageData, faq } from '@data/servicesPageData.js';
 import IconCaretRightFilled from '@assets/icons/caret-right.svg?react';
 
 const FaqItem = ({ item }) => {
@@ -31,12 +30,16 @@ const FaqItem = ({ item }) => {
   );
 };
 
-function Faq () {
+function Faq ({title, items}) {
+  if (!title || !Array.isArray(items) || items.length == 0) {
+    return null;
+  }
+
   return (
     <div className={styles.faqSection}>
-      <PageTitle title={faq.faqTitle}/>
+      <PageTitle title={title}/>
       <div className={styles.faqFlex}>
-        {faq.questionStacks.map(item => (
+        {items.map(item => (
           <FaqItem key={item.id} item={item} />
         ))}
       </div>

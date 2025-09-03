@@ -8,11 +8,12 @@ import ServicesProcess from '@components/ServicesProcess';
 import TargetAudience from '@components/TargetAudience';
 import BeforeAfter from '@components/BeforeAfter';
 import Faq from '@components/Faq';
-import { servicesPageData, serviceItems, targetAudienceData, beforeAfterData } from '@data/servicesPageData.js';
+import { servicesPageData, serviceItems, targetAudienceData, beforeAfterData, servicesFaq } from '@data/servicesPageData.js';
 import { siteMeta } from '@data/siteMeta.js';
 
 function ServicesPage() {
   const { title, description } = siteMeta.pages.services;
+  const {faqTitle, questionStacks} = servicesFaq;
 
   return (
     <>
@@ -43,7 +44,7 @@ function ServicesPage() {
         <BeforeAfter data={beforeAfterData} />
       </BackgroundColor>
       <BackgroundColor color="lightGreen">
-        <Faq />
+        <Faq title={faqTitle} items={questionStacks}/>
       </BackgroundColor>
     </>
   );

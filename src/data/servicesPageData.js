@@ -221,7 +221,7 @@ export const beforeAfterData = {
   ]
 };
 
-export const faq = {
+export const servicesFaq = {
   faqTitle: "常見問題",
   questionStacks: [
     {
@@ -239,5 +239,46 @@ export const faq = {
       title: "問題03",
       answer: "答案03"
     },
+  ]
+};
+
+export const selfStudyCourseFaq = {
+  faqTitle: "FAQ",
+  questionStacks: [
+    {
+      id: "faq-01",
+      title: "問題01",
+      answer: "答案01"
+    },
+    {
+      id: "faq-02",
+      title: "問題02",
+      answer: "答案02"
+    },
+    {
+      id: "faq-03",
+      title: "問題03",
+      answer: "答案03"
+    },
+    {
+      id: "faq-04",
+      title: "問題04",
+      answer: "答案04"
+    },
+    {
+      id: "faq-05",
+      title: "問題05",
+      answer: "答案05"
+    },
+    {
+      id: "faq-06",
+      title: "問題06",
+      answer: "答案06"
+    },
+    {
+      id: "faq-07",
+      title: "問題07",
+      answer: "答案07"
+    }
   ]
 };

@@ -5,10 +5,13 @@ import BeforeAfter from '@components/BeforeAfter';
 import IconCheck from '@assets/icons/check.svg?react';
 import { siteMeta } from '@data/siteMeta.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
-import { beforeAfterData, targetAudienceData, selfStudyCourseData } from '@data/servicesPageData.js';
+import { beforeAfterData, targetAudienceData, selfStudyCourseData, selfStudyCourseFaq } from '@data/servicesPageData.js';
+import Faq from '../components/Faq';
 
 function Upsell() {
   const { title, description } = siteMeta.pages.upsell;
+  const {faqTitle, questionStacks} = selfStudyCourseFaq;
+
 
   return (
     <>
@@ -141,6 +144,7 @@ function Upsell() {
           <div className={styles.decorativeImage}>
             <img src="/images/matcha-02.jpg" alt="" />
           </div>
+          <Faq className={styles.selfStudyCourseFaqContentWrap} title={faqTitle} items={questionStacks}/>
         </BackgroundColor>
       </main>
     </>
