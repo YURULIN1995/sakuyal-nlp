@@ -52,11 +52,12 @@
   margin-left: calc(50% - 50vw);
   box-sizing: border-box;
   overflow: hidden; // 確保內容不會超出
+  max-height: 600px;
 
   // 設定背景圖與半透明遮罩。多重背景，1.半透明黑色漸層。2.圖片
   // CSS 會由上到下堆疊背景，所以漸層會蓋在圖片上
   background-image:
-    linear-gradient(rgba(30, 41, 59, 0.33), rgba(30, 41, 59, 0.33)),
+    linear-gradient(rgba(30, 41, 59, 0.45), rgba(30, 41, 59, 0.45)),
     url(/images/matcha-dougu.jpg);
 
   background-size: cover;     // 讓圖片永遠填滿容器，可能會有些許裁切
@@ -143,6 +144,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
 
     @include mixin.respond-min(md) {
       flex-direction: row-reverse;
@@ -230,3 +234,181 @@
   }
 }
 
+.outline{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .outlineTitle{
+    padding: 5% 3%;
+    @include mixin.respond-min(md){
+      padding: 90px 55px;
+    }
+
+    h2 {
+      @include mixin.t-title(
+        $font-size: 25px,
+        $font-size-xs: 25px,
+        $font-size-nav: 32px,
+        $font-weight: 500,
+        $text-align: center,
+        $text-align-md: center
+        );
+    }
+  }
+
+  .outlineContentFlexWrap{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    .chapterBlock{
+      display: flex;
+      flex-direction: column;
+      padding: 50px 50px;
+      max-width: 1200px;
+      @include mixin.respond-min(md){
+        flex-direction: row;
+      }
+      @include mixin.respond-min(nav){
+        padding: 50px 100px;
+      }
+      .chapterTitle{
+        @include mixin.respond-min(md){
+          flex: 3;
+        }
+        @include mixin.respond-min(llg){
+          flex-basis: 50%;
+        }
+
+        h2{
+          @include mixin.t-title(
+            $font-size: 25px,
+            $font-size-xs: 25px,
+            $font-size-nav: 32px,
+            $font-weight: 500
+            );
+        }
+
+        .outlineDividerContainer{
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            height: 5px;
+            box-sizing: border-box;
+
+            &::before{
+            @include mixin.decorative-divider(
+              $color: map.get(color.$greens, 'base'),
+              $width: 100px,
+              $height: 1px,
+              $is-centered: false);
+          }
+        }
+      }
+
+      .chapterIntro{
+        @include mixin.respond-min(md){
+          flex: 4;
+        }
+
+        @include mixin.respond-min(llg){
+          flex-basis: 50%;
+        }
+
+        .chapterBrief{
+          @include mixin.p-paragraph(
+            $margin-bottom: 10px,
+            $margin-bottom-md: 29px,
+            $margin-bottom-nav: 32px,
+            $margin-bottom-lg: 32px,
+            $font-size: 17px,
+            $font-size-md: 17.6px,
+            $font-size-nav: 18px,
+            $line-height: 27px,
+            $letter-spacing: 0.5px
+            );
+        }
+
+        ul{
+          li{
+            display: list-item;
+            list-style-type: decimal;
+            list-style-position: inside;
+            margin-bottom: 10px;
+            font-size: 17px;
+            line-height: 27px;
+            letter-spacing: 0.5px;
+
+            @include mixin.respond-min(md){
+              margin-bottom: 29px;
+              font-size: 17.6px;
+              line-height: 29.7px;
+            }
+            @include mixin.respond-min(nav){
+              margin-bottom: 32px;
+              font-size: 18px;
+            }
+
+          }
+        }
+      }
+    }  
+  }
+}
+
+.about{
+  padding: 60px 35px;
+  box-sizing: border-box;
+  .aboutContentWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    @include mixin.respond-min(llg){
+      flex-direction: row;
+    }
+    .aboutImage{
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      overflow: hidden;
+      @include mixin.respond-min(llg) {
+        flex-basis: auto;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+    .aboutText{
+      width: 100%;
+      max-width: 600px;
+      margin-top: 40px;
+      @include mixin.respond-min(llg) {
+        flex-basis: auto;
+        margin-top: 0;
+        margin-left: 40px;
+      }
+
+      h2{
+        @include mixin.t-title(
+          $font-size: 25px,
+          $font-size-xs: 25px,
+          $font-size-nav: 32px,
+          $font-weight: 500,
+          $text-align: center,
+          $text-align-md: center
+          );
+      }
+
+      p{
+        @include mixin.p-paragraph;
+      }
+    }
+  }
+}

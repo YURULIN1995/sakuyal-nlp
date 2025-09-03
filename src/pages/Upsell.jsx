@@ -5,7 +5,7 @@ import BeforeAfter from '@components/BeforeAfter';
 import IconCheck from '@assets/icons/check.svg?react';
 import { siteMeta } from '@data/siteMeta.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
-import { beforeAfterData, targetAudienceData } from '@data/servicesPageData.js';
+import { beforeAfterData, targetAudienceData, selfStudyCourseData } from '@data/servicesPageData.js';
 
 function Upsell() {
   const { title, description } = siteMeta.pages.upsell;
@@ -50,7 +50,7 @@ function Upsell() {
             </div>
           </div>
         </BackgroundColor>
-        <BackgroundColor color="white" className={styles.courseHelp}>
+        <BackgroundColor className={styles.courseHelp} color="white">
           <div className={styles.containerNoGap}>
             <div className={styles.courseImage}>
               <img src="/images/matcha-placeholder.jpg" alt="抹茶奶綠" />
@@ -77,6 +77,63 @@ function Upsell() {
           </div>
         </BackgroundColor>
         <BeforeAfter data={beforeAfterData} />
+        <BackgroundColor color="white" className={styles.outline}>
+          <div className={styles.outlineTitle}>
+            <h2>課程包括哪些內容？</h2>
+          </div>
+          <div className={styles.outlineContentFlexWrap}>
+            {selfStudyCourseData.chapterLists && selfStudyCourseData.chapterLists.map((chapter, index) => (
+              <div className={styles.chapterBlock} key={chapter.id}>
+                <div className={styles.chapterTitle}>
+                  <h2>第 {index + 1} 單元<br/>{chapter.title}</h2>
+                  <div className={styles.outlineDividerContainer}></div>
+                </div>
+                <div className={styles.chapterIntro}>
+                  <p className={styles.chapterBrief}>{chapter.briefIntro || chapter.breifIntro}</p>
+                  <ul>
+                    {chapter.items && chapter.items.map(item => (
+                      item && item.text && (
+                      <li key={item.id}>{item.text}</li>
+                    )
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+
+            {selfStudyCourseData.appendixLists && selfStudyCourseData.appendixLists.map((appendix, index) => (
+              <div className={styles.chapterBlock} key={appendix.id}>
+                <div className={styles.chapterTitle}>
+                  <h2>附錄 {index + 1} <br/>{appendix.title}</h2>
+                  <div className={styles.outlineDividerContainer}></div>
+                </div>
+                <div className={styles.chapterIntro}>
+                  <p className={styles.chapterBrief}>{appendix.briefIntro || appendix.breifIntro}</p>
+                  <ul>
+                    {appendix.items && appendix.items.map(item => (
+                      item && item.text && (
+                      <li key={item.id}>{item.text}</li>
+                    )
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </BackgroundColor>
+        <BackgroundColor color="freshGreen" className={styles.about}>
+          <div className={styles.aboutContentWrap}>
+            <div className={styles.aboutImage}>
+              <img src="/images/wagashi.jpg" alt="和菓子" />
+            </div>
+            <div className={styles.aboutText}>
+              <h2>Hi! 我是🐷🐷</h2>
+              <p>我是個有💐年經驗的🌿🌿🌿🌿🌿🌿🌿也是一個🐷🐷培訓教練，曾在🪴🪴🪴🪴從事☘️☘️☘️☘️，在工作中最喜歡🌱的部分，因此開始🌷🌷🌷🌷🌷🌷。</p>
+              <p>我已經幫助🌼位學生從零開始☘️☘️☘️☘️生涯，許多人成功轉職或開始接案，即使他們沒有相關🎍🎍背景或從來沒有學過🌹🌹🌹🌹。</p>
+              <p>我能為你提供清晰的步驟和技巧，幫助你節省大量摸索、試錯的時間。幫助想要入門🪻🪻🪻🪻🪻的你，將你的興趣轉為專業，有機會從事夢想中的工作。</p>
+            </div>
+          </div>
+        </BackgroundColor>
       </main>
     </>
   );

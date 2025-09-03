@@ -13,6 +13,10 @@
   background-color: map.get(color.$greens, 'bg-section-light');
 }
 
+.freshGreen{
+  background-color: map.get(color.$greens, 'bg-hover');
+}
+
 // 白色
 .white {
   background-color: color.$white;

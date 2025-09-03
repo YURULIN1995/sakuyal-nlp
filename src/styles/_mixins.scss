@@ -77,11 +77,14 @@
 /* --- Paragraph Text (優化版) --- */
 @mixin p-paragraph (
   $margin-bottom: 25px,
+  $margin-bottom-md: 25px,
+  $margin-bottom-nav: 25px,
   $margin-bottom-lg: 25px,
   $line-height: 2.5,
   $letter-spacing: -1px,
   $font-size: 17px,
   $font-size-md: 17.6px,
+  $font-size-nav: 17.6px,
   $color: map.get(color.$greens, 'base')
 )
 {
@@ -93,6 +96,11 @@
 
   @include respond-min(md) {
     font-size: $font-size-md;
+    margin-bottom: $margin-bottom-md;
+  }
+  @include respond-min(nav){
+    margin-bottom: $margin-bottom-nav;
+    font-size: $font-size-nav;
   }
   @include respond-min(lg) {
     margin-bottom: $margin-bottom-lg;

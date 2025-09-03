@@ -148,6 +148,53 @@ export const targetAudienceData = {
   ]
 };
 
+export const selfStudyCourseData = {
+  chapterLists: [
+    {
+    id: "chapter-01",
+    title: "將熱情變成一種專業",
+    breifIntro: "將你對🪴🪴的熱情轉化為可見的內容和風格",
+    items: [
+      {id: "chapter-01-01", text: "🪴🪴"},
+      {id: "chapter-01-02", text: "🪴🪴"},
+      {id: "chapter-01-03", text: "🪴🪴"},
+      {id: "chapter-01-04", text: "本單元行動"}
+    ]
+    },
+    {
+    id: "chapter-02",
+    title: "🪴🪴🪴🪴🪴🪴",
+    briefIntro: "🪴🪴🪴🪴🪴🪴🪴🪴🪴🪴",
+    items: [
+      {id: "chapter-02-01", text: "🪴🪴"},
+      {id: "chapter-02-02", text: "🪴🪴"},
+      {id: "chapter-02-03", text: "🪴🪴"},
+      {id: "chapter-02-04", text: "🪴🪴"}
+    ]
+    },
+  ],
+  appendixLists: [
+    {
+    id: "appendix-01",
+    title: "工具清單",
+    breifIntro: "可以購買到這些工具的網站、工具型號、價格",
+    items: [
+      {id: "appendix-01-01", text: "🪴🪴"},
+      {id: "appendix-01-02", text: "🪴🪴"},
+    ]
+    },
+    {
+    id: "appendix-02",
+    title: "提案術語快查表",
+    breifIntro: "客戶不一定懂行內話，所以提案的時候改用這些詞彙，比較容易讓客戶理解",
+    items: [
+      {id: "appendix-02-01", text: "🪴🪴"},
+      {id: "appendix-02-02", text: "🪴🪴"},
+    ]
+    }
+  ]
+};
+
 export const beforeAfterData = {
   title: "使用前後比較",
   lists: [
