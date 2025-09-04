@@ -35,7 +35,7 @@ function FreeDownload() {
               ))}
             </ul>
             <SubscriptionForm 
-              onSuccessRedirectTo="/buy-now" 
+              onSuccessRedirectTo="/upsell" 
             />
           </div>
         </div>
