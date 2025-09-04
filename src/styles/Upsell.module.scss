@@ -494,6 +494,7 @@
 
   @include mixin.respond-min(llg){
     flex-direction: row;
+    align-items: center;
   }
 
   .decorativeImage{
