@@ -14,16 +14,21 @@ export const siteMeta = {
     {
       name: "🐷🐷IG", //IG名稱
       url: "#", //IG網址
-      cta: "加入"
     }, 
     facebookFreeGroup:
     {
       name: "🐷🐷FB社團", //facebook免費社團網址
       url: "#", //facebook免費社團網址
-      cta: "加入"
     }, 
   },
-  
+  ctaList: {
+    buy:
+    {
+      name01: "立即購買",
+      name02: "馬上加入",
+    }, 
+  },
+
   price: {
     selfStudyCourse: 9000,
     selfStudyCourseUpsell: 1080,

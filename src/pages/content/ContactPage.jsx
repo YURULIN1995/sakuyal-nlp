@@ -6,7 +6,7 @@ import { contactData } from '@data/contactPageData.js';
 import ContactLinks from '@components/ContactLinks';
 import ContactForm from '@components/ContactForm';
 import Divider from '@components/Divider';
-import { siteMeta } from '@data/siteMeta.js'; // Import siteMeta
+import { siteMeta } from '@data/siteMeta.js';
 
 function ContactPage() {
   const { title, description } = siteMeta.pages.contact;

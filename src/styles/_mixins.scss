@@ -51,13 +51,14 @@
   $font-size: 28px,
   $font-size-xs: 32px,
   $font-size-nav: 38px,
-  $margin-bottom: 20px
+  $margin-bottom: 20px,
+  $letter-spacing: -1px,
 ) {
   font-size: $font-size;
   color: $color;
   font-weight: $font-weight;
   line-height: 1.5;
-  letter-spacing: -1px;
+  letter-spacing: $letter-spacing;
   text-align: $text-align;
   margin-bottom: $margin-bottom;
 
@@ -118,8 +119,11 @@
   $font-weight: 700,
   $font-size: 15px
 ) {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
+  gap: 5px;
   width: fit-content;
   margin: $margin;
   padding: 14px 30px;
@@ -130,7 +134,6 @@
   cursor: pointer;
   font-size: $font-size;
   font-weight: $font-weight;
-  text-align: center;
   text-decoration: none;
   transition: background-color 0.3s ease;
   white-space: nowrap;

@@ -1,5 +1,17 @@
 @use '@styles/mixins' as mx;
 
 .button {
-  @include mx.b-button($margin: 20px auto 0 auto, $margin-top-md: 20px, $margin-top-lg: 20px);
+  @include mx.b-button(
+    $margin: 20px auto 0 auto,
+    $margin-top-md: 20px,
+    $margin-top-lg: 20px,
+    );
+}
+
+.iconWrapper {
+  svg {
+    display: block;
+    width: 24px;
+    height: auto;
+  }
 }

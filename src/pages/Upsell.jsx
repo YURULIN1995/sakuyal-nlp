@@ -3,21 +3,24 @@ import styles from '@styles/Upsell.module.scss';
 import BackgroundColor from '@components/BackgroundColor';
 import BeforeAfter from '@components/BeforeAfter';
 import IconCheck from '@assets/icons/check.svg?react';
+import IconChevronRight from '@assets/icons/chevron-right.svg?react';
 import { siteMeta } from '@data/siteMeta.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 import { beforeAfterData, targetAudienceData, selfStudyCourseData, selfStudyCourseFaq } from '@data/servicesPageData.js';
-import Faq from '../components/Faq';
+import Faq from '@components/Faq';
+import Button from '@components/Button';
 
 function Upsell() {
   const { title, description } = siteMeta.pages.upsell;
   const {faqTitle, questionStacks} = selfStudyCourseFaq;
+  const buy = siteMeta.ctaList.buy;
 
 
   return (
     <>
       <SEO title={title} description={description} />
       <main className={styles.main}>
-        <div className={styles.callToAction}>
+        <div className={styles.callToActionHead}>
           <h2>很高興你對{siteMeta.coreTheme.topic}有興趣!</h2>
           <p>請馬上檢查email信箱，標題為「 {freeDownloadData.titleLine2}」</p>
           <p>在等待的同時，歡迎你</p>
@@ -27,7 +30,7 @@ function Upsell() {
             <li>閱讀<a href="/blog">文章</a></li>
           </ul>
           <p>我提供一個本頁限定優惠，讓你可以從0到1擁有🐷🐷的基礎能力。</p>
-          <p>現在你可以用NT${siteMeta.price.selfStudyCourseUpsell}（官網價NT${siteMeta.price.selfStudyCourse}的）加入最暢銷的自學課程：{siteMeta.coreTheme.topic}入門課</p>
+          <p>現在你可以用NT${siteMeta.price.selfStudyCourseUpsell}（官網價NT${siteMeta.price.selfStudyCourse}的12%）加入最暢銷的自學課程：{siteMeta.coreTheme.topic}入門課</p>
           <p>關掉這個視窗就沒有了，請好好把握機會！</p>
         </div>
 
@@ -140,11 +143,25 @@ function Upsell() {
             </div>
           </div>
         </BackgroundColor>
-        <BackgroundColor color="white" className={styles.selfStudyCourseFaq}>
+        <BackgroundColor color="white" className={styles.selfStudyCourseFaqWrap}>
           <div className={styles.decorativeImage}>
             <img src="/images/matcha-02.jpg" alt="" />
           </div>
-          <Faq className={styles.selfStudyCourseFaqContentWrap} title={faqTitle} items={questionStacks}/>
+          <Faq className={styles.selfStudyCourseFaq} title={faqTitle} items={questionStacks}/>
+        </BackgroundColor>
+        <BackgroundColor color="freshGreen" className={styles.callToActionBanner}>
+          <div className={styles.callToActionBannerWrap}>
+            <div className={styles.callToActionBannerContent}> 
+              <h2>現在就是你入門🌿🌿最好的時機</h2>
+                <ul>
+                  {selfStudyCourseData.content && selfStudyCourseData.content.map(content => (
+                  <li id={content.id}><IconCheck/>{content.text}</li>
+                  ))}
+                </ul>              
+              <p>只有這一頁才有優惠價NT${siteMeta.price.selfStudyCourseUpsell}（官網價NT${siteMeta.price.selfStudyCourse}的12%）</p>
+            </div>
+            <Button className={styles.buyButton}text={buy.name02} link="#" endIcon={<IconChevronRight/>}/>
+          </div>
         </BackgroundColor>
       </main>
     </>

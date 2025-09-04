@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '@styles/Faq.module.scss' ;
 import PageTitle from '@components/PageTitle';
-import IconCaretRightFilled from '@assets/icons/caret-right.svg?react';
+import IconChevronRight from '@assets/icons/chevron-right.svg?react';
 
 const FaqItem = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,7 @@ const FaqItem = ({ item }) => {
         {/* 根據 isOpen 狀態動態旋轉箭頭 */}
         <span className={`${styles.arrow} ${isOpen ? styles.open : ''}`}>
           {/* 使用匯入的 IconCaretRight 元件 */}
-          <IconCaretRightFilled />
+          <IconChevronRight />
         </span>
       </button>
       {/* 根據 isOpen 狀態顯示或隱藏答案 */}
