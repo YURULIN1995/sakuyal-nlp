@@ -5,8 +5,9 @@ import DividerTitleLeft from '@components/DividerTitleLeft';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
 import TestimonialPostCard from '@components/TestimonialPostCard';
-import { authorIntroData, testimonialsSectionData } from '@data/aboutPageData.js';
 import { siteMeta } from '@data/siteMeta.js';
+import { authorIntroData } from '@data/aboutPageData.js';
+import { serviceTestimonials } from '@data/servicesPageData.js';
 
 function AboutPage() {
   const { title, description } = siteMeta.pages.about;
@@ -28,8 +29,8 @@ function AboutPage() {
       </BackgroundColor>
 
       <OneColumnLayout>
-        <DividerTitleLeft  title={testimonialsSectionData.title } />
-        {testimonialsSectionData.list.map(item =>
+        <DividerTitleLeft  title={serviceTestimonials.title } />
+        {serviceTestimonials.list.map(item =>
         <TestimonialPostCard
           key={item.id}
           imageUrl={item.imageUrl}

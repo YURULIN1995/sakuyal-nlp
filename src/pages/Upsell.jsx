@@ -7,6 +7,7 @@ import IconChevronRight from '@assets/icons/chevron-right.svg?react';
 import { siteMeta } from '@data/siteMeta.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 import { beforeAfterData, targetAudienceData, selfStudyCourseData, selfStudyCourseFaq } from '@data/servicesPageData.js';
+import { selfStudyCourseTestimonials } from '@data/selfStudyCourseData.js';
 import Faq from '@components/Faq';
 import Button from '@components/Button';
 
@@ -81,6 +82,10 @@ function Upsell() {
               ))}
             </ul>
           </div>
+        </BackgroundColor>
+        <BackgroundColor color="white">
+          <h2>{selfStudyCourseTestimonials.title}</h2>
+          
         </BackgroundColor>
         <BeforeAfter data={beforeAfterData} />
         <BackgroundColor color="white" className={styles.outline}>
