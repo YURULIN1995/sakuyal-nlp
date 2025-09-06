@@ -36,7 +36,7 @@ function AboutPage() {
           imageUrl={item.imageUrl}
           imageAlt={item.imageAlt}
           authorName={item.authorName}
-          subtitle={item.authorTitle}
+          authorTitle={item.authorTitle}
           fullText={item.fullText}
         />
         )}

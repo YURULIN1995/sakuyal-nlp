@@ -49,8 +49,8 @@
 // 左欄內的頭像
 .avatar {
   // Mobile First: 手機版使用固定尺寸
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 0; 
@@ -68,9 +68,9 @@
 .authorName {
 
   @include mx.t-title(
-    $font-size: 14px,          // 544px 以下
-    $font-size-xs: 15px,       // 545px 以上
-    $font-size-nav: 17px,      // 922px 以上
+    $font-size: 14px,
+    $font-size-xs: 15px,
+    $font-size-nav: 17px,
     $text-align: left, 
     $margin-bottom: 20px
   );

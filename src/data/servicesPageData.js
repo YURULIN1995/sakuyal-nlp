@@ -109,7 +109,7 @@ export const serviceTestimonials = {
     id: 'service-testimonial-01',
     authorName: "A",
     authorTitle: "A身份",
-    imageUrl: "https://avatar.iran.liara.run/public/83",
+    imageUrl: "https://placehold.co/100/f1f6e9/a9d3a4",
     imageAlt: "A-avatar",
     // 用於首頁「客戶案例分享」的短引言
     highlight: "Lorem ipsum dolor sit amet",
@@ -122,7 +122,7 @@ export const serviceTestimonials = {
     id: 'service-testimonial-02',
     authorName: "B",
     authorTitle: "B身份",
-    imageUrl: "https://avatar.iran.liara.run/public/81",
+    imageUrl: "https://placehold.co/100/f1f6e9/a9d3a4",
     imageAlt: "B-avatar",
     highlight: "Lorem ipsum dolor sit amet",
     fullText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in pulvinar neque. \n\n Phasellus viverra dolor odio, tempor sollicitudin metus laoreet sit amet.",
