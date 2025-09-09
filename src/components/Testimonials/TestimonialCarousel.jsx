@@ -28,7 +28,8 @@ function TestimonialCarousel() {
             }}
             navigation={true}
             pagination={{ 
-                clickable: true
+                clickable: true,
+                bulletActiveClass: 'swiper-pagination-bullet-active'
              }}
             slidesPerView={1}
             centeredSlides={true}
