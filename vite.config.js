@@ -1,18 +1,17 @@
 import { defineConfig } from 'vite';
 import sitemap from 'vite-plugin-sitemap';
 import react from '@vitejs/plugin-react';
-import svgr from 'vite-plugin-svgr'; // 1. 在這裡引入 svgr
+import svgr from 'vite-plugin-svgr';
 import path from 'path';
 import { navItems } from './src/data/navData';
 
-// (為了動態路徑範例) 從你的 navData 獲取作品集 ID。
 const portfolioItem = navItems.find(item => item.name === '作品集');
 const portfolioIds = portfolioItem?.children?.map(child => child.path.split('/').pop()) || [];
 
 export default defineConfig({
   plugins: [
     react(),
-    svgr(), // 2. 在這裡把 svgr() 加入到 plugins 陣列中
+    svgr(),
     sitemap({
       hostname: 'https://sakuyal.com',
       exclude: ['/404'],
@@ -30,7 +29,6 @@ export default defineConfig({
         '/free-download',
         '/upsell'
       ],
-      // 根據你的 portfolioIds 產生路徑
       dynamicPaths: [
         ...portfolioIds.map(id => `/portfolio/${id}`),
       ],
