@@ -2,6 +2,11 @@
 @use '@styles/mixins' as mixin;
 @use 'sass:map';
 
+:global(.swiper .swiper-pagination-bullet-active) {
+  width: 24px !important;
+  border-radius: 8px !important;
+}
+
 .testimonialsSection{
     margin: 0 auto;
     width: 100%;
@@ -29,8 +34,4 @@
     --swiper-pagination-bullet-inactive-opacity: 0.8;
     --swiper-pagination-bullet-size: 9px;
     --swiper-pagination-bullet-horizontal-gap: 5px;
-}
-
-.longer-active-bullet {
-    width: 24px;
 }
