@@ -7,8 +7,8 @@ import IconCheck from '@assets/icons/check.svg?react';
 import IconChevronRight from '@assets/icons/chevron-right.svg?react';
 import { siteMeta } from '@data/siteMeta.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
-import { beforeAfterData, targetAudienceData, selfStudyCourseData, selfStudyCourseFaq } from '@data/servicesPageData.js';
-import { selfStudyCourseTestimonials } from '@data/selfStudyCourseData.js';
+import { targetAudienceData } from '@data/servicesPageData.js';
+import { selfStudyCourseTestimonials, selfStudyCourseData, selfStudyCourseFaq, selfStudyCourseBeforeAfterData } from '@data/selfStudyCourseData.js';
 import Faq from '@components/Faq';
 import Button from '@components/Button';
 
@@ -88,7 +88,7 @@ function Upsell() {
         <BackgroundColor color="white" className={styles.testimonials}>
           <TestimonialCarousel name={testimonialTitle} testimonials={testimonialList} />
         </BackgroundColor>
-        <BeforeAfter data={beforeAfterData} />
+        <BeforeAfter data={selfStudyCourseBeforeAfterData} />
         <BackgroundColor color="white" className={styles.outline}>
           <div className={styles.outlineTitle}>
             <h2>課程包括哪些內容？</h2>
