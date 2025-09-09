@@ -1,14 +1,13 @@
 import SEO from '@components/Head/SEO';
 import styles from '@styles/Upsell.module.scss';
 import BackgroundColor from '@components/BackgroundColor';
-import TestimonialCarousel from '@components/TestimonialCarousel';
+import TestimonialCarousel from '@components/Testimonials/TestimonialCarousel';
 import BeforeAfter from '@components/BeforeAfter';
 import IconCheck from '@assets/icons/check.svg?react';
 import IconChevronRight from '@assets/icons/chevron-right.svg?react';
 import { siteMeta } from '@data/siteMeta.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 import { beforeAfterData, targetAudienceData, selfStudyCourseData, selfStudyCourseFaq } from '@data/servicesPageData.js';
-import { selfStudyCourseTestimonials } from '@data/selfStudyCourseData.js';
 import Faq from '@components/Faq';
 import Button from '@components/Button';
 
@@ -85,19 +84,7 @@ function Upsell() {
           </div>
         </BackgroundColor>
         <BackgroundColor color="white" className={styles.testimonials}>
-          <h2>{selfStudyCourseTestimonials.title}</h2>
-          <div className={styles.carousel}>
-            {selfStudyCourseTestimonials.list.map(item =>
-            <TestimonialCarousel
-            key={item.id}
-            imageUrl={item.imageUrl}
-            imageAlt={item.imageAlt}
-            authorName={item.authorName}
-            authorTitle={item.authorTitle}
-            fullText={item.fullText}
-            />
-            )}
-          </div>
+          <TestimonialCarousel />
         </BackgroundColor>
         <BeforeAfter data={beforeAfterData} />
         <BackgroundColor color="white" className={styles.outline}>

@@ -1,0 +1,64 @@
+@use '@styles/colors' as color;
+@use '@styles/mixins' as mixin;
+@use 'sass:map';
+
+.testimonialSlide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: color.$white;
+    border: 1px solid color.$grey-light-border;
+    border-radius:  12px;
+    padding: 2rem;
+    text-align: left;
+    min-height: 300px;
+    height: 100%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 15px color.$shadow-light;
+
+    .swiper-pagination-bullet-active{
+        width: 24px;
+    }
+
+    .comment {
+        p {
+            color: color.$grey-text;
+            font-weight: 300;
+            line-height: 1.7;
+            letter-spacing: 0.5px;
+            margin-bottom:  1.5rem;
+        }
+    }
+
+    .identity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+
+    .avatar{
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .nameWrap {
+        color: color.$grey-text;
+        font-weight: 400;
+
+        .nameWrapSubtitle {
+            margin: 0;
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: color.$grey-text;
+        }
+    }
+}
+
+}

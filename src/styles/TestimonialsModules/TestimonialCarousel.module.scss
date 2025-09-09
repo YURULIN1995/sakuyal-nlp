@@ -1,0 +1,36 @@
+@use '@styles/colors' as color;
+@use '@styles/mixins' as mixin;
+@use 'sass:map';
+
+.testimonialsSection{
+    margin: 0 auto;
+    width: 100%;
+    h2{
+        @include mixin.t-title(
+            $font-size: 28px,
+            $font-size-xs: 28px,
+            $font-size-nav: 32px,
+            $text-align: center,
+            $text-align-md: center,
+            $letter-spacing: 1px,
+            $font-weight: 600,
+        );
+    }
+}
+
+.swiperContainer{
+    padding-bottom: 50px;
+    width: 100%;
+    height: 100%;
+    --swiper-navigation-color: #{map.get(color.$greens, 'base')};
+    --swiper-navigation-size: 20px;
+    --swiper-pagination-color: #{map.get(color.$greens, 'base')};
+    --swiper-pagination-bullet-inactive-color: #{color.$grey-border};
+    --swiper-pagination-bullet-inactive-opacity: 0.8;
+    --swiper-pagination-bullet-size: 9px;
+    --swiper-pagination-bullet-horizontal-gap: 5px;
+}
+
+.longer-active-bullet {
+    width: 24px;
+}

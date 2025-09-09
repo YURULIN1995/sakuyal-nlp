@@ -4,7 +4,7 @@ import TextImageSlot from '@components/TextImageSlot';
 import DividerTitleLeft from '@components/DividerTitleLeft';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
-import TestimonialPostCard from '@components/TestimonialPostCard';
+import TestimonialPostCard from '@components/Testimonials/TestimonialPostCard';
 import { siteMeta } from '@data/siteMeta.js';
 import { authorIntroData } from '@data/aboutPageData.js';
 import { serviceTestimonials } from '@data/servicesPageData.js';
