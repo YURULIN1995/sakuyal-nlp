@@ -4,12 +4,11 @@ const { topic, stepCount, caseCount, wastedEffort } = siteMeta.coreTheme;
 const mainTitle = `免費下載：${topic}的${stepCount}步驟與${caseCount}個案例`;
 
 export const freeDownloadData = {
-  imageUrl: "https://placehold.co/470x300/a9d3a4/4a6e4f",
+  imageUrl: "https://placehold.co/1884x870/a9d3a4/4a6e4f",
   imageAlt: mainTitle,
   titleLine1: "超過🐷🐷人下載：",
   titleLine2: mainTitle,
   paragraph: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。",
-  // 更新：動態插入 wastedEffort 變數
   paragraph2: `不需(${wastedEffort})與花時間到處爬文摸索`,
   paragraph3: "在這份免費下載的PDF檔案裡，我會分享:",
   paragraph4: "",
