@@ -1,3 +1,5 @@
+import { apiMessages, emailTemplates } from '@data/userExperienceWriting.js';
+
 // Turnstile 驗證函式
 async function verifyTurnstile(token, secretKey, request) {
   const ip = request.headers.get('CF-Connecting-IP');
@@ -25,7 +27,7 @@ export async function onRequestPost({ request, env }) {
   const isAllowed = origin === allowedOrigin || origin?.startsWith('http://localhost:');
   
   if (!isAllowed) {
-    return new Response('Forbidden', { status: 403 });
+    return new Response(apiMessages.common.forbidden, { status: 403 });
   }
 
   const corsHeaders = {
@@ -43,7 +45,7 @@ export async function onRequestPost({ request, env }) {
 
     const isHuman = await verifyTurnstile(token, env.TURNSTILE_SECRET_KEY, request);
     if (!isHuman) {
-      return new Response(JSON.stringify({ message: 'CAPTCHA validation failed' }), {
+      return new Response(JSON.stringify({ message: apiMessages.common.catchaFail }), {
         status: 403,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
@@ -53,16 +55,17 @@ export async function onRequestPost({ request, env }) {
     const senderEmail = env.SENDER_EMAIL;
     const recipientEmail = env.RECIPIENT_EMAIL;
 
+    const t = emailTemplates.contactNotification;
     const brevoPayload = {
       sender: { name, email: senderEmail },
-      to: [{ email: recipientEmail, name: 'Sakuyal NLP Admin' }],
-      subject: `來自 sakuyal.com 的新訊息 - ${name}`,
+      to: [{ email: recipientEmail, name: t.recipientName }],
+      subject: `t.subjectPrefix - ${name}`,
       htmlContent: `
         <html><body>
-          <h2>來自聯絡表單的新訊息：</h2>
-          <p><strong>姓名:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>訊息內容:</strong></p>
+          <h2>${t.title}</h2>
+          <p><strong>${t.labels.name}</strong> ${name}</p>
+          <p><strong>${t.labels.email}</strong> ${email}</p>
+          <p><strong>${t.labels.message}</strong></p>
           <p>${message.replace(/\n/g, '<br>')}</p>
         </body></html>
       `,
@@ -84,14 +87,14 @@ export async function onRequestPost({ request, env }) {
       throw new Error(`Brevo API responded with status ${response.status}`);
     }
 
-    return new Response(JSON.stringify({ message: 'Email sent successfully' }), {
+    return new Response(JSON.stringify({ message: apiMessages.contact.success }), {
       status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
 
   } catch (error) {
     console.error('Worker Error:', error);
-    return new Response(JSON.stringify({ message: 'Error sending email' }), {
+    return new Response(JSON.stringify({ message: apiMessages.contact.error }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });

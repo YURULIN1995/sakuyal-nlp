@@ -1,3 +1,5 @@
+import { apiMessages } from '@data/userExperienceWriting.js';
+
 // Turnstile 驗證函式
 async function verifyTurnstile(token, secretKey, request) {
   const ip = request.headers.get('CF-Connecting-IP');
@@ -24,7 +26,7 @@ export async function onRequestPost({ request, env }) {
   const isAllowed = origin === allowedOrigin || origin?.startsWith('http://localhost:');
   
   if (!isAllowed) {
-    return new Response('Forbidden', { status: 403 });
+    return new Response(apiMessages.common.forbidden, { status: 403 });
   }
 
   const corsHeaders = {
@@ -43,7 +45,7 @@ export async function onRequestPost({ request, env }) {
     // Turnstile 驗證
     const isHuman = await verifyTurnstile(token, env.TURNSTILE_SECRET_KEY, request);
     if (!isHuman) {
-      return new Response(JSON.stringify({ message: 'CAPTCHA 驗證失敗' }), {
+      return new Response(JSON.stringify({ message: apiMessages.common.captchaFail }), {
         status: 403,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
@@ -54,7 +56,7 @@ export async function onRequestPost({ request, env }) {
     const listId = parseInt(env.BREVO_LIST_ID, 10);
 
     if (!apiKey || !listId) {
-        throw new Error("伺服器設定不完整");
+        throw new Error(apiMessages.subscription.serverConfigError);
     }
 
     const brevoPayload = {
@@ -79,13 +81,16 @@ export async function onRequestPost({ request, env }) {
       throw new Error(`Brevo API 回應錯誤，狀態碼: ${response.status}`);
     }
     
-    return new Response(JSON.stringify({ message: '訂閱成功！請檢查您的信箱以確認訂閱。' }), {
+    return new Response(JSON.stringify({ message: apiMessages.subscription.success }), {
       status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
 
   } catch (error) {
-    return new Response(JSON.stringify({ message: '訂閱時發生錯誤' }), {
+    const errorMessage = error.message === apiMessages.subscription.serverConfigError
+    ? apiMessages.subscription.serverConfigError
+    : apiMessages.subscription.error;
+    return new Response(JSON.stringify({ message: errorMessage }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
