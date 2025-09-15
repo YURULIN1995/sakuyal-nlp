@@ -6,7 +6,7 @@ import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
 import TestimonialPostCard from '@components/Testimonials/TestimonialPostCard';
 import { siteMeta } from '@data/siteMeta.js';
-import { authorIntroData } from '@data/aboutPageData.js';
+import { authorIntroData } from '@data/aboutData.js';
 import { serviceTestimonials } from '@data/servicesPageData.js';
 
 function AboutPage() {

@@ -6,6 +6,7 @@ import BeforeAfter from '@components/BeforeAfter';
 import IconCheck from '@assets/icons/check.svg?react';
 import IconChevronRight from '@assets/icons/chevron-right.svg?react';
 import { siteMeta } from '@data/siteMeta.js';
+import { ctas } from '@data/userExperienceWriting.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 import { targetAudienceData } from '@data/servicesPageData.js';
 import { selfStudyCourseTestimonials, selfStudyCourseData, selfStudyCourseFaq, selfStudyCourseBeforeAfterData } from '@data/selfStudyCourseData.js';
@@ -15,7 +16,7 @@ import Button from '@components/Button';
 function Upsell() {
   const { title, description } = siteMeta.pages.upsell;
   const {faqTitle, questionStacks} = selfStudyCourseFaq;
-  const buy = siteMeta.ctaList.buy;
+  const buy = ctas.buy;
   const { name: testimonialTitle, list: testimonialList } = selfStudyCourseTestimonials;
 
 
@@ -166,7 +167,7 @@ function Upsell() {
                 </ul>              
               <p>只有這一頁才有優惠價NT${siteMeta.price.selfStudyCourseUpsell}（官網價NT${siteMeta.price.selfStudyCourse}的12%）</p>
             </div>
-            <Button className={styles.buyButton}text={buy.name02} link="#" endIcon={<IconChevronRight/>}/>
+            <Button className={styles.buyButton}text={buy.secondary} link="#" endIcon={<IconChevronRight/>}/>
           </div>
         </BackgroundColor>
       </main>

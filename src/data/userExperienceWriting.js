@@ -5,6 +5,10 @@ export const ctas = {
         secondary: '我想要...!',
         tertiary: '立即體驗！'
     },
+    buy: {
+        primary: '立即購買',
+        secondary: '馬上加入',
+    },
     bookService: {
       primary: '立即預約！',
       secondary: '我想要...！'

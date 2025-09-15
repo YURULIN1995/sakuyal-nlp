@@ -21,14 +21,7 @@ export const siteMeta = {
       url: "#", //facebook免費社團網址
     }, 
   },
-  ctaList: {
-    buy:
-    {
-      name01: "立即購買",
-      name02: "馬上加入",
-    }, 
-  },
-
+ 
   price: {
     selfStudyCourse: 9000,
     selfStudyCourseUpsell: 1080,

@@ -14,10 +14,10 @@ export const selfStudyCourseTestimonials = {
 
 export const selfStudyCourseData = {
   content: [
-    {id: "self-study-course-content-01", text: "🪴🪴入門線上課程 (可無限次數觀看 + 未來內容更新)"},
-    {id: "self-study-course-content-02", text: "範本+手冊+圖塊集x2+圖表x4"},
-    {id: "self-study-course-content-03", text: "必備實用指令快捷鍵速查手冊"},
-    {id: "self-study-course-content-04", text: "提案關鍵字表"},
+    {id: "sf-01", text: "🪴🪴入門線上課程 (可無限次數觀看 + 未來內容更新)"},
+    {id: "sf-02", text: "範本+手冊+圖塊集x2+圖表x4"},
+    {id: "sf-03", text: "必備實用指令快捷鍵速查手冊"},
+    {id: "sf-04", text: "提案關鍵字表"},
   ],
   chapterLists: [
     {
