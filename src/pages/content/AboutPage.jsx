@@ -1,3 +1,4 @@
+import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import TextImageSlot from '@components/TextImageSlot';
@@ -14,6 +15,7 @@ function AboutPage() {
 
   return (
     <>
+      <ViewportMeta/>
       <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={authorData.titleLine}/>
       <BackgroundColor>

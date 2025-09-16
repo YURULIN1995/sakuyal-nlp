@@ -1,11 +1,10 @@
-// 檔案: src/data/legal/disclaimerData.js
+import { siteMeta } from '@data/siteMeta.js';
 
 export const disclaimerData = {
-  title: "免責聲明",
   content: [
     {
       type: 'paragraph',
-      text: '歡迎您來到 Sakuyal 自然語言煉金術（以下稱「本網站」）。當您瀏覽和使用本網站時，即表示您同意遵守以下免責聲明。若您不同意任何條款，請立即停止使用本網站。'
+      text: `歡迎您來到 ${siteMeta.siteName}（以下稱「本網站」）。當您瀏覽和使用本網站時，即表示您同意遵守以下免責聲明。若您不同意任何條款，請立即停止使用本網站。`
     },
     {
       type: 'heading',

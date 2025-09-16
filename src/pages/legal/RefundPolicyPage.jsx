@@ -1,21 +1,20 @@
-// 檔案: src/pages/legal/RefundPolicyPage.jsx
-
+import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import OneColumnLayout from '@components/OneColumnLayout';
+import { siteMeta } from '@data/siteMeta.js';
 import { refundPolicyData } from '@data/legal/refundPolicyData.js';
-import styles from '@styles/LegalPages.module.scss'; // 繼續共用同一個樣式檔
+import styles from '@styles/LegalPages.module.scss';
 
 function RefundPolicyPage() {
-  const pageContent = refundPolicyData;
-
+  const { title, description } = siteMeta.pages.refundPolicy;
   return (
     <>
-      <SEO title={pageContent.title} description="本網站的退款政策說明" />
-      
+      <ViewportMeta/>
+      <SEO title={title} description={description} />
       <OneColumnLayout className={styles.pageWrapper}>
-        <h1 className={styles.title}>{pageContent.title}</h1>
+        <h1 className={styles.title}>{title}</h1>
         
-        {pageContent.content.map((block, index) => {
+        {refundPolicyData.content.map((block, index) => {
           switch (block.type) {
             case 'heading':
               return <h2 key={index} className={styles.subheading}>{block.text}</h2>;

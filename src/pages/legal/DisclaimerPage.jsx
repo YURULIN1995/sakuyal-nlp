@@ -1,23 +1,20 @@
-// 檔案: src/pages/legal/DisclaimerPage.jsx
-
+import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import OneColumnLayout from '@components/OneColumnLayout';
-// 1. (修改) 匯入新的資料檔
+import { siteMeta } from '@data/siteMeta.js';
 import { disclaimerData } from '@data/legal/disclaimerData.js';
-import styles from '@styles/LegalPages.module.scss'; // 引用共用樣式
+import styles from '@styles/LegalPages.module.scss';
 
 function DisclaimerPage() {
-  // 2. (修改) 直接使用匯入的資料
-  const pageContent = disclaimerData;
+  const { title, description } = siteMeta.pages.disclaimer;
 
   return (
     <>
-      <SEO title={pageContent.title} description="本網站的免責聲明" />
-      
+      <ViewportMeta/>
+      <SEO title={title} description={description} />
       <OneColumnLayout className={styles.pageWrapper}>
-        <h1 className={styles.title}>{pageContent.title}</h1>
-        
-        {pageContent.content.map((block, index) => {
+        <h1 className={styles.title}>{title}</h1>
+        {disclaimerData.content.map((block, index) => {
           switch (block.type) {
             case 'heading':
               return <h2 key={index} className={styles.subheading}>{block.text}</h2>;

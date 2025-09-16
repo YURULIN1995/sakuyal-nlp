@@ -1,9 +1,10 @@
+import { siteMeta } from '@data/siteMeta.js';
+
 export const copyrightData = {
-  title: "著作權聲明",
   content: [
     {
       type: 'paragraph',
-      text: '本網站（Sakuyal 自然語言煉金術）上刊載的所有內容，包括但不限於文字、圖片、影像、音訊、軟體、商標及網站架構，皆由本網站或其他權利人依法擁有其智慧財產權。'
+      text: `本網站（${siteMeta.siteName}）上刊載的所有內容，除著作權法規定不得為著作權之標的（如法律、命令、公務員撰擬之講稿、新聞稿等--請參考著作權法第9條規定）外，其他包括但不限於文字、圖片、影像、音訊、軟體、商標及網站架構，皆由本網站依法擁有其智慧財產權。`
     },
     {
       type: 'paragraph',

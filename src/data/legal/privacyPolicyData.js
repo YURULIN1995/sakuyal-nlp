@@ -1,9 +1,10 @@
+import { siteMeta } from '@data/siteMeta.js';
+
 export const privacyPolicyData = {
-  title: "隱私權政策",
   content: [
     {
       type: 'paragraph',
-      text: '歡迎您來到本網站！本網站由 Sakuyal 自然語言煉金術（以下稱「本網站」）經營。為了讓您能夠安心地使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：'
+      text: `歡迎您來到本網站！本網站由 ${siteMeta.siteName}（以下稱「本網站」）經營。為了讓您能夠安心地使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：`
     },
     {
       type: 'heading',

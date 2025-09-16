@@ -1,3 +1,4 @@
+import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import BackgroundColor from '@components/BackgroundColor';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
@@ -17,6 +18,7 @@ function ServicesPage() {
 
   return (
     <>
+      <ViewportMeta/>
       <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={servicesPageData.header.titleLine} />
       <BackgroundColor>

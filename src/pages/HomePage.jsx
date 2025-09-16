@@ -1,3 +1,4 @@
+import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import Hero from '@components/Hero';
 import KanbanSection from '@components/KanbanSection';
@@ -11,6 +12,7 @@ import { servicesPageData, serviceItems } from '@data/servicesPageData.js';
 function HomePage() {
   return (
     <>
+      <ViewportMeta/>
       <SEO/>
       <Hero {...freeDownloadData} />
       <KanbanSection {...aboutHomepageData} />

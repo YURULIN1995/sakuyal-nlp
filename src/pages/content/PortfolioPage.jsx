@@ -1,3 +1,4 @@
+import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import styles from '@styles/PortfolioPage.module.scss';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
@@ -12,6 +13,7 @@ function PortfolioPage() {
 
   return (
     <>
+      <ViewportMeta/>
       <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={portfolioTitle.titleLine}/>
       

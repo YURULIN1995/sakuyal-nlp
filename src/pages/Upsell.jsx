@@ -1,3 +1,4 @@
+import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import styles from '@styles/Upsell.module.scss';
 import BackgroundColor from '@components/BackgroundColor';
@@ -9,9 +10,11 @@ import { siteMeta } from '@data/siteMeta.js';
 import { ctas } from '@data/userExperienceWriting.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 import { targetAudienceData } from '@data/servicesPageData.js';
+import { authorData } from '@data/aboutData.js';
 import { selfStudyCourseTestimonials, selfStudyCourseData, selfStudyCourseFaq, selfStudyCourseBeforeAfterData } from '@data/selfStudyCourseData.js';
 import Faq from '@components/Faq';
 import Button from '@components/Button';
+import ScrollToTopButton from '@components/ScrollToTopButton';
 
 function Upsell() {
   const { title, description } = siteMeta.pages.upsell;
@@ -22,6 +25,7 @@ function Upsell() {
 
   return (
     <>
+      <ViewportMeta/>
       <SEO title={title} description={description} />
       <main className={styles.main}>
         <div className={styles.callToActionHead}>
@@ -141,9 +145,7 @@ function Upsell() {
             </div>
             <div className={styles.aboutText}>
               <h2>Hi! 我是🐷🐷</h2>
-              <p>我是個有💐年經驗的🌿🌿🌿🌿🌿🌿🌿也是一個🐷🐷培訓教練，曾在🪴🪴🪴🪴從事☘️☘️☘️☘️，在工作中最喜歡🌱的部分，因此開始🌷🌷🌷🌷🌷🌷。</p>
-              <p>我已經幫助🌼位學生從零開始☘️☘️☘️☘️生涯，許多人成功轉職或開始接案，即使他們沒有相關🎍🎍背景或從來沒有學過🌹🌹🌹🌹。</p>
-              <p>我能為你提供清晰的步驟和技巧，幫助你節省大量摸索、試錯的時間。幫助想要入門🪻🪻🪻🪻🪻的你，將你的興趣轉為專業，有機會從事夢想中的工作。</p>
+              <p>{authorData.paragraph}</p>
               <div className={styles.aboutLogoWrap}>
                 <img src="/images/logo/sakuyal_logo_transparent_47x63.svg" alt="sakuyal-nlp logo" />
               </div>
@@ -171,6 +173,7 @@ function Upsell() {
           </div>
         </BackgroundColor>
       </main>
+      <ScrollToTopButton />
     </>
   );
 }

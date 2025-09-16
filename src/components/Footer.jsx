@@ -4,7 +4,8 @@ import styles from '@styles/Footer.module.scss';
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <p className={styles.copyright}>Copyright &#169; 2025 Sakuyal 自然語言煉金術 All Rights Reserved.</p>
+      <p className={styles.copyright}>Copyright &#169; 2025 Sakuyal 自然語言煉金術</p>
+      {/* <p>xxxx有限公司（統編：xxxxxxxx）</p> 您有登記公司行號才需要填寫*/}
       <nav className={styles.footerNav}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>

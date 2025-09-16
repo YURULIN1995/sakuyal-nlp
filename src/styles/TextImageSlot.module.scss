@@ -5,6 +5,7 @@
 }
 
 .paragraph {
+  white-space: pre-line;
   @include mixins.p-paragraph;
 }
 

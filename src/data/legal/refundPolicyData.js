@@ -1,11 +1,10 @@
-// 檔案: src/data/legal/refundPolicyData.js
+import { siteMeta } from '@data/siteMeta.js';
 
 export const refundPolicyData = {
-  title: "退款政策",
   content: [
     {
       type: 'paragraph',
-      text: '感謝您選擇 Sakuyal 自然語言煉金術 的教練課程。我們很開心能陪伴您一起打造理想中的品牌網站。'
+      text: `感謝您選擇${siteMeta.siteName}的教練課程。我們很開心能陪伴您一起打造理想中的品牌網站。`
     },
     {
       type: 'paragraph',

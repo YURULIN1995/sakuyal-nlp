@@ -28,7 +28,9 @@ function TextImageSlot({
           {titleLine2}
         </h2>
       )}
-      {paragraph && <p className={styles.paragraph}>{paragraph}</p>}
+      {paragraph && <p className={styles.paragraph}>
+        {paragraph}
+        </p>}
       {buttonText && buttonLink && (
           <a className={styles.button} href={buttonLink} target="_blank" rel="noopener noreferrer">
             {buttonText}

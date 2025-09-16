@@ -1,23 +1,21 @@
-// 檔案: src/pages/legal/CopyrightPage.jsx
-
+import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import OneColumnLayout from '@components/OneColumnLayout';
-// 1. (修改) 匯入新的資料檔
+import { siteMeta } from '@data/siteMeta.js';
 import { copyrightData } from '@data/legal/copyrightData.js';
-import styles from '@styles/LegalPages.module.scss'; // 引用共用樣式
+import styles from '@styles/LegalPages.module.scss';
 
 function CopyrightPage() {
-  // 2. (修改) 直接使用匯入的資料
-  const pageContent = copyrightData;
+  const { title, description } = siteMeta.pages.copyright;
 
   return (
     <>
-      <SEO title={pageContent.title} description="本網站的著作權聲明" />
-      
+      <ViewportMeta/>
+      <SEO title={title} description={description} />
       <OneColumnLayout className={styles.pageWrapper}>
-        <h1 className={styles.title}>{pageContent.title}</h1>
+        <h1 className={styles.title}>{title}</h1>
         
-        {pageContent.content.map((block, index) => {
+        {copyrightData.js.content.map((block, index) => {
           switch (block.type) {
             case 'heading':
               return <h2 key={index} className={styles.subheading}>{block.text}</h2>;

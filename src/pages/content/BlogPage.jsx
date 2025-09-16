@@ -1,3 +1,4 @@
+import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import OneColumnLayout from '@components/OneColumnLayout';
@@ -11,6 +12,7 @@ function BlogPage() {
 
   return (
     <>
+      <ViewportMeta/>
       <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={blogIntro.title} />
       <OneColumnLayout>
