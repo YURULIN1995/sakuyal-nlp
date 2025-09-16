@@ -8,14 +8,17 @@ export const notFoundMessages = {
 // Server-side 回應訊息: Cloudflare Turnstile API , Brevo Contact API, Brevo Transactional API
 
 export const apiMessages = {
+    // Cloudflare Turnstile API
     common: {
         forbidden: '禁止存取',
         captchaFail: 'CAPTCHA 驗證失敗',
     },
+    // Brevo Contact API
     contact: {
         success: '訊息已成功寄出', //可客製
         error: '訊息寄送時發生錯誤', //可客製
     },
+    // Brevo Transactional API
     subscription: {
         success: '訂閱成功！請檢查您的信箱以確認訂閱。', //可客製
         error: '訂閱時發生錯誤', //可客製
@@ -56,7 +59,7 @@ export const emailTemplates = {
 export const ctas = {
     freeDownload: {
         primary: '免費下載',
-        secondary: '我想要...!',
+        secondary: '我想要試試!',
         tertiary: '立即體驗！'
     },
     buy: {
@@ -65,7 +68,7 @@ export const ctas = {
     },
     bookService: {
         primary: '立即預約！',
-        secondary: '我想要...！'
+        secondary: '馬上卡位！'
     },
     readMore: '閱讀更多',
     submitForm: '送出表單'
