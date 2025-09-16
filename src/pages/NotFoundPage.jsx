@@ -6,7 +6,7 @@ import { notFoundMessages } from '@data/userExperienceWriting.js';
 function NotFoundPage() {
   return (
     <>
-      <SEO title="找不到頁面-404" />
+      <SEO title={notFoundMessages.title} />
       <div className={styles.container}>
         <h1 className={styles.errorMessage}>{notFoundMessages.title}</h1>
         <p className={styles.prompt}>{notFoundMessages.prompt}</p>
