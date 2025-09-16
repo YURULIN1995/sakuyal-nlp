@@ -6,7 +6,7 @@ export const aboutHomepageData = {
   buttonLink: "/about", // 預設是「關於我」的連結,可客製
 };
 
-export const authorIntroData = {
+export const authorData = {
   titleLine: "關於我",
   paragraph: "我是一隻雲林快樂豬！🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷", // 可客製
   buttonText: "客戶成果", // 可客製

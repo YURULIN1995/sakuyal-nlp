@@ -6,7 +6,7 @@ import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
 import TestimonialPostCard from '@components/Testimonials/TestimonialPostCard';
 import { siteMeta } from '@data/siteMeta.js';
-import { authorIntroData } from '@data/aboutData.js';
+import { authorData } from '@data/aboutData.js';
 import { serviceTestimonials } from '@data/servicesPageData.js';
 
 function AboutPage() {
@@ -15,15 +15,15 @@ function AboutPage() {
   return (
     <>
       <SEO title={title} description={description} />
-      <PageHeaderBicolorBackground title={authorIntroData.titleLine}/>
+      <PageHeaderBicolorBackground title={authorData.titleLine}/>
       <BackgroundColor>
         <OneColumnLayout>
           <TextImageSlot
-            paragraph={authorIntroData.paragraph}
-            buttonText={authorIntroData.buttonText}
-            buttonLink={authorIntroData.buttonLink}
-            imageUrl={authorIntroData.imageUrl}
-            imageAlt={authorIntroData.imageAlt}
+            paragraph={authorData.paragraph}
+            buttonText={authorData.buttonText}
+            buttonLink={authorData.buttonLink}
+            imageUrl={authorData.imageUrl}
+            imageAlt={authorData.imageAlt}
           />
         </OneColumnLayout>
       </BackgroundColor>
