@@ -11,6 +11,6 @@ export const authorData = {
   paragraph: "我是一隻雲林快樂豬！🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷", // 可客製
   buttonText: "客戶成果", // 可客製
   buttonLink: "/portfolio", // 預設是「作品集」的連結,可客製
-  imageUrl: "https://placehold.co/500x500/a9d3a4/4a6e4f?text=Author",
+  imageUrl: "https://placehold.co/500x500/a9d3a4/4a6e4f?text=Author", // 網站主視覺照01的圖片路徑，建議尺寸：
   imageAlt: "雲林快樂豬", // 請改填網站站主的名字
 };
