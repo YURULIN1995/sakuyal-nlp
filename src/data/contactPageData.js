@@ -29,7 +29,6 @@ export const contactLink = [
 
 // 聯絡表單的文字資料
 export const contactFormData = {
-  // formTitle: "讓我們來聊聊吧！", // 【移除】已移除表單標題
   formSubtitle: "歡迎填寫聯絡表格，或可以直接寫信到",
   nameLabel: "您的姓名",
   namePlaceholder: "請輸入您的姓名",
