@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
 import SEO from '@components/Head/SEO';
 import styles from '@styles/NotFound.module.scss';
+import { notFoundMessages } from '@data/userExperienceWriting.js';
 
 function NotFoundPage() {
   return (
     <>
       <SEO title="找不到頁面-404" />
       <div className={styles.container}>
-        <h1 className={styles.errorMessage}>404 - 這個頁面不存在。</h1>
-        <p className={styles.prompt}>指向這裡的連結發生錯誤，請使用搜尋功能查詢其他結果。</p>
+        <h1 className={styles.errorMessage}>{notFoundMessages.title}</h1>
+        <p className={styles.prompt}>{notFoundMessages.prompt}</p>
         <p>
-          <Link to="/" className={styles.homeLink}>返回首頁</Link>
+          <Link to="/" className={styles.homeLink}>{notFoundMessages.homeLink}</Link>
         </p>
       </div>
     </>
