@@ -4,6 +4,9 @@ import IconCakeRoll from '@assets/icons/cake-roll.svg?react';
 import IconTeapot from '@assets/icons/teapot.svg?react';
 import IconShoppingCart from '@assets/icons/shopping-cart.svg?react';
 import IconInfoCircle from '@assets/icons/info-circle.svg?react';
+import IconLeaf from '@assets/icons/leaf.svg?react';
+import IconDroplet from '@assets/icons/droplet.svg?react';
+import IconPlant from '@assets/icons/plant.svg?react';
 
 /**
  * 服務項目的單一資料來源 (Single Source of Truth)
@@ -81,19 +84,19 @@ export const servicesPageData = {
       },
       {
         id: "process-step-02",
-        icon: IconInfoCircle,
+        icon: IconLeaf,
         title: "步驟02",
         description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。"
       },
       {
         id: "process-step-03",
-        icon: IconInfoCircle,
+        icon: IconDroplet,
         title: "步驟03",
         description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷。"
       },
       {
         id: "process-step-04",
-        icon: IconInfoCircle,
+        icon: IconPlant,
         title: "步驟04",
         description: "🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
       }

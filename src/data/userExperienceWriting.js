@@ -57,8 +57,12 @@ export const emailTemplates = {
 
 // 整理通用、可重複使用的 CTA 按鈕文案
 export const ctas = {
+    about: {
+        primary: '關於我',
+        secondary: '了解更多'
+    },
     freeDownload: {
-        primary: '免費下載',
+        primary: '免費下載⇒',
         secondary: '我想要試試!',
         tertiary: '立即體驗！'
     },

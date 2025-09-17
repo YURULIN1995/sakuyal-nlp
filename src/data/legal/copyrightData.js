@@ -1,6 +1,7 @@
 import { siteMeta } from '@data/siteMeta.js';
 
 export const copyrightData = {
+  declaration: `Copyright \u00a9  2025 ${siteMeta.siteName}`,
   content: [
     {
       type: 'paragraph',
