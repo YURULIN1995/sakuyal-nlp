@@ -17,18 +17,18 @@ export const serviceItems = [
     id: 'service-01',
     iconName: IconTeapot,
     iconId: 'teapot',
-    title: "服務01",
-    overview: "🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷、🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷。🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。",
+    title: "客製個人行銷網站前後台",
+    overview: "提供自動單色系調色盤，根據個人使用習慣客製專屬羽量級 sanity.io後台，擺脫厚重的 Wordpress 學習文件。直覺好上手喔🐷！",
     description: '🐷🐷�🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
-    imageAlt: '服務01',
+    imageAlt: '客製個人行銷網站前後台',
     isReversed: false
   },
   {
     id: 'service-02',
     iconName: IconCakeRoll,
     iconId: 'wagashi',
-    title: "服務02",
+    title: "流程自動化設計＆測試",
     overview: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷！🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
@@ -39,7 +39,7 @@ export const serviceItems = [
     id: 'service-03',
     iconName: IconShoppingCart,
     iconId: 'shoppingCart',
-    title: "服務03",
+    title: "Brevo CRM API 串接",
     overview: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷 \n\n 🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
@@ -54,7 +54,7 @@ export const servicesPageData = {
    */
   overview: {
     leftTitle: "服務",
-    leftParagraph: "無論你是想透過靜心茶道找回平靜，在手作和菓子中發揮創意，或是探索極致的抹茶風味，我們都能提供專業細緻的體驗。",
+    leftParagraph: "好的工具應該貼合使用者的習慣，而不是要求使用者配合複雜反直覺的工具。完全為您客製個人行銷網站的後台。極簡約設計風讓您免除各種素材選擇障礙！",
     leftButtonText: "填寫服務預約表單",
     leftButtonLink: "#",
     imageUrl: "/images/wagashi.jpg",
@@ -79,25 +79,25 @@ export const servicesPageData = {
       {
         id: "process-step-01",
         icon: IconInfoCircle,
-        title: "步驟01",
-        description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
+        title: "了解需求＆選擇技術堆疊",
+        description: "🐷🐷Tech-stack🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
       },
       {
         id: "process-step-02",
         icon: IconLeaf,
-        title: "步驟02",
+        title: "製作前台",
         description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。"
       },
       {
         id: "process-step-03",
         icon: IconDroplet,
-        title: "步驟03",
+        title: "製作後台",
         description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷。"
       },
       {
         id: "process-step-04",
         icon: IconPlant,
-        title: "步驟04",
+        title: "測試＆交貨",
         description: "🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
       }
     ]

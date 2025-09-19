@@ -64,10 +64,9 @@ function Navbar() {
 
             {item.children  && (
               <ul className={`${styles.dropdownList} ${openDropdown === item.name ? styles.isOpen : ''}`}>
-                {/* 2. (修改) 將硬編碼的判斷改為讀取資料屬性 */}
                 {item.showOverviewLink && (
                   <li className={styles.dropdownItem}>
-                    {/* 3. (修改) 將連結文字動態化，並加上 onClick 事件 */}
+                    {/* 將連結文字動態化，並加上 onClick 事件 */}
                     <NavLink to={item.path} className={styles.dropdownLink} onClick={() => setIsMenuOpen(false)}>所有{item.name}</NavLink>
                   </li>
                 )}

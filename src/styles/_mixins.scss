@@ -81,8 +81,8 @@
   $margin-bottom-md: 25px,
   $margin-bottom-nav: 25px,
   $margin-bottom-lg: 25px,
-  $line-height: 2.5,
-  $letter-spacing: -1px,
+  $line-height: 2,
+  $letter-spacing: 1px,
   $font-size: 17px,
   $font-size-md: 17.6px,
   $font-size-nav: 17.6px,
@@ -112,7 +112,7 @@
 @mixin b-button(
   $bg-color: map.get(color.$greens, 'light'),
   $hover-color: map.get(color.$greens, 'dark'),
-  $text-color: color.$white, // 新增文字顏色參數
+  $text-color: color.$white,
   $margin: 20px auto 0 auto,
   $margin-top-md: 15px,
   $margin-top-lg: 42px,
@@ -128,7 +128,7 @@
   margin: $margin;
   padding: 14px 30px;
   background-color: $bg-color;
-  color: $text-color; // 使用參數
+  color: $text-color;
   border: none;
   border-radius: 5px;
   cursor: pointer;

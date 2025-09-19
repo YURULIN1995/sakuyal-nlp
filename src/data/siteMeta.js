@@ -5,6 +5,7 @@ export const siteMeta = {
   // businessName: "朔夜有限公司", // 請填入企業名稱
   // unifiedBusinessNo: "26758904", // 請填入統一編號
   // 網站核心主題與關鍵字，請依貴站的實際情形填寫
+  logoUrl: '/images/logo/sakuyal_logo_transparent_47x63.svg', //請更換為您的網站大Logo的圖片路徑
   coreTheme: {
     topic: "成為🐷🐷", //請填入網站的核心主題或主要服務，做到某件事/成為某個職業角色。例如："學會沖煮一杯好咖啡"或"成為軟裝師"
     stepCount: "x", //請填入主要賣點的步驟或方法數量，例如："5"

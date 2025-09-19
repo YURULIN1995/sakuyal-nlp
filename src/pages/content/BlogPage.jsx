@@ -4,7 +4,7 @@ import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground
 import OneColumnLayout from '@components/OneColumnLayout';
 import PostsList from '@components/PostsList'; 
 import { blogIntro, allPostsData } from '@data/blogData.js';
-import { siteMeta } from '@data/siteMeta.js'; // Import siteMeta
+import { siteMeta } from '@data/siteMeta.js';
 import styles from '@styles/BlogPage.module.scss';
 
 function BlogPage() {

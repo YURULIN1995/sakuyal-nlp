@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@200..900&display=swap'); /* 載入 Google 字體 Noto Sans TC，粗細 200~900都有。*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap'); /* 載入 Google 字體 Noto Serif TC，粗細 200~900都有。*/
 /* RESET */
 *, *::after, *::before {
   margin: 0;
@@ -7,7 +7,7 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: inherit;
 }
 
@@ -16,15 +16,11 @@ ul {
 }
 
 /* BASE STYLES */
+
 body {
-  font-family: "Noto Sans TC"; /* 請選擇套用於網站全域的字體家族 */
+  font-family: "Noto Serif TC";
 }
 
-/* h1, h2, h3, h4, h5, h6 {
-  font-family: "Noto Sans TC"; 可客製選擇套用於各級標題的字體家族 
-} */
-
-p {
-  /* font-family: "Noto Sans TC"; */ /*可客製選擇套用於內文的字體家族 */
-  font-weight: 400; /* 預設內文的粗細為400 */
+p, li, a{
+  font-weight: 600; /* 預設內文,清單,超連結文字的粗細為500 */
 }
