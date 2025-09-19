@@ -60,13 +60,13 @@
   top: calc(100% - 1px);
   left: 0;
   width: 100%;
-  background-color: #ffffff;
+  background-color: hsla(0, 0%, 100%, 1);
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.1);
   z-index: 101;
   list-style: none;
   margin: 0;
   padding: 10px 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid hsla(0, 0%, 93%, 1);
   max-height: calc(100vh - 80px);
   overflow-y: auto;
   opacity: 0;
@@ -100,7 +100,7 @@
 }
 
 .navItem {
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid hsla(0, 0%, 94%, 1);
 
   &:last-child {
     border-bottom: none;
@@ -201,7 +201,7 @@
     left: 50%;
     transform: translateX(-50%);
     min-width: max-content;
-    background-color: #ffffff;
+  background-color: hsla(0, 0%, 100%, 1);
   box-shadow: 0 8px 16px hsla(0, 0%, 0%, 0.1);
     padding: 10px 0;
     border-radius: 6px;

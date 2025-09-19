@@ -57,7 +57,7 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
   &::placeholder {
-    color: #aaa;
+  color: hsla(0, 0%, 67%, 1);
   }
 
   &:focus {
@@ -98,6 +98,6 @@
 
 // 失敗訊息的樣式
 .error {
-  background-color: #fde8e8;
-  color: #9b2c2c;
+  background-color: hsla(0, 77%, 95%, 1);
+  color: hsla(0, 60%, 38%, 1);
 }
