@@ -33,7 +33,7 @@
   padding: 0 30px 30px 30px;
   border-radius: 8px;
   text-align: left;
-  background-color: map.get(color.$greens, 'bg-gray-green');
+  background-color: map.get(color.$greens, 'bg-grayed');
   // 在手機版，寬度會自動為 100%
   
   // 在 md 寬度以上時，設定寬度以達成兩欄效果

@@ -1,45 +1,46 @@
 // --- 綠色系調色盤 (Green Palette) ---
 $greens: (
   // 文字與強調色
-  "darkest": rgb(4, 87, 19),
-  "dark": rgb(58, 90, 64),
-  "base": rgb(88, 129, 87),
-  "light": rgb(156, 201, 150),
-  "bright": rgb(198, 250, 115),
+  "darkest": hsla(137, 95%, 18%, 1),
+  "dark": hsla(137, 21%, 29%, 1),
+  "base": hsla(119, 20%, 42%, 1),
+  "light": hsla(112, 35%, 69%, 1),
+  "bright": hsla(85, 91%, 71%, 1),
 
   // 導覽列專用
-  "nav-base": rgb(78, 117, 85),
-  "nav-link": rgba(78, 117, 85, 0.9),
-  "nav-link-hover": rgba(4, 87, 19, 1),
-  "nav-link-arrow": rgba(78, 117, 85, 0.7),
-  "nav-active-border": rgba(4, 87, 19, 0.7),
+  "nav-base": hsla(132, 20%, 38%, 1),
+  "nav-link": hsla(132, 20%, 38%, 0.9),
+  "nav-link-hover": hsla(137, 95%, 18%, 1),
+  "nav-link-arrow": hsla(132, 20%, 38%, 0.7),
+  "nav-active-border": hsla(137, 95%, 18%, 0.7),
 
   // 背景色系
-  "bg": rgb(241, 246, 233),
-  "bg-hover": rgba(230, 240, 220, 0.9),
-  "bg-section-light": rgb(249, 250, 246),
-  "bg-dropdown": rgba(241, 246, 233, 0.3),
-  "bg-gray-green": rgb(240, 244, 240)
+  "bg": hsla(90, 36%, 94%, 1),
+  "bg-hover": hsla(96, 38%, 90%, 0.9),
+  "bg-section-light": hsla(90, 44%, 97%, 1),
+  "bg-dropdown": hsla(90, 36%, 94%, 0.3),
+  "bg-grayed": hsla(120, 14%, 95%, 1)
 );
 
 
 // --- 藍色系調色盤 (Blue Palette) ---
+
 $blues: (
-  "link": #3498db,
-  "link-hover": #2980b9
+  "link": hsla(204, 70%, 53%, 1),
+  "link-hover": hsla(207, 63%, 45%, 1)
 );
 
 //橘色家族
-$orange: rgb(255, 165, 0);
+$orange: hsla(39, 100%, 50%, 1);
 
 // --- 中性色與背景色 (Neutral & Background Palette) ---
-$white: rgb(255, 255, 255);
+$white: hsla(0, 0%, 100%, 1);
 
 // 灰色系
-$grey-light-border: #f0f0f0;
-$grey-border: #eee;
-$grey-text: #555;
+$grey-light-border: hsla(0, 0%, 94%, 1);
+$grey-border: hsla(0, 0%, 93%, 1);
+$grey-text: hsla(0, 0%, 33%, 1);
 
 // 黑色系 (帶透明度，用於陰影)
-$shadow-light: rgba(0, 0, 0, 0.05);
-$shadow-medium: rgba(0, 0, 0, 0.1);
+$shadow-light: hsla(0, 0%, 0%, 0.05);
+$shadow-medium: hsla(0, 0%, 0%, 0.1);
