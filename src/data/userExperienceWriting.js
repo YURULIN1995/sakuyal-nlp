@@ -1,4 +1,4 @@
-import {siteMeta} from 'siteMeta.js';
+import { siteMeta } from '@data/siteMeta.js';
 
 // 404 Not Found 找不到頁面訊息
 export const notFoundMessages = {
