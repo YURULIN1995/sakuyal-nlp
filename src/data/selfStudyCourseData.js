@@ -1,3 +1,5 @@
+import { siteMeta } from '@data/siteMeta.js';
+
 // 請填寫自學課程見證。見證者大頭貼建議 正方形 50x50px。視需要增減項目數。
 export const selfStudyCourseTestimonials = {
   name: "我的學生們都說...",
@@ -108,17 +110,17 @@ export const selfStudyCourseFaq = {
     {
       id: "self-study-course-faq-08",
       title: "付款成功後?",
-      answer: " 你會在48小時內收到我寄的email，標題為「歡迎加入軟裝入門課程」，還有課程平台PODIA寄給你課程連結的email，你就可以馬上登入。 \n 如果超過48小時沒有收到email，請來信客服: sakuya@sakuyal.com 。"
+      answer: ` 你會在48小時內收到我寄的email，標題為「歡迎加入軟裝入門課程」，還有課程平台PODIA寄給你課程連結的email，你就可以馬上登入。 \n 如果超過48小時沒有收到email，請來信客服: ${siteMeta.outlinks.email} 。`
     },
     {
       id: "self-study-course-faq-09",
       title: "可以退款嗎?",
-      answer: " 本課程為資訊產品，當你付款登入後，就可以看到所有的內容，所以無法退款。但是我相信課程可以帶給你的轉變與價值遠高於課程的價格，而且很多已經加入的學員都覺得物超所值，已經開始🪴🪴生涯了。如果你想在購買前確定課程適不適合你，可以寫信給我: sakuya@sakuyal.com  。"
+      answer: `本課程為資訊產品，當你付款登入後，就可以看到所有的內容，所以無法退款。但是我相信課程可以帶給你的轉變與價值遠高於課程的價格，而且很多已經加入的學員都覺得物超所值，已經開始🪴🪴生涯了。如果你想在購買前確定課程適不適合你，可以寫信給我: ${siteMeta.outlinks.email} 。`
     },
     {
       id: "self-study-course-faq-10",
       title: "付款方式是什麼呢?",
-      answer: "線上使用信用卡付款。如果需要用匯款支付，可以寫信給我: sakuya@sakuyal.com  。"
+      answer: `線上使用信用卡付款。如果需要用匯款支付，可以寫信給我: ${siteMeta.outlinks.email} 。`
     },
   ]
 };

@@ -4,7 +4,7 @@
 
 .kanbanSectionWrapper {
   // 使用我們在 _color.scss 中定義好的通用背景色
-  background-color: map.get(color.$greens, 'bg-section-light');
+  background-color: map.get(color.$greens, 'bg-light');
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }

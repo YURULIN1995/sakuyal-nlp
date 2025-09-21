@@ -11,7 +11,7 @@
 .featuredPostsWrapper {
   padding: 60px 20px;
   text-align: left;
-  background-color: map.get(color.$greens, 'bg-section-light');
+  background-color: map.get(color.$greens, 'bg-light');
 
   @include mixins.respond-min(md) {
     padding: 60px 100px;

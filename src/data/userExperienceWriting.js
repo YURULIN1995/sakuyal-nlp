@@ -1,3 +1,5 @@
+import {siteMeta} from 'siteMeta.js';
+
 // 404 Not Found 找不到頁面訊息
 export const notFoundMessages = {
     title: '404 - 這個頁面不存在。',
@@ -30,7 +32,7 @@ export const apiMessages = {
 export const contactFormContent = {
     statusMessage: {
         success: '感謝您的訊息，我會盡快與您聯繫！', //可客製
-        error: '訊息傳送失敗，請稍後再試或直接來信。', //可客製
+        error: '訊息傳送失敗，請聯絡開發人員或直接來信。', //可客製
         sending: '傳送中...' //可客製
     },
     labels: {
@@ -61,9 +63,13 @@ export const ctas = {
         primary: '關於我',
         secondary: '了解更多'
     },
+    portfolio: {
+        primary: '客戶成果',
+        secondary: '查看作品集'
+    },
     freeDownload: {
         primary: '免費下載⇒',
-        secondary: '我想要試試!',
+        secondary: `確認送出，我想${siteMeta.coreTheme.topic}！`,
         tertiary: '立即體驗！'
     },
     buy: {
@@ -75,5 +81,5 @@ export const ctas = {
         secondary: '馬上卡位！'
     },
     readMore: '閱讀更多',
-    submitForm: '送出表單'
+    submitForm: '送出表單',
 };

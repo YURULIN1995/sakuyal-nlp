@@ -24,6 +24,7 @@ export const siteMeta = {
       name: "🐷🐷FB社團", //facebook免費社團名稱, 選填
       url: "#", //facebook免費社團網址, 選填
     }, 
+    email: "sakuya@sakuyal.com", //請填入聯絡用電子郵件信箱
   },
  
   price: {

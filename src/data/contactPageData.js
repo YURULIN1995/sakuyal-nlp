@@ -1,3 +1,5 @@
+import { siteMeta } from '@data/siteMeta.js';
+
 export const contactData = {
   titleLine1: "聯絡",
   titleLine2: "與我聯繫",
@@ -11,7 +13,7 @@ export const contactLink = [
     id: "contact-mail",
     icon: "IconMail",
     contactName: "Mail",
-    contactUrl: "mailto:sakuya@sakuyal.com"
+    contactUrl: `mailto:${siteMeta.outlinks.email}`
   },
   {
     id: "contact-line",

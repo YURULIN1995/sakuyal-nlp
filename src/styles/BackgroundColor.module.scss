@@ -10,7 +10,7 @@
 /* --- 顏色修飾符 --- */
 // 淺綠色 (預設)
 .lightGreen {
-  background-color: map.get(color.$greens, 'bg-section-light');
+  background-color: map.get(color.$greens, 'bg-light');
 }
 
 .freshGreen{

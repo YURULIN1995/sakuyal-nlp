@@ -24,7 +24,7 @@ export const freeDownloadData = {
   socialLinks: [ // 請把下列 link: '' 內的 # 替換成實際的外部連結
     { id: 'fb', name: 'Facebook', link: '#', iconClass: 'fab fa-facebook' },
     { id: 'ig', name: 'Instagram', link: '#', iconClass: 'fab fa-instagram' },
-    { id: 'email', name: 'Email', link: 'mailto:sakuya@sakuyal.com', iconClass: 'fas fa-envelope' },
+    { id: 'email', name: 'Email', link: `mailto:${siteMeta.outlinks.email}`, iconClass: 'fas fa-envelope' },
     { id: 'line', name: 'Line', link: '#', iconClass: 'fab fa-line' }
   ]
 };

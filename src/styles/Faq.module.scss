@@ -47,7 +47,7 @@
   color: map.get(color.$greens, 'dark');
 
   &:hover {
-    background-color: map.get(color.$greens, 'bg-section-light');
+  background-color: map.get(color.$greens, 'bg-light');
   }
 
   // 選取標題文字，並將其順序設為 2
