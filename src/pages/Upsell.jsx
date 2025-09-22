@@ -7,6 +7,7 @@ import BeforeAfter from '@components/BeforeAfter';
 import IconCheck from '@assets/icons/check.svg?react';
 import IconChevronRight from '@assets/icons/chevron-right.svg?react';
 import { siteMeta } from '@data/siteMeta.js';
+import { upsellData } from '@data/upsellData.js';
 import { ctas } from '@data/userExperienceWriting.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 import { targetAudienceData } from '@data/servicesPageData.js';
@@ -17,10 +18,15 @@ import Button from '@components/Button';
 import ScrollToTopButton from '@components/ScrollToTopButton';
 
 function Upsell() {
-  const { title, description } = siteMeta.pages.upsell;
+  const { logoUrl, siteName, coreTheme, outlinks, price, pages } = siteMeta;
+  const { topic } = coreTheme;
+  const { facebookFreeGroup, instagram } = outlinks;
+  const { selfStudyCourseUpsell, selfStudyCourse } = price;
+  const { title, description } = pages.upsell;
   const {faqTitle, questionStacks} = selfStudyCourseFaq;
   const buy = ctas.buy;
   const { name: testimonialTitle, list: testimonialList } = selfStudyCourseTestimonials;
+  const { ctaSection, buyNowSection, targetAudienceSection, prosSection, outlineSection, greeting, aboutSection } = upsellData;
 
 
   return (
@@ -29,33 +35,32 @@ function Upsell() {
       <SEO title={title} description={description} />
       <main className={styles.main}>
         <div className={styles.callToActionHead}>
-          <h2>很高興你對{siteMeta.coreTheme.topic}有興趣!</h2>
-          <p>請馬上檢查email信箱，標題為「 {freeDownloadData.titleLine2}」</p>
-          <p>在等待的同時，歡迎你</p>
+          <h2>{ctaSection.title}</h2>
+          <p>{ctaSection.paragraph01}</p>
           <ul>
-            <li>加入<a href={siteMeta.outlinks.facebookFreeGroup.url}>{siteMeta.outlinks.facebookFreeGroup.name}</a></li>
-            <li>追蹤<a href={siteMeta.outlinks.instagram.url}>{siteMeta.outlinks.instagram.name}</a></li>
-            <li>閱讀<a href="/blog">文章</a></li>
+            {ctaSection.list.map(item => (
+              <li key={item.id}>
+                {item.text}
+                <a href={item.linkUrl}>{item.linkText}</a>
+              </li>
+            ))}
           </ul>
-          <p>我提供一個本頁限定優惠，讓你可以從0到1擁有🐷🐷的基礎能力。</p>
-          <p>現在你可以用NT${siteMeta.price.selfStudyCourseUpsell}（官網價NT${siteMeta.price.selfStudyCourse}的12%）加入最暢銷的自學課程：{siteMeta.coreTheme.topic}入門課</p>
-          <p>關掉這個視窗就沒有了，請好好把握機會！</p>
+          <p>{ctaSection.priceText[0].text}</p>
         </div>
 
         <div className={styles.selfStudyCourseBuyNow}>
           <div className={styles.contentWrapper}>
-            <h2>{siteMeta.coreTheme.topic}入門課</h2>
-            <p>幫助你把對{siteMeta.coreTheme.topic}的興趣提升為專業</p>
-            <p>從零開始學習，解鎖你心中的{siteMeta.coreTheme.topic}</p>
-            <a href="#" className={styles.buyButtonWrap} target="_blank" rel="noopener noreferrer">
-              <span className={styles.buyButtonText}>只要 ${siteMeta.price.selfStudyCourseUpsell} (官網價的12%) 馬上加入!</span>
+            <h2>{buyNowSection.title01}</h2>
+            <p>{buyNowSection.paragraph}</p>
+            <a href={buyNowSection.buyLink} className={styles.buyButtonWrap} targparagraph02et="_blank" rel="noopener noreferrer">
+              <span className={styles.buyButtonText}>{ctaSection.priceText[1].text}</span>
             </a>
           </div>
         </div>
         <BackgroundColor color="lightGreen">
           <div className={styles.problemsWrap}>
             <div className={styles.problemsContent}>
-              <h2>想{siteMeta.coreTheme.topic}的你，是不是想過這些問題？</h2>
+              <h2>{targetAudienceSection.title01}</h2>
               <ul>
                 {targetAudienceData.problems.map(problem => problem && problem.text &&(
                   <li key={problem.id}>「{problem.text}」</li>
@@ -67,10 +72,10 @@ function Upsell() {
         <BackgroundColor className={styles.courseHelp} color="white">
           <div className={styles.containerNoGap}>
             <div className={styles.courseImage}>
-              <img src="/images/matcha-placeholder.jpg" alt="抹茶奶綠" />
+              <img src={targetAudienceSection.imageUrl} alt={targetAudienceSection.imageAlt} />
             </div>
             <div className={styles.courseHelpContainer}>
-              <h2>{siteMeta.coreTheme.topic}入門課就是為你設計的，它可以幫助你</h2>
+              <h2>{targetAudienceSection.title02}</h2>
               <ul className={styles.courseHelpList}>
                 {targetAudienceData.effects.map(effect => effect && effect.text &&(
                   <li key={effect.id}>{effect.text}</li>
@@ -82,7 +87,7 @@ function Upsell() {
         </BackgroundColor>
         <BackgroundColor color="lightGreen" className={styles.pros}>
           <div className={styles.prosContentWrap}>
-            <h2>我會教你這⭐年多來，從大量實際操作🪴🪴，學到並運用在我的🪴🪴事業上，印證很有效的模式和具體方法。</h2>
+            <h2>{prosSection.title}</h2>
             <ul className={styles.prosList}>
               {targetAudienceData.pros.map(pro => pro && pro.text && (
               <li key={pro.id}><IconCheck/>{pro.text}</li>
@@ -96,13 +101,13 @@ function Upsell() {
         <BeforeAfter data={selfStudyCourseBeforeAfterData} />
         <BackgroundColor color="white" className={styles.outline}>
           <div className={styles.outlineTitle}>
-            <h2>課程包括哪些內容？</h2>
+            <h2>{outlineSection.title}</h2>
           </div>
           <div className={styles.outlineContentFlexWrap}>
             {selfStudyCourseData.chapterLists && selfStudyCourseData.chapterLists.map((chapter, index) => (
               <div className={styles.chapterBlock} key={chapter.id}>
                 <div className={styles.chapterTitle}>
-                  <h2>第 {index + 1} 單元<br/>{chapter.title}</h2>
+                  <h2>{chapter.title}</h2>
                   <div className={styles.outlineDividerContainer}></div>
                 </div>
                 <div className={styles.chapterIntro}>
@@ -121,11 +126,11 @@ function Upsell() {
             {selfStudyCourseData.appendixLists && selfStudyCourseData.appendixLists.map((appendix, index) => (
               <div className={styles.chapterBlock} key={appendix.id}>
                 <div className={styles.chapterTitle}>
-                  <h2>附錄 {index + 1} <br/>{appendix.title}</h2>
+                  <h2>{appendix.title}</h2>
                   <div className={styles.outlineDividerContainer}></div>
                 </div>
                 <div className={styles.chapterIntro}>
-                  <p className={styles.chapterBrief}>{appendix.briefIntro || appendix.breifIntro}</p>
+                  <p className={styles.chapterBrief}>{appendix.breifIntro || appendix.breifIntro}</p>
                   <ul>
                     {appendix.items && appendix.items.map(item => (
                       item && item.text && (
@@ -141,13 +146,13 @@ function Upsell() {
         <BackgroundColor color="freshGreen" className={styles.about}>
           <div className={styles.aboutContentWrap}>
             <div className={styles.aboutImage}>
-              <img src="/images/wagashi.jpg" alt="和菓子" />
+              <img src={aboutSection.imageUrl} alt={aboutSection.imageAlt} />
             </div>
             <div className={styles.aboutText}>
-              <h2>Hi! 我是🐷🐷</h2>
+              <h2>{greeting}</h2>
               <p>{authorData.paragraph}</p>
               <div className={styles.aboutLogoWrap}>
-                <img src="/images/logo/sakuyal_logo_transparent_47x63.svg" alt="sakuyal-nlp logo" />
+                <img src={logoUrl} alt={`${siteName} logo`} />
               </div>
             </div>
           </div>
@@ -161,15 +166,15 @@ function Upsell() {
         <BackgroundColor color="freshGreen" className={styles.callToActionBanner}>
           <div className={styles.callToActionBannerWrap}>
             <div className={styles.callToActionBannerContent}> 
-              <h2>現在就是你入門🌿🌿最好的時機</h2>
+              <h2>{buyNowSection.title02}</h2>
                 <ul>
                   {selfStudyCourseData.content && selfStudyCourseData.content.map(content => (
                   <li id={content.id}><IconCheck/>{content.text}</li>
                   ))}
                 </ul>              
-              <p>只有這一頁才有優惠價NT${siteMeta.price.selfStudyCourseUpsell}（官網價NT${siteMeta.price.selfStudyCourse}的12%）</p>
+              <p>{ctaSection.priceText[2].text}</p>
             </div>
-            <Button className={styles.buyButton} text={buy.secondary} to="#" endIcon={<IconChevronRight/>}/>
+            <Button className={styles.buyButton} text={buy.secondary} to={buyNowSection.buyLink} endIcon={<IconChevronRight/>}/>
           </div>
         </BackgroundColor>
       </main>

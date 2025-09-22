@@ -25,7 +25,7 @@ export const selfStudyCourseData = {
   chapterLists: [
     {
     id: "chapter-01",
-    title: "將熱情變成一種專業",
+    title: "第一章 \n將熱情變成一種專業",
     breifIntro: "將你對🪴🪴的熱情轉化為可見的內容和風格",
     items: [
       {id: "chapter-01-01", text: "🪴🪴"},
@@ -36,7 +36,7 @@ export const selfStudyCourseData = {
     },
     {
     id: "chapter-02",
-    title: "🪴🪴🪴🪴🪴🪴",
+    title: "第二章 \n 🪴🪴🪴🪴🪴🪴",
     briefIntro: "🪴🪴🪴🪴🪴🪴🪴🪴🪴🪴",
     items: [
       {id: "chapter-02-01", text: "🪴🪴"},
@@ -49,7 +49,7 @@ export const selfStudyCourseData = {
   appendixLists: [
     {
     id: "appendix-01",
-    title: "工具清單",
+    title: "附錄一 \n 工具清單",
     breifIntro: "可以購買到這些工具的網站、工具型號、價格",
     items: [
       {id: "appendix-01-01", text: "🪴🪴"},
@@ -58,7 +58,7 @@ export const selfStudyCourseData = {
     },
     {
     id: "appendix-02",
-    title: "提案術語快查表",
+    title: "附錄二 \n 提案術語快查表",
     breifIntro: "客戶不一定懂行內話，所以提案的時候改用這些詞彙，比較容易讓客戶理解",
     items: [
       {id: "appendix-02-01", text: "🪴🪴"},

@@ -11,7 +11,7 @@ export const aboutHomepageData = {
 
 export const authorData = {
   titleLine: `關於${siteMeta.siteAuthorName}`,
-  paragraph: `Hi,我是${siteMeta.siteAuthorName}! \n 我是個有💐年經驗的🌿🌿🌿🌿🌿🌿🌿也是一個🐷🐷培訓教練，曾在🪴🪴🪴🪴從事☘️☘️☘️☘️，在工作中最喜歡🌱的部分，因此開始🌷🌷🌷🌷🌷🌷。 \n 我已經幫助🌼位學生從零開始☘️☘️☘️☘️生涯，許多人成功轉職或開始接案，即使他們沒有相關🎍🎍背景或從來沒有學過🌹🌹🌹🌹。 \n 我能為你提供清晰的步驟和技巧，幫助你節省大量摸索、試錯的時間。幫助想要${siteMeta.coreTheme.topic}的你，將你的興趣轉為專業，有機會從事夢想中的工作。`, // 請撰寫，如有分行請使用分行符號 \n 區隔
+  paragraph: `我是個有💐年經驗的🌿🌿🌿🌿🌿🌿🌿也是一個🐷🐷培訓教練，曾在🪴🪴🪴🪴從事☘️☘️☘️☘️，在工作中最喜歡🌱的部分，因此開始🌷🌷🌷🌷🌷🌷。 \n 我已經幫助🌼位學生從零開始☘️☘️☘️☘️生涯，許多人成功轉職或開始接案，即使他們沒有相關🎍🎍背景或從來沒有學過🌹🌹🌹🌹。 \n 我能為你提供清晰的步驟和技巧，幫助你節省大量摸索、試錯的時間。幫助想要${siteMeta.coreTheme.topic}的你，將你的興趣轉為專業，有機會從事夢想中的工作。`, // 請撰寫，如有分行請使用分行符號 \n 區隔
   buttonText: `${ctas.portfolio.primary}`, // // 請在userExperienceWriting.js ctas portfolio 裡新增、選擇、變更與 按紐連結 相應的名稱。
   buttonLink: "/portfolio", // 預設是「作品集」的連結,可客製
   imageUrl: "https://placehold.co/1108x836/a9d3a4/4a6e4f", // 網站主視覺照02的圖片路徑，建議尺寸：1108x836 px 橫式
