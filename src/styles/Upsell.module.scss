@@ -1,5 +1,5 @@
 @use '@styles/colors' as color;
-@use '@styles/mixins' as mixin;
+@use '@styles/mixins' as mx;
 @use 'sass:map';
 
 .main {
@@ -14,12 +14,12 @@
   margin: 20px auto;
   padding: 0 20px;
   text-align: left;
-  @include mixin.respond-min(md) {
+  @include mx.respond-min(md) {
     margin: 50px auto;
   }
 
   h2 {
-    @include mixin.t-title(
+  @include mx.t-title(
       $text-align: center,
       $text-align-md: center,
       $font-size: 19px,
@@ -56,10 +56,10 @@
   background-color: map.get(color.$greens, 'bg-light');
     margin: 50px auto;
     padding: 30px 40px;
-    @include mixin.respond-min(md){
+  @include mx.respond-min(md){
       margin: 100px auto;
     }
-    @include mixin.respond-min(llg){
+  @include mx.respond-min(llg){
       margin: 150px auto;
     }
     
@@ -67,7 +67,7 @@
      margin: 0 auto;
 
     h2{
-      @include mixin.t-title(
+  @include mx.t-title(
         $text-align: center,
         $text-align-md: center,
         $font-size: 20px,
@@ -89,7 +89,7 @@
 
      p{
       font-weight: 500;
-      @include mixin.p-paragraph(
+  @include mx.p-paragraph(
         $font-size: 18.4px,
         $font-size-md: 18.4px,
         $font-size-nav: 20px,
@@ -137,7 +137,7 @@
   color: color.$white;
 
   h2 {
-    @include mixin.t-title(
+  @include mx.t-title(
       $color: color.$white,
       $text-align: center,
       $text-align-md: center,
@@ -147,7 +147,7 @@
 
   p {
     font-weight: 200;
-    @include mixin.p-paragraph($color: color.$white);
+  @include mx.p-paragraph($color: color.$white);
   }
 
   .buyButtonWrap {
@@ -155,7 +155,7 @@
     justify-content: center;
     gap: 10px;
     transition: background-color 0.3s;
-    @include mixin.b-button(
+  @include mx.b-button(
       $bg-color: color.$orange,
       $hover-color: map.get(color.$greens, 'nav-link'),
       $font-weight: 300,
@@ -184,7 +184,7 @@
   h2 {
     margin-left: auto;
     margin-right: auto;
-    @include mixin.t-title($font-weight: 500);
+  @include mx.t-title($font-weight: 500);
   }
   ul{
     display: flex;
@@ -206,7 +206,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    @include mixin.respond-min(md) {
+  @include mx.respond-min(md) {
       flex-direction: row-reverse;
     }
 
@@ -214,7 +214,7 @@
       width: 100%;
       height: auto;
       overflow: hidden;
-      @include mixin.respond-min(md) {
+  @include mx.respond-min(md) {
         flex-basis: auto;
       }
 
@@ -228,13 +228,13 @@
 
     .courseHelpContainer{
       width: 100%;
-      @include mixin.respond-min(md) {
+  @include mx.respond-min(md) {
         flex-basis: auto;
         margin-right: 30px;
       }
 
       h2{
-        @include mixin.t-title(
+  @include mx.t-title(
           $font-size: 30px,
           $font-size-xs: 30px,
           $font-size-nav: 40px,
@@ -255,7 +255,7 @@
 
 .pros{
   padding: 75px 20px;
-  @include mixin.respond-min(md){
+  @include mx.respond-min(md){
     padding: 90px 25px;
   }
   .prosContentWrap{
@@ -263,7 +263,7 @@
     margin-right: auto;
     max-width: 750px;
     h2{
-    @include mixin.t-title(
+  @include mx.t-title(
       $font-size: 25px,
       $font-size-xs: 25px,
       $font-size-nav: 32px,
@@ -281,7 +281,7 @@
       font-weight: 300;
       line-height: 19.2px;
       letter-spacing: 0.5px;
-      @include mixin.respond-min(md){
+  @include mx.respond-min(md){
         font-size: 19px;
         line-height: 8px;
         margin-bottom: 33.25px;
@@ -296,7 +296,7 @@
   padding: 20px 0;
   align-items: center;
 
-  @include mixin.respond-min(xs){
+  @include mx.respond-min(xs){
     padding: 50px 0;
   }
 }
@@ -307,12 +307,12 @@
   align-items: center;
   .outlineTitle{
     padding: 5% 3%;
-    @include mixin.respond-min(md){
+  @include mx.respond-min(md){
       padding: 90px 55px;
     }
 
     h2 {
-      @include mixin.t-title(
+  @include mx.t-title(
         $font-size: 25px,
         $font-size-xs: 25px,
         $font-size-nav: 32px,
@@ -332,22 +332,22 @@
       flex-direction: column;
       padding: 50px 50px;
       max-width: 1200px;
-      @include mixin.respond-min(md){
+  @include mx.respond-min(md){
         flex-direction: row;
       }
-      @include mixin.respond-min(nav){
+      @include mx.respond-min(nav){
         padding: 50px 100px;
       }
       .chapterTitle{
-        @include mixin.respond-min(md){
+        @include mx.respond-min(md){
           flex: 3;
         }
-        @include mixin.respond-min(llg){
+        @include mx.respond-min(llg){
           flex-basis: 50%;
         }
 
         h2{
-          @include mixin.t-title(
+          @include mx.t-title(
             $font-size: 25px,
             $font-size-xs: 25px,
             $font-size-nav: 32px,
@@ -363,7 +363,7 @@
             box-sizing: border-box;
 
             &::before{
-            @include mixin.decorative-divider(
+            @include mx.decorative-divider(
               $color: map.get(color.$greens, 'base'),
               $width: 100px,
               $height: 1px,
@@ -373,16 +373,16 @@
       }
 
       .chapterIntro{
-        @include mixin.respond-min(md){
+        @include mx.respond-min(md){
           flex: 4;
         }
 
-        @include mixin.respond-min(llg){
+        @include mx.respond-min(llg){
           flex-basis: 50%;
         }
 
         .chapterBrief{
-          @include mixin.p-paragraph(
+          @include mx.p-paragraph(
             $margin-bottom: 10px,
             $margin-bottom-md: 29px,
             $margin-bottom-nav: 32px,
@@ -405,12 +405,12 @@
             line-height: 27px;
             letter-spacing: 0.5px;
 
-            @include mixin.respond-min(md){
+            @include mx.respond-min(md){
               margin-bottom: 29px;
               font-size: 17.6px;
               line-height: 29.7px;
             }
-            @include mixin.respond-min(nav){
+            @include mx.respond-min(nav){
               margin-bottom: 32px;
               font-size: 18px;
             }
@@ -434,7 +434,7 @@
     margin-right: auto;
     position: relative;
 
-    @include mixin.respond-min(llg){
+    @include mx.respond-min(llg){
       flex-direction: row;
     }
     .aboutImage{
@@ -442,7 +442,7 @@
       max-width: 600px;
       height: auto;
       overflow: hidden;
-      @include mixin.respond-min(llg) {
+      @include mx.respond-min(llg) {
         flex-basis: auto;
       }
       img {
@@ -456,14 +456,14 @@
       width: 100%;
       max-width: 600px;
       margin-top: 40px;
-      @include mixin.respond-min(llg) {
+      @include mx.respond-min(llg) {
         flex-basis: auto;
         margin-top: 0;
         margin-left: 40px;
       }
 
       h2{
-        @include mixin.t-title(
+        @include mx.t-title(
           $font-size: 25px,
           $font-size-xs: 25px,
           $font-size-nav: 32px,
@@ -475,7 +475,7 @@
 
       p{
         white-space: pre-line;
-        @include mixin.p-paragraph;
+        @include mx.p-paragraph;
       }
 
       .aboutLogoWrap {
@@ -502,7 +502,7 @@
   display: flex;
   flex-direction: column;
 
-  @include mixin.respond-min(llg){
+  @include mx.respond-min(llg){
     flex-direction: row;
     align-items: center;
   }

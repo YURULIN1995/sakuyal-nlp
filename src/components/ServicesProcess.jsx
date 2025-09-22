@@ -1,15 +1,14 @@
 import styles from '@styles/ServicesProcess.module.scss';
-import { servicesPageData } from '@data/servicesPageData.js';
+import { serviceProcess } from '@data/servicesPageData.js';
 import PageTitle from '@components/PageTitle';
 
 function ServicesProcess() {
-  const processData = servicesPageData.process;
 
   return (
     <div className={styles.processSection}>
-      <PageTitle title={processData.title} />
+      <PageTitle title={serviceProcess.title} />
       <div className={styles.stepsFlex}>
-          {processData.steps.map(step => {
+          {serviceProcess.steps.map(step => {
             const IconComponent = step.icon;
             return (
               <div key={step.id} className={styles.stepCard}>

@@ -1,5 +1,5 @@
 @use '@styles/colors' as color;
-@use '@styles/mixins' as mixin;
+@use '@styles/mixins' as mx;
 @use 'sass:map';
 
 .formContainer {
@@ -50,7 +50,7 @@
 }
 
 .submitButton {
-  @include mixin.b-button(
+  @include mx.b-button(
     $margin: 15px 0 0 0,
   );
 

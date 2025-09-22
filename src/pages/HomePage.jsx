@@ -6,7 +6,7 @@ import ServicesSection from '@components/ServicesSection';
 import FeaturedPostsSection from '@components/FeaturedPostsSection';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 import { aboutHomepageData } from '@data/aboutData.js';
-import { servicesPageData, serviceItems } from '@data/servicesPageData.js';
+import { servicesSection, serviceItems } from '@data/servicesPageData.js';
 
 
 function HomePage() {
@@ -17,7 +17,7 @@ function HomePage() {
       <Hero {...freeDownloadData} />
       <KanbanSection {...aboutHomepageData} />
       <ServicesSection 
-        {...servicesPageData.overview} 
+        {...servicesSection.overview} 
         rightColumnItems={serviceItems} 
       />
       <FeaturedPostsSection/>

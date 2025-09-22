@@ -1,5 +1,5 @@
 @use '@styles/colors' as color;
-@use '@styles/mixins' as mixin;
+@use '@styles/mixins' as mx;
 @use 'sass:map';
 
 // .card 前綴確保與 FeaturedPostsSection 的 .post class 區分

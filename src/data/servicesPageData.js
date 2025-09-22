@@ -47,7 +47,7 @@ export const serviceItems = [
   }
 ];
 
-export const servicesPageData = {
+export const servicesSection = {
   /**
    * 首頁「服務」區塊的內容
    */
@@ -59,45 +59,40 @@ export const servicesPageData = {
     imageUrl: "/images/wagashi.jpg",
     imageAlt: "服務總覽示意圖",
   },
-
-  /**
-   * 服務頁 (ServicesPage) 的頁首內容
-   */
-   reservationLink: "#", // 請填入預約服務的連結
-
-  /**
-   * 服務頁的服務流程內容
-   */
-  process: {
-    title: "服務流程",
-    steps: [
-      {
-        id: "process-step-01",
-        icon: IconInfoCircle,
-        title: "了解需求＆選擇技術堆疊",
-        description: "🐷🐷Tech-stack🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
-      },
-      {
-        id: "process-step-02",
-        icon: IconLeaf,
-        title: "製作前台",
-        description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。"
-      },
-      {
-        id: "process-step-03",
-        icon: IconDroplet,
-        title: "製作後台",
-        description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷。"
-      },
-      {
-        id: "process-step-04",
-        icon: IconPlant,
-        title: "測試＆交貨",
-        description: "🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
-      }
-    ]
-  },
 };
+
+// 服務流程
+export const serviceProcess = {
+title: "服務流程",
+steps: [
+  {
+    id: "process-step-01",
+    icon: IconInfoCircle,
+    title: "了解需求＆選擇技術堆疊",
+    description: "🐷🐷Tech-stack🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
+  },
+  {
+    id: "process-step-02",
+    icon: IconLeaf,
+    title: "製作前台",
+    description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。"
+  },
+  {
+    id: "process-step-03",
+    icon: IconDroplet,
+    title: "製作後台",
+    description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷。"
+  },
+  {
+    id: "process-step-04",
+    icon: IconPlant,
+    title: "測試＆交貨",
+    description: "🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
+  }
+]
+
+};
+
 
 export const serviceTestimonials = {
   title: "服務心得分享",

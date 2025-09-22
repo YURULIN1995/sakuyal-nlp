@@ -1,4 +1,4 @@
-@use '@styles/mixins' as mixin;
+@use '@styles/mixins' as mx;
 @use '@styles/colors' as color;
 @use 'sass:map';
 
@@ -7,7 +7,7 @@
   width: 100%;
   box-sizing: border-box;
 
-  @include mixin.respond-min(md) {
+  @include mx.respond-min(md) {
     padding: 100px 25px;
   }
 }
@@ -67,7 +67,7 @@
   // svg {
   //   width: 17px;
   //   height: auto;
-  //   @include mixin.respond-min(md) {
+  //   @include mx.respond-min(md) {
   //     width: 20px;
   //     height: auto;
   //   }
