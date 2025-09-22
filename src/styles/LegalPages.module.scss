@@ -44,6 +44,9 @@
   }
   
   li {
+    display: list-item;
+    list-style-type: decimal;
+    list-style-position: inside;
     margin-bottom: 10px;
   }
 }
