@@ -1,9 +1,5 @@
 import ArrowRightIcon from '@assets/icons/arrow-right.svg?react';
 
-export const blogIntro = {
-  title: '文章'
-};
-
 // 所有文章的完整列表
 export const allPostsData = [
   {
@@ -63,5 +59,5 @@ export const allPostsData = [
   },
 ];
 
-// 精選文章資料現在從 allPostsData 動態產生，只取前三篇
+// 精選文章資料現在從 allPostsData 動態產生，只取id編號前三篇
 export const featuredPostsData = allPostsData.slice(0, 3);

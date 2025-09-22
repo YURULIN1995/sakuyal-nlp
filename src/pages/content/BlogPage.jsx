@@ -3,7 +3,7 @@ import SEO from '@components/Head/SEO';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import OneColumnLayout from '@components/OneColumnLayout';
 import PostsList from '@components/PostsList'; 
-import { blogIntro, allPostsData } from '@data/blogData.js';
+import { allPostsData } from '@data/blogData.js';
 import { siteMeta } from '@data/siteMeta.js';
 import styles from '@styles/BlogPage.module.scss';
 
@@ -14,7 +14,7 @@ function BlogPage() {
     <>
       <ViewportMeta/>
       <SEO title={title} description={description} />
-      <PageHeaderBicolorBackground title={blogIntro.title} />
+      <PageHeaderBicolorBackground title={title} />
       <OneColumnLayout>
         <main className={styles.blogPageContainer}>
         <PostsList posts={allPostsData} />
