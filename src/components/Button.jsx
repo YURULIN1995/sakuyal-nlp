@@ -8,7 +8,7 @@ import styles from '@styles/Button.module.scss';
  * @param {React.ReactNode} endIcon - (可選) 顯示在文字右側的圖示元件
  * @param {string} className - (可選) 額外的 CSS class
  */
-function Button({ link, text, endIcon, className }) {
+function Button({ to, text, endIcon, className }) {
 
   // 組合 class 名稱，包含預設的 .button 和外部傳入的 className
   const buttonClassName = `${styles.button} ${className || ''}`.trim();
@@ -27,12 +27,12 @@ function Button({ link, text, endIcon, className }) {
   );
 
   // 判斷是否為外部連結
-  const isExternal = link.startsWith('http');
+  const isExternal = to.startsWith('http');
 
   // 如果是外部連結，使用 <a> 標籤；否則使用 react-router 的 <Link> 元件
   return isExternal ? (
     <a 
-      href={link} 
+      href={to} 
       className={buttonClassName}
       target="_blank"
       rel="noopener noreferrer"
@@ -40,7 +40,7 @@ function Button({ link, text, endIcon, className }) {
       {content}
     </a>
   ) : (
-    <Link to={link} className={buttonClassName}>
+    <Link to={to} className={buttonClassName}>
       {content}
     </Link>
   );

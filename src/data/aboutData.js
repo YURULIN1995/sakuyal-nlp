@@ -2,7 +2,7 @@ import { siteMeta } from '@data/siteMeta.js';
 import { ctas } from '@data/userExperienceWriting.js';
 
 export const aboutHomepageData = {
-  titleLine1: `關於${siteMeta.siteAuthorName}`, 
+  titleLine1: `${siteMeta.siteName}`, // 從siteMeta.js 代入站名
   titleLine2: null, //副標題：網站宗旨，可塡，例："培育茶道專家的搖籃"。亦可留白，填入 null。
   paragraph: "茶之心協助來自不同背景的學習者，悠遊於裏千家茶道的優美境地，為您的茶道旅程提供清晰的理解與實用的指引。我們助您不僅學習精準的點前(てまえ, temae)形式，更能真實體會茶之「心」(こころ, kokoro)——領略器物(どうぐ, dōgu)之美、鑑賞時節之韵，並感受其中蘊含的款待。體驗一條通往文化深度與個人滋養的獨特路徑，隨時隨地皆可探尋。讓我們為您構築學習的階梯，使您得以專注領略茶道的靜謐之美與內在修為。", // 請您撰寫網站宗旨。
   buttonText: `${ctas.about.secondary}`, // 請在userExperienceWriting.js ctas about裡新增、選擇、變更與 按鈕連結 相應的名稱。

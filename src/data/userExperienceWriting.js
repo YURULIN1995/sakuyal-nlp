@@ -78,7 +78,7 @@ export const ctas = {
     },
     bookService: {
         primary: '立即預約！',
-        secondary: '馬上卡位！'
+        secondary: '預約免費諮詢'
     },
     readMore: '閱讀更多',
     submitForm: '送出表單',

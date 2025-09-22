@@ -169,7 +169,7 @@ function Upsell() {
                 </ul>              
               <p>只有這一頁才有優惠價NT${siteMeta.price.selfStudyCourseUpsell}（官網價NT${siteMeta.price.selfStudyCourse}的12%）</p>
             </div>
-            <Button className={styles.buyButton}text={buy.secondary} link="#" endIcon={<IconChevronRight/>}/>
+            <Button className={styles.buyButton} text={buy.secondary} to="#" endIcon={<IconChevronRight/>}/>
           </div>
         </BackgroundColor>
       </main>

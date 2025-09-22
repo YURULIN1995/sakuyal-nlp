@@ -1,4 +1,3 @@
-
 // --- 圖示匯入 ---
 import IconCakeRoll from '@assets/icons/cake-roll.svg?react';
 import IconTeapot from '@assets/icons/teapot.svg?react';
@@ -64,11 +63,7 @@ export const servicesPageData = {
   /**
    * 服務頁 (ServicesPage) 的頁首內容
    */
-  header: {
-    titleLine: "服務項目",
-    buttonText: "預約諮詢",
-    buttonLink: "#"
-  },
+   reservationLink: "#", // 請填入預約服務的連結
 
   /**
    * 服務頁的服務流程內容

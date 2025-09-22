@@ -11,6 +11,7 @@ import BeforeAfter from '@components/BeforeAfter';
 import Faq from '@components/Faq';
 import { servicesPageData, serviceItems, targetAudienceData, beforeAfterData, servicesFaq } from '@data/servicesPageData.js';
 import { siteMeta } from '@data/siteMeta.js';
+import { ctas } from '@data/userExperienceWriting.js';
 
 function ServicesPage() {
   const { title, description } = siteMeta.pages.services;
@@ -20,7 +21,7 @@ function ServicesPage() {
     <>
       <ViewportMeta/>
       <SEO title={title} description={description} />
-      <PageHeaderBicolorBackground title={servicesPageData.header.titleLine} />
+      <PageHeaderBicolorBackground title={title} />
       <BackgroundColor>
         <OneColumnLayout>
           {serviceItems.map((service) => (
@@ -33,7 +34,7 @@ function ServicesPage() {
               isReversed={service.isReversed}
             />
           ))}
-          <Button text={servicesPageData.header.buttonText} link={servicesPageData.header.buttonLink} />
+          <Button text={ctas.bookService.secondary} to={servicesPageData.reservationLink} />
         </OneColumnLayout>
       </BackgroundColor>
       <BackgroundColor color="white">
