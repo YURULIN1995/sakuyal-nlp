@@ -4,7 +4,6 @@ import { siteMeta } from '@data/siteMeta.js';
 export const notFoundMessages = {
     title: '404 - 這個頁面不存在。',
     prompt: '指向這裡的連結發生錯誤，請使用搜尋功能查詢其他結果。',
-    homeLink: '返回首頁'
 };
 
 // Server-side 回應訊息: Cloudflare Turnstile API , Brevo Contact API, Brevo Transactional API
@@ -12,33 +11,33 @@ export const notFoundMessages = {
 export const apiMessages = {
     // Cloudflare Turnstile API
     common: {
-        forbidden: '禁止存取',
-        captchaFail: 'CAPTCHA 驗證失敗',
+        forbidden: '禁止存取', // 不可更動
+        captchaFail: 'CAPTCHA 驗證失敗', // 不可更動
     },
     // Brevo Contact API
     contact: {
-        success: '訊息已成功寄出', //可客製
-        error: '訊息寄送時發生錯誤', //可客製
+        success: '訊息已成功寄出',
+        error: '訊息寄送時發生錯誤',
     },
-    // Brevo Transactional API
+    // Brevo Email API
     subscription: {
-        success: '訂閱成功！請檢查您的信箱以確認訂閱。', //可客製
-        error: '訂閱時發生錯誤', //可客製
-        serverConfigError: '伺服器設定不完整',
+        success: '訂閱成功！請檢查您的信箱以確認訂閱。',
+        error: '訂閱時發生錯誤',
+        serverConfigError: '伺服器設定不完整,請洽開發人員 Sakuya (sakuya@sakuyal.com) 修理', // 不可更動
     }
 };
 
 // 聯絡表單 UI 文字
 export const contactFormContent = {
     statusMessage: {
-        success: '感謝您的訊息，我會盡快與您聯繫！', //可客製
-        error: '訊息傳送失敗，請聯絡開發人員或直接來信。', //可客製
-        sending: '傳送中...' //可客製
+        success: '感謝您的訊息，我會盡快與您聯繫！',
+        error: '訊息傳送失敗，請聯絡開發人員或直接來信。',
+        sending: '傳送中...'
     },
     labels: {
-        name: '您的姓名', //可客製，例：請問貴姓大名。
-        email: '電子郵件', //可客製，例：請輸入您的Email。
-        message: '訊息內容' //可客製，例：請描述您遇到的問題。
+        name: '您的姓名',
+        email: '電子信箱',
+        message: '訊息內容'
     }
 };
 

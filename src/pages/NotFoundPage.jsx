@@ -11,7 +11,7 @@ function NotFoundPage() {
         <h1 className={styles.errorMessage}>{notFoundMessages.title}</h1>
         <p className={styles.prompt}>{notFoundMessages.prompt}</p>
         <p>
-          <Link to="/" className={styles.homeLink}>{notFoundMessages.homeLink}</Link>
+          <Link to="/" className={styles.homeLink}>返回首頁</Link>
         </p>
       </div>
     </>
