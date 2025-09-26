@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from '@styles/ContactForm.module.scss';
-import { contactFormData, contactLink } from '@data/contactPageData.js';
+import { contactLink } from '@data/contactPageData.js';
 import { contactFormContent } from '@data/userExperienceWriting.js';
 import Turnstile from 'react-turnstile';
 
@@ -69,46 +69,46 @@ function ContactForm() {
   return (
     <div className={styles.formContainer}>
       <p className={styles.formSubtitle}>
-        {contactFormData.formSubtitle}
+        {contactFormContent.formSubtitle}
         <a href={`mailto:${mailAddress}`}>{mailAddress}</a>
       </p>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
-          <label htmlFor="name" className={styles.label}>{contactFormData.nameLabel}</label>
+          <label htmlFor="name" className={styles.label}>{contactFormContent.nameLabel}</label>
           <input
             type="text"
             id="name"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder={contactFormData.namePlaceholder}
+            placeholder={contactFormContent.namePlaceholder}
             className={styles.input}
             required
             disabled={status === 'sending'}
           />
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="email" className={styles.label}>{contactFormData.emailLabel}</label>
+          <label htmlFor="email" className={styles.label}>{contactFormContent.emailLabel}</label>
           <input
             type="email"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder={contactFormData.emailPlaceholder}
+            placeholder={contactFormContent.emailPlaceholder}
             className={styles.input}
             required
             disabled={status === 'sending'}
           />
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="message" className={styles.label}>{contactFormData.messageLabel}</label>
+          <label htmlFor="message" className={styles.label}>{contactFormContent.messageLabel}</label>
           <textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder={contactFormData.messagePlaceholder}
+            placeholder={contactFormContent.messagePlaceholder}
             className={styles.textarea}
             required
             disabled={status === 'sending'}
@@ -126,7 +126,7 @@ function ContactForm() {
           className={styles.submitButton} 
           disabled={status === 'sending' || !turnstileToken}
         >
-          {status === 'sending' ? contactFormContent.statusMessage.sending : contactFormData.submitButtonText}
+          {status === 'sending' ? contactFormContent.statusMessage.sending : contactFormContent.submitButtonText}
         </button>
 
         {status === 'sending' && (

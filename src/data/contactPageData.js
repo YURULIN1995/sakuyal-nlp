@@ -28,15 +28,3 @@ export const contactLink = [
     contactUrl: "#"
   }
 ];
-
-// 聯絡表單的文字資料
-export const contactFormData = {
-  formSubtitle: "歡迎填寫聯絡表格，或可以直接寫信到",
-  nameLabel: "您的姓名",
-  namePlaceholder: "請輸入您的姓名",
-  emailLabel: "電子郵件",
-  emailPlaceholder: "請輸入您的電子郵件",
-  messageLabel: "訊息內容",
-  messagePlaceholder: "請在此輸入您的訊息",
-  submitButtonText: "送出表單"
-};
