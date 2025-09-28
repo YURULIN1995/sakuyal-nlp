@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:3333/structure -->
+<html lang="en"><!--
+This file is auto-generated from "sanity dev".
+Modifications to this file are automatically discarded.
+--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="./Sanity Studio_files/client"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"><meta name="referrer" content="same-origin"><link rel="icon" href="http://localhost:3333/static/favicon.ico" sizes="any"><link rel="icon" href="http://localhost:3333/static/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="http://localhost:3333/static/apple-touch-icon.png"><link rel="manifest" href="http://localhost:3333/static/manifest.webmanifest"><title>Sanity Studio</title><script>
+;(function () {
+  // The error channel is provided so that error handling can be delegated to a view component.
+  // If there is a subscriber to the error channel at the time the error happens, the error will be pushed to the subscriber instead of handled here.
+  var errorChannel = (function () {
+    var subscribers = Object.create(null)
+    var nextId = 0
+    function subscribe(subscriber) {
+      var id = nextId++
+      subscribers[id] = subscriber
+      return function unsubscribe() {
+        delete subscribers[id]
+      }
+    }
+
+    function publish(event) {
+      for (var id in subscribers) {
+        if (Object.hasOwn(subscribers, id)) {
+          subscribers[id](event)
+        }
+      }
+    }
+    return {
+      subscribers,
+      publish,
+      subscribe
+    }
+  })()
+
+  // NOTE: Store the error channel instance in the global scope so that the Studio application can
+  // access it and subscribe to errors.
+  window.__sanityErrorChannel = {
+    subscribe: errorChannel.subscribe
+  }
+
+  function _handleError(event) {
+    // If there are error channel subscribers, then we assume they will own error rendering,
+    // and we defer to them (no console error).
+    if (Object.keys(errorChannel.subscribers).length > 0) {
+      errorChannel.publish(event)
+    } else {
+      _renderErrorOverlay(event)
+    }
+  }
+
+  var ERROR_BOX_STYLE = [
+    'background: #fff',
+    'border-radius: 6px',
+    'box-sizing: border-box',
+    'color: #121923',
+    'flex: 1',
+    "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue','Liberation Sans',Helvetica,Arial,system-ui,sans-serif",
+    'font-size: 16px',
+    'line-height: 21px',
+    'margin: 0 auto',
+    'max-width: 960px',
+    'max-height: 90dvh',
+    'overflow: auto',
+    'padding: 20px',
+    'width: 100%',
+  ].join(';')
+
+  var ERROR_CODE_STYLE = [
+    'color: #972E2A',
+    "font-family: -apple-system-ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace",
+    'font-size: 13px',
+    'line-height: 17px',
+    'margin: 0',
+  ].join(';')
+
+  function _renderErrorOverlay(event) {
+    var errorElement = document.querySelector('#__sanityError') || document.createElement('div')
+    var error = event.error
+    var colno = event.colno
+    var lineno = event.lineno
+    var filename = event.filename
+
+    errorElement.id = '__sanityError'
+    errorElement.innerHTML = [
+      '<div style="' + ERROR_BOX_STYLE + '">',
+      '<div style="font-weight: 700;">Uncaught error: ' + error.message + '</div>',
+      '<div style="color: #515E72; font-size: 13px; line-height: 17px; margin: 10px 0;">' +
+        filename +
+        ':' +
+        lineno +
+        ':' +
+        colno +
+        '</div>',
+      '<pre style="' + ERROR_CODE_STYLE + '">' + error.stack + '</pre>',
+      '</div>',
+    ].join('')
+
+    errorElement.style.position = 'fixed'
+    errorElement.style.zIndex = 1000000
+    errorElement.style.top = 0
+    errorElement.style.left = 0
+    errorElement.style.right = 0
+    errorElement.style.bottom = 0
+    errorElement.style.padding = '20px'
+    errorElement.style.background = 'rgba(16,17,18,0.66)'
+    errorElement.style.display = 'flex'
+    errorElement.style.alignItems = 'center'
+    errorElement.style.justifyContent = 'center'
+
+    document.body.appendChild(errorElement)
+  }
+
+  // Error listener
+  window.addEventListener('error', (event) => {
+    _handleError({
+      type: 'error',
+      error: event.error,
+      lineno: event.lineno,
+      colno: event.colno,
+      filename: event.filename
+    })
+  })
+
+  // Error listener
+  window.addEventListener('unhandledrejection', (event) => {
+    _handleError({
+      type: 'rejection',
+      error: event.reason
+    })
+  })
+})()
+</script><style>
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Italic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Medium.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-MediumItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-SemiBold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-SemiBoldItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Bold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-BoldItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-ExtraBold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 800;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-ExtraBoldItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Black.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-BlackItalic.woff2") format("woff2");
+  }
+  html {
+    @media (prefers-color-scheme: dark) {
+      background-color: #13141b;
+    }
+    @media (prefers-color-scheme: light) {
+      background-color: #ffffff;
+    }
+  }
+  html,
+  body,
+  #sanity {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+</style><script src="./Sanity Studio_files/bridge.js" async="" type="module" data-sanity-core=""></script>
+</head><body cz-shortcut-listen="true"><div id="sanity"></div><script type="module" src="./Sanity Studio_files/app.js"></script><noscript><div class="sanity-app-no-js__root"><div class="sanity-app-no-js__content"><style type="text/css">
+.sanity-app-no-js__root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.sanity-app-no-js__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: helvetica, arial, sans-serif;
+}
+</style><h1>JavaScript disabled</h1><p>Please <a href="https://www.enable-javascript.com/">enable JavaScript</a> in your browser and reload the page to proceed.</p></div></div></noscript><sanity-bridge></sanity-bridge><vite-error-overlay><template shadowrootmode="open"><div class="backdrop" part="backdrop"><div class="window" part="window"><pre class="message" part="message"><span class="plugin" part="plugin">[plugin:vite:import-analysis] </span><span class="message-body" part="message-body">Failed to resolve import "@sanity/icons" from "schemaTypes/postType.js". Does the file exist?</span></pre><pre class="file" part="file"><a class="file-link">/home/yuru/Documents/site-crm/schemaTypes/postType.js:3:24</a></pre><pre class="frame" part="frame">1  |  
+2  |  import { defineType, defineField } from 'sanity'
+3  |  import {EditIcon} from '@sanity/icons'
+   |                          ^
+4  |  
+5  |  export const postType = defineType({</pre><pre class="stack" part="stack">    at TransformPluginContext._formatLog (<a class="file-link">file:///home/yuru/Documents/site-crm/node_modules/.pnpm/vite@7.1.7_@types+node@24.5.2_jiti@2.6.0_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31185:43</a>)
+    at TransformPluginContext.error (<a class="file-link">file:///home/yuru/Documents/site-crm/node_modules/.pnpm/vite@7.1.7_@types+node@24.5.2_jiti@2.6.0_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:31182:14</a>)
+    at normalizeUrl (<a class="file-link">file:///home/yuru/Documents/site-crm/node_modules/.pnpm/vite@7.1.7_@types+node@24.5.2_jiti@2.6.0_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29665:18</a>)
+    at async <a class="file-link">file:///home/yuru/Documents/site-crm/node_modules/.pnpm/vite@7.1.7_@types+node@24.5.2_jiti@2.6.0_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29723:32</a>
+    at async Promise.all (index 1)
+    at async TransformPluginContext.transform (<a class="file-link">file:///home/yuru/Documents/site-crm/node_modules/.pnpm/vite@7.1.7_@types+node@24.5.2_jiti@2.6.0_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:29691:4</a>)
+    at async EnvironmentPluginContainer.transform (<a class="file-link">file:///home/yuru/Documents/site-crm/node_modules/.pnpm/vite@7.1.7_@types+node@24.5.2_jiti@2.6.0_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:30984:14</a>)
+    at async loadAndTransform (<a class="file-link">file:///home/yuru/Documents/site-crm/node_modules/.pnpm/vite@7.1.7_@types+node@24.5.2_jiti@2.6.0_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:26116:26</a>)
+    at async viteTransformMiddleware (<a class="file-link">file:///home/yuru/Documents/site-crm/node_modules/.pnpm/vite@7.1.7_@types+node@24.5.2_jiti@2.6.0_yaml@2.8.1/node_modules/vite/dist/node/chunks/dep-Bm2ujbhY.js:27187:20</a>)</pre><div class="tip" part="tip">Click outside, press <kbd>Esc</kbd> key, or fix the code to dismiss.<br>You can also disable this overlay by setting <code part="config-option-name">server.hmr.overlay</code> to <code part="config-option-value">false</code> in <code part="config-file-name">vite.config.js</code>.</div></div><style>
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  --monospace: 'SFMono-Regular', Consolas,
+  'Liberation Mono', Menlo, Courier, monospace;
+  --red: #ff5555;
+  --yellow: #e2aa53;
+  --purple: #cfa4ff;
+  --cyan: #2dd9da;
+  --dim: #c9c9c9;
+
+  --window-background: #181818;
+  --window-color: #d8d8d8;
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.66);
+}
+
+.window {
+  font-family: var(--monospace);
+  line-height: 1.5;
+  max-width: 80vw;
+  color: var(--window-color);
+  box-sizing: border-box;
+  margin: 30px auto;
+  padding: 2.5vh 4vw;
+  position: relative;
+  background: var(--window-background);
+  border-radius: 6px 6px 8px 8px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  overflow: hidden;
+  border-top: 8px solid var(--red);
+  direction: ltr;
+  text-align: left;
+}
+
+pre {
+  font-family: var(--monospace);
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 1em;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre.frame::-webkit-scrollbar {
+  display: block;
+  height: 5px;
+}
+
+pre.frame::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 5px;
+}
+
+pre.frame {
+  scrollbar-width: thin;
+}
+
+.message {
+  line-height: 1.3;
+  font-weight: 600;
+  white-space: pre-wrap;
+}
+
+.message-body {
+  color: var(--red);
+}
+
+.plugin {
+  color: var(--purple);
+}
+
+.file {
+  color: var(--cyan);
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.frame {
+  color: var(--yellow);
+}
+
+.stack {
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.tip {
+  font-size: 13px;
+  color: #999;
+  border-top: 1px dotted #999;
+  padding-top: 13px;
+  line-height: 1.8;
+}
+
+code {
+  font-size: 13px;
+  font-family: var(--monospace);
+  color: var(--yellow);
+}
+
+.file-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+kbd {
+  line-height: 1.5;
+  font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: rgb(38, 40, 44);
+  color: rgb(166, 167, 171);
+  padding: 0.15rem 0.3rem;
+  border-radius: 0.25rem;
+  border-width: 0.0625rem 0.0625rem 0.1875rem;
+  border-style: solid;
+  border-color: rgb(54, 57, 64);
+  border-image: initial;
+}
+</style></div></template></vite-error-overlay></body></html>
