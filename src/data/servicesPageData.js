@@ -17,7 +17,7 @@ export const serviceItems = [
     iconName: IconTeapot,
     iconId: 'teapot',
     title: "建立客服AI訓練平台",
-    overview: "提供自動單色系調色盤，根據個人使用習慣客製專屬羽量級 sanity.io後台，擺脫厚重的 Wordpress 學習文件。直覺好上手喔🐷！",
+    overview: "根據個人使用習慣客製專屬羽量級 sanity.io後台,直覺好上手喔🐷！",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
     imageAlt: '客製個人行銷網站前後台',
