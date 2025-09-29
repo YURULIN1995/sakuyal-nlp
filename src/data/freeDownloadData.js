@@ -9,7 +9,7 @@ export const freeDownloadData = {
   imageAlt: mainTitle,
   titleLine1: "超過🐷🐷人下載：",
   titleLine2: mainTitle,
-  paragraph: "我幫助想要打造高客服留客率客服AI的個人創業者，藉由簡潔、好上手的的AI客服訓練介面，幫助你專住在客戶體驗優化。",
+  paragraph: "我幫助想要打造高留客率客服AI的個人創業者，藉由簡潔、好上手的的AI客服訓練介面，幫助你專住在客戶體驗優化。",
   paragraph2: `不需(${wastedEffort})與花時間到處爬文摸索`,
   paragraph3: "在這份免費下載的PDF檔案裡，我會分享:",
   paragraph4: "",
