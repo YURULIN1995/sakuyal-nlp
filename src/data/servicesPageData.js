@@ -39,7 +39,7 @@ export const serviceItems = [
     iconName: IconShoppingCart,
     iconId: 'shoppingCart',
     title: "客戶體驗優化諮詢",
-    overview: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。",
+    overview: "真正能理解人類的，還是人類。想知道哪服務環節盡量不用AI反而能留住更多客戶嗎？提供什麼工具給第一線客服員能購提昇問題判斷精準率呢？又如何用AI建立客服人員訓練工具，提昇團隊服務品質呢？",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷 \n\n 🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
     imageAlt: '服務03',
