@@ -3,7 +3,7 @@ import { ctas } from '@data/userExperienceWriting.js';
 
 export const aboutHomepageData = {
   titleLine1: `${siteMeta.siteName}`, // 從siteMeta.js 代入站名
-  titleLine2: 'null', //副標題：網站宗旨，可塡，例："培育茶道專家的搖籃"。亦可留白，填入 null。
+  titleLine2: null, //副標題：網站宗旨，可塡，例："培育茶道專家的搖籃"。亦可留白，填入 null。
   paragraph: '我幫助想要打造高客服留客率客服AI的個人創業者，藉由簡潔、好上手的的AI客服訓練介面，幫助你專住在客戶體驗優化。', // 請您撰寫網站宗旨。
   buttonText: `${ctas.about.secondary}`, // 請在userExperienceWriting.js ctas about裡新增、選擇、變更與 按鈕連結 相應的名稱。
   buttonLink: "/about", // 預設是「關於我」的連結,可變更。變更請參照 App.jsx 各頁面路由的名稱。
