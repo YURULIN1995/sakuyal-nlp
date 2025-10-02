@@ -6,6 +6,7 @@ import OneColumnLayout from '@components/OneColumnLayout';
 import ServiceCard from '@components/ServiceCard';
 import Button from '@components/Button';
 import ServicesProcess from '@components/ServicesProcess';
+import ServiceTestimonial from '@components/ServiceTestimonial';
 import TargetAudience from '@components/TargetAudience';
 import BeforeAfter from '@components/BeforeAfter';
 import Faq from '@components/Faq';
@@ -39,6 +40,9 @@ function ServicesPage() {
       </BackgroundColor>
       <BackgroundColor color="white">
         <ServicesProcess />
+      </BackgroundColor>
+      <BackgroundColor color="white">
+        <ServiceTestimonial/>
       </BackgroundColor>
       <BackgroundColor color="lightGreen">
         <TargetAudience data={targetAudienceData} />

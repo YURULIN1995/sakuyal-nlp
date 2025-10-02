@@ -7,10 +7,9 @@ import { Navigation, Pagination, Keyboard, A11y, Autoplay } from 'swiper/modules
 import TestimonialSlide from '@components/Testimonials/TestimonialSlide';
 import styles from '@styles/TestimonialsModules/TestimonialCarousel.module.scss';
 
-function TestimonialCarousel({ name, testimonials }) {
+function TestimonialCarousel({ testimonials }) {
     return (
         <div className={styles.testimonialsSection}>
-            <h2>{name}</h2>
             <Swiper
             modules={[Navigation, Pagination, Keyboard, A11y, Autoplay]}
             loop={true}

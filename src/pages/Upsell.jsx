@@ -2,17 +2,17 @@ import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import styles from '@styles/Upsell.module.scss';
 import BackgroundColor from '@components/BackgroundColor';
-import TestimonialCarousel from '@components/Testimonials/TestimonialCarousel';
 import BeforeAfter from '@components/BeforeAfter';
 import IconCheck from '@assets/icons/check.svg?react';
 import IconChevronRight from '@assets/icons/chevron-right.svg?react';
+import SelfStudyCourseTestimonial from '@components/SelfStudyCourseTestimonial';
 import { siteMeta } from '@data/siteMeta.js';
 import { upsellData } from '@data/upsellData.js';
 import { ctas } from '@data/userExperienceWriting.js';
 import { freeDownloadData } from '@data/freeDownloadData.js';
 import { targetAudienceData } from '@data/servicesPageData.js';
 import { authorData } from '@data/aboutData.js';
-import { selfStudyCourseTestimonials, selfStudyCourseData, selfStudyCourseFaq, selfStudyCourseBeforeAfterData } from '@data/selfStudyCourseData.js';
+import { selfStudyCourseData, selfStudyCourseFaq, selfStudyCourseBeforeAfterData } from '@data/selfStudyCourseData.js';
 import Faq from '@components/Faq';
 import Button from '@components/Button';
 import ScrollToTopButton from '@components/ScrollToTopButton';
@@ -25,7 +25,6 @@ function Upsell() {
   const { title, description } = pages.upsell;
   const {faqTitle, questionStacks} = selfStudyCourseFaq;
   const buy = ctas.buy;
-  const { name: testimonialTitle, list: testimonialList } = selfStudyCourseTestimonials;
   const { ctaSection, buyNowSection, targetAudienceSection, prosSection, outlineSection, greeting, aboutSection } = upsellData;
 
 
@@ -96,7 +95,7 @@ function Upsell() {
           </div>
         </BackgroundColor>
         <BackgroundColor color="white" className={styles.testimonials}>
-          <TestimonialCarousel name={testimonialTitle} testimonials={testimonialList} />
+          <SelfStudyCourseTestimonial/>
         </BackgroundColor>
         <BeforeAfter data={selfStudyCourseBeforeAfterData} />
         <BackgroundColor color="white" className={styles.outline}>

@@ -2,13 +2,13 @@ import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import TextImageSlot from '@components/TextImageSlot';
-import DividerTitleLeft from '@components/DividerTitleLeft';
+// import DividerTitleLeft from '@components/DividerTitleLeft';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
-import TestimonialPostCard from '@components/Testimonials/TestimonialPostCard';
+// import TestimonialPostCard from '@components/Testimonials/TestimonialPostCard';
 import { siteMeta } from '@data/siteMeta.js';
 import { authorData } from '@data/aboutData.js';
-import { serviceTestimonials } from '@data/servicesPageData.js';
+// import { serviceTestimonials } from '@data/servicesPageData.js';
 
 function AboutPage() {
   const { title, description } = siteMeta.pages.about;
@@ -29,8 +29,7 @@ function AboutPage() {
           />
         </OneColumnLayout>
       </BackgroundColor>
-
-      <OneColumnLayout>
+      {/* <OneColumnLayout>
         <DividerTitleLeft  title={serviceTestimonials.title } />
         {serviceTestimonials.list.map(item =>
         <TestimonialPostCard
@@ -42,7 +41,7 @@ function AboutPage() {
           fullText={item.fullText}
         />
         )}
-      </OneColumnLayout>
+      </OneColumnLayout> */}
     </>
   );
 }

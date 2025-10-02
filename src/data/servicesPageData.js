@@ -94,33 +94,18 @@ steps: [
 };
 
 
-export const serviceTestimonials = {
-  title: "服務心得分享",
+ export const serviceTestimonials = {
+  name: "客戶見證",
   list: [
-  {
-    id: 'service-testimonial-01',
-    authorName: "A",
-    authorTitle: "A身份",
-    imageUrl: "https://placehold.co/100/f1f6e9/a9d3a4",
-    imageAlt: "A-avatar",
-    // 用於首頁「客戶案例分享」的短引言
-    highlight: "Lorem ipsum dolor sit amet",
-    // 將原來的 text 改名為 fullText，用於「關於我」頁面的完整心得
-    fullText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in pulvinar neque. \n\n Phasellus viverra dolor odio, tempor sollicitudin metus laoreet sit amet.",
-    // 點擊後可前往的連結，可以是作品集或更詳細的文章 (可選)
-    link: "#" 
-  },
-  {
-    id: 'service-testimonial-02',
-    authorName: "B",
-    authorTitle: "B身份",
-    imageUrl: "https://placehold.co/100/f1f6e9/a9d3a4",
-    imageAlt: "B-avatar",
-    highlight: "Lorem ipsum dolor sit amet",
-    fullText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in pulvinar neque. \n\n Phasellus viverra dolor odio, tempor sollicitudin metus laoreet sit amet.",
-    link: "#"
-  }
-  ],
+    { id: 't-01', authorName: "林小姐", authorTitle: "家庭主婦", imageUrl: "https://placehold.co/50/f1f6e9/a9d3a4", imageAlt: "林小姐", fullText: "簡單易學，內容豐富，循序漸進，超有成就感！" },
+    { id: 't-02', authorName: "張小姐", authorTitle: "超市店員", imageUrl: "https://placehold.co/50/f1f6e9/a9d3a4", imageAlt: "張小姐", fullText: "老師刪除了大量無效的步驟，我的學習突飛猛進，我也可以輕鬆在一星期內完成作品集了！" },
+    { id: 't-03', authorName: "王小姐", authorTitle: "甜點師", imageUrl: "https://placehold.co/50/f1f6e9/a9d3a4", imageAlt: "王小姐", fullText: "省時省力的學習步驟！沒想到一天只花一小時跟著學習單練習竟然在一個月內能完成這麼美的作品！" },
+    { id: 't-04', authorName: "李先生", authorTitle: "專案經理", imageUrl: "https://placehold.co/50/f1f6e9/a9d3a4", imageAlt: "李先生", fullText: "原來可以不用那麼累。只要按照老師給的基本模組設計圖和最少必要的步驟按照自己的需求微調就能把畫面做的有個性又實用！" },
+    { id: 't-05', authorName: "陳先生", authorTitle: "自由工作者", imageUrl: "https://placehold.co/50/f1f6e9/a9d3a4", imageAlt: "陳先生", fullText: "老師非常懂每個元件製作的基本原理，就算要製作相當繁複的功能，也可以尋求高度客製服務改到滿意為止。非常划算！" },
+    { id: 't-06', authorName: "顏小姐", authorTitle: "學生", imageUrl: "https://placehold.co/50/f1f6e9/a9d3a4", imageAlt: "顏小姐", fullText: "老師回覆訊息非常快。通常3小時以內會給予完整的回答。只要事先填好官網的問題欄位描述，上傳截圖，就能迅速收到詳細的解決方案！" },
+    { id: 't-07', authorName: "蔡先生", authorTitle: "創業者", imageUrl: "https://placehold.co/50/f1f6e9/a9d3a4", imageAlt: "蔡先生", fullText: "暖心又嚴格的督促與叮嚀。老師非常關心學員的時間與精力分配，除了跟催進度，也會聽取學員的時間分配困難給予更簡化的任務。減輕我的壓力。" },
+    { id: 't-08', authorName: "莊小姐", authorTitle: "待業者", imageUrl: "https://placehold.co/50/f1f6e9/a9d3a4", imageAlt: "莊小姐", fullText: "以前都不知道連這種功能都寫的出來！老師不只是教一個固定框架而已，針對學的特別快的學員，會教更多功能的發想與創造的方法！" },
+  ]
 };
 
 export const targetAudienceData = {
