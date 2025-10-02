@@ -41,8 +41,11 @@ function ServicesPage() {
       <BackgroundColor color="white">
         <ServicesProcess />
       </BackgroundColor>
-      <BackgroundColor color="white">
+      <BackgroundColor color="lightGreen">
         <ServiceTestimonial/>
+      </BackgroundColor>
+      <BackgroundColor color="white">
+        <Faq title={faqTitle} items={questionStacks}/>
       </BackgroundColor>
       <BackgroundColor color="lightGreen">
         <TargetAudience data={targetAudienceData} />
@@ -50,9 +53,7 @@ function ServicesPage() {
       <BackgroundColor color="white">
         <BeforeAfter data={beforeAfterData} />
       </BackgroundColor>
-      <BackgroundColor color="lightGreen">
-        <Faq title={faqTitle} items={questionStacks}/>
-      </BackgroundColor>
+      
     </>
   );
 }

@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import styles from '@styles/PostCard.module.scss';
+import IconArrowRight from '@assets/icons/arrow-right.svg?react';
 
 function PostCard({ post }) {
-  const { postUrl, imageUrl, imageAlt, category, title, excerpt, buttonText, buttonIcon: ButtonIcon } = post;
+  const { postUrl, imageUrl, imageAlt, category, title, excerpt } = post;
 
   return (
     <article className={styles.card}>
@@ -16,8 +17,8 @@ function PostCard({ post }) {
         </h3>
         {excerpt && <p className={styles.cardExcerpt}>{excerpt}</p>}
         <Link to={postUrl} className={styles.cardReadMore}>
-          {buttonText || '閱讀更多'}
-          {ButtonIcon && <ButtonIcon className={styles.cardIcon} />}
+          <span>閱讀更多</span>
+          <IconArrowRight className={styles.cardIcon}/>
         </Link>
       </div>
     </article>
