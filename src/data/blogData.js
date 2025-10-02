@@ -4,7 +4,7 @@ import ArrowRightIcon from '@assets/icons/arrow-right.svg?react';
 export const allPostsData = [
   {
     id: 'post1',
-    postUrl: '#',
+    slug: '#',
     imageUrl: '/images/handmade-wagashi.jpg',
     imageAlt: '手工和菓子',
     category: '茶道美學',
@@ -13,7 +13,7 @@ export const allPostsData = [
   },
   {
     id: 'post2',
-    postUrl: '#',
+    slug: '#',
     imageUrl: '/images/tea-ceremony.jpg',
     imageAlt: '茶道體驗',
     category: '實用教學',
@@ -22,7 +22,7 @@ export const allPostsData = [
   },
   {
     id: 'post3',
-    postUrl: '#',
+    slug: '#',
     imageUrl: '/images/matcha-dougu.jpg',
     imageAlt: '抹茶茶具',
     category: '器物鑑賞',
@@ -31,7 +31,7 @@ export const allPostsData = [
   },
   {
     id: 'post4',
-    postUrl: '#',
+    slug: '#',
     imageUrl: 'https://placehold.co/1920x1077/a9d3a4/4a6e4f',
     imageAlt: '貼文04',
     category: '分類02',
@@ -40,7 +40,7 @@ export const allPostsData = [
   },
   {
     id: 'post5',
-    postUrl: '#',
+    slug: '#',
     imageUrl: 'https://placehold.co/1920x1077/a9d3a4/4a6e4f',
     imageAlt: '貼文05',
     category: '分類03',

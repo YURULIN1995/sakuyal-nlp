@@ -3,20 +3,20 @@ import styles from '@styles/PostCard.module.scss';
 import IconArrowRight from '@assets/icons/arrow-right.svg?react';
 
 function PostCard({ post }) {
-  const { postUrl, imageUrl, imageAlt, category, title, excerpt } = post;
+  const { slug, imageUrl, imageAlt, category, title, excerpt } = post;
 
   return (
     <article className={styles.card}>
-      <Link to={postUrl} className={styles.cardImageLink}>
+      <Link to={slug} className={styles.cardImageLink}>
         <img src={imageUrl} alt={imageAlt} className={styles.cardImage} loading="lazy" />
       </Link>
       <div className={styles.cardContent}>
         {category && <p className={styles.cardCategory}>{category}</p>}
         <h3 className={styles.cardTitle}>
-          <Link to={postUrl}>{title}</Link>
+          <Link to={slug}>{title}</Link>
         </h3>
         {excerpt && <p className={styles.cardExcerpt}>{excerpt}</p>}
-        <Link to={postUrl} className={styles.cardReadMore}>
+        <Link to={slug} className={styles.cardReadMore}>
           <span>閱讀更多</span>
           <IconArrowRight className={styles.cardIcon}/>
         </Link>

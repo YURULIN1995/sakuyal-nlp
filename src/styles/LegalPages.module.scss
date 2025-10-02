@@ -9,13 +9,10 @@
 
 .title {
   @include mx.t-title;
-  
-  // ▼▼▼ 修改之處 ▼▼▼
   & {
     text-align: center;
     margin-bottom: 40px;
   }
-  // ▲▲▲ 修改之處 ▲▲▲
 }
 
 .subheading {
