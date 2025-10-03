@@ -1,7 +1,7 @@
 // --- 圖示匯入 ---
-import IconCakeRoll from '@assets/icons/cake-roll.svg?react';
-import IconTeapot from '@assets/icons/teapot.svg?react';
-import IconShoppingCart from '@assets/icons/shopping-cart.svg?react';
+import IconMessageCircleUser from '@assets/icons/message-circle-user.svg?react';
+import IconBrowser from '@assets/icons/browser.svg?react';
+import IconBusinessplan from '@assets/icons/businessplan.svg?react';
 import IconInfoCircle from '@assets/icons/info-circle.svg?react';
 import IconLeaf from '@assets/icons/leaf.svg?react';
 import IconDroplet from '@assets/icons/droplet.svg?react';
@@ -14,9 +14,8 @@ import IconPlant from '@assets/icons/plant.svg?react';
 export const serviceItems = [
   {
     id: 'service-01',
-    iconName: IconTeapot,
-    iconId: 'teapot',
-    title: "建立客服AI訓練平台",
+    iconName: IconMessageCircleUser,
+    title: "人性化 AI 服務流程設計",
     overview: "根據個人使用習慣客製專屬羽量級 sanity.io後台,直覺好上手喔🐷！",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
@@ -25,9 +24,8 @@ export const serviceItems = [
   },
   {
     id: 'service-02',
-    iconName: IconCakeRoll,
-    iconId: 'wagashi',
-    title: "客服AI訓練品質迭代優化",
+    iconName: IconBrowser,
+    title: "品牌服務載體網站建置",
     overview: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷！🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
@@ -36,9 +34,8 @@ export const serviceItems = [
   },
   {
     id: 'service-03',
-    iconName: IconShoppingCart,
-    iconId: 'shoppingCart',
-    title: "客戶體驗優化諮詢",
+    iconName: IconBusinessplan,
+    title: "AI 驅動型客戶轉換流程",
     overview: "真正能理解人類的，還是人類。想知道哪服務環節盡量不用AI反而能留住更多客戶嗎？提供什麼工具給第一線客服員能購提昇問題判斷精準率呢？又如何用AI建立客服人員訓練工具，提昇團隊服務品質呢？",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷 \n\n 🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
