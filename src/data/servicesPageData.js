@@ -16,30 +16,30 @@ export const serviceItems = [
     id: 'service-01',
     iconName: IconMessageCircleUser,
     title: "人性化 AI 服務流程設計",
-    overview: "根據個人使用習慣客製專屬羽量級 sanity.io後台,直覺好上手喔🐷！",
+    overview: "協助你訓練出符合你說話風格的AI助手，人類參與循環，為您規劃人類介入服務的最佳時機，讓客戶可以隨時選擇直接與您對話。",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
-    imageAlt: '客製個人行銷網站前後台',
+    imageAlt: '人性化 AI 服務流程設計',
     isReversed: false
   },
   {
     id: 'service-02',
     iconName: IconBrowser,
-    title: "品牌服務載體網站建置",
-    overview: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷！🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。",
+    title: "品牌網站建置",
+    overview: "除了為你節省主機費與網站維護費，還提供極簡後台、AI內容提示助手、單色系自動配色工具，讓你輕鬆管理品牌網站。",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
-    imageAlt: '服務02',
+    imageAlt: '品牌服務載體網站建置',
     isReversed: true
   },
   {
     id: 'service-03',
     iconName: IconBusinessplan,
     title: "AI 驅動型客戶轉換流程",
-    overview: "真正能理解人類的，還是人類。想知道哪服務環節盡量不用AI反而能留住更多客戶嗎？提供什麼工具給第一線客服員能購提昇問題判斷精準率呢？又如何用AI建立客服人員訓練工具，提昇團隊服務品質呢？",
+    overview: "不只用AI代理搜尋優化把你的內容推進AI搜尋摘要，更為你分析互動數據，找出服務流失點，持續優化成交率。",
     description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷 \n\n 🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
-    imageAlt: '服務03',
+    imageAlt: '驅動型客戶轉換流程',
     isReversed: false
   }
 ];
