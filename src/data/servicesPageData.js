@@ -121,9 +121,11 @@ export const targetAudienceData = {
       text: "適用者",
       iconName: "IconCheck",
       items: [
-        { id: "applicable-01", text: "描述一" },
-        { id: "applicable-02", text: "描述二" },
-        { id: "applicable-03", text: "描述三" }
+        { id: "applicable-01", text: "已經有自己的品牌網站的人。" },
+        { id: "applicable-02", text: "雖然還沒蓋網站，已經有自己的服務與產品的人。" },
+        { id: "applicable-03", text: "想要跳出平台競爭，發展自有品牌的人。" },
+        { id: "applicable-04", text: "將時間與精力的產出最大化，專住在少數真正影響品牌留客率的任務。" },
+        { id: "applicable-05", text: "擺脫厚重的說明書與技術專有名詞，溝通需求就像跟朋友聊天一樣簡單！" }
       ]
     },
     {
@@ -131,9 +133,11 @@ export const targetAudienceData = {
       text: "不適用者",
       iconName: "IconX",
       items: [
-        { id: "notApplicable-01", text: "描述四" },
-        { id: "notApplicable-02", text: "描述五" },
-        { id: "notApplicable-03", text: "描述六" }
+        { id: "notApplicable-01", text: "缺乏客戶信任建立意識的人" },
+        { id: "notApplicable-02", text: "沒有自己的服務與產品的人" },
+        { id: "notApplicable-03", text: "沒有建立服務標準流程的人" },
+        { id: "notApplicable-04", text: "不願意花時間與心力給予AI反饋的人" },
+        { id: "notApplicable-05", text: "捏造假見證的人" }
       ]
     }
   ],
