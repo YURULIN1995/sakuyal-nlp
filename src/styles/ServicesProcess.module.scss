@@ -26,6 +26,9 @@
     flex-direction: row;
     justify-content: space-between; // 將卡片推向兩側，在中間產生間距
   }
+   @include mx.respond-min(llg) {
+    justify-content: space-around;
+  }
 }
 
 .stepCard {
@@ -45,7 +48,7 @@
   // 【新增】在 llg 寬度以上時，設定寬度以達成四欄效果
   @include mx.respond-min(llg) {
     // 假設卡片間距同樣為 30px
-    flex-basis: calc(25% - 22.5px); 
+    flex-basis: calc(33.333% - 22.5px); 
   }
 }
 

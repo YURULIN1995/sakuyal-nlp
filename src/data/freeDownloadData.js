@@ -7,9 +7,9 @@ const mainTitle = `免費下載：${topic}的${stepCount}步驟與${caseCount}�
 export const freeDownloadData = {
   imageUrl: "https://placehold.co/1884x870/a9d3a4/4a6e4f", // 網站主視覺照01的圖片路徑，建議尺寸(寬x高 px)：1884x870
   imageAlt: mainTitle,
-  titleLine1: "超過🐷🐷人下載：",
+  // titleLine1: "超過🐷🐷人下載：",
   titleLine2: mainTitle,
-  paragraph: "我幫助想要打造高留客率客服AI的個人創業者，藉由簡潔、好上手的的AI客服訓練介面，幫助你專住在客戶體驗優化。",
+  paragraph: "我幫助想要打造高留客率客服AI的個人創業者，藉由客製化精簡後台與的流程設計的深度陪伴，幫助你專住在客戶體驗優化。",
   paragraph2: `不需(${wastedEffort})與花時間到處爬文摸索`,
   paragraph3: "在這份免費下載的PDF檔案裡，我會分享:",
   paragraph4: "",

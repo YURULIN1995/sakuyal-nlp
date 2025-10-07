@@ -3,8 +3,9 @@ import IconMessageCircleUser from '@assets/icons/message-circle-user.svg?react';
 import IconBrowser from '@assets/icons/browser.svg?react';
 import IconBusinessplan from '@assets/icons/businessplan.svg?react';
 import IconInfoCircle from '@assets/icons/info-circle.svg?react';
-import IconLeaf from '@assets/icons/leaf.svg?react';
-import IconDroplet from '@assets/icons/droplet.svg?react';
+import IconVectorBezier2 from '@assets/icons/vector-bezier-2.svg?react';
+import IconAutomation from '@assets/icons/automation.svg?react';
+import IconTransform from '@assets/icons/transform.svg?react';
 import IconPlant from '@assets/icons/plant.svg?react';
 
 /**
@@ -16,9 +17,9 @@ export const serviceItems = [
     id: 'service-01',
     iconName: IconMessageCircleUser,
     title: "人性化 AI 服務流程設計",
-    overview: "協助你訓練出符合你說話風格的AI助手，人類參與循環，為您規劃人類介入服務的最佳時機，讓客戶可以隨時選擇直接與您對話。",
-    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
-    imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
+    overview: "導入人類參與循環，協助你訓練出符合你的決策與說話風格的AI助手。你隨時都能介入AI服務流程，你的客戶也可以隨時選擇直接與您對話。",
+    description: '陪伴你建立出隨時都能指導/修正AI生成結果的服務流程。你可以藉由標籤、評價按鈕、給予文字反饋等方式教育你的AI助手。我也能協助你調整模型，使模型的表現更符合你的特殊需求。',
+    imageUrl: '/images/support.jpg',
     imageAlt: '人性化 AI 服務流程設計',
     isReversed: false
   },
@@ -26,9 +27,9 @@ export const serviceItems = [
     id: 'service-02',
     iconName: IconBrowser,
     title: "品牌網站建置",
-    overview: "除了為你節省主機費與網站維護費，還提供極簡後台、AI內容提示助手、單色系自動配色工具，讓你輕鬆管理品牌網站。",
-    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
-    imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
+    overview: "除了為你節省主機費與網站維護費，還提供精簡後台、AI內容提示助手、單色系自動配色工具，讓你輕鬆管理品牌網站。",
+    description: '我精選的技術組合讓您免繳傳統主機的固定月費，又能得到企業級的資安防護，每一塊錢都花在刀口上！ \n 直覺好上手的網站客製化後台，讓你跟厚重的操作文件說bye-bye! \n 獨家AI內容助手協助你，從選題到撰寫專業文案，高效產出不卡關！ \n 如果你和我一樣為配色傷透腦筋，使用單色自動調色盤，選一個您最愛的顏色，一鍵更換全站風格！',
+    imageUrl: 'images/website.jpg',
     imageAlt: '品牌服務載體網站建置',
     isReversed: true
   },
@@ -36,10 +37,10 @@ export const serviceItems = [
     id: 'service-03',
     iconName: IconBusinessplan,
     title: "AI 驅動型客戶轉換流程",
-    overview: "不只用AI代理搜尋優化把你的內容推進AI搜尋摘要，更為你分析互動數據，找出服務流失點，持續優化成交率。",
-    description: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷 \n\n 🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
-    imageUrl: 'https://placehold.co/2560x1677/a9d3a4/4a6e4f',
-    imageAlt: '驅動型客戶轉換流程',
+    overview: "透過 AI 代理優化(AAO)，讓您的內容搶佔 Google AI 摘要，最大化品牌能見度。後台整合分析所有互動數據，揪出服務流失點，並提供具體建議，助您持續優化成交率。",
+    description: '你的文案與文章可以更符合搜尋引擎AI摘要的格式，讓它為客戶強力主打您的產品與服務。你可以利用這套系統分析行銷數據大幅節省人力與時間成本，依照AI的具體建議改善服務的每個環節，提昇留客率！',
+    imageUrl: 'images/dashboard.jpg',
+    imageAlt: 'AI 驅動型客戶轉換流程',
     isReversed: false
   }
 ];
@@ -50,10 +51,10 @@ export const servicesSection = {
    */
   overview: {
     leftTitle: "服務",
-    leftParagraph: "好的工具應該貼合使用者的習慣，而不是要求使用者配合複雜反直覺的工具。完全為您客製個人行銷網站的後台。極簡約設計風讓您免除各種素材選擇障礙！",
+    leftParagraph: "客製網站後台",
     leftButtonText: "填寫服務預約表單",
     leftButtonLink: "#",
-    imageUrl: "/images/wagashi.jpg",
+    imageUrl: "/images/programming.jpg",
     imageAlt: "服務總覽示意圖",
   },
 };
@@ -64,28 +65,35 @@ title: "服務流程",
 steps: [
   {
     id: "process-step-01",
-    icon: IconInfoCircle,
-    title: "了解需求＆選擇技術堆疊",
-    description: "🐷🐷Tech-stack🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
+    icon: IconMessageCircleUser,
+    title: "預約諮詢",
+    description: "本服務分4期收款。確認需求後，提案方案。選擇方案後請付頭款，約定分期驗收項目與時間。"
   },
   {
     id: "process-step-02",
-    icon: IconLeaf,
-    title: "製作前台",
-    description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。"
+    icon: IconVectorBezier2,
+    title: "服務設計",
+    description: "討論您既有的服務設計，提出優化流程，再詳談哪些環節必須由真人服務才能獲取客戶信任。針對有必要、重複性高的任務規劃自動化流程。"
   },
   {
     id: "process-step-03",
-    icon: IconDroplet,
-    title: "製作後台",
-    description: "🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷。"
+    icon: IconBrowser,
+    title: "品牌網站建置",
+    description: "請依服務說明手冊提供站主基本資料。建置網站前後台，待功能驗收無誤並付清二期款，網站即上線並交付後台帳密。交付後 7 天內請觀看教學影片操作，任何操作問題請於網站交付後 14 天內提出。"
   },
   {
     id: "process-step-04",
-    icon: IconPlant,
-    title: "測試＆交貨",
-    description: "🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷。"
-  }
+    icon: IconTransform,
+    title: "AI 驅動型客戶轉換系統製作",
+    description: "建置AI 驅動型客戶轉換系統，串接到您的個人網站上。待功能驗收無誤後，請繳清三期款。將交付AI 驅動型客戶轉換系統儀表板後台帳密。佈署後7天內請觀看教學影片操作，任何操作問題請於系統交付後 14 天內提出。"
+  },
+  {
+    id: "process-step-05",
+    icon: IconAutomation,
+    title: "總驗收與程式碼交付",
+    description: "請逐一檢查各項功能均能正常運作。功能驗收無誤，請繳清尾款。將交付網站的程式碼。網站與系統於交付後1年內享有免費保固。"
+  },
+  
 ]
 
 };

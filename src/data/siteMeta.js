@@ -1,15 +1,15 @@
 export const siteMeta = {
   siteName: "Sakuyal 自然語言煉金術", // 請填入貴站站名
-  siteAuthorName: "🐷🐷", // 請填入站主稱呼
+  siteAuthorName: "Sakuya", // 請填入站主稱呼
   // 若您有登記公司行號，請於""內填寫企業名稱與統一編號
   // businessName: "朔夜有限公司", // 請填入企業名稱
   // unifiedBusinessNo: "26758904", // 請填入統一編號
   // 網站核心主題與關鍵字，請依貴站的實際情形填寫
   logoUrl: '/images/logo/sakuyal_logo_transparent_47x63.svg', //請更換為您的網站大Logo的圖片路徑
   coreTheme: {
-    topic: "打造高客服留客率客服AI", //請填入網站的核心主題或主要服務，做到某件事/成為某個職業角色。例如："學會沖煮一杯好咖啡"或"成為軟裝師"
-    stepCount: "x", //請填入主要賣點的步驟或方法數量，例如："5"
-    caseCount: "y", //請填入主要賣點的案例或範例數量，例如："3"
+    topic: "打造高留客率客服AI", //請填入網站的核心主題或主要服務，做到某件事/成為某個職業角色。例如："學會沖煮一杯好咖啡"或"成為軟裝師"
+    stepCount: 5, //請填入主要賣點的步驟或方法數量，例如："5"
+    caseCount: 3, //請填入主要賣點的案例或範例數量，例如："3"
     wastedEffort: "白費功夫", //請填入目標客群為了達成 'topic' 而常做的無效努力，例如："考一堆證照"
   },
 
