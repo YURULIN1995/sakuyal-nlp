@@ -16,6 +16,7 @@ import CopyrightPage from '@pages/legal/CopyrightPage';
 import RefundPolicyPage from '@pages/legal/RefundPolicyPage';
 import FreeDownload from '@pages/FreeDownload';
 import Upsell from '@pages/Upsell';
+import PostPage from '@pages/content/PostPage'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="disclaimer" element={<DisclaimerPage />} />
           <Route path="copyright" element={<CopyrightPage />} />
           <Route path="refund-policy" element={<RefundPolicyPage />} />
+          <Route path="postpage" element={<PostPage />}/>
         </Route>
 
         {/* --- 路由群組 2: 不需要 Header/Footer 的獨立頁面 --- */}

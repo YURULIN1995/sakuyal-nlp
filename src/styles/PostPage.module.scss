@@ -1,0 +1,21 @@
+.transparentTop{
+    padding-top: 104px;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+
+    .content{border-width: 1px;
+        border-style: solid;
+        border-color: seagreen;}
+    .widget{
+        border-width: 1px;
+        border-style: solid;
+        border-color: gray;
+    }
+}

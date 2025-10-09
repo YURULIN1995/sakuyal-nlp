@@ -4,10 +4,11 @@ import ArrowRightIcon from '@assets/icons/arrow-right.svg?react';
 export const allPostsData = [
   {
     id: 'post1',
-    slug: '/humanize-ai',
+    slug: '/postpage',
     imageUrl: '/images/service-work-flow-design.jpg',
-    imageAlt: '手工和菓子',
+    imageAlt: '服務流程設計',
     category: '人性化AI',
+    publishTime: '2025-10-08',
     title: '打造5倍高留客率AI的個3大關鍵思維',
     excerpt: '您是否曾經遇到AI對你的生活造成困擾的情況呢？以下歸納常見的客服AI設計問題，來看看如何把 AI改的更聰明、更有人性吧！',
   },

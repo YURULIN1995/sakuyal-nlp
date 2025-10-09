@@ -27,7 +27,8 @@ export default defineConfig({
         '/disclaimer',
         '/refund-policy',
         '/free-download',
-        '/upsell'
+        '/upsell',
+        'postpage'
       ],
       dynamicPaths: [
         ...portfolioIds.map(id => `/portfolio/${id}`),
