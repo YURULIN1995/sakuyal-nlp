@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use '@styles/_breakpoints.scss' as bp;
+@use '@styles/_mixins' as mixins;
+@use '@styles/_colors' as color;
+
+.postCategory { color: #4a6e4f; font-weight: bold; margin-bottom: 0.5rem; }
+
+.postImage {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.postImage { width: 80%; height: auto; margin-bottom: 2rem; }
+.postBody h2 { font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+.postBody h3 { font-size: 1.4rem; margin-top: 2rem; margin-bottom: 0.8rem; }
+.postBody p { line-height: 1.8; margin-bottom: 1rem; }
+
+.ctaButton{
+    @include mixins.b-button;            
+}

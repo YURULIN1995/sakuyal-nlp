@@ -1,3 +1,8 @@
+@use 'sass:map';
+@use '@styles/_breakpoints.scss' as bp;
+@use '@styles/_mixins' as mixins;
+@use '@styles/_colors' as color;
+
 .transparentTop{
     padding-top: 104px;
     padding-left: 40px;
@@ -7,15 +12,33 @@
 
 .container{
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr;
+    @include mixins.respond-min(nav) {
+        grid-template-columns: 2fr 1fr;
+    }
 
-    .content{border-width: 1px;
-        border-style: solid;
-        border-color: seagreen;}
-    .widget{
+
+    .content{
         border-width: 1px;
         border-style: solid;
+        border-color: seagreen;
+        white-space: pre-wrap;
+
+
+    }
+
+    .widget{
+        display: flex;
+        border-width: 1px;
+        align-items: center;
+        justify-content: center;
+        border-style: solid;
         border-color: gray;
+        height: 700px;
+        background-color: map.get(color.$greens, 'base');
+
+        p {
+           font-size: 70px; 
+           color: white;
+        }
     }
 }
