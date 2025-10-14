@@ -59,7 +59,10 @@ function Post({post}) {
      <article className={styles.postArticle}>
       <div className={styles.articleHeader}>
         <h1 className={styles.postTitle}>{post.title}</h1>
-        <p className={styles.postCategory}>{post.category} &nbsp;/&nbsp;作者：{siteMeta.siteAuthorName}</p>
+        <p className={styles.postCategory}>
+          <Link to={`/blog/${post.categorySlug}`} className={styles.categoryLink}>{post.category}</Link>
+           &nbsp;/&nbsp;作者：<Link to="/about" className={styles.authorLink}>{siteMeta.siteAuthorName}</Link>
+        </p>
       </div>
       <img src={post.imageUrl} alt={post.imageAlt} className={styles.postImage} loading="lazy" />
       <div className={styles.postBody}>

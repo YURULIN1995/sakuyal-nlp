@@ -32,7 +32,7 @@ const generateExcerpt = (contentArray, maxLength = 53) => {
 export const postsSource = [
   {
     id: 'post1',
-    slug: '/postpage',
+    slug: '3-mindsets-for-5x-ai-retention',
     imageUrl: '/images/service-work-flow-design.jpg',
     imageAlt: '服務流程設計',
     category: '人性化AI',
@@ -108,7 +108,7 @@ export const postsSource = [
   },
   {
     id: 'post2',
-    slug: '#',
+    slug: 'beginners-guide-to-tea-ceremony',
     imageUrl: '/images/tea-ceremony.jpg',
     imageAlt: '茶道體驗',
     category: '實用教學',
@@ -118,7 +118,7 @@ export const postsSource = [
   },
   {
     id: 'post3',
-    slug: '#',
+    slug: 'choosing-your-first-matcha-set',
     imageUrl: '/images/matcha-dougu.jpg',
     imageAlt: '抹茶茶具',
     category: '器物鑑賞',
@@ -128,7 +128,7 @@ export const postsSource = [
   },
   {
     id: 'post4',
-    slug: '#',
+    slug: 'another-ai-article',
     imageUrl: 'https://placehold.co/1920x1077/a9d3a4/4a6e4f',
     imageAlt: '貼文04',
     category: '分類02',

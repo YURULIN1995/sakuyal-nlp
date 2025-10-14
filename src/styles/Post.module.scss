@@ -16,6 +16,16 @@
 
         .postCategory {
             @include mx.p-paragraph;
+            .categoryLink {
+                &:hover {
+                    color: map.get(color.$greens, 'light');
+                }
+            }
+        }
+        .authorLink{
+            &:hover {
+                    color: map.get(color.$greens, 'light');
+                }
         }
     }
 
