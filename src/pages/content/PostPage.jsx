@@ -4,7 +4,7 @@ import OneColumnLayout from '@components/OneColumnLayout';
 import Post from '@components/Post';
 import { displayPostsData } from '@data/blogData.js';
 
-function PostPage() {
+function PostPage(props) {
 
   const { postSlug } = useParams();
   const postData = displayPostsData.find(p => p.slug === postSlug);

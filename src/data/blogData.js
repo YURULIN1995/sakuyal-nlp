@@ -1,4 +1,5 @@
 import ArrowRightIcon from '@assets/icons/arrow-right.svg?react';
+import { categories } from '@data/categoryData.js';
 
 const generateExcerpt = (contentArray, maxLength = 53) => {
   if (!contentArray || contentArray.length === 0) {
@@ -35,9 +36,8 @@ export const postsSource = [
     slug: '3-mindsets-for-5x-ai-retention',
     imageUrl: '/images/service-work-flow-design.jpg',
     imageAlt: '服務流程設計',
-    category: '人性化AI',
-    categorySlug: 'humanize-ai',
-    publishTime: '2025-10-08',
+    categoryRef: 'cat_humanize_ai',
+    publishedAt: '2025-10-08',
     title: '打造5倍高留客率AI的個3大關鍵思維',
     content: [
       {
@@ -111,8 +111,8 @@ export const postsSource = [
     slug: 'beginners-guide-to-tea-ceremony',
     imageUrl: '/images/tea-ceremony.jpg',
     imageAlt: '茶道體驗',
-    category: '實用教學',
-    categorySlug: 'practical-tutorials',
+    categoryRef: 'cat_practical_teachig',
+    publishedAt: '2025-09-15',
     title: '初學者必看：第一次參加茶會的禮儀與準備',
     excerpt: '從服裝到心態，為您詳細解說參加茶會的注意事項，讓您自信地踏出茶道學習的第一步。',
   },
@@ -121,8 +121,8 @@ export const postsSource = [
     slug: 'choosing-your-first-matcha-set',
     imageUrl: '/images/matcha-dougu.jpg',
     imageAlt: '抹茶茶具',
-    category: '器物鑑賞',
-    categorySlug: 'utensil-appreciation',
+    categoryRef: 'cat_object_appreciation',
+    publishedAt: '2025-09-22',
     title: '如何挑選你的第一組抹茶道具？茶筅、茶碗、茶杓入門指南',
     excerpt: '工欲善其事，必先利其器。本篇將帶您認識抹茶道具的基礎，並提供實用的選購建議。',
   },
@@ -131,24 +131,31 @@ export const postsSource = [
     slug: 'another-ai-article',
     imageUrl: 'https://placehold.co/1920x1077/a9d3a4/4a6e4f',
     imageAlt: '貼文04',
-    category: '分類02',
+    categoryRef: 'cat_another-ai-article',
+    publishedAt: '2025-09-29',
     title: '🐷🐷🐷🐷🐷：🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     excerpt: '🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷、🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。',
   },
   {
     id: 'post5',
-    slug: '#',
+    slug: 'another-ai-article',
     imageUrl: 'https://placehold.co/1920x1077/a9d3a4/4a6e4f',
     imageAlt: '貼文05',
-    category: '分類03',
+    categoryRef: 'cat_another-ai-article',
+    publishedAt: '2025-09-29',
     title: '🐷🐷🐷🐷🐷🐷🐷：🐷🐷🐷🐷🐷🐷🐷',
     excerpt: '🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷，🐷🐷🐷🐷🐷🐷🐷。🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷。',
   },
 ];
 
-export const displayPostsData = postsSource.map(post => ({
-  ...post,
-  excerpt: generateExcerpt(post.content),
-}));
+export const displayPostsData = postsSource.map(post => {
+  const category = categories.find(c => c._id === post.categoryRef);
+  return {
+    ...post,
+    category: category ? category.name : '未分類',
+    categorySlug: category ? category.slug : 'uncategorized',
+    excerpt: generateExcerpt(post.content),
+  };
+});
 
 export const featuredPostsData = displayPostsData.slice(0, 3);
