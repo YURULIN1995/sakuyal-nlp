@@ -33,7 +33,9 @@ function App() {
           <Route path="disclaimer" element={<DisclaimerPage />} />
           <Route path="copyright" element={<CopyrightPage />} />
           <Route path="refund-policy" element={<RefundPolicyPage />} />
-          <Route path="postpage" element={<PostPage />}/>
+          <Route path="blog" element={<BlogPage />} />
+          <Route path="blog/:categorySlug" element={<BlogPage />} />
+          <Route path="postpage" element={<PostPage />} />
         </Route>
 
         {/* --- 路由群組 2: 不需要 Header/Footer 的獨立頁面 --- */}

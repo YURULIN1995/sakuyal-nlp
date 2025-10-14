@@ -1,21 +1,52 @@
 @use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mixins;
+@use '@styles/_mixins' as mx;
 @use '@styles/_colors' as color;
 
-.postCategory { color: #4a6e4f; font-weight: bold; margin-bottom: 0.5rem; }
+.postArticle{
+    .articleHeader {
+        margin-bottom: 34px;
 
-.postImage {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-}
+        h1 {
+        @include mx.t-title(
+            $letter-spacing: 0,
+            $margin-bottom: 0,
+        );
+        }
 
-.postImage { width: 80%; height: auto; margin-bottom: 2rem; }
-.postBody h2 { font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; }
-.postBody h3 { font-size: 1.4rem; margin-top: 2rem; margin-bottom: 0.8rem; }
-.postBody p { line-height: 1.8; margin-bottom: 1rem; }
+        .postCategory {
+            @include mx.p-paragraph;
+        }
+    }
 
-.ctaButton{
-    @include mixins.b-button;            
+    .postImage {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+    }
+
+    .postBody h2 { 
+        @include mx.t-title(
+            $font-size: 22px,
+            $font-size-xs: 26px,
+            $font-size-nav: 30px,
+        );
+        }
+    .postBody h3 { 
+        @include mx.t-title(
+            $font-size: 18px,
+            $font-size-xs: 22px,
+            $font-size-nav: 26px,
+        );
+        }
+    .postBody p { 
+        @include mx.p-paragraph(
+            $font-size: 17px,
+        );
+        }
+
+    .ctaButton{
+        @include mx.b-button;            
+    }
 }

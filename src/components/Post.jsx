@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
 import styles from '@styles/Post.module.scss';
 import Button from '@components/Button';
+import { siteMeta } from '@/data/siteMeta';
 
 /**
  * Post 元件
@@ -10,52 +11,62 @@ import Button from '@components/Button';
  */
 
 function Post({post}) {
-
-if (!post) {
-    return null;
-}
+  if (!post) {
+      return null;
+  }
 
   // 輔助函式：用來渲染帶有樣式（如粗體）的文字片段
-  const renderSpans = (spans, blockKey) => {
-    if (!spans) return null;
-        return spans.map((span, spanKey) => {
-            const key = `${blockKey}-${spanKey}`;
-            // 根據 marks 陣列來決定要套用什麼 React 元素
-            if (span.marks && span.marks.includes('strong')) {
-                return <strong key={key}>{span.text}</strong>;
-            }
-            // 預設直接回傳文字
-            return <Fragment key={key}>{span.text}</Fragment>;
-        });
+  const renderSpan = (span, key) => {
+    let textNode = <Fragment key={key}>{span.text}</Fragment>;
+
+    // 檢查 marks 陣列，並套用對應的樣式標籤
+    if (span.marks && span.marks.length > 0) {
+      span.marks.forEach(mark => {
+        if (mark === 'strong') {
+          textNode = <strong key={`${key}-strong`}>{textNode}</strong>;
+        }
+        // 您可以在此處擴充，支援 'em' (斜體), 'underline' 等
+      });
+    }
+    return textNode;
   };
 
-  // 主渲染函式：根據 block.type 來渲染對應的區塊
-  const renderContentBlock = (block, index) => {
-    const children = renderSpans(block.children, index);
-    switch (block.type) {
+
+  // 主渲染函式：根據 block 的 style 屬性來渲染
+  const renderContentBlock = (block) => {
+    // 每個 block 都必須有 _key，這是 React 高效渲染列表所必需的
+    if (!block || !block._key) {
+      return null;
+    }
+
+    // 渲染 block 中的所有 children spans
+    const children = block.children ? block.children.map((span, index) => renderSpan(span, `${block._key}-${index}`)) : null;
+
+    // 根據 style 屬性來決定要渲染成哪種 HTML 標籤
+    switch (block.style) {
       case 'h2':
-        return <h2 key={index}>{children}</h2>;
+        return <h2 key={block._key}>{children}</h2>;
       case 'h3':
-        return <h3 key={index}>{children}</h3>;
-      case 'p':
-        return <p key={index}>{children}</p>;
-        // 您可以根據需要，在這裡加入對 'ul'、'ol' 等其他類型的處理
+        return <h3 key={block._key}>{children}</h3>;
+      case 'normal':
       default:
-        return null;
+        return <p key={block._key}>{children}</p>;
     }
   };
 
+
   return (
      <article className={styles.postArticle}>
-      <p className={styles.postCategory}>{post.category}</p>
-      <h1>{post.title}</h1>
-      {/* 確保 className 正確地被附加到 img 標籤上 */}
+      <div className={styles.articleHeader}>
+        <h1 className={styles.postTitle}>{post.title}</h1>
+        <p className={styles.postCategory}>{post.category} &nbsp;/&nbsp;作者：{siteMeta.siteAuthorName}</p>
+      </div>
       <img src={post.imageUrl} alt={post.imageAlt} className={styles.postImage} loading="lazy" />
       <div className={styles.postBody}>
         {post.content && post.content.map(renderContentBlock)}
       </div>
     </article>
   );
-}name
+}
 
 export default Post;
