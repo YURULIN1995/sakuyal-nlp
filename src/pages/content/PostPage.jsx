@@ -1,24 +1,69 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { client, urlFor } from '@/sanity.client.js';
 import styles from '@styles/PostPage.module.scss';
+import ViewportMeta from '@components/Head/ViewportMeta';
+import SEO from '@components/Head/SEO';
 import OneColumnLayout from '@components/OneColumnLayout';
 import Post from '@components/Post';
-import { displayPostsData } from '@data/blogData.js';
 
 function PostPage(props) {
-
+  const [post, setPost] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const { postSlug } = useParams();
-  const postData = displayPostsData.find(p => p.slug === postSlug);
 
-  if (!postData) {
-    return <div>文章不存在！</div>;
+  useEffect(() => {
+    if (!postSlug) return;
+
+    const query = `*[_type == "post" && slug.current == $slug][0] {
+    _id,
+    "title": titleChinese,
+    "slug":  slug.current,
+    "mainImage": imageAndAlt[0].image,
+    "imageAlt": imageAndAlt[0].imageAlt,
+    "category": category[0]->categoryNameChinese,
+    "categorySlug": category[0]->slug.current,
+    "content": paragraph,
+    }`;
+
+    const params = { slug: postSlug };
+
+    setIsLoading(true);
+    setError(null);
+
+    client.fetch(query, params)
+    .then((data) => {setPost(data)})
+    .catch((err) => {
+      console.error("Sanity fetch error:", err);
+      setError("無法載入文章，請稍後再試。");
+    })
+    .finally(() => {
+      setIsLoading(false);
+    });
+
+  }, [postSlug]);
+
+  if (isLoading) {
+    return <p className={styles.isLoading}>文章載入中...</p>;
+  }
+
+  if (error) {
+    return <p className={styles.error}>{error}</p>
+  }
+
+  if (!post) {
+    return <p className={styles.noPost}>文章不存在</p>;
   }
 
   return (
     <>
+      <ViewportMeta/>
+      <SEO title={post.title} description={post.excerpt || '文章內容'} />
       <div className={styles.transparentTop}></div>
       <div className={styles.container}>
         <OneColumnLayout className={styles.content}>
-          <Post post={postData} />
+          <Post post={post} />
         </OneColumnLayout>
         
         <div className={styles.widget}>

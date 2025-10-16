@@ -9,7 +9,7 @@ function PostsList({ posts }) {
   return (
     <div className={styles.postsGrid}>
       {posts.map(post => (
-        <PostCard key={post.id} post={post} />
+        <PostCard key={post._id} post={post} />
       ))}
     </div>
   );

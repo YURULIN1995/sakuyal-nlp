@@ -18,6 +18,18 @@
 
     .content{
         white-space: pre-wrap;
+
+        .isLoading {
+            color: blue;
+        }
+        
+        .error {
+            color: red;
+        }
+
+        .noPost{
+            color: gray
+        }
     }
 
     .widget{

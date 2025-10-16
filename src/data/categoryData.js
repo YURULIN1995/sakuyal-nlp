@@ -9,9 +9,9 @@ export const categories = [
     slug: 'humanize-ai'
   },
   {
-    _id: 'cat_practical_teaching',
-    name: '實用教學',
-    slug: 'practical-teaching'
+    _id: 'cat_automation_experience_optimization',
+    name: '自動化體驗優化',
+    slug: 'automation-experience-optimization'
   },
   {
     _id: 'cat_object_appreciation',
@@ -19,7 +19,7 @@ export const categories = [
     slug: 'object-appreciation'
   },
   {
-    _id: 'cat_another-ai-article',
+    _id: 'cat_another_ai_article',
     name: '另一則AI文章',
     slug: 'another-ai-article'
   },

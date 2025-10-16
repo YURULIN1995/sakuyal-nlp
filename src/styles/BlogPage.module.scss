@@ -1,3 +1,4 @@
+@use '@styles/_mixins' as mx;
 @use '@styles/colors' as color;
 @use 'sass:map';
 
@@ -5,23 +6,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center; /* 在垂直方向上居中 */
-  align-items: center;     /* 在水平方向上居中 */
+  align-items: left;     /* 在水平方向上居中 */
   text-align: center;
   padding: 40px;
   box-sizing: border-box;
-
   /* 估算值：視窗高度減去 Header 和 Footer 的大致高度 */
-  min-height: calc(100vh - 200px); 
+  min-height: calc(100vh - 200px);
 
-  .title {
-    // 使用您已定義的顏色變數，並加上透明度
-    color: rgba(map.get(color.$greens, 'nav-base'), 0.5);
-    margin-bottom: 15px;
+  .error{
+    color: red;
   }
   
-  .message {
-    // 使用您已定義的顏色變數
-    color: map.get(color.$greens, 'nav-base');
-    margin-bottom: 25px;
+  .title {
+    @include mx.t-title(
+      $font-size: 38px,
+      $font-size-xs: 38px,
+      $font-size-nav: 38px
+      );
   }
 }

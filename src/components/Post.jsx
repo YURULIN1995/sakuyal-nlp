@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { urlFor } from '@/sanity.client.js';
 import { Fragment } from 'react';
 import styles from '@styles/Post.module.scss';
+import ResponsiveImage from '@components/ResponsiveImage';
 import Button from '@components/Button';
 import { siteMeta } from '@/data/siteMeta';
 
@@ -14,6 +16,8 @@ function Post({post}) {
   if (!post) {
       return null;
   }
+
+  const { title, category, categorySlug, mainImage, imageAlt, content } = post;
 
   // 輔助函式：用來渲染帶有樣式（如粗體）的文字片段
   const renderSpan = (span, key) => {
@@ -58,15 +62,15 @@ function Post({post}) {
   return (
      <article className={styles.postArticle}>
       <div className={styles.articleHeader}>
-        <h1 className={styles.postTitle}>{post.title}</h1>
+        <h1 className={styles.postTitle}>{title}</h1>
         <p className={styles.postCategory}>
-          <Link to={`/blog/${post.categorySlug}`} className={styles.categoryLink}>{post.category}</Link>
+          <Link to={`/blog/${categorySlug}`} className={styles.categoryLink}>{category}</Link>
            &nbsp;/&nbsp;作者：<Link to="/about" className={styles.authorLink}>{siteMeta.siteAuthorName}</Link>
         </p>
       </div>
-      <img src={post.imageUrl} alt={post.imageAlt} className={styles.postImage} loading="lazy" />
+      {mainImage && (<ResponsiveImage source={mainImage} alt={imageAlt} className={styles.postImage} sizes="(max-width: 920px) 100vw, 800px" loading="eager" />)}
       <div className={styles.postBody}>
-        {post.content && post.content.map(renderContentBlock)}
+        {content && content.map(renderContentBlock)}
       </div>
     </article>
   );

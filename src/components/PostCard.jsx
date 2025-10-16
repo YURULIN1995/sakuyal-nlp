@@ -12,7 +12,7 @@ function PostCard({ post }) {
       </Link>
       <div className={styles.cardContent}>
         {category && (
-            <Link to={`/blog/${categorySlug}`} className="cardCategory">
+            <Link to={`/blog/${categorySlug}`} className={styles.cardCategory}>
               {category}
             </Link>
           )}
