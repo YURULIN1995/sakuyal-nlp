@@ -22,14 +22,11 @@ function Post({post}) {
   // 輔助函式：用來渲染帶有樣式（如粗體）的文字片段
   const renderSpan = (span, key) => {
     let textNode = <Fragment key={key}>{span.text}</Fragment>;
-
-    // 檢查 marks 陣列，並套用對應的樣式標籤
     if (span.marks && span.marks.length > 0) {
       span.marks.forEach(mark => {
         if (mark === 'strong') {
           textNode = <strong key={`${key}-strong`}>{textNode}</strong>;
         }
-        // 您可以在此處擴充，支援 'em' (斜體), 'underline' 等
       });
     }
     return textNode;
@@ -37,25 +34,58 @@ function Post({post}) {
 
 
   // 主渲染函式：根據 block 的 style 屬性來渲染
-  const renderContentBlock = (block) => {
-    // 每個 block 都必須有 _key，這是 React 高效渲染列表所必需的
-    if (!block || !block._key) {
-      return null;
+  const renderPortableText = (blocks) => {
+    if (!blocks) return null;
+
+    const components = [];
+    let currentList = null;
+
+    blocks.forEach(block => {
+      const children = block.children ? block.children.map((span, index) => renderSpan(span, `${block._key}-${index}`)) : null;
+
+      if (block.listItem) {
+        const ListTag = block.listItem === 'number' ? 'ol' : 'ul';
+        const li = <li key={block._key}>{children}</li>;
+
+        if (!currentList || currentList.tag !== ListTag) {
+          if (currentList) {
+            const FinalListTag = currentList.tag;
+            components.push(<FinalListTag key={`list-${block._key}-prev`} className={styles.postList}>{currentList.items}</FinalListTag>);
+          }
+          currentList = { tag: ListTag, items: [li] };
+        } else {
+          currentList.items.push(li);
+        }
+      } else {
+        if (currentList) {
+          const FinalListTag = currentList.tag;
+          components.push(<FinalListTag key={`list-${block._key}`} className={styles.postList}>{currentList.items}</FinalListTag>);
+          currentList = null;
+        }
+
+        switch (block.style) {
+          case 'h2':
+            components.push(<h2 key={block._key}>{children}</h2>);
+            break;
+          case 'h3':
+             components.push(<h3 key={block._key}>{children}</h3>);
+            break;
+          case 'h4':
+             components.push(<h4 key={block._key}>{children}</h4>);
+            break;
+          default:
+            components.push(<p key={block._key}>{children}</p>);
+            break;
+        }
+      }
+    });
+
+    if (currentList) {
+      const FinalListTag = currentList.tag;
+      components.push(<FinalListTag key="last-list" className={styles.postList}>{currentList.items}</FinalListTag>);
     }
 
-    // 渲染 block 中的所有 children spans
-    const children = block.children ? block.children.map((span, index) => renderSpan(span, `${block._key}-${index}`)) : null;
-
-    // 根據 style 屬性來決定要渲染成哪種 HTML 標籤
-    switch (block.style) {
-      case 'h2':
-        return <h2 key={block._key}>{children}</h2>;
-      case 'h3':
-        return <h3 key={block._key}>{children}</h3>;
-      case 'normal':
-      default:
-        return <p key={block._key}>{children}</p>;
-    }
+    return components;
   };
 
 
@@ -70,7 +100,7 @@ function Post({post}) {
       </div>
       {mainImage && (<ResponsiveImage source={mainImage} alt={imageAlt} className={styles.postImage} sizes="(max-width: 920px) 100vw, 800px" loading="eager" />)}
       <div className={styles.postBody}>
-        {content && content.map(renderContentBlock)}
+        {renderPortableText(content)}
       </div>
     </article>
   );

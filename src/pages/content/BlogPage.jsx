@@ -56,7 +56,7 @@ function BlogPage() {
 
     const categoryTitle = categorySlug && postsToDisplay.length > 0
     ? `${postsToDisplay[0].category}`
-    : blogTitle;
+    : '所有文章';
 
   return (
     <>

@@ -56,7 +56,23 @@
             $font-size: 17px,
         );
         }
-
+    .postList {
+        li {
+            display: list-item;
+            list-style-position: inside;
+        }
+    }
+    ol.postList {
+        li {
+                list-style: decimal;
+            }
+    }
+    ul.postList {
+        li {
+                list-style: disc;
+            }
+    }
+    
     .ctaButton{
         @include mx.b-button;            
     }
