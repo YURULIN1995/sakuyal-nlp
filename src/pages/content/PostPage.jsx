@@ -44,26 +44,17 @@ function PostPage(props) {
 
   }, [postSlug]);
 
-  if (isLoading) {
-    return <p className={styles.isLoading}>文章載入中...</p>;
-  }
-
-  if (error) {
-    return <p className={styles.error}>{error}</p>
-  }
-
-  if (!post) {
-    return <p className={styles.noPost}>文章不存在</p>;
-  }
-
   return (
     <>
       <ViewportMeta/>
-      <SEO title={post.title} description={post.excerpt || '文章內容'} />
+      <SEO 
+      title={post ? post.title : '文章載入中...'} 
+      description={post ? post.excerpt || '文章內容' : ''} 
+      />
       <div className={styles.transparentTop}></div>
       <div className={styles.container}>
         <OneColumnLayout className={styles.content}>
-          <Post post={post} />
+          { isLoading ? (<p className={styles.isLoading}>文章載入中...請稍候</p>) : error ? (<p className={styles.error}>{error}</p>) : !post? (<p className={styles.noPost}>文章不存在</p>) : (<Post post={post} />) }
         </OneColumnLayout>
         
         <div className={styles.widget}>
@@ -75,4 +66,3 @@ function PostPage(props) {
 }
 
 export default PostPage;
-

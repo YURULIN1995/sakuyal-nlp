@@ -12,15 +12,11 @@
 
 .container{
     display: grid;
-    @include mixins.respond-min(nav) {
-        grid-template-columns: 2fr 1fr;
-    }
-
     .content{
         white-space: pre-wrap;
 
         .isLoading {
-            color: blue;
+            @include mixins.p-paragraph;
         }
         
         .error {

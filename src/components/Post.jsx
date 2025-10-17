@@ -146,7 +146,7 @@ function Post({post}) {
            &nbsp;/&nbsp;作者：<Link to="/about" className={styles.authorLink}>{siteMeta.siteAuthorName}</Link>
         </p>
       </div>
-      {mainImage && (<ResponsiveImage source={mainImage} alt={imageAlt} className={styles.postImage} sizes="(max-width: 920px) 100vw, 800px" loading="eager" />)}
+      {mainImage && (<ResponsiveImage source={mainImage} alt={imageAlt} className={styles.postImage} sizes="(max-width: 920px) 100vw, 800px" loading="lazy" />)}
       <div className={styles.postBody}>
         {renderPortableText(content)}
       </div>
