@@ -15,7 +15,8 @@ export const navItems = [
     showOverviewLink: true,
     children: [
       { name: '人性化AI', path: '/blog/humanize-ai'},
-      { name: '服務設計', path: '/blog/service-design'}
+      { name: '服務設計', path: '/blog/service-design'},
+      { name: '一人創業', path: '/blog/solo-business'}
     ]
    },
   { name: '聯絡', path: '/contact' },

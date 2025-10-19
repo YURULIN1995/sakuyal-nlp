@@ -26,7 +26,8 @@ function BlogPage() {
   publishedAt,
   "content": paragraph,
   "category": category[0]->categoryNameChinese,
-  "categorySlug": category[0]->slug.current
+  "categorySlug": category[0]->slug.current,
+  "excerpt": array::join(string::split((pt::text(paragraph)), "")[0...50], "") + "...",
 }
 `;
 
