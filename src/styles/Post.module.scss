@@ -68,6 +68,7 @@
             display: list-item;
             list-style-position: inside;
             margin-left: 20px;
+            @include mx.p-paragraph;
         }
     }
     ol.postList {

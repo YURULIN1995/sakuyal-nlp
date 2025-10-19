@@ -11,6 +11,12 @@ export const navItems = [
       { name: '作品 03', path: '/portfolio/03' },
     ]
   },
-  { name: '文章', path: '/blog' },
+  { name: '文章', path: '/blog',
+    showOverviewLink: true,
+    children: [
+      { name: '人性化AI', path: '/blog/humanize-ai'},
+      { name: '服務設計', path: '/blog/service-design'}
+    ]
+   },
   { name: '聯絡', path: '/contact' },
 ]
