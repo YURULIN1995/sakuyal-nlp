@@ -5,7 +5,7 @@ const { topic, stepCount, caseCount, wastedEffort } = siteMeta.coreTheme;
 const mainTitle = `免費下載：${topic}的${stepCount}步驟與${caseCount}個案例`;
 
 export const freeDownloadData = {
-  imageUrl: "https://placehold.co/1884x870/a9d3a4/4a6e4f", // 網站主視覺照01的圖片路徑，建議尺寸(寬x高 px)：1884x870
+  imageUrl: "/images/林育如大頭貼日本橫濱 2019.jpg", // 網站主視覺照01的圖片路徑，建議尺寸(寬x高 px)：1884x870
   imageAlt: mainTitle,
   // titleLine1: "超過🐷🐷人下載：",
   titleLine2: mainTitle,
