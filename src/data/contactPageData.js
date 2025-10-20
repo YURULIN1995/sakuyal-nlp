@@ -4,7 +4,7 @@ export const contactData = {
   titleLine1: "聯絡",
   titleLine2: "與我聯繫",
   paragraph: "有任何問題，以及服務諮詢或合作邀約，都歡迎透過以下方式與我聯絡。我會盡快與您聯繫！",
-  imageUrl: "https://placehold.co/1024x473/a9d3a4/4a6e4f",
+  imageUrl: "/images/林育如大頭貼日本橫濱 2019.jpg", //建議大小 寬1024px 高473px
   imageAlt: "聯絡頁面示意圖"
 };
 
