@@ -51,7 +51,7 @@ export const servicesSection = {
    */
   overview: {
     leftTitle: "服務",
-    leftParagraph: "客製網站後台",
+    leftParagraph: "如果你已經有自己的服務，對於AI工具的產出不穩定、不合需求，不能給出您期望的成果，又或者你渴望將自己的隱性知識程式化，解放時間與精力，專住在打造品牌更核心的任務上，歡迎找我聊聊！",
     leftButtonText: "填寫服務預約表單",
     leftButtonLink: "#",
     imageUrl: "/images/programming.jpg",

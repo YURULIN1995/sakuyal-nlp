@@ -14,6 +14,6 @@ export const authorData = {
   paragraph: `我是個有5年經驗的自然語言工程師，也是AI智能客服訓練師。最擅長NER（命名實體識別）與情緒分析（Sentiment Analysis）任務。在工作中最喜歡優化人機互動人性化的部分。一直以來嚮往能夠自由選擇技術架構，有充分的時間學習更精湛的軟體工藝的生活。的因此於2015年9月創立Sakuyal 自然語言鍊金術網站。 \n 我已經幫助🌼位個人品牌創業者從零開始AI數位轉型，即使他們沒有軟體相關背景或從來沒有學過AI工具。 \n 我能為你提供清晰的步驟和技巧，幫助你節省大量摸索、試錯的時間。幫助想要${siteMeta.coreTheme.topic}的你，讓你的個人品牌網站兼顧服務個人化與規模化。`, // 請撰寫，如有分行請使用分行符號 \n 區隔
   buttonText: `${ctas.portfolio.primary}`, // // 請在userExperienceWriting.js ctas portfolio 裡新增、選擇、變更與 按紐連結 相應的名稱。
   buttonLink: "/portfolio", // 預設是「作品集」的連結,可客製
-  imageUrl: "https://placehold.co/1108x836/a9d3a4/4a6e4f", // 網站主視覺照02的圖片路徑，建議尺寸：1108x836 px 橫式
+  imageUrl: "images/林育如大頭貼 日本 醫療翻譯員時期.jpeg", // 網站主視覺照02的圖片路徑，建議尺寸：1108x836 px 橫式
   imageAlt: `${siteMeta.siteAuthorName}`,
 };
