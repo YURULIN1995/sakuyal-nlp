@@ -9,7 +9,7 @@ export const portfoliosList = [
     description: '這是作品集項目一的詳細描述，說明了專案的背景、挑戰與成果。🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     featuresListItem: [
       { id: 'feature-item-01-01', itemDescription: '特色亮點 (一)' },
-      { id: 'feature-item-01-02', itemDescription: '特色亮點 (二)' },
+      { id: 'feature-item-01-02', itemDescription: 'Cloudflare Tokens 客戶權杖管理' },
       { id: 'feature-item-01-03', itemDescription: '特色亮點 (三)' },
       { id: 'feature-item-01-04', itemDescription: '特色亮點 (四)' }
     ],
