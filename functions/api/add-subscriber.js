@@ -21,9 +21,10 @@ async function verifyTurnstile(token, secretKey, request) {
 // 關鍵：函式名稱必須是 onRequestPost 才能處理 POST 請求
 export async function onRequestPost({ request, env }) {
   // CORS 和來源驗證
-  const allowedOrigin = 'https://sakuyal.com';
+  const allowedOrigin = env.ALLOWED_ORIGIN;
   const origin = request.headers.get('Origin');
-  const isAllowed = origin === allowedOrigin || origin?.startsWith('http://localhost:');
+  const isDevelopment = origin?.startsWith('http://localhost:');  // 在本地開發時，允許 localhost
+  const isAllowed = origin === allowedOrigin || isDevelopment;
   
   if (!isAllowed) {
     return new Response(apiMessages.common.forbidden, { status: 403 });
