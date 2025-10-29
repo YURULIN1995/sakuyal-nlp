@@ -24,7 +24,8 @@ export async function onRequestPost({ request, env }) {
   const allowedOrigin = env.ALLOWED_ORIGIN;
   const origin = request.headers.get('Origin');
   const isDevelopment = origin?.startsWith('http://localhost:'); // 在本地開發時，允許 localhost
-  const isAllowed = origin === allowedOrigin || isDevelopment;
+  const isPreview = origin?.endsWith('.sakuyal-nlp.pages.dev');
+  const isAllowed = origin === allowedOrigin || isDevelopment || isPreview;
   
   if (!isAllowed) {
     return new Response(apiMessages.common.forbidden, { status: 403 });
