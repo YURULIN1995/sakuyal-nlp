@@ -5,7 +5,7 @@ export const portfolioTitle = {
 export const portfoliosList = [
   {
     id: 'portfolio-01',
-    title: 'IaC-Terraform 自動化部屬Cloudflare Pages (含 Email Routing, 環境變數[Brevo API, Turnstile])',
+    title: 'IaC-Terraform 自動化部署Cloudflare Pages (含 Email Routing, 環境變數[Brevo API, Turnstile])',
     description: '這是作品集項目一的詳細描述，說明了專案的背景、挑戰與成果。🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     featuresListItem: [
       { id: 'feature-item-01-01', itemDescription: '特色亮點 (一)' },
@@ -21,10 +21,10 @@ export const portfoliosList = [
   },
   {
     id: 'portfolio-02',
-    title: '作品02',
+    title: '日文政治新聞音檔轉文字兼ANKI記憶卡片生器',
     description: '這是作品集項目二的詳細描述，說明了專案的背景、挑戰與成果。🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     featuresListItem: [
-      { id: 'feature-item-02-01', itemDescription: '特色亮點 (一)' },
+      { id: 'feature-item-02-01', itemDescription: 'QLoRA finetuned Whisper v3 Japanese model' },
       { id: 'feature-item-02-02', itemDescription: '特色亮點 (二)' },
       { id: 'feature-item-02-03', itemDescription: '特色亮點 (三)' }
     ],
