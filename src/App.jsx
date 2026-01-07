@@ -33,7 +33,6 @@ function App() {
           <Route path="disclaimer" element={<DisclaimerPage />} />
           <Route path="copyright" element={<CopyrightPage />} />
           <Route path="refund-policy" element={<RefundPolicyPage />} />
-          <Route path="blog" element={<BlogPage />} />
           <Route path="blog/:categorySlug" element={<BlogPage />} />
           <Route path="blog/post/:postSlug" element={<PostPage />} />
         </Route>
