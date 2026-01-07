@@ -3,6 +3,7 @@ import sitemap from 'vite-plugin-sitemap';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import path from 'path';
+import { client } from './src/sanity.client.js';
 import { navItems } from './src/data/navData';
 
 const portfolioItem = navItems.find(item => item.name === '作品集');
@@ -27,11 +28,11 @@ export default defineConfig({
         '/disclaimer',
         '/refund-policy',
         '/free-download',
-        '/upsell',
-        'postpage'
+        '/upsell'
       ],
       dynamicPaths: [
-        ...portfolioIds.map(id => `/portfolio/${id}`),
+        ...portfolioIds.map(id => `/portfolio/${id}`), 
+        // ...blogSlugs.map(slug => `/blog/post/${slug}`) 尚未定義完成
       ],
       readable: true,
     }),
