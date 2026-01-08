@@ -6,14 +6,11 @@ import styles from '@styles/ServiceCard.module.scss';
  * @param {string} description - 服務描述
  * @param {string} imageUrl - 圖片URL
  * @param {string} imageAlt - 圖片替代文字
- * @param {boolean} [isReversed=false] - 是否反轉版面 (圖右文左)
  */
-function ServiceCard({ title, description, imageUrl, imageAlt, isReversed = false }) {
-  // 根據 isReversed prop 動態添加 class
-  const cardClasses = `${styles.card} ${isReversed ? styles.reversed : ''}`;
+function ServiceCard({ title, description, imageUrl, imageAlt}) {
 
   return (
-    <div className={cardClasses}>
+    <div className={styles.card}>
       <div className={styles.imageWrapper}>
         <img src={imageUrl} alt={imageAlt} />
       </div>

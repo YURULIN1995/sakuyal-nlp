@@ -32,7 +32,6 @@ function ServicesPage() {
               description={service.description}
               imageUrl={service.imageUrl}
               imageAlt={service.imageAlt}
-              isReversed={service.isReversed}
             />
           ))}
           <Button text={ctas.bookService.secondary} to={siteMeta.outlinks.reservationLink} />
