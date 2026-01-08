@@ -5,7 +5,7 @@ export const portfolioTitle = {
 export const portfoliosList = [
   {
     id: 'portfolio-01',
-    title: 'IaC-Terraform 自動化部署Cloudflare Pages (含 Email Routing, 環境變數[Brevo API, Turnstile])',
+    title: 'IaC-Terraform 自動化部署Cloudflare Pages)',
     description: '這是作品集項目一的詳細描述，說明了專案的背景、挑戰與成果。🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷🐷',
     featuresListItem: [
       { id: 'feature-item-01-01', itemDescription: '特色亮點 (一)' },

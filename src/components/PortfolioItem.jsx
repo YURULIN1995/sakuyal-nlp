@@ -6,7 +6,6 @@ import IconCheck from '@assets/icons/check.svg?react';
  * @param {object} item - 來自 portfoliosList 的單一作品物件
  */
 function PortfolioItem({ item }) {
-  // 從 item 物件中解構出需要的資料
   const { title, description, featuresListItem, imageUrl, imageAlt, buttonText, buttonLink } = item;
 
   return (
@@ -25,15 +24,14 @@ function PortfolioItem({ item }) {
             {featuresListItem.map(feature => (
               <li key={feature.id}>
                 <IconCheck className={styles.featureIcon} />
-                <span>{feature.itemDescription}</span>
+                <span>{feature.text}</span>
               </li>
             ))}
           </ul>
         )}
 
-        {/* 【新增】如果資料中有按鈕文字和連結，就渲染按鈕 */}
         {buttonText && buttonLink && (
-          <a href={buttonLink} className={styles.portfolioButton}>
+          <a href={buttonLink} target="_blank" rel="noopener noreferrer" className={styles.portfolioButton}>
             {buttonText}
           </a>
         )}
