@@ -32,7 +32,7 @@ export default defineConfig({
       ],
       dynamicPaths: [
         ...portfolioIds.map(id => `/portfolio/${id}`), 
-        // ...blogSlugs.map(slug => `/blog/post/${slug}`) 尚未定義完成
+        // ...blogSlugs.map(slug => `/blog/post/${slug}`) 尚未定義完成，需從 Sanity 抓取
       ],
       readable: true,
     }),
