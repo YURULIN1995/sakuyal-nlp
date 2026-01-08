@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { client, urlFor } from '@/sanity.client.js'; // ⚠️ 請確認你的 client 檔案路徑
+import { client, urlFor } from '@/sanity.client.js';
 import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import styles from '@styles/PortfolioPage.module.scss';
@@ -21,7 +21,7 @@ function PortfolioPage() {
   useEffect(() => {
     // 1. GROQ 查詢：對應你剛剛在 Vision 測試成功的結構
     // 我們同時抓取 titleChinese 並重新命名為 title，以符合前端組件習慣
-    const query = `*[_type == "portfolioItem"] | order(projectDate desc, _createdAt desc) {
+    const query = `*[_type == "portfolioItem"] | order(projectDate asc, _createdAt asc) {
       _id,
       "title": titleChinese,
       "titleEnglish": titleEnglish,
