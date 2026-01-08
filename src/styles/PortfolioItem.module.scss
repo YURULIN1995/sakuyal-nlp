@@ -15,12 +15,11 @@
     // 設定欄位之間的間距
     gap: 40px; 
   }
-}
 
-// 當有 .reversed class 時，在桌面版反轉其排列順序
-.itemContainer.reversed {
-  @include mx.respond-min(md) {
-    flex-direction: row-reverse;
+  &:nth-child(even){
+    @include mx.respond-min(md) {
+      flex-direction: row-reverse;
+    }
   }
 }
 

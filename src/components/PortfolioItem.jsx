@@ -7,12 +7,10 @@ import IconCheck from '@assets/icons/check.svg?react';
  */
 function PortfolioItem({ item }) {
   // 從 item 物件中解構出需要的資料
-  const { title, description, featuresListItem, imageUrl, imageAlt, isReversed, buttonText, buttonLink } = item;
-
-  const itemClasses = `${styles.itemContainer} ${isReversed ? styles.reversed : ''}`;
+  const { title, description, featuresListItem, imageUrl, imageAlt, buttonText, buttonLink } = item;
 
   return (
-    <div className={itemClasses}>
+    <div className={styles.itemContainer}>
       <div className={styles.imageWrapper}>
         <img src={imageUrl} alt={imageAlt} loading="lazy" />
       </div>

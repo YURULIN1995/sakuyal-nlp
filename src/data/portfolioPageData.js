@@ -15,7 +15,6 @@ export const portfoliosList = [
     ],
     imageUrl: 'https://placehold.co/800x600/a9d3a4/4a6e4f',
     imageAlt: '作品01示意圖',
-    isReversed: false,
     buttonText: '查看作品01',
     buttonLink: '#' 
   },
@@ -30,7 +29,6 @@ export const portfoliosList = [
     ],
     imageUrl: 'https://placehold.co/800x600/a9d3a4/4a6e4f',
     imageAlt: '作品02示意圖',
-    isReversed: true,
     buttonText: '查看作品02',
     buttonLink: '#'
   },
@@ -47,7 +45,6 @@ export const portfoliosList = [
     ],
     imageUrl: 'https://placehold.co/800x600/a9d3a4/4a6e4f',
     imageAlt: '作品03示意圖',
-    isReversed: false,
     buttonText: '查看作品03',
     buttonLink: '#'
   }
