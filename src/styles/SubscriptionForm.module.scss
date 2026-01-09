@@ -51,12 +51,9 @@
 
 .submitButton {
   @include mx.b-button(
-    $margin: 15px 0 0 0,
+    $margin-left: 0,
+    $margin-right: 0,
   );
-
-  & {
-    width: 100%;
-  }
 
   &:disabled {
   background-color: hsla(0, 0%, 80%, 1);

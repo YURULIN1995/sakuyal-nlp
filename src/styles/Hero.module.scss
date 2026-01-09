@@ -34,7 +34,7 @@
 
   // 手機版置中
   align-items: center;
-  text-align: center;
+  text-align: left;
 
   // 桌機版靠左
   @include mx.respond-min(md) {

@@ -110,22 +110,30 @@
 
 /* --- Button Style (優化版) --- */
 @mixin b-button(
+  $display: flex,
+  $width: 100%,
   $bg-color: map.get(color.$greens, 'light'),
   $hover-color: map.get(color.$greens, 'dark'),
   $text-color: color.$white,
-  $margin: 20px auto 0 auto,
+  $margin-top: 20px,
+  $margin-right: 0,
+  $margin-bottom: 0,
+  $margin-left: 0,
   $margin-top-md: 15px,
   $margin-top-lg: 42px,
   $font-weight: 700,
   $font-size: 15px
 ) {
-  display: inline-flex;
+  display: $display;
+  width: $width;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   gap: 5px;
-  width: fit-content;
-  margin: $margin;
+  margin-top: $margin-top;
+  margin-right: $margin-right;
+  margin-bottom: $margin-bottom;
+  margin-left: $margin-left;
   padding: 14px 30px;
   background-color: $bg-color;
   color: $text-color;
@@ -143,8 +151,12 @@
   }
 
   @include respond-min(md) {
+    display: inline-flex;
+    width: fit-content;
     padding: 14px 30px;
     margin-top: $margin-top-md;
+    margin-left: auto;
+    margin-right: auto;
   }
   @include respond-min(lg) {
     margin-top: $margin-top-lg;

@@ -25,7 +25,11 @@
 }
 
 .button {
-  @include mx.b-button;
+  @include mx.b-button(
+    $margin-left: auto,
+    $margin-right: auto,
+    $width: 100%,
+  );
 }
 
 .authorImage {
