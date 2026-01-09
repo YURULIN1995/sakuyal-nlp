@@ -1,0 +1,156 @@
+@use 'sass:map';
+@use '@styles/_breakpoints.scss' as bp;
+@use '@styles/_mixins' as mx;
+@use '@styles/colors' as color; // 假設你有 colors 變數
+
+// 頁面主容器 (限制最大寬度，置中)
+.pageContainer {
+  width: 100%;
+  max-width: 1140px; // 與你的 Hero/OneColumnLayout 一致
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+
+  @include mx.respond-min(md) {
+    padding: 60px 40px;
+  }
+}
+
+// --- 1. Hero Section ---
+.heroSection {
+  margin-bottom: 60px;
+  text-align: center; // 標題預設置中
+}
+
+.mainTitle {
+  @include mx.t-title; // 使用你的標題 mixin
+  margin-bottom: 20px;
+}
+
+.introText {
+  @include mx.p-paragraph;
+  max-width: 800px;
+  margin: 0 auto 40px auto; // 置中且與下方圖片保持距離
+  color: #666; // 稍微淺一點的顏色區分層級
+}
+
+.placeholderMainImage {
+  width: 100%;
+  aspect-ratio: 16 / 9; // 固定長寬比，模擬電影感大圖
+  background-color: #e0e0e0; // 灰色底
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+// --- 2. Content Section (TwoColumnLayout) ---
+.contentSection {
+  margin-bottom: 80px;
+}
+
+// 傳給 TwoColumnLayout 的 className，用來微調上下間距
+.twoColWrapper {
+  // TwoColumnLayout 本身已經處理好左右排列，這裡不需要額外寫 flex
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: map.get(color.$greens, 'dark'); // 使用你的主色
+}
+
+.paragraph {
+  @include mx.p-paragraph;
+  white-space: pre-line; // 讓 dummy data 的換行生效
+}
+
+// 特色列表樣式 (Right Column)
+.featuresArea {
+  background-color: #f9f9f9; // 給右側一點背景色，區分區塊
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.featureItem {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+
+  strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  p {
+    margin: 0;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+  }
+}
+
+.checkIcon {
+  color: map.get(color.$greens, 'base');
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+// --- 3. Gallery Section ---
+.gallerySection {
+  margin-bottom: 80px;
+}
+
+.gridGallery {
+  display: grid;
+  grid-template-columns: 1fr; // 手機版單欄
+  gap: 24px;
+
+  @include mx.respond-min(md) {
+    grid-template-columns: repeat(2, 1fr); // 桌機版兩欄
+  }
+}
+
+.placeholderGalleryImage {
+  width: 100%;
+  aspect-ratio: 4 / 3; // 相簿可以用比較方一點的比例
+  background-color: #eeeeee;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px); // 簡單的懸浮效果
+    background-color: #e5e5e5;
+  }
+}
+
+// --- 4. CTA Section ---
+.ctaSection {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid #eee; // 加一條分隔線
+}
+
+.visitButton {
+  @include mx.b-button; // 直接呼叫你最愛的按鈕 mixin
+  // 這裡可以不用傳參數，預設就會套用手機全寬/桌機適應
+}

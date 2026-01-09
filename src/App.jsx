@@ -17,6 +17,7 @@ import RefundPolicyPage from '@pages/legal/RefundPolicyPage';
 import FreeDownload from '@pages/FreeDownload';
 import Upsell from '@pages/Upsell';
 import PostPage from '@pages/content/PostPage'
+import PortfolioPageDetailed from '@pages/content/PortfolioPageDetailed';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="refund-policy" element={<RefundPolicyPage />} />
           <Route path="blog/:categorySlug" element={<BlogPage />} />
           <Route path="blog/post/:postSlug" element={<PostPage />} />
+          <Route path="portfolio-test" element={<PortfolioPageDetailed />} />
         </Route>
 
         {/* --- 路由群組 2: 不需要 Header/Footer 的獨立頁面 --- */}
