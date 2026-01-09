@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'; // 1. 引入 Link 元件
 import styles from '@styles/PortfolioItem.module.scss';
 import IconCheck from '@assets/icons/check.svg?react';
 
@@ -7,6 +8,9 @@ import IconCheck from '@assets/icons/check.svg?react';
  */
 function PortfolioItem({ item }) {
   const { title, description, featuresListItem, imageUrl, imageAlt, buttonText, buttonLink } = item;
+
+  // 2. 判斷是否為內部連結 (檢查是否以 / 開頭)
+  const isInternalLink = buttonLink?.startsWith('/');
 
   return (
     <div className={styles.itemContainer}>
@@ -30,10 +34,24 @@ function PortfolioItem({ item }) {
           </ul>
         )}
 
+        {/* 3. 按鈕邏輯：根據連結類型選擇使用 <Link> 或 <a> */}
         {buttonText && buttonLink && (
-          <a href={buttonLink} target="_blank" rel="noopener noreferrer" className={styles.portfolioButton}>
-            {buttonText}
-          </a>
+          isInternalLink ? (
+            // 情況 A：內部連結 (使用 Link 元件，不換頁、不開新視窗)
+            <Link to={buttonLink} className={styles.portfolioButton}>
+              {buttonText}
+            </Link>
+          ) : (
+            // 情況 B：外部連結 (維持原本的 a 標籤，開新視窗)
+            <a 
+              href={buttonLink} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={styles.portfolioButton}
+            >
+              {buttonText}
+            </a>
+          )
         )}
       </div>
     </div>

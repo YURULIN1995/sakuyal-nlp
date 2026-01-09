@@ -19,8 +19,7 @@ function PortfolioPage() {
   const pageHeaderTitle = "作品集"; 
 
   useEffect(() => {
-    // 1. GROQ 查詢：對應你剛剛在 Vision 測試成功的結構
-    // 我們同時抓取 titleChinese 並重新命名為 title，以符合前端組件習慣
+    // 1. GROQ 查詢
     const query = `*[_type == "portfolioItem"] | order(projectDate asc, _createdAt asc) {
       _id,
       "title": titleChinese,
@@ -42,16 +41,13 @@ function PortfolioPage() {
     client.fetch(query)
       .then((data) => {
         // 2. 資料清洗 (Data Transformation)
-        // 這裡的邏輯是將 Sanity 複雜的圖片物件，轉成單純的 imageUrl 字串
         const processedData = data.map(item => {
           let finalImageUrl = 'https://placehold.co/600x400/cccccc/ffffff?text=No+Image'; // 預設圖
 
           if (item.mainImage) {
             if (item.mainImage.isExternal && item.mainImage.externalUrl) {
-              // 情況 A：如果是外部連結，直接使用
               finalImageUrl = item.mainImage.externalUrl;
             } else if (item.mainImage.image) {
-              // 情況 B：如果是上傳圖片，用 urlFor 產生網址
               finalImageUrl = urlFor(item.mainImage.image).width(800).url();
             }
           }
@@ -67,9 +63,13 @@ function PortfolioPage() {
                 }))
               : [],
 
-            // B. 處理按鈕連結
-            buttonLink: item.relatedLink, // 對應 Schema 中的 relatedLink
-            buttonText: item.relatedLink ? `查看 ${item.title}` : null,
+            // --- 🟢 關鍵修改：將連結指向內部動態路由 ---
+            // 只要有 slug，就產生內部連結 `/portfolio/xxx`
+            // 這樣配合 PortfolioItem 使用 <Link> 時，就能在同分頁跳轉
+            buttonLink: item.slug ? `/portfolio/${item.slug}` : null,
+
+            // 按鈕文字
+            buttonText: item.slug ? `查看 ${item.title}` : null,
           };
         });
 

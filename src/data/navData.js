@@ -6,9 +6,9 @@ export const navItems = [
     path: '/portfolio',
     showOverviewLink: true, // 用來控制是否顯示「總覽」連結
     children: [
-      { name: '作品 01', path: '/portfolio/01' },
-      { name: '作品 02', path: '/portfolio/02' },
-      { name: '作品 03', path: '/portfolio/03' },
+      { name: '作品 01', path: '/portfolio-test' },
+      { name: '作品 02', path: '/portfolio-test' },
+      { name: '作品 03', path: '/portfolio-test' },
     ]
   },
   { name: '文章', path: '/blog',

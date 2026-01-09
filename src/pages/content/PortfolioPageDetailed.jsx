@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import TwoColumnLayout from '@components/TwoColumnLayout';
-// 假設你有一個通用容器，如果沒有，我們用 div + css container 處理
-// import OneColumnLayout from '@components/OneColumnLayout'; 
 import styles from '@styles/PortfolioPageDetailed.module.scss';
 
-// --- 靜態 Dummy Data ---
+// --- 靜態 Dummy Data (之後會換成 Sanity 資料) ---
 const dummyData = {
   title: "LOREM IPSUM PROJECT TITLE",
   intro: "這是一個專案的簡短介紹。Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -32,12 +31,17 @@ const dummyData = {
   gallery: [1, 2, 3, 4] 
 };
 
-function PortfolioDetailedPage() {
-  
-  // 讓頁面切換時自動捲到最上方
+function PortfolioPageDetailed() {
+  // 1. 接收網址上的參數 (對應 App.jsx 中的 :portfolioSlug)
+  const { portfolioSlug } = useParams();
+
+  // (測試用) 你可以在 console 看到目前網址是哪個作品
+  console.log("Current Project Slug:", portfolioSlug);
+
+  // 2. 換頁後自動捲動到最上方
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [portfolioSlug]);
 
   // --- 準備 TwoColumnLayout 的內容 ---
   
@@ -70,6 +74,13 @@ function PortfolioDetailedPage() {
   return (
     <div className={styles.pageContainer}>
       
+      {/* 0. 返回按鈕 (Optional) */}
+      <div style={{ marginBottom: '20px' }}>
+        <Link to="/portfolio" style={{ textDecoration: 'none', color: '#666' }}>
+          ← Back to Portfolio
+        </Link>
+      </div>
+
       {/* 1. Hero Section */}
       <section className={styles.heroSection}>
         <h1 className={styles.mainTitle}>{dummyData.title}</h1>
@@ -86,7 +97,7 @@ function PortfolioDetailedPage() {
         <TwoColumnLayout 
           left={leftContent} 
           right={rightContent} 
-          className={styles.twoColWrapper} // 可以傳入 className 微調間距
+          className={styles.twoColWrapper} 
         />
       </section>
 
@@ -113,4 +124,4 @@ function PortfolioDetailedPage() {
   );
 }
 
-export default PortfolioDetailedPage;
+export default PortfolioPageDetailed;
