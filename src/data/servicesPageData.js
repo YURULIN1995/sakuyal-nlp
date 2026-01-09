@@ -21,7 +21,6 @@ export const serviceItems = [
     description: '陪伴你建立出隨時都能指導/修正AI生成結果的服務流程。你可以藉由標籤、評價按鈕、給予文字反饋等方式教育你的AI助手。我也能協助你調整模型，使模型的表現更符合你的特殊需求。',
     imageUrl: '/images/support.jpg',
     imageAlt: '人性化 AI 服務流程設計',
-    isReversed: false
   },
   {
     id: 'service-02',
@@ -31,7 +30,6 @@ export const serviceItems = [
     description: '我精選的技術組合讓您免繳傳統主機的固定月費，又能得到企業級的資安防護，每一塊錢都花在刀口上！ \n 直覺好上手的網站客製化後台，讓你跟厚重的操作文件說bye-bye! \n 獨家AI內容助手協助你，從選題到撰寫專業文案，高效產出不卡關！ \n 如果你和我一樣為配色傷透腦筋，使用單色自動調色盤，選一個您最愛的顏色，一鍵更換全站風格！',
     imageUrl: 'images/website.jpg',
     imageAlt: '品牌服務載體網站建置',
-    isReversed: true
   },
   {
     id: 'service-03',
@@ -41,7 +39,6 @@ export const serviceItems = [
     description: '你的文案與文章可以更符合搜尋引擎AI摘要的格式，讓它為客戶強力主打您的產品與服務。你可以利用這套系統分析行銷數據大幅節省人力與時間成本，依照AI的具體建議改善服務的每個環節，提昇留客率！',
     imageUrl: 'images/dashboard.jpg',
     imageAlt: 'AI 驅動型客戶轉換流程',
-    isReversed: false
   }
 ];
 

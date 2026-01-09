@@ -8,24 +8,64 @@
   overflow: hidden;
 }
 
-/* 傳遞給 TextImageSlot 的特定 Class */
-.heroContainerSpecifics {
-  margin: 0 154px;
-  padding: 110px 0 20px;
-  min-height: inherit;
+// 這個 Container 用來取代原本的 OneColumnLayout 功能，
+// 專門控制 Hero 的寬度與 Padding
+.container {
+  max-width: 1140px; // 與你的 OneColumnLayout 保持一致
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  // 從原本的 .heroContainerSpecifics 搬過來的 Padding 設定
+  padding: 110px 20px 20px; 
 
   @include mx.respond-min(md) {
-    padding: 150px 0 48px;
+    padding: 150px 40px 48px;
   }
   @include mx.respond-min(xl) {
-    padding: 200px 0 48px;
+    padding: 200px 40px 48px;
   }
 }
 
-.heroTextContainerMobile {
-  order: 1;
+// 左側文字區塊 wrapper
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  // 手機版置中
+  align-items: center;
+  text-align: center;
+
+  // 桌機版靠左
+  @include mx.respond-min(md) {
+    align-items: flex-start;
+    text-align: left;
+  }
 }
 
-.heroImageContainerMobile {
-  order: 2;
+.title {
+  @include mx.t-title; // 使用 mixin
+  margin-bottom: 0;    // 間距由 parent gap 控制，這裡歸零
+}
+
+.paragraph {
+  @include mx.p-paragraph;
+  white-space: pre-line;
+  margin-bottom: 0;
+}
+
+.button {
+  @include mx.b-button;
+}
+
+.socialLinks {
+  margin-top: 10px;
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  // Hero 圖片通常很重要，可以加一點特效或陰影
 }

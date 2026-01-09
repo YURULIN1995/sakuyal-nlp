@@ -1,47 +1,59 @@
 import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
-import TextImageSlot from '@components/TextImageSlot';
-// import DividerTitleLeft from '@components/DividerTitleLeft';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
-// import TestimonialPostCard from '@components/Testimonials/TestimonialPostCard';
+import TwoColumnLayout from '@components/TwoColumnLayout';
 import { siteMeta } from '@data/siteMeta.js';
 import { authorData } from '@data/aboutData.js';
-// import { serviceTestimonials } from '@data/servicesPageData.js';
+import styles from '@styles/AboutPage.module.scss';
 
 function AboutPage() {
   const { title, description } = siteMeta.pages.about;
+
+  // 1. 定義左側內容 (文字 + 按鈕)
+  const leftContent = (
+    <div className={styles.textWrapper}>
+      <p className={styles.paragraph}>{authorData.paragraph}</p>
+      
+      {authorData.buttonText && (
+        <a 
+          href={authorData.buttonLink} 
+          className={styles.button}
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          {authorData.buttonText}
+        </a>
+      )}
+    </div>
+  );
+
+  // 2. 定義右側內容 (圖片)
+  const rightContent = (
+    <img 
+      src={authorData.imageUrl} 
+      alt={authorData.imageAlt} 
+      className={styles.authorImage} 
+      loading="lazy"
+    />
+  );
 
   return (
     <>
       <ViewportMeta/>
       <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={authorData.titleLine}/>
+      
       <BackgroundColor>
         <OneColumnLayout>
-          <TextImageSlot
-            paragraph={authorData.paragraph}
-            buttonText={authorData.buttonText}
-            buttonLink={authorData.buttonLink}
-            imageUrl={authorData.imageUrl}
-            imageAlt={authorData.imageAlt}
+          {/* 直接組合，不再透過 TextImageSlot */}
+          <TwoColumnLayout 
+            left={leftContent} 
+            right={rightContent} 
           />
         </OneColumnLayout>
       </BackgroundColor>
-      {/* <OneColumnLayout>
-        <DividerTitleLeft  title={serviceTestimonials.title } />
-        {serviceTestimonials.list.map(item =>
-        <TestimonialPostCard
-          key={item.id}
-          imageUrl={item.imageUrl}
-          imageAlt={item.imageAlt}
-          authorName={item.authorName}
-          authorTitle={item.authorTitle}
-          fullText={item.fullText}
-        />
-        )}
-      </OneColumnLayout> */}
     </>
   );
 }

@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use '@styles/_breakpoints.scss' as bp;
+@use '@styles/_mixins' as mx;
+
+// 這是 About 頁面專屬的內容樣式
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  
+  // 手機版置中，桌機版靠左 (配合 TwoColumnLayout 的排版)
+  align-items: center;
+  text-align: center;
+
+  @include mx.respond-min(md) {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.paragraph {
+  @include mx.p-paragraph;
+  white-space: pre-line; // 保留換行格式
+  margin-bottom: 0;
+}
+
+.button {
+  @include mx.b-button;
+}
+
+.authorImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px; // 這裡可以自由控制圖片圓角
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); // 加一點陰影更有質感
+}

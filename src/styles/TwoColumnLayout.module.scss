@@ -1,73 +1,28 @@
 @use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mixins;
+@use '@styles/_mixins' as mx;
 
-.contentContainer {
-  position: relative;
-  z-index: 2;
-  max-width: 1140px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-
-  @include mixins.respond-min(md) {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-
-.innerColumns {
-  display: flex;
-  flex-wrap: wrap;
+.container {
+  // 讓它自動填滿父層寬度 (寬度限制交給外層的 OneColumnLayout 或 Hero Container)
   width: 100%;
-  flex-direction: column;
-
-  @include mixins.respond-min(md) {
-    flex-direction: row;
-  }
-}
-
-.textContainer {
-  flex-basis: 100%;
-  width: 100%;
-  box-sizing: border-box;
+  
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; // 手機版：垂直堆疊
+  gap: 3rem;              // 手機版間距 (約 48px)
 
-  @include mixins.respond-min(md) {
-    flex-basis: 50%;
-    align-items: flex-start;
+  // 桌機版 RWD
+  @include mx.respond-min(md) {
+    flex-direction: row;  // 桌機版：水平排列
+    align-items: center;  // 垂直置中
+    gap: 4rem;            // 桌機版間距加大 (約 64px)
   }
 }
 
-.imageContainer {
-  flex-basis: auto;
-  padding: 15px;
+.columnLeft, .columnRight {
   width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  @include mixins.respond-min(md) {
-    flex-basis: 50%;
-    width: initial;
+  @include mx.respond-min(md) {
+    flex: 1;      // 讓左右欄位自動平分剩餘空間
+    width: 50%;   // 明確指定基準寬度
   }
-}
-
-.imageContainer img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
-}
-
-.reversed {
-  flex-direction: row-reverse;
 }
