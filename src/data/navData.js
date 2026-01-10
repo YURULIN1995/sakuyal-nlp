@@ -5,19 +5,11 @@ export const navItems = [
     name: '作品集',
     path: '/portfolio',
     showOverviewLink: true, // 用來控制是否顯示「總覽」連結
-    children: [
-      { name: '作品 01', path: '/portfolio-test' },
-      { name: '作品 02', path: '/portfolio-test' },
-      { name: '作品 03', path: '/portfolio-test' },
-    ]
+    children: []
   },
   { name: '文章', path: '/blog',
-    showOverviewLink: true,
-    children: [
-      { name: '人性化AI', path: '/blog/humanize-ai'},
-      { name: '服務設計', path: '/blog/service-design'},
-      { name: '一人創業', path: '/blog/solo-business'}
-    ]
+    showOverviewLink: true,  // 用來控制是否顯示「總覽」連結
+    children: []
    },
   { name: '聯絡', path: '/contact' },
 ]

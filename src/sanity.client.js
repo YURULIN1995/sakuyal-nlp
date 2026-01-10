@@ -10,7 +10,7 @@ export const client = createClient({
   // `false` 可確保您拿到最新的資料，`true` 則可以利用 CDN 快取加速
   useCdn: true,                  
   // 建議使用您開始專案的日期，格式為 YYYY-MM-DD
-  apiVersion: '2025-10-15',      
+  apiVersion: '2026-01-10',      
 });
 
 // 建立一個 imageUrlBuilder 實例，以便在您的元件中使用

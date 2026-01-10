@@ -1,10 +1,16 @@
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { navItems } from '@data/navData.js';
+// 1. 移除舊的靜態匯入
+// import { navItems } from '@data/navData.js'; 
+// 2. 改用新的 Hook 匯入 (使用您剛剛設定好的 alias)
+import { useNavData } from '@hooks/useNavData'; 
 import styles from '@styles/Navbar/Navbar.module.scss';
 
 function Navbar() {
   const location = useLocation();
+  // 3. 在元件內部呼叫 Hook 來取得最新的 navItems
+  const navItems = useNavData(); 
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -18,6 +24,11 @@ function Navbar() {
   const handleDropdownToggle = (event, itemName) => {
     event.preventDefault();
     setOpenDropdown(prevOpen => (prevOpen === itemName ? null : itemName));
+  };
+
+  // 輔助函式：判斷是否真的有子選單 (避免空陣列 [] 導致誤判)
+  const hasChildren = (item) => {
+    return item.children && item.children.length > 0;
   };
 
   const getNavLinkClass = (navLinkProps, item) => {
@@ -45,33 +56,38 @@ function Navbar() {
         {navItems.map((item) => (
           <li
             key={item.name}
-            className={`${styles.navItem} ${item.children ? styles.dropdown : ''}`}
+            // 4. 修改判斷：改用 hasChildren(item)
+            className={`${styles.navItem} ${hasChildren(item) ? styles.dropdown : ''}`}
           >
             <NavLink
               to={item.path}
               onClick={(e) => {
-                if (item.children) {
+                // 5. 修改判斷：只有真的有子項目時才切換下拉
+                if (hasChildren(item)) {
                   handleDropdownToggle(e, item.name);
                 } else {
                   setIsMenuOpen(false);
                 }
               }}
-              className={(props) => `${getNavLinkClass(props, item)} ${item.children ? styles.hasDropdown : ''} ${openDropdown === item.name ? styles.isOpen : ''}`}
+              // 6. 修改判斷：樣式處理
+              className={(props) => `${getNavLinkClass(props, item)} ${hasChildren(item) ? styles.hasDropdown : ''} ${openDropdown === item.name ? styles.isOpen : ''}`}
             >
               {item.name}
-              {item.children && <span className={styles.arrow}>▾</span>}
+              {/* 7. 修改判斷：箭頭顯示 */}
+              {hasChildren(item) && <span className={styles.arrow}>▾</span>}
             </NavLink>
 
-            {item.children  && (
+            {/* 8. 修改判斷：下拉選單內容渲染 */}
+            {hasChildren(item) && (
               <ul className={`${styles.dropdownList} ${openDropdown === item.name ? styles.isOpen : ''}`}>
                 {item.showOverviewLink && (
                   <li className={styles.dropdownItem}>
-                    {/* 將連結文字動態化，並加上 onClick 事件 */}
                     <NavLink to={item.path} className={styles.dropdownLink} onClick={() => setIsMenuOpen(false)}>所有{item.name}</NavLink>
                   </li>
                 )}
                 {item.children.map((child) => (
-                  <li key={child.name} className={styles.dropdownItem}>
+                  <li key={child.path} className={styles.dropdownItem}>
+                    {/* 注意：這裡 key 建議改用 child.path 比較唯一 */}
                     <NavLink to={child.path} className={styles.dropdownLink} onClick={() => setIsMenuOpen(false)}>{child.name}</NavLink>
                   </li>
                 ))}
