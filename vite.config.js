@@ -95,6 +95,21 @@ export default defineConfig(async () => {
         '@hooks': path.resolve(__dirname, 'src/hooks'),
       }
     },
+    build: {
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+                return 'react-vendor';
+              }
+            }
+            return 'vendor';
+          }
+        }
+      }
+    },
     server: { port: 5173 }
   };
 });
