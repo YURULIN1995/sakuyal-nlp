@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { client, urlFor } from '@/sanity.client.js';
 import styles from '@styles/PostPage.module.scss';
-import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import OneColumnLayout from '@components/OneColumnLayout';
 import Post from '@components/Post';
@@ -46,7 +45,6 @@ function PostPage(props) {
 
   return (
     <>
-      <ViewportMeta/>
       <SEO 
       title={post ? post.title : '文章載入中...'} 
       description={post ? post.excerpt || '文章內容' : ''} 

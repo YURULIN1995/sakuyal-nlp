@@ -1,8 +1,5 @@
 @use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mx; // 1. 新增對全域 mixin 的引用
-
-// 2. 移除了本地的 @mixin respond-min(...) { ... } 定義
+@use '@styles/_mixins' as mx;
 
 .header {
   width: 100%;
@@ -35,7 +32,6 @@
   aspect-ratio: auto 47 / 63;
   display: block;
 
-  // 3. 更新呼叫語法，指向全域 mixin
   @include mx.respond-min(xs) {
     height: 90px;
   }

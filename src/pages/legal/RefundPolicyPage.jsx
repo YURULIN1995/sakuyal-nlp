@@ -1,4 +1,3 @@
-import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import OneColumnLayout from '@components/OneColumnLayout';
 import { siteMeta } from '@data/siteMeta.js';
@@ -9,7 +8,6 @@ function RefundPolicyPage() {
   const { title, description } = siteMeta.pages.refundPolicy;
   return (
     <>
-      <ViewportMeta/>
       <SEO title={title} description={description} />
       <OneColumnLayout className={styles.pageWrapper}>
         <h1 className={styles.title}>{title}</h1>

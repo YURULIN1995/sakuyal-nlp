@@ -1,4 +1,3 @@
-import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import SubscriptionForm from '@components/SubscriptionForm';
 import { siteMeta } from '@data/siteMeta.js';
@@ -11,7 +10,6 @@ function FreeDownload() {
 
   return (
     <>
-      <ViewportMeta/>
       <SEO title={title} description={description} />
       <main className={styles.contentWrapper}>
         <div className={styles.textSection}>

@@ -1,4 +1,3 @@
-import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import styles from '@styles/ContactPage.module.scss';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
@@ -14,7 +13,6 @@ function ContactPage() {
 
   return (
     <div className={styles.pageWrapper}>
-      <ViewportMeta/>
       <SEO title={title} description={description} />
       <PageHeaderBicolorBackground title={contactData.titleLine1}/>
       <BackgroundColor color="lightGreen" className={styles.growingSection}>

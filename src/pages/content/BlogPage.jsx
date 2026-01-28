@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { client, urlFor} from '@/sanity.client.js';
 import styles from '@styles/BlogPage.module.scss';
-import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import OneColumnLayout from '@components/OneColumnLayout';
@@ -61,7 +60,6 @@ function BlogPage() {
 
   return (
     <>
-      <ViewportMeta/>
       <SEO title={categoryTitle} description={description} />
       <PageHeaderBicolorBackground title={blogTitle} />
       <OneColumnLayout className={styles.container}>

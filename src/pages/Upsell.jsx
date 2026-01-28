@@ -1,4 +1,3 @@
-import ViewportMeta from '@components/Head/ViewportMeta';
 import SEO from '@components/Head/SEO';
 import styles from '@styles/Upsell.module.scss';
 import BackgroundColor from '@components/BackgroundColor';
@@ -30,7 +29,6 @@ function Upsell() {
 
   return (
     <>
-      <ViewportMeta/>
       <SEO title={title} description={description} />
       <main className={styles.main}>
         <div className={styles.callToActionHead}>
