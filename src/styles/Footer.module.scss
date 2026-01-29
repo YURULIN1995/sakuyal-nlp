@@ -1,9 +1,8 @@
-@use '@styles/colors' as color;
-@use 'sass:map';
+@use '@styles/mixins' as mx; 
 
 .footer {
-  background-color: map.get(color.$greens, 'bg');
-  color: rgba(map.get(color.$greens, 'nav-base'), 0.75);
+  background-color: mx.get-color('green', 'bg');
+  color: mx.get-color('green', 'nav-base', 0.75);
   font-size: 12px;
   width: 100%;
   padding: 15px 0;
@@ -27,12 +26,12 @@
     }
 
     .navLink {
-      color: rgba(map.get(color.$greens, 'nav-base'), 0.9);
+      color: mx.get-color('green', 'nav-base', 0.9);
       text-decoration: none;
       transition: text-decoration 0.2s ease, color 0.2s ease;
 
       &:hover {
-        color: map.get(color.$greens, 'darkest');
+        color: mx.get-color('green', 'darkest');
         text-decoration: underline;
       }
     }

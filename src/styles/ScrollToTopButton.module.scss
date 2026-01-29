@@ -1,5 +1,4 @@
-@use '@styles/colors' as color;
-@use 'sass:map';
+@use 'mixins' as mx;
 
 .scrollTopButton {
   position: fixed; // 固定在視窗的特定位置
@@ -7,7 +6,7 @@
   right: 30px;
   
   // 使用您指定的背景顏色
-  background-color: map.get(color.$greens, 'base');
+  background-color: mx.get-color('green', 'base');
   
   border: none;
   border-radius: 5px;
@@ -29,7 +28,7 @@
 
   // Hover 效果
   &:hover {
-    background-color: map.get(color.$greens, 'dark'); // Hover 時使用較深的綠色
+    background-color: mx.get-color('green', 'dark');
     transform: translateY(-2px); // 輕微向上浮動
   box-shadow: 0 6px 12px hsla(0, 0%, 0%, 0.2);
   }

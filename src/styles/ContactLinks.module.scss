@@ -1,6 +1,4 @@
 @use '@styles/mixins' as mx;
-@use '@styles/colors' as color;
-@use 'sass:map';
 
 .contactLinksContainer {
   display: flex;
@@ -9,7 +7,6 @@
   margin-top: 40px;
 }
 
-// 【修改】將連結項目設為 Flex 容器
 .linkItem {
   display: flex;
   align-items: center;
@@ -18,8 +15,7 @@
 }
 
 .iconWrapper {
-  // 設定預設顏色
-  color: map.get(color.$greens, 'light');
+  color: mx.get-color('green', 'light');
   transition: color 0.3s ease;
 
   // 設定 SVG 和 FontAwesome 圖示的大小
@@ -31,18 +27,16 @@
   }
 }
 
-// 【新增】聯絡方式名稱的樣式
 .contactName {
   font-size: 16px;
   font-weight: 500;
-  color: map.get(color.$greens, 'base');
+  color: mx.get-color('green', 'base');
   transition: color 0.3s ease;
 }
 
-// 【修改】將 hover 效果應用在整個連結上
 .linkItem:hover {
   .iconWrapper,
   .contactName {
-    color: map.get(color.$greens, 'base');
+    color: mx.get-color('green', 'base');
   }
 }

@@ -1,6 +1,4 @@
 @use '@styles/mixins' as mx;
-@use '@styles/colors' as color;
-@use 'sass:map';
 
 .itemContainer {
   display: flex;
@@ -84,14 +82,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: map.get(color.$greens, 'dark');
+    color: mx.get-color('green', 'dark');
   }
 }
 
 .featureIcon {
   width: 20px;
   height: 20px;
-  color: map.get(color.$greens, 'base');
+  color: mx.get-color('green', 'base');
   flex-shrink: 0;
 }
 
@@ -100,6 +98,6 @@
   // 覆寫 mixin 中的預設 margin，讓按鈕靠左對齊
   & {
     margin: 0 0 0 0;
-    box-shadow: 0px 16px 32px -16px rgba(map.get(color.$greens, 'bright'), 0.8);
+    box-shadow: 0px 16px 32px -16px mx.get-color('green', 'bright', 0.8);
   }
 }

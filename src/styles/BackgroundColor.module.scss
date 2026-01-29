@@ -1,5 +1,4 @@
-@use 'colors' as color;
-@use 'sass:map';
+@use 'mixins' as mx;
 
 // 基礎樣式 (所有變體共用)
 .background {
@@ -10,16 +9,16 @@
 /* --- 顏色修飾符 --- */
 // 淺綠色 (預設)
 .lightGreen {
-  background-color: map.get(color.$greens, 'bg-light');
+  background-color: mx.get-color('green', 'bg-light');
 }
 
 .freshGreen{
-  background-color: map.get(color.$greens, 'bg-hover');
+  background-color: mx.get-color('green', 'bg-hover');
 }
 
 // 白色
 .white {
-  background-color: color.$white;
+  background-color: mx.get-color('neutral', 'white');
 }
 
 // 您也可以新增其他顏色，例如透明

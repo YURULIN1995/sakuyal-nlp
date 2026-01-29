@@ -1,5 +1,4 @@
-@use '@styles/colors' as color;
-@use 'sass:map';
+@use 'mixins' as mx;
 
 .container {
   display: flex;
@@ -13,23 +12,22 @@
 }
 
 .errorMessage {
-  // 使用 sass 的 rgba() 函式為我們的基礎綠色加上 50% 的透明度
-  color: rgba(map.get(color.$greens, 'nav-base'), 0.5);
+  color: mx.get-color('green', 'nav-base', 0.5);
   margin-bottom: 15px;
 }
 
 .prompt {
-  color: map.get(color.$greens, 'nav-base');
+  color: mx.get-color('green', 'nav-base');
   margin-bottom: 25px;
 }
 
 .homeLink {
-  color: map.get(color.$blues, 'link');
+  color: mx.get-color('blue', 'link');
   text-decoration: underline;
   font-weight: bold;
   transition: color 0.2s ease;
 
   &:hover {
-    color: map.get(color.$blues, 'link-hover');
+    color: mx.get-color('blue', 'link-hover');
   }
 }

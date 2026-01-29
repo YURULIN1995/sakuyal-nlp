@@ -1,6 +1,4 @@
 @use '@styles/mixins' as mx;
-@use '@styles/colors' as color;
-@use 'sass:map';
 
 .comparisonSection {
   padding: 50px 0;
@@ -30,8 +28,8 @@
 
 .column {
   flex: 1;
-  &:nth-child(1) {background-color: map.get(color.$greens, 'bg-hover');}
-  &:nth-child(2) {background-color: map.get(color.$greens, 'bg-grayed');}
+  &:nth-child(1) {background-color: mx.get-color('green', 'bg-hover');}
+  &:nth-child(2) {background-color: mx.get-color('green', 'bg-grayed');}
 }
 
 .columnPadding {
@@ -46,7 +44,7 @@
   li {
   display: flex;
   align-items: center;
-  color: map.get(color.$greens, 'base');
+  color: mx.get-color('green', 'base');
   gap: 8px;
   margin-bottom: 10px;
 }
@@ -58,7 +56,7 @@
   .icon {
     width: 20px;
     height: 20px;
-    color: map.get(color.$greens, 'base');
+    color: mx.get-color('green', 'base');
     flex-shrink: 0;
   }
 

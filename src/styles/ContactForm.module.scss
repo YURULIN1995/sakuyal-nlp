@@ -1,6 +1,4 @@
 @use '@styles/mixins' as mx;
-@use '@styles/colors' as color;
-@use 'sass:map';
 
 .formContainer {
   width: 100%;
@@ -17,10 +15,10 @@
 .formSubtitle {
   text-align: center;
   margin-bottom: 40px;
-  color: map.get(color.$greens, 'base');
+  color: mx.get-color('green', 'base');
 
   a {
-    color: map.get(color.$greens, 'dark');
+    color: mx.get-color('green', 'dark');
     font-weight: 500;
     text-decoration: none;
     &:hover {
@@ -41,18 +39,18 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: map.get(color.$greens, 'dark');
+  color: mx.get-color('green', 'dark');
 }
 
 .input,
 .textarea {
   width: 100%;
   padding: 14px 18px;
-  border: 1px solid color.$grey-border;
+  border: 1px solid mx.get-color('neutral', 'grey-border');
   border-radius: 5px;
   font-size: 16px;
-  color: map.get(color.$greens, 'dark');
-  background-color: color.$white;
+  color: mx.get-color('green', 'dark');
+  background-color: mx.get-color('neutral', 'white');
   box-sizing: border-box;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
@@ -62,8 +60,8 @@
 
   &:focus {
     outline: none;
-    border-color: map.get(color.$greens, 'base');
-    box-shadow: 0 0 0 3px rgba(map.get(color.$greens, 'base'), 0.2);
+    border-color: mx.get-color('green', 'base');
+    box-shadow: 0 0 0 3px rgba(mx.get-color('green', 'base'), 0.2);
   }
 }
 
@@ -76,7 +74,7 @@
   @include mx.b-button;
   // 禁用狀態下的樣式
   &:disabled {
-    background-color: color.$grey-border;
+    background-color: mx.get-color('neutral', 'grey-border');
     cursor: not-allowed;
   }
 }
@@ -91,9 +89,8 @@
 
 // 成功訊息的樣式
 .success {
-  background-color: rgba(map.get(color.$greens, 'light'), 0.3);
-  // 【修改】將文字顏色改為 'base'
-  color: map.get(color.$greens, 'base');
+  background-color: mx.get-color('green', 'light', 0.3);
+  color: mx.get-color('green', 'base');
 }
 
 // 失敗訊息的樣式

@@ -1,14 +1,12 @@
-@use '@styles/colors' as color;
 @use '@styles/mixins' as mx;
-@use 'sass:map';
 
 .testimonialSlide {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    background-color: color.$white;
-    border: 1px solid color.$grey-light-border;
+    background-color: mx.get-color('neutral', 'white');
+    border: 1px solid mx.get-color('neutral', 'grey-light-border');
     border-radius:  12px;
     padding: 2rem;
     text-align: left;
@@ -17,7 +15,7 @@
     width: 95%;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 4px 15px color.$shadow-light;
+    box-shadow: 0 4px 15px mx.get-color('neutral', 'shadow-light');
 
     .swiper-pagination-bullet-active{
         width: 24px;
@@ -25,7 +23,7 @@
 
     .comment {
         p {
-            color: color.$grey-text;
+            color: mx.get-color('neutral', 'grey-text');
             font-weight: 300;
             line-height: 1.7;
             letter-spacing: 0.5px;
@@ -49,14 +47,14 @@
     }
 
     .nameWrap {
-        color: color.$grey-text;
+        color: mx.get-color('neutral', 'grey-text');
         font-weight: 400;
 
         .nameWrapSubtitle {
             margin: 0;
             font-weight: 300;
             font-size: 0.9rem;
-            color: color.$grey-text;
+            color: mx.get-color('neutral', 'grey-text');
         }
     }
 }

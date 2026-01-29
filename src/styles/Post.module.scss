@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
 @use '@styles/_mixins' as mx;
-@use '@styles/_colors' as color;
 
 .postArticle{
     .articleHeader {
@@ -18,13 +17,13 @@
             @include mx.p-paragraph;
             .categoryLink {
                 &:hover {
-                    color: map.get(color.$greens, 'light');
+                    color: mx.get-color('green', 'light');
                 }
             }
         }
         .authorLink{
             &:hover {
-                    color: map.get(color.$greens, 'light');
+                    color: mx.get-color('green', 'light');
             }
         }
     }

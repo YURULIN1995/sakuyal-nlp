@@ -1,6 +1,4 @@
-@use '@styles/_mixins' as mixins;
-@use '@styles/colors' as color;
-@use 'sass:map';
+@use '@styles/_mixins' as mx;
 
 // --- 佈局輔助 (Layout Helper) ---
 .layoutReset {
@@ -11,17 +9,17 @@
 .featuredPostsWrapper {
   padding: 60px 20px;
   text-align: left;
-  background-color: map.get(color.$greens, 'bg-light');
+  background-color: mx.get-color('green', 'bg-light');
 
-  @include mixins.respond-min(md) {
+  @include mx.respond-min(md) {
     padding: 60px 100px;
   }
 
-  @include mixins.respond-min(xl) {
+  @include mx.respond-min(xl) {
     padding: 60px 40px;
   }
 
-  @include mixins.respond-min(xxl) {
+  @include mx.respond-min(xxl) {
     padding: 60px 100px;
   }
 }
@@ -34,12 +32,12 @@
   margin-bottom: 20px;
 
   &::before {
-    @include mixins.decorative-divider($is-centered: false);
+    @include mx.decorative-divider($is-centered: false);
   }
 }
 
 .sectionTitle {
-  @include mixins.t-title;
+  @include mx.t-title;
   & { text-align: left; }
 }
 
@@ -54,8 +52,8 @@
 // --- 文章卡片 (Post Card) ---
 .postCard {
   box-sizing: border-box;
-  background-color: color.$white;
-  border: 1px solid color.$grey-border;
+  background-color: mx.get-color('neutral', 'white');
+  border: 1px solid mx.get-color('neutral', 'grey-border');
   border-radius: 8px;
   overflow: hidden;
   text-align: left;
@@ -64,11 +62,11 @@
 
   flex-basis: 100%;
 
-  @include mixins.respond-min(md) {
+  @include mx.respond-min(md) {
     flex-basis: calc(50% - 15px);
   }
 
-  @include mixins.respond-min(lg) {
+  @include mx.respond-min(lg) {
     flex-basis: calc(33.333% - 20px);
   }
 }
@@ -94,14 +92,14 @@
 
 .postCategory {
   font-size: 0.85em;
-  color: map.get(color.$greens, 'light');
+  color: mx.get-color('green', 'light');
   margin-bottom: 8px;
   font-weight: bold;
 }
 
 .postTitle {
   font-size: 1.3em;
-  color: map.get(color.$greens, 'dark');
+  color: mx.get-color('green', 'dark');
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 10px;
@@ -119,7 +117,7 @@
 
 .postExcerpt {
   font-size: 0.95em;
-  color: color.$grey-text;
+  color: mx.get-color('neutral', 'grey-text');
   line-height: 1.6;
   margin-bottom: 15px;
   flex-grow: 1;
@@ -129,12 +127,12 @@
 /* --- 「閱讀更多」連結與圖示 --- */
 .readMoreLink {
   font-size: 0.9em;
-  color: map.get(color.$greens, 'base');
+  color: mx.get-color('green', 'base');
   text-decoration: none;
   font-weight: bold;
   align-self: flex-start;
   
-  // 新增樣式讓文字和圖示對齊
+  // 讓文字和圖示對齊
   display: inline-flex;
   align-items: center;
   gap: 4px; // 文字與圖示的間距

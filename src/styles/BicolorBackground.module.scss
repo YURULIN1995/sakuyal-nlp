@@ -1,5 +1,4 @@
-@use 'colors' as color;
-@use 'sass:map';
+@use 'mixins' as mx;
 
 // .bicolorSection 是最外層的容器，作為定位基準
 .bicolorSection {
@@ -20,12 +19,12 @@
 
 .bgLeft {
   flex-basis: 65%;
-  background-color: map.get(color.$greens, 'bg');
+  background-color: mx.get-color('green', 'bg');
 }
 
 .bgRight {
   flex-basis: 35%;
-  background-color: color.$white;
+  background-color: mx.get-color('neutral', 'white');
 }
 
 // .contentLayer 是用來放內容的容器，疊在背景之上

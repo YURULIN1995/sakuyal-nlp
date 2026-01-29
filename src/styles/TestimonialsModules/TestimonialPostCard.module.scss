@@ -1,11 +1,9 @@
 @use '@styles/mixins' as mx;
-@use 'sass:map';
-@use '@styles/colors' as color;
 
 // .card 是主要的 flex 容器
 .card {
   display: flex;
-  background-color: color.$white;
+  background-color: mx.get-color('neutral', 'white');
   padding: 0;
 
   // Mobile First: 預設為垂直堆疊排版
@@ -80,7 +78,7 @@
 .subtitle {
   margin-bottom: 14px;
   font-size: 0.9rem;
-  color: color.$grey-text;
+  color: mx.get-color('neutral', 'grey-text');
 }
 
 // 右欄內的內文

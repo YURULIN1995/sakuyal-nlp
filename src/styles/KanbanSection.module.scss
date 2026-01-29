@@ -1,10 +1,7 @@
-@use '@styles/_mixins' as mixins; // 1. 引入 mixins 檔案
-@use '@styles/colors' as color;   // (推薦) 同時引入顏色檔案，保持一致性
-@use 'sass:map';
+@use '@styles/_mixins' as mx;
 
 .kanbanSectionWrapper {
-  // 使用我們在 _color.scss 中定義好的通用背景色
-  background-color: map.get(color.$greens, 'bg-light');
+  background-color: mx.get-color('green', 'bg-light');
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
@@ -13,8 +10,7 @@
   padding-top: 64px;
   padding-bottom: 64px;
 
-  // 2. 使用正確的命名空間(mixins)和 mixin 名稱(respond-min)
-  @include mixins.respond-min(md) {
+  @include mx.respond-min(md) {
     padding-top: 50px;
     padding-bottom: 50px;
   }

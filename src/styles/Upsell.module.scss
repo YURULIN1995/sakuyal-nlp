@@ -1,9 +1,7 @@
-@use '@styles/colors' as color;
 @use '@styles/mixins' as mx;
-@use 'sass:map';
 
 .main {
-  background-color: color.$white;
+  background-color: mx.get-color('neutral', 'white');
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -38,9 +36,9 @@
       list-style-position: inside;
     }
     a {
-      color: color.$orange;
+      color: mx.get-color('orange', 'base');
       &:hover {
-        color: map.get(color.$greens, 'nav-link');
+        color: mx.get-color('green', 'nav-link');
       }
     }
   }
@@ -54,7 +52,7 @@
     display: flex;
     flex-direction: column; 
     align-items: center;
-    background-color: map.get(color.$greens, 'bg-light');
+    background-color: mx.get-color('green', 'bg-light');
     margin: 50px auto;
     padding: 30px 40px;
   @include mx.respond-min(md){
@@ -136,11 +134,11 @@
 }
 
 .contentWrapper {
-  color: color.$white;
+  color: mx.get-color('neutral', 'white');
 
   h2 {
   @include mx.t-title(
-      $color: color.$white,
+      $color: mx.get-color('neutral', 'white'),
       $text-align: center,
       $text-align-md: center,
       $font-weight: 600
@@ -150,7 +148,7 @@
   p {
     white-space: pre-line;
     font-weight: 400;
-  @include mx.p-paragraph($color: color.$white);
+  @include mx.p-paragraph($color: mx.get-color('neutral', 'white'));
   }
 
   .buyButtonWrap {
@@ -159,8 +157,8 @@
     gap: 10px;
     transition: background-color 0.3s;
   @include mx.b-button(
-      $bg-color: color.$orange,
-      $hover-color: map.get(color.$greens, 'nav-link'),
+      $bg-color: mx.get-color('orange', 'base'),
+      $hover-color: mx.get-color('green', 'nav-link'),
       $font-weight: 400,
       $font-size: 16px
       );
@@ -368,10 +366,11 @@
 
             &::before{
             @include mx.decorative-divider(
-              $color: map.get(color.$greens, 'base'),
+              $color: mx.get-color('green', 'base'),
               $width: 100px,
               $height: 1px,
-              $is-centered: false);
+              $is-centered: false,
+              );
           }
         }
       }

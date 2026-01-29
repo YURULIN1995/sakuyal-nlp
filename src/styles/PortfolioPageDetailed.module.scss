@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use '@styles/_breakpoints.scss' as bp;
 @use '@styles/_mixins' as mx;
-@use '@styles/colors' as color; // 假設你有 colors 變數
 
 // 頁面主容器 (限制最大寬度，置中)
 .pageContainer {
@@ -53,16 +52,11 @@
   margin-bottom: 80px;
 }
 
-// 傳給 TwoColumnLayout 的 className，用來微調上下間距
-.twoColWrapper {
-  // TwoColumnLayout 本身已經處理好左右排列，這裡不需要額外寫 flex
-}
-
 .sectionTitle {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 24px;
-  color: map.get(color.$greens, 'dark'); // 使用你的主色
+  color: mx.get-color('green', 'dark');
 }
 
 .paragraph {
@@ -106,7 +100,7 @@
 }
 
 .checkIcon {
-  color: map.get(color.$greens, 'base');
+  color: mx.get-color('green', 'base');
   font-weight: bold;
   font-size: 1.2rem;
 }

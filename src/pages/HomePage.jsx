@@ -9,7 +9,7 @@ import { servicesSection, serviceItems } from '@data/servicesPageData.js';
 
 
 function HomePage() {
-  return (
+return (
     <>
       <SEO/>
       <Hero {...freeDownloadData} />

@@ -1,6 +1,4 @@
 @use '@styles/mixins' as mx;
-@use '@styles/colors' as color;
-@use 'sass:map';
 
 .dividerContainer {
   // 讓容器本身水平置中，並設定最大寬度
@@ -14,7 +12,7 @@
 
 .dividerContainer::before {
   @include mx.decorative-divider(
-    $color: map.get(color.$greens, 'base'),
+    $color: mx.get-color('green', 'base'),
     $width: 95%,
     $height: 1px,
     $is-centered: true

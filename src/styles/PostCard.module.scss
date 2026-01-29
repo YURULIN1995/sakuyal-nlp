@@ -1,18 +1,15 @@
-@use '@styles/colors' as color;
 @use '@styles/mixins' as mx;
-@use 'sass:map';
 
 // .card 前綴確保與 FeaturedPostsSection 的 .post class 區分
 .card {
   box-sizing: border-box;
-  background-color: color.$white;
-  border: 1px solid color.$grey-border;
+  background-color: mx.get-color('neutral','white');
+  border: 1px solid mx.get-color('neutral', 'grey-border');
   border-radius: 8px;
   overflow: hidden;
   text-align: left;
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(map.get(color.$greens, 'bright'),0.8); // 假設您有定義陰影
 }
 
 .cardImageLink {
@@ -33,20 +30,20 @@
   flex-grow: 1; // 讓內容區塊填滿剩餘空間
 
   .cardCategory{
-    color: map.get(color.$greens, 'base');
+    color: mx.get-color('green', 'base');
   }
 }
 
 .cardCategory {
   font-size: 0.85em;
-  color: map.get(color.$greens, 'light');
+  color: mx.get-color('green', 'light');
   margin-bottom: 8px;
   font-weight: bold;
 }
 
 .cardTitle {
   font-size: 1.3em;
-  color: map.get(color.$greens, 'dark');
+  color: mx.get-color('green', 'dark');
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 10px;
@@ -64,7 +61,7 @@
 
 .cardExcerpt {
   font-size: 0.95em;
-  color: color.$grey-text;
+  color: mx.get-color('neutral', 'grey-text');
   line-height: 1.6;
   margin-bottom: 15px;
   flex-grow: 1; // 讓摘要填滿空間，將 "閱讀更多" 推到底部
@@ -72,7 +69,7 @@
 
 .cardReadMore {
   font-size: 0.9em;
-  color: map.get(color.$greens, 'base');
+  color: mx.get-color('green', 'base');
   text-decoration: none;
   font-weight: bold;
   align-self: flex-start;

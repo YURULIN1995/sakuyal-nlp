@@ -1,7 +1,27 @@
 @use 'sass:map';
+// 1. 總代理區 (The Facade)
+@forward 'breakpoints';
+// 2. 內部引用區
 @use 'breakpoints' as bp;
-@use 'colors' as color;
+@use 'colors' as c; 
 
+// 3. 工具函數 (Utility Functions)
+@function get-color($cat, $shade: 'base', $opacity: 1) {
+  @if not map.has-key(c.$colors, $cat) {
+    @error "Color category '#{$cat}' not found in $colors map.";
+  }
+  $category-map: map.get(c.$colors, $cat);
+  @if not map.has-key($category-map, $shade) {
+     @error "Shade '#{$shade}' not found in category '#{$cat}'.";
+  }
+  $color-value: map.get($category-map, $shade);
+  @if $opacity < 1 {
+    @return rgba($color-value, $opacity);
+  }
+  @return $color-value;
+}
+
+// 4. Mixins 定義 (已移除對舊變數的依賴)
 /* --- Media Queries --- */
 @mixin respond-min($key) {
   @media (min-width: map.get(bp.$breakpoints, $key)) {
@@ -17,7 +37,7 @@
 
 /* --- Decorative Divider --- */
 @mixin decorative-divider(
-  $color: map.get(color.$greens, 'light'),
+  $color: get-color('green', 'light'), 
   $width: 60px,
   $height: 5px,
   $top: 0,
@@ -44,7 +64,7 @@
 
 /* Title Text */
 @mixin t-title(
-  $color: map.get(color.$greens, 'dark'),
+  $color: get-color('green', 'dark'),
   $text-align: left,
   $text-align-md: left,
   $font-weight: 700,
@@ -75,7 +95,8 @@
     letter-spacing: 0.6px;
   }
 }
-/* --- Paragraph Text (優化版) --- */
+
+/* --- Paragraph Text --- */
 @mixin p-paragraph (
   $margin-bottom: 25px,
   $margin-bottom-md: 25px,
@@ -86,7 +107,8 @@
   $font-size: 17px,
   $font-size-md: 17.6px,
   $font-size-nav: 17.6px,
-  $color: map.get(color.$greens, 'base')
+  // ✅ 修改：改用 get-color
+  $color: get-color('green', 'base')
 )
 {
   font-size: $font-size;
@@ -108,13 +130,13 @@
   }
 }
 
-/* --- Button Style (優化版) --- */
+/* --- Button Style --- */
 @mixin b-button(
   $display: flex,
   $width: 100%,
-  $bg-color: map.get(color.$greens, 'light'),
-  $hover-color: map.get(color.$greens, 'dark'),
-  $text-color: color.$white,
+  $bg-color: get-color('green', 'light'),
+  $hover-color: get-color('green', 'dark'),
+  $text-color: get-color('neutral', 'white'), 
   $margin-top: 20px,
   $margin-right: 0,
   $margin-bottom: 0,
@@ -166,7 +188,7 @@
 /* --- SVG Icon Style --- */
 @mixin svg-icon-style(
   $size: 40px,
-  $color: map.get(color.$greens, 'base'),
+  $color: get-color('green', 'base'),
   $stroke-width: 1.5
 ) {
   width: $size;

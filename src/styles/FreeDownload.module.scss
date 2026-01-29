@@ -1,10 +1,8 @@
-@use '@styles/colors' as color;
 @use '@styles/mixins' as mx;
-@use 'sass:map';
 
 // 中間的內容卡片
 .contentWrapper {
-  background-color: color.$white;
+  background-color: mx.get-color('neutral', 'white');
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -77,7 +75,7 @@ p {
     margin-bottom: 15px;
     font-size: 16px;
     line-height: 1.7;
-    color: map.get(color.$greens, 'base');
+    color: mx.get-color('green', 'base');
     text-align: left;
   }
 }
@@ -87,7 +85,7 @@ p {
   height: 20px;
   margin-right: 12px;
   flex-shrink: 0;
-  stroke: map.get(color.$greens, 'dark');
+  stroke: mx.get-color('green', 'dark');
   stroke-width: 2.5;
   margin-top: 2px;
 }
@@ -95,7 +93,7 @@ p {
 // 右側的表單區塊
 .formSection {
   padding: 40px 20px;
-  background-color: map.get(color.$greens, 'bg');
+  background-color: mx.get-color('green', 'bg');
   display: flex;
   flex-direction: column;
   justify-content: center;

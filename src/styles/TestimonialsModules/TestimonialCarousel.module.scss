@@ -1,6 +1,4 @@
-@use '@styles/colors' as color;
 @use '@styles/mixins' as mx;
-@use 'sass:map';
 
 :global(.swiper .swiper-pagination-bullet-active) {
   width: 24px !important;
@@ -27,10 +25,10 @@
     padding-bottom: 50px;
     width: 100%;
     height: 100%;
-    --swiper-navigation-color: #{map.get(color.$greens, 'base')};
+    --swiper-navigation-color: #{mx.get-color('green', 'base')};
     --swiper-navigation-size: 20px;
-    --swiper-pagination-color: #{map.get(color.$greens, 'base')};
-    --swiper-pagination-bullet-inactive-color: #{color.$grey-border};
+    --swiper-pagination-color: #{mx.get-color('green', 'base')};
+    --swiper-pagination-bullet-inactive-color: #{mx.get-color('neutral', 'grey-border')};
     --swiper-pagination-bullet-inactive-opacity: 0.8;
     --swiper-pagination-bullet-size: 9px;
     --swiper-pagination-bullet-horizontal-gap: 5px;
