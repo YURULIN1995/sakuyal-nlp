@@ -1,4 +1,4 @@
-@use '@styles/mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 // .card 是主要的 flex 容器
 .card {
@@ -70,7 +70,8 @@
     $font-size-xs: 15px,
     $font-size-nav: 17px,
     $text-align: left, 
-    $margin-bottom: 20px
+    $margin-bottom: 20px,
+    $color: mx.get-color('neutral', 'grey-text'),
   );
 }
 

@@ -1,4 +1,4 @@
-@use '@styles/mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 .dividerContainer {
   // 讓容器本身水平置中，並設定最大寬度

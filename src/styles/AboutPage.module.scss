@@ -1,14 +1,11 @@
-@use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
-// 這是 About 頁面專屬的內容樣式
 .textWrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
   
-  // 手機版置中，桌機版靠左 (配合 TwoColumnLayout 的排版)
+  // 手機版置中，桌機版靠左
   align-items: center;
   text-align: center;
 
@@ -36,6 +33,6 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 16px; // 這裡可以自由控制圖片圓角
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08); // 加一點陰影更有質感
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }

@@ -1,6 +1,4 @@
-@use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 // 頁面主容器 (限制最大寬度，置中)
 .pageContainer {
@@ -22,7 +20,7 @@
 }
 
 .mainTitle {
-  @include mx.t-title; // 使用你的標題 mixin
+  @include mx.t-title;
   margin-bottom: 20px;
 }
 
@@ -36,7 +34,7 @@
 .placeholderMainImage {
   width: 100%;
   aspect-ratio: 16 / 9; // 固定長寬比，模擬電影感大圖
-  background-color: #e0e0e0; // 灰色底
+  background-color: #e0e0e0;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -145,6 +143,6 @@
 }
 
 .visitButton {
-  @include mx.b-button; // 直接呼叫你最愛的按鈕 mixin
-  // 這裡可以不用傳參數，預設就會套用手機全寬/桌機適應
+  @include mx.b-button;
+  // 預設套用手機全寬/桌機適應
 }

@@ -34,6 +34,12 @@ $colors: (
     'base': hsla(39, 100%, 50%, 1)
   ),
 
+  // --- 紅色系 (Red / Error Palette) ---
+  'red': (
+    'base': hsla(0, 60%, 38%, 1), // 用於錯誤訊息文字、邊框、圖示 (深紅)
+    'bg-light': hsla(0, 77%, 95%, 1) // 用於錯誤訊息的背景 (極淺紅)
+  ),
+
   // --- 中性色 (Neutrals) ---
   'neutral': (
     'white': hsla(0, 0%, 100%, 1),

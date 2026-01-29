@@ -1,6 +1,4 @@
-@use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 .container {
   // 讓它自動填滿父層寬度 (寬度限制交給外層的 OneColumnLayout 或 Hero Container)
@@ -13,7 +11,7 @@
   // 桌機版 RWD
   @include mx.respond-min(md) {
     flex-direction: row;  // 桌機版：水平排列
-    align-items: center;  // 垂直置中
+    align-items: center;
     gap: 4rem;            // 桌機版間距加大 (約 64px)
   }
 }

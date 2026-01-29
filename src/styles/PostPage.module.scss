@@ -1,6 +1,4 @@
-@use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mixins;
+@use '@styles/_mixins.scss' as mx;
 
 .transparentTop{
     padding-top: 104px;
@@ -15,7 +13,7 @@
         white-space: pre-wrap;
 
         .isLoading {
-            @include mixins.p-paragraph;
+            @include mx.p-paragraph;
         }
         
         .error {

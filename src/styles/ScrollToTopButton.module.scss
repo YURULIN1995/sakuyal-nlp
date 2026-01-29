@@ -1,4 +1,4 @@
-@use 'mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 .scrollTopButton {
   position: fixed; // 固定在視窗的特定位置

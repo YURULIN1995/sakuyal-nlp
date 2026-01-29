@@ -1,6 +1,4 @@
-@use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 .heroSection {
   width: 100%;
@@ -67,5 +65,4 @@
   width: 100%;
   height: auto;
   border-radius: 16px;
-  // Hero 圖片通常很重要，可以加一點特效或陰影
 }

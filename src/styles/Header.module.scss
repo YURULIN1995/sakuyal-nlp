@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '@styles/_mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 .header {
   width: 100%;

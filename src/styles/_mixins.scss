@@ -1,11 +1,26 @@
 @use 'sass:map';
+
+// ==========================================================================
 // 1. 總代理區 (The Facade)
-@forward 'breakpoints';
+// ==========================================================================
+// ❌ 移除：不再對外暴露原始斷點 Map
+// @forward 'breakpoints'; 
+
+// ❌ 移除：不再對外暴露原始顏色 Map
+// @forward 'colors';
+
+
+// ==========================================================================
 // 2. 內部引用區
+// ==========================================================================
 @use 'breakpoints' as bp;
 @use 'colors' as c; 
 
+// ==========================================================================
 // 3. 工具函數 (Utility Functions)
+// ==========================================================================
+
+/// 取得顏色 (Color Getter)
 @function get-color($cat, $shade: 'base', $opacity: 1) {
   @if not map.has-key(c.$colors, $cat) {
     @error "Color category '#{$cat}' not found in $colors map.";
@@ -21,21 +36,38 @@
   @return $color-value;
 }
 
-// 4. Mixins 定義 (已移除對舊變數的依賴)
+/// 取得斷點 (Breakpoint Getter) - 新增這一段！
+@function get-breakpoint($key) {
+  // 1. 檢查斷點是否存在
+  @if not map.has-key(bp.$breakpoints, $key) {
+    @error "Breakpoint '#{$key}' not found in $breakpoints map. Available keys: #{map.keys(bp.$breakpoints)}";
+  }
+  // 2. 回傳數值
+  @return map.get(bp.$breakpoints, $key);
+}
+
+// ==========================================================================
+// 4. Mixins 定義
+// ==========================================================================
+
 /* --- Media Queries --- */
 @mixin respond-min($key) {
-  @media (min-width: map.get(bp.$breakpoints, $key)) {
+  // ✅ 修改：改用 get-breakpoint() 函數
+  @media (min-width: get-breakpoint($key)) {
     @content;
   }
 }
 
 @mixin respond-max($key) {
-  @media (max-width: map.get(bp.$breakpoints, $key)) {
+  // ✅ 修改：改用 get-breakpoint() 函數
+  @media (max-width: get-breakpoint($key)) {
     @content;
   }
 }
 
-/* --- Decorative Divider --- */
+/* --- 下方保持不變 (Decorative Divider, Title, Paragraph...) --- */
+// (請確保您下方關於顏色的 Mixin 依然是使用 get-color 的版本)
+// ...
 @mixin decorative-divider(
   $color: get-color('green', 'light'), 
   $width: 60px,
@@ -62,7 +94,6 @@
   }
 }
 
-/* Title Text */
 @mixin t-title(
   $color: get-color('green', 'dark'),
   $text-align: left,
@@ -96,7 +127,6 @@
   }
 }
 
-/* --- Paragraph Text --- */
 @mixin p-paragraph (
   $margin-bottom: 25px,
   $margin-bottom-md: 25px,
@@ -107,7 +137,6 @@
   $font-size: 17px,
   $font-size-md: 17.6px,
   $font-size-nav: 17.6px,
-  // ✅ 修改：改用 get-color
   $color: get-color('green', 'base')
 )
 {
@@ -130,7 +159,6 @@
   }
 }
 
-/* --- Button Style --- */
 @mixin b-button(
   $display: flex,
   $width: 100%,
@@ -185,7 +213,6 @@
   }
 }
 
-/* --- SVG Icon Style --- */
 @mixin svg-icon-style(
   $size: 40px,
   $color: get-color('green', 'base'),

@@ -1,4 +1,4 @@
-@use '@styles/mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 :global(.swiper .swiper-pagination-bullet-active) {
   width: 24px !important;

@@ -1,4 +1,4 @@
-@use '@styles/_mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 .kanbanSectionWrapper {
   background-color: mx.get-color('green', 'bg-light');

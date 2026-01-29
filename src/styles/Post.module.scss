@@ -1,6 +1,4 @@
-@use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 .postArticle{
     .articleHeader {

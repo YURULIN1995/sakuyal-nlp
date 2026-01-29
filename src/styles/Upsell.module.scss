@@ -1,4 +1,4 @@
-@use '@styles/mixins' as mx;
+@use '@styles/_mixins.scss' as mx;
 
 .main {
   background-color: mx.get-color('neutral', 'white');

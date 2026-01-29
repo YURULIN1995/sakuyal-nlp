@@ -1,20 +1,16 @@
-@use 'sass:map';
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins' as mixins;
+@use '@styles/_mixins.scss' as mx;
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
   background-color: transparent;
-  
-  // 恢復為原本固定的 padding 設定
   padding: 80px 20px;
 
-  @include mixins.respond-min(md) {
+  @include mx.respond-min(md) {
     padding: 80px 100px;
   }
-  @include mixins.respond-min(llg) {
+  @include mx.respond-min(llg) {
     padding: 80px 40px;
   }
 }

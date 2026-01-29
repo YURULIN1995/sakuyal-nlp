@@ -1,5 +1,4 @@
-@use '@styles/_breakpoints.scss' as bp;
-@use '@styles/_mixins.scss' as mixins;
+@use '@styles/_mixins.scss' as mx;
 
 .titleWrapper {
   position: relative;     // 定位裝飾線的基準
@@ -8,21 +7,21 @@
   margin-bottom: 20px;
 
   &::before {
-  @include mixins.decorative-divider;
+  @include mx.decorative-divider;
   }
 }
 
 .title {
-  @include mixins.t-title;
+  @include mx.t-title;
 }
 
 .paragraph {
-  @include mixins.p-paragraph;
+  @include mx.p-paragraph;
 }
 
 .button {
-  @include mixins.b-button;
-  @include mixins.respond-min(lg) {
+  @include mx.b-button;
+  @include mx.respond-min(lg) {
     & {
       margin: 20px auto 0 0;
     }
