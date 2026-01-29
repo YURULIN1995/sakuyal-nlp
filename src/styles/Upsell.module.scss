@@ -17,20 +17,20 @@
   }
 
   h2 {
-  @include mx.t-title(
+    @include mx.t-title(
       $text-align: center,
       $text-align-md: center,
       $font-size: 19px,
       $font-size-xs: 22px,
       $font-size-nav: 22px
-      );
+    );
   }
   p {
     margin-bottom: 0;
     white-space: pre-line;
   }
   ul {
-    li{
+    li {
       display: list-item;
       list-style-type: decimal;
       list-style-position: inside;
@@ -38,67 +38,69 @@
     a {
       color: mx.get-color('orange', 'base');
       &:hover {
+        // 請確保您的 green map 中有 'nav-link' 這個 key，如果沒有，建議改為 'dark'
         color: mx.get-color('green', 'nav-link');
       }
     }
   }
 }
 
-.callToActionBanner{
+.callToActionBanner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .callToActionBannerWrap{
+  .callToActionBannerWrap {
     display: flex;
     flex-direction: column; 
     align-items: center;
     background-color: mx.get-color('green', 'bg-light');
     margin: 50px auto;
     padding: 30px 40px;
-  @include mx.respond-min(md){
+    @include mx.respond-min(md) {
       margin: 100px auto;
     }
-  @include mx.respond-min(llg){
+    @include mx.respond-min(llg) {
       margin: 150px auto;
     }
     
-    .callToActionBannerContent{
-     margin: 0 auto;
+    .callToActionBannerContent {
+      margin: 0 auto;
 
-    h2{
-  @include mx.t-title(
-        $text-align: center,
-        $text-align-md: center,
-        $font-size: 20px,
-        $font-size-xs: 20px,
-        $font-size-nav: 26px,
-        $font-weight: 600,
-        $letter-spacing: 0.5px
+      h2 {
+        @include mx.t-title(
+          $text-align: center,
+          $text-align-md: center,
+          $font-size: 20px,
+          $font-size-xs: 20px,
+          $font-size-nav: 26px,
+          $font-weight: 600,
+          $letter-spacing: 0.5px
         );
-     }
-     ul{
-      margin-bottom: 20px;
-      li {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-bottom: 10px;
       }
-     }
+      ul {
+        margin-bottom: 20px;
+        li {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-bottom: 10px;
+        }
+      }
 
-     p{
-      font-weight: 500;
-      white-space: pre-line;
-  @include mx.p-paragraph(
-        $font-size: 18.4px,
-        $font-size-md: 18.4px,
-        $font-size-nav: 20px,
-        $letter-spacing: 1px);
-     }
+      p {
+        font-weight: 500;
+        white-space: pre-line;
+        @include mx.p-paragraph(
+          $font-size: 18.4px,
+          $font-size-md: 18.4px,
+          $font-size-nav: 20px,
+          $letter-spacing: 1px
+        );
+      }
     }
 
-    .buyButton{
-      &{margin: 0 auto;}
+    .buyButton {
+      & { margin: 0 auto; }
     }
   }
 }
@@ -112,10 +114,9 @@
   overflow: hidden; // 確保內容不會超出
   max-height: 600px;
 
-  // 設定背景圖與半透明遮罩。多重背景，1.半透明黑色漸層。2.圖片
-  // CSS 會由上到下堆疊背景，所以漸層會蓋在圖片上
+  // 設定背景圖與半透明遮罩。多重背景，1.半透明遮罩。2.圖片
   background-image:
-    linear-gradient(rgba(30, 41, 59, 0.45), rgba(30, 41, 59, 0.45)),
+    linear-gradient(mx.get-color('green', 'darkest', 0.45), mx.get-color('green', 'darkest', 0.45)),
     url(/images/matcha-dougu.jpg);
 
   background-size: cover;     // 讓圖片永遠填滿容器，可能會有些許裁切
@@ -137,18 +138,18 @@
   color: mx.get-color('neutral', 'white');
 
   h2 {
-  @include mx.t-title(
+    @include mx.t-title(
       $color: mx.get-color('neutral', 'white'),
       $text-align: center,
       $text-align-md: center,
       $font-weight: 600
-      );
+    );
   }
 
   p {
     white-space: pre-line;
     font-weight: 400;
-  @include mx.p-paragraph($color: mx.get-color('neutral', 'white'));
+    @include mx.p-paragraph($color: mx.get-color('neutral', 'white'));
   }
 
   .buyButtonWrap {
@@ -156,50 +157,51 @@
     justify-content: center;
     gap: 10px;
     transition: background-color 0.3s;
-  @include mx.b-button(
+    @include mx.b-button(
       $bg-color: mx.get-color('orange', 'base'),
+      // 同樣請確認 'nav-link' key 是否存在
       $hover-color: mx.get-color('green', 'nav-link'),
       $font-weight: 400,
       $font-size: 16px
-      );
+    );
 
-    .buyButtonText{
+    .buyButtonText {
       color: inherit;
       height: 24px;
     }
   }
 }
 
-.problemsWrap{
- margin: 50px 0;
- display: flex;
- align-items: center;
- flex-direction: column;
+.problemsWrap {
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
- .problemsContent{
-  margin: 0 auto;
-  max-width: 1200px;
-  padding-left: 20px;
-  padding-right: 20px;
+  .problemsContent {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
 
-  h2 {
-    margin-left: auto;
-    margin-right: auto;
-  @include mx.t-title($font-weight: 500);
+    h2 {
+      margin-left: auto;
+      margin-right: auto;
+      @include mx.t-title($font-weight: 500);
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
-  ul{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
- }
 }
 
-.courseHelp{
+.courseHelp {
   padding: 75px 20px;
   box-sizing: border-box;
-  
-  .containerNoGap{
+   
+  .containerNoGap {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,15 +209,15 @@
     margin-left: auto;
     margin-right: auto;
 
-  @include mx.respond-min(md) {
+    @include mx.respond-min(md) {
       flex-direction: row-reverse;
     }
 
-    .courseImage{
+    .courseImage {
       width: 100%;
       height: auto;
       overflow: hidden;
-  @include mx.respond-min(md) {
+      @include mx.respond-min(md) {
         flex-basis: auto;
       }
 
@@ -227,24 +229,24 @@
       }
     }
 
-    .courseHelpContainer{
+    .courseHelpContainer {
       width: 100%;
-  @include mx.respond-min(md) {
+      @include mx.respond-min(md) {
         flex-basis: auto;
         margin-right: 30px;
       }
 
-      h2{
-  @include mx.t-title(
+      h2 {
+        @include mx.t-title(
           $font-size: 30px,
           $font-size-xs: 30px,
           $font-size-nav: 40px,
           $font-weight: 500
-          );
+        );
       }
 
-      ul{
-        li{
+      ul {
+        li {
           display: list-item;
           list-style-type: disc;
           list-style-position: inside;
@@ -254,137 +256,136 @@
   }
 }
 
-.pros{
+.pros {
   padding: 75px 20px;
-  @include mx.respond-min(md){
+  @include mx.respond-min(md) {
     padding: 90px 25px;
   }
-  .prosContentWrap{
+  .prosContentWrap {
     margin-left: auto;
     margin-right: auto;
     max-width: 750px;
-    h2{
-  @include mx.t-title(
-      $font-size: 25px,
-      $font-size-xs: 25px,
-      $font-size-nav: 32px,
-      $font-weight: 550
+    h2 {
+      @include mx.t-title(
+        $font-size: 25px,
+        $font-size-xs: 25px,
+        $font-size-nav: 32px,
+        $font-weight: 550
       );
-  }
-
-  .prosList{
-    li{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-bottom: 9.6px;
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 19.2px;
-      letter-spacing: 0.5px;
-  @include mx.respond-min(md){
-        font-size: 19px;
-        line-height: 8px;
-        margin-bottom: 33.25px;
-      }
-
     }
-  }
+
+    .prosList {
+      li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 9.6px;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 19.2px;
+        letter-spacing: 0.5px;
+        @include mx.respond-min(md) {
+          font-size: 19px;
+          line-height: 8px;
+          margin-bottom: 33.25px;
+        }
+      }
+    }
   }
 }
 
-.testimonials{
+.testimonials {
   padding: 20px 0;
   align-items: center;
 
-  @include mx.respond-min(xs){
+  @include mx.respond-min(xs) {
     padding: 50px 0;
   }
 }
 
-.outline{
+.outline {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .outlineTitle{
+  .outlineTitle {
     padding: 5% 3%;
-  @include mx.respond-min(md){
+    @include mx.respond-min(md) {
       padding: 90px 55px;
     }
 
     h2 {
-  @include mx.t-title(
+      @include mx.t-title(
         $font-size: 25px,
         $font-size-xs: 25px,
         $font-size-nav: 32px,
         $font-weight: 500,
         $text-align: center,
         $text-align-md: center
-        );
+      );
     }
   }
 
-  .outlineContentFlexWrap{
+  .outlineContentFlexWrap {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    .chapterBlock{
+    .chapterBlock {
       display: flex;
       flex-direction: column;
       padding: 50px 50px;
       max-width: 1200px;
-  @include mx.respond-min(md){
+      @include mx.respond-min(md) {
         flex-direction: row;
       }
-      @include mx.respond-min(nav){
+      @include mx.respond-min(nav) {
         padding: 50px 100px;
       }
-      .chapterTitle{
-        @include mx.respond-min(md){
+      .chapterTitle {
+        @include mx.respond-min(md) {
           flex: 3;
         }
-        @include mx.respond-min(llg){
+        @include mx.respond-min(llg) {
           flex-basis: 50%;
         }
 
-        h2{
+        h2 {
           white-space: pre-line;
           @include mx.t-title(
             $font-size: 25px,
             $font-size-xs: 25px,
             $font-size-nav: 32px,
             $font-weight: 500
-            );
+          );
         }
 
-        .outlineDividerContainer{
-            margin: 0 auto;
-            width: 100%;
-            position: relative;
-            height: 5px;
-            box-sizing: border-box;
+        .outlineDividerContainer {
+          margin: 0 auto;
+          width: 100%;
+          position: relative;
+          height: 5px;
+          box-sizing: border-box;
 
-            &::before{
+          &::before {
             @include mx.decorative-divider(
               $color: mx.get-color('green', 'base'),
               $width: 100px,
               $height: 1px,
               $is-centered: false,
-              );
+            );
           }
         }
       }
 
-      .chapterIntro{
-        @include mx.respond-min(md){
+      .chapterIntro {
+        @include mx.respond-min(md) {
           flex: 4;
         }
 
-        @include mx.respond-min(llg){
+        @include mx.respond-min(llg) {
           flex-basis: 50%;
         }
 
-        .chapterBrief{
+        .chapterBrief {
           @include mx.p-paragraph(
             $margin-bottom: 10px,
             $margin-bottom-md: 29px,
@@ -395,11 +396,11 @@
             $font-size-nav: 18px,
             $line-height: 27px,
             $letter-spacing: 0.5px
-            );
+          );
         }
 
-        ul{
-          li{
+        ul {
+          li {
             display: list-item;
             list-style-type: decimal;
             list-style-position: inside;
@@ -408,27 +409,26 @@
             line-height: 27px;
             letter-spacing: 0.5px;
 
-            @include mx.respond-min(md){
+            @include mx.respond-min(md) {
               margin-bottom: 29px;
               font-size: 17.6px;
               line-height: 29.7px;
             }
-            @include mx.respond-min(nav){
+            @include mx.respond-min(nav) {
               margin-bottom: 32px;
               font-size: 18px;
             }
-
           }
         }
       }
-    }  
+    }   
   }
 }
 
-.about{
+.about {
   padding: 60px 35px;
   box-sizing: border-box;
-  .aboutContentWrap{
+  .aboutContentWrap {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -437,10 +437,10 @@
     margin-right: auto;
     position: relative;
 
-    @include mx.respond-min(llg){
+    @include mx.respond-min(llg) {
       flex-direction: row;
     }
-    .aboutImage{
+    .aboutImage {
       width: 100%;
       max-width: 600px;
       height: auto;
@@ -455,7 +455,7 @@
         object-position: center;
       }
     }
-    .aboutText{
+    .aboutText {
       width: 100%;
       max-width: 600px;
       margin-top: 40px;
@@ -465,7 +465,7 @@
         margin-left: 40px;
       }
 
-      h2{
+      h2 {
         @include mx.t-title(
           $font-size: 25px,
           $font-size-xs: 25px,
@@ -473,10 +473,10 @@
           $font-weight: 500,
           $text-align: center,
           $text-align-md: center
-          );
+        );
       }
 
-      p{
+      p {
         white-space: pre-line;
         @include mx.p-paragraph;
       }
@@ -500,26 +500,26 @@
 }
 
 
-.selfStudyCourseFaqWrap{
+.selfStudyCourseFaqWrap {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
 
-  @include mx.respond-min(llg){
+  @include mx.respond-min(llg) {
     flex-direction: row;
     align-items: center;
   }
 
-  .decorativeImage{
-  width: 100%;
-  height: auto;
-  margin-left: calc(50% - 50vw);
-  box-sizing: border-box;
-  overflow: hidden;
-  max-height: 600px;
-  img {
-     width: 100%;
-     height: 100%
+  .decorativeImage {
+    width: 100%;
+    height: auto;
+    margin-left: calc(50% - 50vw);
+    box-sizing: border-box;
+    overflow: hidden;
+    max-height: 600px;
+    img {
+      width: 100%;
+      height: 100%
+    }
   }
-}
 }

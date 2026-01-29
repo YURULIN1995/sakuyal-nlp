@@ -8,12 +8,12 @@
   padding: 80px 0;
   box-sizing: border-box;
 }
-  
+   
 .columnsContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  
+   
   @include mx.respond-min(md) {
     gap: 0 40px;
     row-gap: 40px;
@@ -122,7 +122,7 @@
     align-items: center;
     gap: 20px;
   }
-  
+   
   @include mx.respond-min(lg) {
     align-items: flex-start;
   }
@@ -135,10 +135,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: hsla(0, 0%, 100%, 1);
-  border: 1px solid hsla(0, 0%, 93%, 1);
+  background-color: mx.get-color('neutral', 'white');
+  border: 1px solid mx.get-color('neutral', 'grey-border');
   border-radius: 50%;
-  box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.05);
+  box-shadow: 0 4px 12px mx.get-color('neutral', 'shadow-light');
   flex-shrink: 0;
   z-index: 2;
 
@@ -153,7 +153,7 @@
     position: relative;
     left: 10px;
   }
-  
+   
   @include mx.respond-min(lg) {
     position: static;
     left: auto;
@@ -185,8 +185,6 @@
 
 .sectionButton {
   @include mx.b-button; // 預設 margin: auto，所以在手機和平板上會置中
-
-  // 在電腦版 (lg)，覆蓋 margin 使其靠左
   @include mx.respond-min(lg) {
     & {
       margin: 20px auto 0 0;

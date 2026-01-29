@@ -25,7 +25,8 @@
 
 .faqItem {
   background-color: mx.get-color('neutral', 'white');
-  box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.05);
+  // ✅ 修正：改用 shadow-light (0.05)
+  box-shadow: 0 4px 12px mx.get-color('neutral', 'shadow-light');
   overflow: hidden; // 關鍵：隱藏超出 max-height 的內容
 }
 
@@ -45,13 +46,12 @@
   color: mx.get-color('green', 'dark');
 
   &:hover {
-  background-color: mx.get-color('green', 'bg-light');
+    background-color: mx.get-color('green', 'bg-light');
   }
 
   // 選取標題文字，並將其順序設為 2
   & > span:first-of-type {
-    order: 2
-    ;
+    order: 2;
   }
 }
 
@@ -61,16 +61,6 @@
   margin-right: 16px;
   // 將箭頭的順序設為 1，讓它顯示在最前面
   order: 2;
-
-  // svg {
-  //   width: 17px;
-  //   height: auto;
-  //   @include mx.respond-min(md) {
-  //     width: 20px;
-  //     height: auto;
-  //   }
-  // }
-
 
   &.open {
     // 將旋轉角度設為 90 度，讓 > 變成 v

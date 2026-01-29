@@ -1,9 +1,9 @@
 @use '@styles/_mixins.scss' as mx;
 
-// 頁面主容器 (限制最大寬度，置中)
+// 頁面主容器
 .pageContainer {
   width: 100%;
-  max-width: 1140px; // 與你的 Hero/OneColumnLayout 一致
+  max-width: 1140px;
   margin: 0 auto;
   padding: 40px 20px;
   box-sizing: border-box;
@@ -16,7 +16,7 @@
 // --- 1. Hero Section ---
 .heroSection {
   margin-bottom: 60px;
-  text-align: center; // 標題預設置中
+  text-align: center;
 }
 
 .mainTitle {
@@ -27,25 +27,25 @@
 .introText {
   @include mx.p-paragraph;
   max-width: 800px;
-  margin: 0 auto 40px auto; // 置中且與下方圖片保持距離
-  color: #666; // 稍微淺一點的顏色區分層級
+  margin: 0 auto 40px auto;
+  color: mx.get-color('neutral', 'grey-text');
 }
 
 .placeholderMainImage {
   width: 100%;
-  aspect-ratio: 16 / 9; // 固定長寬比，模擬電影感大圖
-  background-color: #e0e0e0;
+  aspect-ratio: 16 / 9;
+  background-color: mx.get-color('neutral', 'grey-border');
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
+  color: mx.get-color('neutral', 'grey-placeholder');
   font-weight: bold;
   font-size: 1.2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px mx.get-color('neutral', 'shadow-light');
 }
 
-// --- 2. Content Section (TwoColumnLayout) ---
+// --- 2. Content Section ---
 .contentSection {
   margin-bottom: 80px;
 }
@@ -59,12 +59,12 @@
 
 .paragraph {
   @include mx.p-paragraph;
-  white-space: pre-line; // 讓 dummy data 的換行生效
+  white-space: pre-line;
 }
 
 // 特色列表樣式 (Right Column)
 .featuresArea {
-  background-color: #f9f9f9; // 給右側一點背景色，區分區塊
+  background-color: mx.get-color('green', 'bg-grayed');
   padding: 30px;
   border-radius: 12px;
 }
@@ -86,13 +86,13 @@
   strong {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: mx.get-color('green', 'dark');
   }
   
   p {
     margin: 0;
     font-size: 15px;
-    color: #666;
+    color: mx.get-color('neutral', 'grey-text');
     line-height: 1.6;
   }
 }
@@ -110,28 +110,28 @@
 
 .gridGallery {
   display: grid;
-  grid-template-columns: 1fr; // 手機版單欄
+  grid-template-columns: 1fr;
   gap: 24px;
 
   @include mx.respond-min(md) {
-    grid-template-columns: repeat(2, 1fr); // 桌機版兩欄
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .placeholderGalleryImage {
   width: 100%;
-  aspect-ratio: 4 / 3; // 相簿可以用比較方一點的比例
-  background-color: #eeeeee;
+  aspect-ratio: 4 / 3;
+  background-color: mx.get-color('neutral', 'grey-light-border');
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #aaa;
-  transition: transform 0.3s ease;
+  color: mx.get-color('neutral', 'grey-placeholder');
+  transition: transform 0.3s ease, background-color 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px); // 簡單的懸浮效果
-    background-color: #e5e5e5;
+    transform: translateY(-5px);
+    background-color: mx.get-color('neutral', 'grey-border');
   }
 }
 
@@ -139,10 +139,9 @@
 .ctaSection {
   text-align: center;
   padding-top: 40px;
-  border-top: 1px solid #eee; // 加一條分隔線
+  border-top: 1px solid mx.get-color('neutral', 'grey-light-border');
 }
 
 .visitButton {
   @include mx.b-button;
-  // 預設套用手機全寬/桌機適應
 }

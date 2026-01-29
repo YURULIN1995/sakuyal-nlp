@@ -51,12 +51,14 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
   &::placeholder {
-  color: hsla(0, 0%, 67%, 1);
+    // ✅ 修正：使用剛剛定義好的 placeholder 顏色
+    color: mx.get-color('neutral', 'grey-placeholder');
   }
 
   &:focus {
     outline: none;
     border-color: mx.get-color('green', 'base');
+    // 使用透明度參數，無需 rgba
     box-shadow: 0 0 0 3px mx.get-color('green', 'base', 0.2);
   }
 }

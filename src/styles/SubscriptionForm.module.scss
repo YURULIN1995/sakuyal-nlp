@@ -35,11 +35,11 @@
   &:focus {
     outline: none;
     border-color: mx.get-color('green', 'base');
-    box-shadow: 0 0 0 3px mx.get-color('green', 'base'), 0.2;
+    box-shadow: 0 0 0 3px mx.get-color('green', 'base', 0.2);
   }
 
   &::placeholder {
-  color: hsla(0, 0%, 60%, 1);
+    color: mx.get-color('neutral', 'grey-placeholder');
   }
 }
 
@@ -50,29 +50,24 @@
 .submitButton {
   @include mx.b-button(
     $margin-left: 0,
-    $margin-right: 0,
+    $margin-right: 0
   );
 
   &:disabled {
-  background-color: hsla(0, 0%, 80%, 1);
+    background-color: mx.get-color('neutral', 'grey-border');
     cursor: not-allowed;
   }
 }
 
-// --- 更新：狀態訊息的樣式 ---
 .statusMessage {
   padding: 12px;
   margin-top: 20px;
   border-radius: 5px;
   text-align: center;
   font-weight: 500;
-
-  // 1. 設定預設狀態為透明，並加上過渡效果
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0.5s ease;
-
-  // 2. 當有 success, error, loading 等 class 時，才讓訊息淡入顯示
   &.success,
   &.error,
   &.sending,
@@ -81,7 +76,6 @@
     visibility: visible;
   }
 
-  // 3. 各種狀態的背景色與文字顏色
   &.success {
     background-color: mx.get-color('green', 'light', 0.3);
     color: mx.get-color('green', 'darkest');
@@ -89,15 +83,15 @@
   }
 
   &.error {
-  background-color: hsla(356, 69%, 91%, 1);
-  color: hsla(356, 56%, 29%, 1);
-  border: 1px solid hsla(356, 71%, 85%, 1);
+    background-color: mx.get-color('red', 'bg-light');
+    color: mx.get-color('red', 'base');
+    border: 1px solid mx.get-color('red', 'base', 0.3);
   }
-  
+   
   &.sending,
   &.loading {
-  background-color: hsla(220, 7%, 90%, 1);
-  color: hsla(220, 9%, 24%, 1);
-  border: 1px solid hsla(220, 7%, 84%, 1);
+    background-color: mx.get-color('neutral', 'grey-light-border');
+    color: mx.get-color('neutral', 'grey-text');
+    border: 1px solid mx.get-color('neutral', 'grey-border');
   }
 }
