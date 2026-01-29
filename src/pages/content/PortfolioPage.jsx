@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { client, urlFor } from '@/sanity.client.js';
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import styles from '@styles/PortfolioPage.module.scss';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import BackgroundColor from '@components/BackgroundColor';

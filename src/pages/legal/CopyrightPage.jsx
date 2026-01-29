@@ -1,4 +1,4 @@
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import OneColumnLayout from '@components/OneColumnLayout';
 import { siteMeta } from '@data/siteMeta.js';
 import { copyrightData } from '@data/legal/copyrightData.js';

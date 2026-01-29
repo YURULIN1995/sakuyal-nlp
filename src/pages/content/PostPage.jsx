@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { client, urlFor } from '@/sanity.client.js';
 import styles from '@styles/PostPage.module.scss';
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import OneColumnLayout from '@components/OneColumnLayout';
 import Post from '@components/Post';
 

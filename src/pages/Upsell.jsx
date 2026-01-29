@@ -1,4 +1,4 @@
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import styles from '@styles/Upsell.module.scss';
 import BackgroundColor from '@components/BackgroundColor';
 import BeforeAfter from '@components/BeforeAfter';

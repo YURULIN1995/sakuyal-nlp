@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import styles from '@styles/NotFound.module.scss';
 import { notFoundMessages } from '@data/userExperienceWriting.js';
 

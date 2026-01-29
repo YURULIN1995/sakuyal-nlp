@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { client, urlFor} from '@/sanity.client.js';
 import styles from '@styles/BlogPage.module.scss';
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import OneColumnLayout from '@components/OneColumnLayout';
 import PostsList from '@components/PostsList'; 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Navbar from '@components/Navbar/Navbar';
+import Navbar from '@components/Navbar';
 import styles from '@styles/Header.module.scss';
 import { siteMeta } from '@data/siteMeta.js';
 

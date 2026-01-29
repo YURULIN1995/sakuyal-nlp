@@ -1,4 +1,4 @@
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import styles from '@styles/ContactPage.module.scss';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import BackgroundColor from '@components/BackgroundColor';

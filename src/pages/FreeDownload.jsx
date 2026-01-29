@@ -1,4 +1,4 @@
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import SubscriptionForm from '@components/SubscriptionForm';
 import { siteMeta } from '@data/siteMeta.js';
 import styles from '@styles/FreeDownload.module.scss';

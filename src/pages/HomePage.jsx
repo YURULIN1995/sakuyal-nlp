@@ -1,4 +1,4 @@
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import Hero from '@components/Hero';
 import KanbanSection from '@components/KanbanSection';
 import ServicesSection from '@components/ServicesSection';

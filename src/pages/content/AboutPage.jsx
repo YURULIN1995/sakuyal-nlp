@@ -1,4 +1,4 @@
-import SEO from '@components/Head/SEO';
+import SEO from '@components/SEO';
 import PageHeaderBicolorBackground from '@components/PageHeaderBicolorBackground';
 import BackgroundColor from '@components/BackgroundColor';
 import OneColumnLayout from '@components/OneColumnLayout';
