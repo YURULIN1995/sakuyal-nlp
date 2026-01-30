@@ -1,0 +1,1 @@
+import{j as t,B as o}from"./index-B-RPJ948.js";import{P as r}from"./PageTitle-CZLpa0WS.js";const i="_titleContainer_52v72_1",n={titleContainer:i};function l({title:e}){return t.jsx(o,{children:t.jsx("div",{className:n.titleContainer,children:t.jsx(r,{title:e})})})}export{l as P};

@@ -1,0 +1,1 @@
+import{j as e}from"./index-B-RPJ948.js";const i="_titleWrapper_wih3n_4",l="_title_wih3n_4",r={titleWrapper:i,title:l};function n({title:t}){return t?e.jsx("div",{className:r.titleWrapper,children:e.jsx("h1",{className:r.title,children:t})}):null}export{n as P};
