@@ -15,7 +15,6 @@ function Hero(props) {
     socialLinks 
   } = props;
 
-  // 1. 左側內容
   const leftSlot = (
     <div className={styles.textContent}>
       {(titleLine1 || titleLine2) && (
@@ -46,7 +45,6 @@ function Hero(props) {
     </div>
   );
 
-  // 2. 右側圖片
   const rightSlot = imageUrl ? (
     <img 
       src={imageUrl} 

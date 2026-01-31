@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import TwoColumnLayout from '@components/TwoColumnLayout';
 import styles from '@styles/PortfolioPageDetailed.module.scss';

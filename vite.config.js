@@ -77,8 +77,6 @@ export default defineConfig(async () => {
     },
     build: {
       chunkSizeWarningLimit: 1000,
-      // ✅ 修正：直接移除 rollupOptions 的 manualChunks
-      // 讓 Vite 自動處理分割，這能解決 "Circular chunk" 錯誤
     },
     server: { port: 5173 }
   };

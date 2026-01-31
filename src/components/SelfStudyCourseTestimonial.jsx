@@ -4,7 +4,7 @@ import PageTitle from '@components/PageTitle';
 import TestimonialCarousel from '@components/Testimonials/TestimonialCarousel';
 
 function SelfStudyCourseTestimonial() {
-    const { name, list } =selfStudyCourseTestimonials;
+    const { name, list } = selfStudyCourseTestimonials;
     return(
         <div className={styles.wrap}>
             <PageTitle title={name}/>

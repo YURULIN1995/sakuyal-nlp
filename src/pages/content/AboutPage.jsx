@@ -10,7 +10,6 @@ import styles from '@styles/AboutPage.module.scss';
 function AboutPage() {
   const { title, description } = siteMeta.pages.about;
 
-  // 1. 定義左側內容 (文字 + 按鈕)
   const leftContent = (
     <div className={styles.textWrapper}>
       <p className={styles.paragraph}>{authorData.paragraph}</p>
@@ -28,7 +27,6 @@ function AboutPage() {
     </div>
   );
 
-  // 2. 定義右側內容 (圖片)
   const rightContent = (
     <img 
       src={authorData.imageUrl} 
@@ -45,7 +43,6 @@ function AboutPage() {
       
       <BackgroundColor>
         <OneColumnLayout>
-          {/* 直接組合，不再透過 TextImageSlot */}
           <TwoColumnLayout 
             left={leftContent} 
             right={rightContent} 

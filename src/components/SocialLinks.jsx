@@ -1,8 +1,6 @@
 import styles from '@styles/SocialLinks.module.scss';
 
-// 這個元件接收一個名為 links 的 prop，預設是個空陣列
 function SocialLinks({ links = [] }) {
-  // 如果沒有傳入 links，或 links 是空的，就不渲染任何東西
   if (!links || links.length === 0) {
     return null;
   }
